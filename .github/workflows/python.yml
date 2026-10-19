@@ -40,5 +40,11 @@ jobs:
         run: python certificates/xi_spatial_comparison_exact.py
       - name: Exact 445-case spatial multiplicity and Duhamel zero-compatibility audit
         run: python certificates/xi_spatial_equivalence_exact.py
+      - name: Exact two-frequency Duhamel and atomic heat source gates
+        run: |
+          python -m pip install 'sympy==1.13.3'
+          python certificates/xi_heat_duhamel_source_exact.py
+      - name: Theta Gaussian-mixture impossibility rational checks
+        run: python certificates/xi_theta_mixture_no_go_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
