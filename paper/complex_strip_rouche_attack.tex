@@ -1,0 +1,253 @@
+\section{A certified complex-strip transfer route to the genuine $\Xi$ zeros}
+\label{sec:complexstrip}
+The finite theta approximation is useful at complex
+frequencies as well as on the real axis. In the
+Fourier coordinate
+\[
+s=\frac12+\frac{iz}{2},
+\qquad
+\Re s=\frac{1-\Im z}{2},
+\]
+all possible nontrivial off-critical zeros of
+$\xi(s)$ lie in the strip $0<|\Im z|<1$.
+We now extend the exact square-lattice tail
+majorant far enough into the complex plane
+to cover \emph{the entire zero-relevant strip}.
+
+\begin{theorem}[Global horizontal-strip
+theta approximation]\label{thm:complexstrip}
+Let $F(z)=\xi(1/2+iz/2)/4$ and let $F_M(z)$
+be the incomplete-gamma finite-mode transform
+defined in Section~\ref{sec:squarelattice}.
+Put $q=\pi(M+1)^2$ and
+$E_M=3qe^{-q}$. Then for every integer
+$k\ge0$,
+\begin{equation}
+\boxed{
+\sup_{\substack{z\in\mathbb C\\|\Im z|\le3}}
+|F^{(k)}(z)-F_M^{(k)}(z)|
+\le\frac{k!}{4^k}E_M.
+}
+\label{eq:stripderivative}
+\end{equation}
+For $k=0$ the larger strip
+$|\Im z|\le7$ satisfies
+\begin{equation}
+\boxed{
+\sup_{|\Im z|\le7}|F(z)-F_M(z)|
+\le E_M.
+}
+\label{eq:stripzero}
+\end{equation}
+For each fixed $n$ the real-frequency
+Laguerre difference bound from
+Theorem~\ref{thm:uniformFourier}
+also holds for complex $z$ with
+$|\Im z|\le3$, interpreting the
+Laguerre expression as its analytic
+polynomial in $F(z)$ and its derivatives.
+\end{theorem}
+\begin{proof}
+For $z=x+iy$ and real $r\ge0$, both
+$|\cos(zr)|$ and $|\sin(zr)|$ are
+at most $e^{|y|r}$. As before,
+$r^k\le k!e^{4r}/4^k$.
+Using $\phi_m(r)\le
+2q_m^2e^{9r-q_me^{4r}}$,
+the omitted $k$th derivative obeys
+\begin{align}
+|F^{(k)}(z)-F_M^{(k)}(z)|
+&\le \frac{4k!}{4^k}
+\sum_{m>M}q_m^2
+\int_0^\infty
+e^{(13+|y|)r-q_me^{4r}}\,dr
+\nonumber\\
+&=\frac{k!}{4^k}
+\sum_{m>M}q_m^2
+\int_1^\infty
+t^{(9+|y|)/4}e^{-q_mt}\,dt.
+\label{eq:complexmajorant}
+\end{align}
+If $|y|\le3$, the exponent of $t$
+is at most $3$.
+The same incomplete-gamma
+integer-degree calculation as in
+\eqref{eq:tailterm} therefore bounds
+the sum by $E_M$.
+For $k=0$ we omit the auxiliary
+$e^{4r}$, giving instead the exponent
+$(5+|y|)/4\le3$ whenever $|y|\le7$.
+This proves the two stated majorants.
+
+The absolute derivative bound
+$|F^{(j)}(z)|,|F_M^{(j)}(z)|
+\le Cj!/4^j$ follows by applying
+the same argument to the full sum.
+The product comparison
+and binomial-factorial cancellation
+used to prove \eqref{eq:uniformlag}
+work identically with complex
+absolute values on $|\Im z|\le3$,
+proving the last assertion.
+\end{proof}
+
+\begin{corollary}[Effective Rouch\'e zero-count transfer]
+\label{cor:rouche}
+Let $\Omega$ be a bounded Jordan
+domain contained in $|\Im z|<7$
+whose closure lies in that strip.
+If
+\begin{equation}
+\boxed{
+\inf_{z\in\partial\Omega}|F_M(z)|>E_M,
+}
+\label{eq:rouchegap}
+\end{equation}
+then $F$ and $F_M$ have precisely
+the same number of zeros in
+$\Omega$, counted with multiplicity.
+\end{corollary}
+\begin{proof}
+On $\partial\Omega$,
+Theorem~\ref{thm:complexstrip}
+implies $|F-F_M|\le E_M<|F_M|$.
+The classical Rouch\'e theorem
+therefore applies.
+\end{proof}
+
+\paragraph{Numerical strip audit.}
+For $M=2$, the uniform bound is
+$E_2=3(9\pi)e^{-9\pi}
+\simeq4.4578603\cdot10^{-11}$.
+An independent 55-digit
+incomplete-gamma and
+completed-zeta replay gave:
+\begin{center}\small
+\begin{tabular}{c c c}
+\hline
+$z$& $|F_2(z)|$ & $|F(z)-F_2(z)|$\\
+\hline
+$28.269+0.8i$&$1.3904\,10^{-4}$&
+$1.3869\,10^{-11}$\\
+$39.5+0.99i$&$1.4432\,10^{-5}$&
+$1.3131\,10^{-11}$\\
+$100+0.5i$&$8.1041\,10^{-12}$&
+$8.1050\,10^{-12}$\\
+\hline
+\end{tabular}
+\end{center}
+These are numerical point samples,
+not certified minimum moduli
+over closed contours. In particular,
+although \eqref{eq:stripzero}
+holds uniformly in $\Re z$,
+the $M=2$ approximant at
+$100+0.5i$ is already smaller
+than its rigorous absolute
+error allowance; \eqref{eq:rouchegap}
+cannot be inferred there.
+
+\begin{proposition}[The exact remaining
+global zero-migration criterion]
+\label{prop:zeromigration}
+For each $0<\epsilon<1/2$ and
+$R>0$, define
+\[
+K_{\epsilon,R}=
+\{z:|\Re z|\le R,\quad
+\epsilon\le|\Im z|\le1-\epsilon\}.
+\]
+The Riemann hypothesis is equivalent
+to the following \emph{eventual
+finite-cutoff zero evacuation} property:
+for every such pair $(\epsilon,R)$,
+there is an $M_0$ for which
+\[
+F_M(z)\ne0\quad
+\text{for all }z\in K_{\epsilon,R}
+\text{ and every }M\ge M_0.
+\]
+\end{proposition}
+\begin{proof}
+If RH holds, $F$ has no zeros
+on the compact set $K_{\epsilon,R}$.
+Its minimum modulus there is
+strictly positive. The uniform
+error \eqref{eq:stripzero}
+tends to zero as $M\to\infty$,
+so all sufficiently large $F_M$
+are zero-free on this compact set.
+
+Conversely, suppose $F$ has an
+off-real zero $z_0$ in
+$|\Im z_0|<1$. Choose
+$\epsilon,R$ such that $z_0$
+lies in the interior of
+$K_{\epsilon,R}$. Uniform
+holomorphic convergence
+$F_M\to F$ on a disk about
+$z_0$, together with the fact
+that $F$ is not identically
+zero, implies by Hurwitz's
+theorem (or the argument
+principle on a small zero-free
+contour) that every
+sufficiently large $F_M$
+has a zero in that disk.
+This contradicts eventual
+zero evacuation. The
+classical correspondence
+between off-critical
+zeta zeros and off-real
+$\Xi$ zeros completes the
+equivalence.
+\end{proof}
+
+\paragraph{The substantive unresolved step.}
+Proposition~\ref{prop:zeromigration}
+is a mathematically correct
+\emph{reformulation}, not a solution.
+The new effective estimate handles
+each compact region but supplies
+only an \emph{absolute} error.
+For each fixed $M$, $F_M(z)$
+tends to zero as
+$|\Re z|\to\infty$ in
+bounded horizontal strips;
+therefore the required
+positive contour-modulus gap
+cannot hold uniformly at
+arbitrarily high frequencies
+with a fixed $E_M>0$.
+Any actual RH proof by this
+route must provide an
+adaptive cutoff $M=M(R)$,
+certified contour moduli
+or another global-in-frequency
+zero-exclusion estimate.
+A finite number of successful
+Rouch\'e checks does not
+establish the full statement.
+
+\paragraph{Reproducibility and status.}
+The exact rational sublemmas
+on complex-strip exponents
+and convolution coefficients
+are verified by
+\texttt{certificates/xi\_complex\_strip\_exact.py}
+and
+\texttt{XiKernel/ComplexStripTransfer.lean}.
+An independent numerical
+replay is in
+\texttt{certificates/xi\_complex\_strip\_numerical.py}.
+The Rouch\'e/Hurwitz transfer
+is proved analytically here;
+it is not yet an end-to-end
+Lean proof of the genuine
+Jacobi-theta or $\Xi$ functions.
+The criterion is classical
+complex analysis combined with
+the explicit arithmetic
+theta majorant; no priority
+claim is made, and RH remains
+unresolved.
