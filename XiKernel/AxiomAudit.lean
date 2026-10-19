@@ -8,6 +8,7 @@ import XiKernel.RadialCurvatureCounterexample
 import XiKernel.FiniteDepthBarrier
 import XiKernel.NearRealFiniteDepth
 import XiKernel.SquareLatticeFourierTail
+import XiKernel.ModularOddJet
 
 /-!
 Axiom audit:
@@ -49,3 +50,9 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 
 #print axioms XiKernel.square_lattice_tail_margin
 #print axioms XiKernel.square_lattice_tail_factor
+
+#print axioms XiKernel.square_lattice_tail_margin
+#print axioms XiKernel.square_lattice_tail_factor
+#print axioms XiKernel.higher_square_mode_negative
+#print axioms XiKernel.finite_modular_defect_positive
+#print axioms XiKernel.spurious_laguerre_coefficient_negative
