@@ -274,3 +274,19 @@ At n=1 the required coefficient equals `6 sum_(rho!=a)(a-rho)^-2`. A universal l
 **Full source:** `paper/spatial_heat_comparison.tex` included in the complete eight-section `paper/main.tex`, plus `certificates/xi_spatial_comparison_exact.py`. DOI `10.5281/zenodo.23461586` is now shown without obsolete 'reserved/unpublished' wording, as instructed by the user.
 
 **Remaining research-critical step:** a noncircular theta-specific, all-order, entire-slab estimate providing locally finite c_n(s,x), especially across possible near-collisions. No RH proof yet.
+
+## 19 October 2026 — Sharp spatial Laguerre gate, multiplicity obstruction and Duhamel reformulation
+
+**Mathematical result (analytic derivation in main paper; no RH proof):** The proposed inequality
+`(n+1)(2n+1)U_(n+1)(s,x) <= c_n(s,x) U_n(s,x)`
+with finite locally bounded, nonnegative `c_n` for every order and every point of the *closed* heat slab is **equivalent**, using classical de Bruijn-Newman zero dynamics and real-zero canonical products, to **RH together with simplicity of all nontrivial zeta zeros**. Hence the global existence of these coefficients is *strictly stronger* than RH alone and is not a free technical upgrade.
+
+**Exact multiplicity theorem:** If the real entire transform has a zero of multiplicity `m>=2` at `a`, then `L_(m-1)(a)=0`, `L_m(a)=g(a)^2>0`, and the locally necessary comparison ratio diverges as `(2m-1)/(x-a)^2`. No finite pointwise coefficient can close that inequality at the multiple zero.
+
+**Zero-compatible alternative:** Duhamel's identity
+`U_n(s)=P_s U_n(0) - (n+1)(2n+1) ∫_0^s P_(s-r) U_(n+1)(r) dr`
+yields an integrated source inequality equivalent to nonnegative `U_n`, allowing equality at multiple zeros. It is **equivalent to RH**, rather than RH+simplicity, and is presently unproved for the theta heat family. Its role is to identify a noncircular theta-specific integrated-source estimate, not to claim RH.
+
+**Verification:** `certificates/xi_spatial_equivalence_exact.py` has 445 exact rational multiplicity configurations `m=2..90` and 36 forced-heat Duhamel checks; all passed locally. `XiKernel/SpatialLaguerreEquivalence.lean` and `XiKernel/ZeroCompatibleDuhamel.lean` state algebraic kernels; GitHub Lean CI may be queued and **must not be claimed as passed until its run completes**. Analytic canonical products, PDE comparison, theta Fourier integrals, and heat-flow real-zero results are paper proofs and cited prior art, not Lean-complete.
+
+**Publication wording:** The paper links directly to DOI `10.5281/zenodo.23461586`; the prior description of it as reserved/unpublished has been removed from the updated source. The full integrated LaTeX is on GitHub; a complete-paper PDF with this mathematical update appended is available separately while GitHub's new paper build is queued. RH and simplicity remain open.
