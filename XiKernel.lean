@@ -48,3 +48,5 @@ import XiKernel.SpatialHeatComparison
 
 import XiKernel.SpatialLaguerreEquivalence
 import XiKernel.ZeroCompatibleDuhamel
+
+import XiKernel.HeatDuhamelSpectral
