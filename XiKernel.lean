@@ -35,3 +35,5 @@ import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 
 import XiKernel.HeatFlowLaguerre
+
+import XiKernel.HeatFlowDoubleZeroObstruction
