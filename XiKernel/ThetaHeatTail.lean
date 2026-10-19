@@ -58,6 +58,10 @@ theorem theta_heat_tilt_bound (t r E : ℝ)
     (hr : 0 ≤ r) (hE : 8*r^2 ≤ E) :
     t*r^2 ≤ E/16 := by
   have hs : 0 ≤ r^2 := sq_nonneg r
+  have hp : 0 ≤ (1/2-t)*r^2 := by
+    apply mul_nonneg
+    · linarith
+    · exact hs
   nlinarith
 
 /-- A strict absolute error does not imply a strict relative
