@@ -3,6 +3,7 @@ import XiKernel.TransformMoment
 import XiKernel.RationalJet
 import XiKernel.FirstSummandCurvature
 import XiKernel.EntireXi
+import XiKernel.GlobalCurvatureAlgebra
 
 /-!
 Axiom audit:
@@ -23,3 +24,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.XiOnLine_entire
 
 #check RiemannHypothesis
+
+#print axioms XiKernel.leading_curvature_numerator
+#print axioms XiKernel.leading_large_margin
+#print axioms XiKernel.large_tail_margin
