@@ -96,4 +96,18 @@ theorem curvature_jet_identity (a0 a1 a2 : ℝ) (h0 : a0 ≠ 0) :
   field_simp [h0]
   ring
 
+/-- The exact algebraic gate behind the weighted defect
+W(t)=t^(3/2)*(-log s)''(t). Passing from W' to curvature
+requires a separate chain-rule theorem for the genuine theta kernel. -/
+theorem weighted_curvature_gate_identity (u q dq : ℝ) :
+    12*u*q + 8*u^3*dq =
+      8*u*((3/2)*q + u^2*dq) := by
+  ring
+
+theorem weighted_curvature_gate_positive (u q dq : ℝ)
+    (hu : 0 < u) (hq : 0 < (3/2)*q + u^2*dq) :
+    0 < 12*u*q + 8*u^3*dq := by
+  rw [weighted_curvature_gate_identity]
+  positivity
+
 end XiKernel
