@@ -70,4 +70,19 @@ theorem positive_weights_negative_cosine_example :
     (9/64 : ℚ) - 3/8 = -(15/64) := by
   norm_num
 
+/-- A rational witness already within the half-unit backward time slab:
+at s = log(8/5) the attenuation is 5/8 and the cosine
+coefficient becomes (3/2)*(5/8)=15/16. -/
+theorem atomic_within_half_time_negative :
+    ((15/16 : ℚ)*(15/16-1) = -(15/256)) := by
+  norm_num
+
+/-- The integrated source overshoots the heat budget by 15/256
+at that same backward time and x=pi. -/
+theorem within_slab_source_deficit (budget source : ℝ)
+    (h : source = budget + (15/256 : ℝ)) :
+    ¬ source ≤ budget := by
+  rw [h]
+  norm_num
+
 end XiKernel
