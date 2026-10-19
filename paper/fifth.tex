@@ -1,9 +1,9 @@
 \section{A fifth-iterate obstruction for the theta kernel}
 Set $\mathcal Tf=(f')^2-ff''$ and
-\[
-\Phi(r)=\sum_{m\ge1}q_m(2q_me^{4r}-3)e^{5r-q_me^{4r}},
-\quad q_m=\pi m^2,\quad s(t)=\Phi(\sqrt t).
-\]
+\begin{align*}
+\Phi(r)&=\sum_{m\ge1}q_m(2q_me^{4r}-3)e^{5r-q_me^{4r}},\\
+q_m&=\pi m^2,\qquad s(t)=\Phi(\sqrt t).
+\end{align*}
 The theta-functional equation makes $\Phi$ even; thus $s$ is analytic
 near zero. This is the kernel normalization used by
 Planat--Sol\'e~\cite{PS}; constant and argument rescalings do not
@@ -25,12 +25,12 @@ is not contradicted by this higher-order local obstruction.
 \begin{lemma}[Finite theta tail]
 For each $0\le k\le10$, truncation at $m=12$ in the exact
 Taylor-coefficient formula
-\[
-a_k=[t^k]s(t)=\frac1{(2k)!}
-\sum_{m\ge1}q_me^{-q_m}P_{2k}(q_m),
-\quad P_0(x)=2x-3,
-\quad P_{j+1}=(5-4x)P_j+4xP_j',
-\]
+\begin{align*}
+a_k&=[t^k]s(t)\\
+&=\frac1{(2k)!}\sum_{m\ge1}q_me^{-q_m}P_{2k}(q_m),\\
+P_0(x)&=2x-3,\\
+P_{j+1}(x)&=(5-4x)P_j(x)+4xP_j'(x),
+\end{align*}
 has absolute error below $4\cdot10^{-83}$.
 \end{lemma}
 \begin{proof}
