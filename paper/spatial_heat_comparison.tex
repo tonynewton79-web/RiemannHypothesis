@@ -1,0 +1,175 @@
+\section{Spatial comparison and the remaining zero-separation problem}
+\label{sec:spatialheat}
+The height-independent Laguerre comparison is contradicted by the
+known density of zeros of $H_{1/2}$
+(Theorem~\ref{thm:heatgapobstruction}). The proposed spatial
+comparison can be sharpened: no particular logarithmic-square
+height bound is needed for its maximum-principle consequence.
+
+\begin{theorem}[Spatial parabolic comparison]
+\label{thm:spatialmax}
+Let $T>0$, $U\in C^{1,2}((0,T]\times\mathbb R)
+\cap C([0,T]\times\mathbb R)$ be bounded, and let
+$c:[0,T]\times\mathbb R\to[0,\infty)$ be locally bounded.
+If
+\begin{equation}
+U_s-\tfrac12U_{xx}+c(s,x)U\ge0,\qquad
+U(0,x)\ge0, \label{eq:spatialmax}
+\end{equation}
+then $U(s,x)\ge0$ throughout the slab.
+No uniform upper bound on $c$ as $|x|\to\infty$
+is necessary.
+\end{theorem}
+\begin{proof}
+For $\varepsilon>0$ put
+$W=U+\varepsilon e^s\cosh x$.
+Since $U$ is bounded, $W$ is positive
+on the spatial boundary of a sufficiently
+large rectangle $[0,T]\times[-R,R]$.
+It is positive on its initial face. Moreover
+\[
+(\partial_s-\tfrac12\partial_x^2+c)W
+\ge\varepsilon e^s(\tfrac12+c)\cosh x>0.
+\]
+A negative minimum at an interior spatial
+point and positive time would have
+$W_s\le0$, $W_{xx}\ge0$, $cW\le0$,
+contradicting this strict inequality.
+Hence $W\ge0$, and letting
+$\varepsilon\downarrow0$ proves the result.
+The argument uses only local bounds for $c$
+on each compact rectangle.
+\end{proof}
+
+\begin{corollary}[Precise sufficient condition for RH]
+\label{cor:spatialRH}
+For the genuine Riemann heat flow put
+$U_n(s,x)=L_{n,\frac12-s}(x)$,
+$0\le s\le\frac12$, $n\ge1$.
+Suppose there exist nonnegative
+locally bounded $c_n(s,x)$ with
+\begin{equation}
+\boxed{
+(n+1)(2n+1)U_{n+1}(s,x)
+\le c_n(s,x)U_n(s,x)}
+\label{eq:spatialheatgate}
+\end{equation}
+for every $(s,x)$ and every $n$.
+Then every $U_n(s,x)\ge0$, and RH holds.
+\end{corollary}
+\begin{proof}
+The genuine heat Fourier kernels form a
+uniformly smooth, rapidly decreasing family
+on the compact time slab. Each $U_n$ is
+bounded and satisfies the backward hierarchy
+\eqref{eq:backwardlaguerre}.
+Inequality~\eqref{eq:spatialheatgate} gives
+$U_{n,s}-\frac12U_{n,xx}+c_nU_n\ge0$.
+At $s=0$, $H_{1/2}$ has only real zeros,
+hence all generalized Laguerre expressions
+are nonnegative. Apply
+Theorem~\ref{thm:spatialmax} separately
+to every $n$. The classical
+Laguerre--P\'olya characterization
+identifies all-order nonnegativity at
+$s=1/2$ with the real-zero property of $H_0$.
+\end{proof}
+
+The central missing assertion is
+\emph{the existence of the locally bounded
+coefficients satisfying
+\eqref{eq:spatialheatgate}}, not their
+global growth rate. In particular, a
+logarithmic-square envelope is a candidate
+for further analytic work, not a requirement
+of the preceding comparison proof.
+
+\begin{proposition}[Exact inverse-gap cost at a simple real root]
+\label{prop:gapspatial}
+For $G(z)=C\prod_{j=1}^d(z-\rho_j)$
+with distinct real roots, fix a root $a$.
+Write $b_j=(a-\rho_j)^{-2}$ for $\rho_j\ne a$
+and let $e_k$ be their elementary
+symmetric functions, $e_0=1$.
+Then for $1\le n\le d$,
+\begin{equation}
+L_n[G](a)=G'(a)^2 e_{n-1}.
+\label{eq:gapelementary}
+\end{equation}
+For $e_{n-1}>0$,
+\begin{equation}
+0\le
+(n+1)(2n+1)\frac{L_{n+1}[G](a)}{L_n[G](a)}
+\le\frac{(n+1)(2n+1)}{n}
+\sum_{\rho_j\ne a}\frac1{(a-\rho_j)^2}.
+\label{eq:gapspatial}
+\end{equation}
+For $n=1$ the ratio is exactly
+$6\sum_{\rho_j\ne a}(a-\rho_j)^{-2}$.
+\end{proposition}
+\begin{proof}
+The factorization
+\[
+G(a+iy)G(a-iy)
+=y^2G'(a)^2
+\prod_{\rho_j\ne a}
+\left(1+\frac{y^2}{(a-\rho_j)^2}\right)
+\]
+proves~\eqref{eq:gapelementary}.
+For any finite nonnegative list,
+$ke_k\le(\sum b_j)e_{k-1}$
+by counting the selected index in
+each monomial. Apply this at $k=n$.
+\end{proof}
+
+\begin{proposition}[Collision obstruction]
+\label{prop:spatialcollision}
+For $G_{a,b}(z)=(z-a)(z-b)$ with $a\ne b$,
+\[
+\frac{6L_2[G_{a,b}](a)}{L_1[G_{a,b}](a)}
+=\frac6{(a-b)^2}.
+\]
+Thus mere real-rootedness cannot imply any
+universal $C\log^2(2+|a|)$ upper envelope:
+the root gap can tend to zero at a fixed
+bounded $a$. The backward heat polynomial
+$H_t(z)=z^2-2t$ satisfies
+\[
+L_{1,t}(0)=4t,\quad L_{2,t}(0)=1,\quad
+\frac{6L_{2,t}(0)}{L_{1,t}(0)}
+=\frac3{2t}\quad(t>0).
+\]
+At $t=0$, no finite $c(0,0)$ satisfies
+$6L_{2,0}(0)\le c(0,0)L_{1,0}(0)$.
+\end{proposition}
+\begin{proof}
+For the quadratic $G_{a,b}$,
+$L_1(a)=(a-b)^2$ and $L_2(a)=1$.
+For $H_t$, direct differentiation gives
+$L_1(x)=2x^2+4t$, $L_2(x)=1$.
+All displayed conclusions follow.
+\end{proof}
+
+The collision polynomial is a control example;
+it does not assert a double zero of the
+genuine theta heat flow at a specified time.
+At a simple root, the necessary spatial cost
+depends on inverse-square zero separations.
+The established logarithmic-square
+\emph{lower} cost along some $H_{1/2}$
+zeros (Theorem~\ref{thm:heatgapobstruction})
+must not be mistaken for a matching
+upper bound. A successful RH proof now
+requires a noncircular, all-order
+local-fin\-iteness estimate across the
+entire heat interval; such an estimate
+is presently missing.
+
+The proof gates were tested by
+exact rational arithmetic in
+\path{certificates/xi_spatial_comparison_exact.py}
+and formalized algebraically in
+\path{XiKernel/SpatialHeatComparison.lean}.
+The full parabolic maximum principle
+and the genuine theta comparison are
+not yet end-to-end Lean results.
