@@ -1,0 +1,70 @@
+\section{A conditional all-order noncentral band}
+The numerical growth of the local radii suggests a more
+structural criterion, independent of individual moment
+calculations. It is presented as a conditional theorem,
+\emph{not} as an established property of the actual theta
+kernel.
+
+\begin{proposition}[Radially increasing potential curvature]\label{prop:radial}
+Let $K(u)=e^{-V(u)}$ be positive and even, with sufficient
+decay to have all moments. Suppose $V$ is twice continuously
+differentiable and $V''(u)$ is nondecreasing for $u\ge0$.
+Then the ratios $B_n/A_n$ of the preceding section
+are nonincreasing as $n$ increases:
+\[
+\frac{B_{n+1}}{A_{n+1}}\le
+\frac{B_n}{A_n},\qquad n\ge0.
+\]
+Consequently the local radii $\sqrt{2A_n/B_n}$
+are nondecreasing, and the single order-one bound,
+if valid, gives $L_n[F](x)>0$ for every $n\ge1$
+throughout $|x|<\sqrt{2A_1/B_1}$.
+\end{proposition}
+\begin{proof}
+Set $d=u-v$, $w=u+v$. Up to a constant, the
+joint density on the positive quadrant $d,w\ge0$ is
+\[
+g(d,w)=\exp\{-V((w+d)/2)-V((w-d)/2)\}.
+\]
+By evenness, $V''$ is even and therefore
+\[
+\partial_d\partial_w\log g
+=\frac14\left[V''\!\left(\frac{w-d}{2}\right)
+                  -V''\!\left(\frac{w+d}{2}\right)\right]
+\le0,
+\]
+because $|w-d|\le w+d$. Thus for $d_2>d_1$
+the likelihood ratio $g(d_2,w)/g(d_1,w)$
+is nonincreasing in $w\ge0$. By the elementary
+reverse-Chebyshev covariance inequality, the
+conditional expectation $h(d)=
+\mathbb E[w^2\mid |u-v|=d]$ is nonincreasing in $d$.
+
+Under the tilted joint density proportional to
+$|d|^{2n}g(|d|,|w|)$, one has
+$B_n/A_n=\mathbb E_n[w^2]=\mathbb E_n[h(d)]$.
+Passing from $n$ to $n+1$ multiplies the marginal
+density of $d$ by the increasing weight $d^2$,
+so this expectation of the decreasing function
+$h$ cannot increase. This proves the ratio
+inequality; the noncentral band follows from
+\eqref{eq:local-positive}.
+\end{proof}
+
+\paragraph{Unproved theta-kernel gate.}
+For the genuine Jacobi theta kernel, the required
+global hypothesis is
+\[
+V'''(u)=-\big(\log\Phi(u)\big)'''\ge0
+\qquad(u>0).
+\]
+High-precision numerical tests at
+$u=0.0001,0.001,0.01,0.025,0.05,0.1,0.2,
+0.4,0.8,1.5,2$ returned strictly positive values;
+this is not a rigorous interval or an all-$u$
+certificate. If proved, it would yield a
+nontrivial all-order Laguerre positivity \emph{strip}
+for the actual transform, but still not RH.
+Checking prior art and finding a falsifying region
+for the curvature condition are required before
+making a claim of novelty.
