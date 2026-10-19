@@ -24,5 +24,9 @@ jobs:
         run: python certificates/finite_depth_laguerre_exact.py
       - name: Check near-real nonreal zeros invisible to arbitrary finite Laguerre depth
         run: python certificates/near_real_finite_depth_exact.py
+      - name: Verify theta square-lattice uniform derivative and Laguerre error constants
+        run: python certificates/xi_square_lattice_uniform_tail.py
+      - name: Verify modular odd-jet and spurious finite-cutoff Laguerre signs
+        run: python certificates/xi_modular_odd_jet_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
