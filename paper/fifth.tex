@@ -1,0 +1,81 @@
+\section{A fifth-iterate obstruction for the theta kernel}
+Set $\mathcal Tf=(f')^2-ff''$ and
+\[
+\Phi(r)=\sum_{m\ge1}q_m(2q_me^{4r}-3)e^{5r-q_me^{4r}},
+\quad q_m=\pi m^2,\quad s(t)=\Phi(\sqrt t).
+\]
+The theta-functional equation makes $\Phi$ even; thus $s$ is analytic
+near zero. This is the kernel normalization used by
+Planat--Sol\'e~\cite{PS}; constant and argument rescalings do not
+change the signs under consideration.
+
+\begin{theorem}[Certified obstruction]\label{thm:five}
+One has
+\[
+-4.813\cdot 10^{65}<\mathcal T^5s(0)
+<-4.812\cdot10^{65}
+\]
+and $\mathcal T^js(0)>0$ for $0\le j\le4$. In particular
+$\mathcal T^4s$ is positive but strictly log-convex at zero,
+and $\mathcal T^5s<0$ on some punctured interval to the right.
+\end{theorem}
+The second-level concavity theorem of Planat--Sol\'e~\cite{PS}
+is not contradicted by this higher-order local obstruction.
+
+\begin{lemma}[Finite theta tail]
+For each $0\le k\le10$, truncation at $m=12$ in the exact
+Taylor-coefficient formula
+\[
+a_k=[t^k]s(t)=\frac1{(2k)!}
+\sum_{m\ge1}q_me^{-q_m}P_{2k}(q_m),
+\quad P_0(x)=2x-3,
+\quad P_{j+1}=(5-4x)P_j+4xP_j',
+\]
+has absolute error below $4\cdot10^{-83}$.
+\end{lemma}
+\begin{proof}
+Put $C_j=\sum|\operatorname{coeff}(P_j)|$.
+For $x\ge1$, $|P_{2k}(x)|\le C_{2k}x^{2k+1}$.
+Using $3<\pi<22/7$ and $e>2$, the omitted $m$-th
+summand has magnitude at most
+\[
+\frac{C_{2k}}{(2k)!}
+\left(\frac{22m^2}7\right)^{2k+2}2^{-3m^2}.
+\]
+The successive ratio for $m\ge13$ and $0\le k\le10$ is
+bounded by $(14/13)^{44}2^{-81}<1/2$.
+Thus the absolute tail is at most
+\[
+B_k=\frac{2C_{2k}}{(2k)!}
+\left(\frac{22\cdot169}7\right)^{2k+2}2^{-507}.
+\]
+Exact integer comparisons in the supplied Python certificate verify
+$B_k<4\cdot10^{-83}$ for all eleven values of $k$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:five}]
+Only $a_0,\ldots,a_{10}$ are required. If $f=\sum b_kt^k$ then
+\begin{align*}
+[t^k]\mathcal Tf
+&=\sum_{i+j=k}(i+1)(j+1)b_{i+1}b_{j+1}\\
+&\quad-\sum_{i+j=k}(j+1)(j+2)b_ib_{j+2}.
+\end{align*}
+Five successive applications consume exactly ten trailing Taylor
+coefficients. To certify these initial coefficients, enclose
+$\pi=16\arctan(1/5)-4\arctan(1/239)$ using alternating rational
+series with 100 and 40 terms. Enclose $e^{-q_m}$ for $1\le m\le12$
+via the reciprocal of $[e^{q_m/1024}]^{1024}$: Taylor degree 80
+for the reduced argument has a rigorous omitted bound
+$2\cdot2^{-81}/81!<10^{-110}$.
+Every arithmetic operation is an outward-rounded integer
+operation on intervals with denominator $10^{110}$. Expand
+the input coefficient intervals by the analytic theta-tail bound
+and propagate them five times by the displayed recurrence.
+The source \texttt{certificates/xi\_fifth\_iterate\_exact.py}
+reproduces the stated enclosure without third-party packages
+or floating-point decisions. The signs for levels $0$ to $4$ are
+strictly positive, and level $5$ strictly negative.
+Finally $(\log\mathcal T^4s)''(0)
+=-\mathcal T^5s(0)/(\mathcal T^4s(0))^2>0$, and analyticity
+gives the asserted neighborhood.
+\end{proof}
