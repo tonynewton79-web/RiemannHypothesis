@@ -11,11 +11,11 @@ it makes no claim regarding the Riemann hypothesis.
 \begin{theorem}[Global monotone theta curvature]
 \label{thm:globalcurvature}
 For the classical Jacobi-theta kernel
-\[
-\Phi(u)=\sum_{m\ge1}\pi m^2
-  \bigl(2\pi m^2e^{4u}-3\bigr)
-  e^{5u-\pi m^2e^{4u}},
-\]
+\begin{align*}
+\Phi(u)&=\sum_{m\ge1}\pi m^2
+  \bigl(2\pi m^2e^{4u}-3\bigr)\\
+&\qquad\cdot e^{5u-\pi m^2e^{4u}}.
+\end{align*}
 let $V(u)=-\log\Phi(u)$. Then
 \begin{equation}\label{eq:globalthird}
 \boxed{V'''(u)>0\quad\text{for every }u>0.}
@@ -31,13 +31,12 @@ is strictly increasing on $(0,\infty)$.
 
 \paragraph{Exact reduction.}
 Put $x=\pi e^{4u}$ and
-\begin{equation}
-A_j(x)=\sum_{m\ge1}(-1)^j
- m^{2+2j}\bigl(2m^2x-3-2j\bigr)
- e^{-(m^2-1)x}
-\quad (0\le j\le4).
-\label{eq:Aj}
-\end{equation}
+\begin{align}\label{eq:Aj}
+A_j(x)&=\sum_{m\ge1}(-1)^j m^{2+2j}
+ \bigl(2m^2x-3-2j\bigr)\nonumber\\
+&\qquad\cdot e^{-(m^2-1)x},
+\quad 0\le j\le4.
+\end{align}
 Then
 $\Phi(u)=\pi e^{5u-x}A_0(x)$ and
 $A_j'(x)=A_j(x)+A_{j+1}(x)$ for $j\le3$.
@@ -130,8 +129,7 @@ Consequently
 The first-summand numerator, a purely
 algebraic simplification, is
 \begin{equation}\label{eq:H0}
-H_0(x):=H(x)\big|_{A_j=a_j}
-=x(8x^3-36x^2+42x-45)
+H_0(x)=x(8x^3-36x^2+42x-45)
 >\frac74x^4
 \end{equation}
 for $x\ge6$. The latter strict inequality
