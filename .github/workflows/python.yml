@@ -46,5 +46,7 @@ jobs:
           python certificates/xi_heat_duhamel_source_exact.py
       - name: Theta Gaussian-mixture impossibility rational checks
         run: python certificates/xi_theta_mixture_no_go_exact.py
+      - name: Exact close-pair inverse-gap certificate and density matched spatial test
+        run: python certificates/xi_spatial_gap_density_obstruction.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
