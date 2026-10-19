@@ -50,3 +50,15 @@ cd paper && pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ### Transform-side research
 
 The cumulative paper now includes all-order Fourier correlation identities, the exact local positivity band, 40 high-precision noncentral generalized Laguerre tests, and a conditional radial-curvature criterion. The global curvature hypothesis for the actual theta kernel has **not been proved**; see [issue #3](https://github.com/tonynewton79-web/RiemannHypothesis/issues/3).
+
+## 19 October 2026 — Global curvature theorem certified
+
+**New computer-assisted, exact-arithmetic theorem (external specialist review pending):** for the classical Riemann theta kernel `Phi(u)`, the potential `V(u)=-log(Phi(u))` has **`V'''(u)>0` for every u>0**.
+
+The proof uses the exact change of variables `x=pi exp(4u)`, a positive denominator `A0(x)`, and a rational-polynomial numerator `H(x)` with `V'''=64 H/A0^3`. Jacobi modular evenness provides `H(pi)=0`. The mandatory Python certificate proves `H'>46` in 100 rational cells from pi to 7/2 and `H>26` in 400 cells from 7/2 to 6; the unbounded range x>=6 is closed analytically by an explicit `6144 exp(-3x)` perturbation envelope and strict quartic margin.
+
+**Consequence:** the previously conditional moment-ratio theorem is now applicable to the true theta kernel: `B_(n+1)/A_(n+1) <= B_n/A_n`. Thus all generalized Laguerre expressions are positive for every n>=1 within the common `|x|<sqrt(2*A1/B1)` interval (Fourier variable). This is **not** a proof of RH: the inequalities outside that bounded interval remain unproved.
+
+Reproduce directly with `python certificates/xi_global_curvature_exact.py`. See `paper/global_curvature_certificate.tex` and [Issue #3](https://github.com/tonynewton79-web/RiemannHypothesis/issues/3). The algebraic large-tail margin has been submitted for separate Lean CI in `XiKernel/GlobalCurvatureAlgebra.lean`; the full analytic theta-series proof is **not yet end-to-end Lean formalized**.
+
+Reserved DOI 10.5281/zenodo.23461586 is unpublished; novelty is not established.
