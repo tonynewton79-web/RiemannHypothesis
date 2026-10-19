@@ -14,6 +14,7 @@ import XiKernel.ComplexStripTransfer
 import XiKernel.ContourMeshGate
 import XiKernel.FirstZeroDiskGate
 import XiKernel.SecondZeroDiskGate
+import XiKernel.ThirdZeroDiskGate
 
 /-!
 Axiom audit:
@@ -81,3 +82,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.second_zero_boundary_exact_margin
 #print axioms XiKernel.second_zero_disk_rouche_gap
 #print axioms XiKernel.second_zero_comparison_gate
+
+#print axioms XiKernel.third_zero_boundary_exact_margin
+#print axioms XiKernel.third_zero_boundary_above_tail
+#print axioms XiKernel.third_zero_disk_rouche_gate
