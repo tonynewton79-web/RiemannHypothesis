@@ -91,6 +91,62 @@ absolute values on $|\Im z|\le3$,
 proving the last assertion.
 \end{proof}
 
+\begin{proposition}[An explicit adaptive cutoff for
+absolute accuracy]\label{prop:adaptive}
+Let $p>0$, $R>0$ and
+$0<\delta<1$ be fixed.
+For any $M\ge1$ with
+\begin{equation}
+\pi(M+1)^2\ge
+2\left(p\log(1+R)+
+\log\frac3\delta\right),
+\label{eq:adaptiveM}
+\end{equation}
+the approximant in
+Theorem~\ref{thm:complexstrip}
+satisfies
+\[
+\sup_{|\Im z|\le7}|F(z)-F_M(z)|
+\le\frac{\delta}{(1+R)^p}.
+\]
+The number of theta modes
+required grows at most as
+$O(\sqrt{\log(1+R)})$ for
+fixed $p,\delta$.
+\end{proposition}
+\begin{proof}
+Set $q=\pi(M+1)^2$.
+Since $q>12$ and
+$e^{q/2}\ge(q/2)^2/2
+=q^2/8\ge q$,
+we have
+\[
+E_M=3q e^{-q}
+\le3e^{-q/2}.
+\]
+The assumed lower bound
+on $q$ makes the last
+quantity at most
+$\delta(1+R)^{-p}$.
+The asserted mode count
+follows by taking the
+least integer $M$ satisfying
+\eqref{eq:adaptiveM}.
+\end{proof}
+This estimate settles the
+\emph{absolute approximation
+complexity}, not the zero
+problem. Rouch\'e requires
+a separate strict contour
+modulus lower bound. It is
+possible for both $F_M(z)$
+and $F(z)$ to be smaller
+than the error allowance
+near high real frequency;
+the present proposition
+does not prevent a nonreal
+zero there.
+
 \begin{corollary}[Effective Rouch\'e zero-count transfer]
 \label{cor:rouche}
 Let $\Omega$ be a bounded Jordan
