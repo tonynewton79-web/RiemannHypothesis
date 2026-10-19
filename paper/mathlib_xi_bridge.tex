@@ -1,0 +1,46 @@
+\section{Lean connection to the actual Riemann hypothesis}
+\label{sec:leanxi}
+The Lean formalization now reaches the \emph{genuine}
+completed zeta function rather than just a symbolic
+Gaussian model. Mathlib's
+\texttt{completedRiemannZeta\(\_0\)}
+represents the entire pole-subtracted completion
+$\Lambda_0(s)$, satisfying
+\[
+\Lambda_0(1-s)=\Lambda_0(s),\qquad
+\Lambda_0(s)=\Lambda(s)+\frac1s+\frac1{1-s}
+\]
+off the poles of $\Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s)$.
+Thus the identity
+\begin{equation}
+\xi(s)=\frac{1+s(s-1)\Lambda_0(s)}{2}
+\label{eq:xi_mathi}
+\end{equation}
+defines an entire function with the correct extension
+at $s=0$ and $s=1$. Its critical-line reparameterization is
+\[
+\widehat\Xi(z)=\xi\!\left(\frac12+\frac{iz}{2}\right).
+\]
+The Lean modules \texttt{XiKernel/EntireXi.lean} and
+\texttt{XiKernel/AxiomAudit.lean} formally check
+the $\xi$-functional equation, $\xi(0)=\xi(1)=1/2$,
+complex differentiability, and the evenness and
+entireness of $\widehat\Xi$.
+The exact convention used earlier is
+$F(z)=\widehat\Xi(z)/4$.
+
+The proof target is to establish the
+\emph{real-zero property}
+\[
+\widehat\Xi(z)=0\quad\Longrightarrow\quad
+\operatorname{Im}z=0.
+\]
+To turn this into Mathlib's native
+\texttt{RiemannHypothesis}, the formalization
+must additionally relate zeros of $\xi$ to the
+nontrivial zeros of $\zeta$ using the completed
+zeta representation, with the trivial zeros
+and poles treated explicitly. That zero
+correspondence is a separate outstanding
+proof obligation. The present Lean results
+do not establish the real-zero property.
