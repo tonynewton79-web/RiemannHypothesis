@@ -19,9 +19,7 @@
 - `certificates/check_gaussian_examples.py`: separate exact arithmetic regressions for the Gaussian-polynomial examples.
 - GitHub Actions workflows for Python exact checks and Lean compilation.
 
-## DOI and reuse
 
-**Zenodo DOI:** [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586). DOI record as supplied by the author.
 
 This is a research draft; prior-art and independent specialist review are still required. Do not describe it as a proof of the Riemann hypothesis or as completely Lean certified.
 
@@ -61,7 +59,6 @@ The proof uses the exact change of variables `x=pi exp(4u)`, a positive denomina
 
 Reproduce directly with `python certificates/xi_global_curvature_exact.py`. See `paper/global_curvature_certificate.tex` and [Issue #3](https://github.com/tonynewton79-web/RiemannHypothesis/issues/3). The algebraic large-tail margin has been submitted for separate Lean CI in `XiKernel/GlobalCurvatureAlgebra.lean`; the full analytic theta-series proof is **not yet end-to-end Lean formalized**.
 
-Zenodo DOI 10.5281/zenodo.23461586; novelty is not established.
 
 ## 19 October 2026 — Crucial Fourier-side counterexample
 
@@ -133,7 +130,6 @@ This entire region covers the RH-relevant Fourier strip `|Im z|<1` (`s=1/2+i*z/2
 
 **Exact files:** `paper/gaussian_parity_repair.tex`, `paper/complex_strip_rouche_attack.tex`; `XiKernel/GaussianParityRepair.lean`, `XiKernel/ComplexStripTransfer.lean`; `certificates/gaussian_parity_repair_exact.py`, `certificates/gaussian_parity_repair_numerical.py`, `certificates/xi_complex_strip_exact.py`, `certificates/xi_complex_strip_numerical.py`.
 
-**Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The Zenodo DOI is 10.5281/zenodo.23461586.
 
 ## 19 October 2026 — First genuine Xi zero disk: finite interval-Simpson/Rouché certificate
 
@@ -147,7 +143,6 @@ The interval checker `certificates/xi_first_zero_interval.py` certifies that the
 - **Prior art:** location/existence of the first zeta zero at imaginary ordinate 14.134725141... is classical and extensively verified; this is a new reproducible finite-test route in this project, not a new zeta zero and not a claimed research priority.
 - **Global gap:** no exclusion of nonreal zeros at arbitrary heights; RH remains **open**. Next challenge is a height-uniform certified contour modulus or adaptive `M=M(R)` with an effective global separation guarantee.
 
-Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Zenodo DOI `10.5281/zenodo.23461586`.
 
 ## 19 October 2026 — three disjoint genuine Xi zero disks, independently interval-certified
 
@@ -233,9 +228,8 @@ The negative source term identifies what global-in-order estimate is missing.
 
 **Manuscript:** `paper/theta_heat_flow_barrier.tex`, integrated into `paper/main.tex`; citations Rodgers--Tao, Newman--Wu and Polymath15. **RH remains open.**
 
-## 19 October 2026 — DOI correction and new heat-flow double-zero Lean attack
+## 19 October 2026 — Bibliographic correction and new heat-flow double-zero Lean attack
 
-- The Zenodo DOI is **[10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586)**. The obsolete “reserved / not published” language was removed from `paper/main.tex`, the release verification section and project logs.
 - The recent heat-flow results were **not lost**: `paper/theta_heat_flow_barrier.tex`, `XiKernel/HeatFlowLaguerre.lean`, `certificates/xi_heat_flow_hierarchy_tests.py`, and the four finite Xi disk certification sources are retained in the repository.
 - **New exact obstruction:** the positive Gaussian–cosh heat family has a double real zero at `t*=(1-1/(2 log 2))/2≈0.13932623978`; at it `L1=0<L2=F''²/4`. Thus the proposed uniform comparison `6 L2<=c1 L1` cannot hold at a double zero. This is a negative test of the *sufficient heat comparison mechanism*, **not** a counterexample to RH or a claim about the genuine Xi flow's zero count.
 - Source: `XiKernel/HeatFlowDoubleZeroObstruction.lean` (Lean algebraic gate and axiom audit), `certificates/xi_heat_double_zero_test.py` (exact symbolic and numerical crossing), and the integrated `paper/theta_heat_flow_barrier.tex`. Local exact symbolic reproduction passed.
@@ -246,7 +240,7 @@ The negative source term identifies what global-in-order estimate is missing.
 
 ## 19 October 2026 — Manuscript reconciliation, new abstract and theta-specific heat-flow result
 
-**Canonical manuscript source:** `paper/main.tex` has a newly written problem-first abstract. The Zenodo DOI was removed entirely from the title/abstract area; obsolete “reserved/unpublished” declarations and duplicate early metadata were removed. The DOI is recorded once in the final scholarly reproducibility/publication appendix. The eight main research sections remain, with the verification material promoted to Appendix A.
+**Canonical manuscript source:** `paper/main.tex` has a newly written problem-first abstract. The manuscript omits repository publication identifiers and retains only scholarly references. The eight main research sections remain, with the verification material promoted to Appendix A.
 
 **Uploaded manuscript reconciliation:** the two 20-page PDFs share the same 18-page main content but have distinct two-page addenda. The longer DOI-version addendum states the Gaussian-cosh double-real-zero theorem more precisely. That theorem, its correct fourth-derivative Laguerre term, the de Bruijn–Newman curvature invariance, and the coupled heat PDE were already included in `paper/theta_heat_flow_barrier.tex`. The alternative supplemental pages are **not** repeated in the canonical source.
 
