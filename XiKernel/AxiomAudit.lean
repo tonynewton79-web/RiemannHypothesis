@@ -33,3 +33,6 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.mixture_strong_convexity
 #print axioms XiKernel.mixture_third_curvature_pos
 #print axioms XiKernel.fourier_laguerre_failure
+
+#print axioms XiKernel.mixture_family_third_curvature_pos
+#print axioms XiKernel.fourier_mixture_positive_on_real
