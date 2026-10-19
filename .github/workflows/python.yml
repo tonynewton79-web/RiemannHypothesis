@@ -16,5 +16,7 @@ jobs:
           python-version: '3.12'
       - name: Prove fifth-iterate interval with directed integer arithmetic
         run: python certificates/xi_fifth_iterate_exact.py
+      - name: Prove global positive Xi theta curvature by exact interval and analytic tail
+        run: python certificates/xi_global_curvature_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
