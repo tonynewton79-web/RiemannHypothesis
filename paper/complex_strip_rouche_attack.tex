@@ -147,6 +147,35 @@ than its rigorous absolute
 error allowance; \eqref{eq:rouchegap}
 cannot be inferred there.
 
+\paragraph{A concrete first-zero contour candidate.}
+In a further numerical (not interval-certified)
+experiment, take the circle
+$|z-28.269|=1/2$ and $M=2$.
+At $96$ equally spaced points the
+minimum sampled modulus is approximately
+$7.45452\cdot10^{-5}$, about
+$1.67\cdot10^6$ times the proven
+strip-tail bound $E_2$.
+The unwrapped sampled argument of
+$F_2$ winds once around the origin.
+Radii $1/4$ and $1$ give the same
+numerical winding number and
+sample margins above $8.9\cdot10^5E_2$.
+This is a promising target for
+a finite certified zero count,
+but \emph{a discrete sample minimum is
+not a lower bound on the entire
+continuous contour}. The exact
+missing certification is a
+directed-rounding enclosure of all
+sample values joined to an analytic
+modulus-of-continuity bound (or
+a uniform analytic contour estimate).
+No rigorous winding/zero count
+is claimed from these samples.
+The experiment is reproduced by
+\texttt{certificates/xi\_first\_zero\_rouche\_contour\_numerical.py}.
+
 \begin{proposition}[The exact remaining
 global zero-migration criterion]
 \label{prop:zeromigration}
