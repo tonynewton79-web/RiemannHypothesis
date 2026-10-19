@@ -9,6 +9,7 @@ import XiKernel.FiniteDepthBarrier
 import XiKernel.NearRealFiniteDepth
 import XiKernel.SquareLatticeFourierTail
 import XiKernel.ModularOddJet
+import XiKernel.GaussianParityRepair
 
 /-!
 Axiom audit:
@@ -56,3 +57,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.higher_square_mode_negative
 #print axioms XiKernel.finite_modular_defect_positive
 #print axioms XiKernel.spurious_laguerre_coefficient_negative
+
+#print axioms XiKernel.gaussian_laguerre_algebra
+#print axioms XiKernel.gaussian_multiplier_zero_iff
+#print axioms XiKernel.gaussian_cusp_leading_positive
