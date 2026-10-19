@@ -102,6 +102,34 @@ to test the particular theta-Fourier
 approximation and its explicit
 Rouch\'e error bounds.
 
+The spatial Laguerre comparison has also been
+audited at vanishing denominators.
+A multiplicity-$m$ zero forces the
+$(m-1)$st Laguerre coefficient to
+vanish while the next coefficient
+is positive; hence the proposed
+locally finite pointwise ratio
+cannot exist there.
+Using the classical real-zero
+heat dynamics, the full comparison
+is equivalent to RH together
+with simplicity, not RH alone.
+The proof is developed in
+Theorem~\ref{thm:spatialequivalence}.
+A division-free Duhamel
+comparison avoids the added
+simplicity condition but is still
+equivalent to global Laguerre
+positivity. The new polynomial
+identities and saturation test
+are independently checked in
+\path{certificates/xi_spatial_equivalence_exact.py}.
+The Lean files verify finite
+algebraic gates only; the full
+analytic equivalence and
+parabolic semigroup theorem
+are not kernel-formalized.
+
 The open difficulty remains global.
 The explicit theta truncation estimate
 can be made arbitrarily small on the
