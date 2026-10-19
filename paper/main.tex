@@ -7,8 +7,8 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
-\title{Kernel-Concavity Obstructions and Exact Certificates\\for the Riemann $\Xi$ Programme}
-\author{Tony Newton\\Newton Astro Labs\thanks{Newton Astro Labs is the trading name under which Tony Newton conducts independent computational research in the United Kingdom; it is not a limited company.}\\London, UK\\\texttt{tony.newton79@gmail.com}}
+\title{Kernel-Concavity Obstructions and Fourier-Side Laguerre Bounds\\for the Riemann $\Xi$ Programme}
+\author{Tony Newton\\Newton Astro Labs\\United Kingdom\\\texttt{tony.newton79@gmail.com}}
 \date{}
 \begin{document}
 \maketitle
@@ -22,8 +22,10 @@ through four are positive. We exhibit two strongly log-concave
 Gaussian-polynomial kernels with positive iterates of every order
 but Fourier transforms with nonreal zeros. The smaller example
 violates the first Fourier-side Laguerre inequality at an explicit
-real point. Lean formalizes algebraic subclaims; the theta-series
-inequality is not Lean-certified. These results do not establish
+real point. Lean certifies finite algebraic and moment-positivity subclaims, while
+an independently audited rational Python interval proves the local
+fifth-iterate bound for the actual theta series; full end-to-end
+Lean formalization remains open. These results do not establish
 or refute the Riemann hypothesis. Priority remains unverified.
 \end{abstract}
 \input{fifth.tex}
@@ -32,6 +34,7 @@ or refute the Riemann hypothesis. Priority remains unverified.
 \input{fourier.tex}
 \input{transform_attack.tex}
 \input{radial_curvature.tex}
+\input{release_verification.tex}
 \begin{thebibliography}{9}
 \bibitem{CD} G. Csordas and D. Dimitrov,
 Conjectures and theorems in the theory of entire functions,
