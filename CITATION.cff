@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript only after checking its status and scope."
+title: "Kernel-Concavity Obstructions and Exact Certificates for the Riemann Xi Programme"
+authors:
+  - family-names: Newton
+    given-names: Tony
+    affiliation: Newton Astro Labs
+repository-code: "https://github.com/tonynewton79-web/RiemannHypothesis"
+type: software
+abstract: "Reproducible arithmetic and algebraic certificates for a fifth-iterate theta-kernel concavity obstruction; not a proof of RH."
