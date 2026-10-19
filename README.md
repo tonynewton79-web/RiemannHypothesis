@@ -62,3 +62,20 @@ The proof uses the exact change of variables `x=pi exp(4u)`, a positive denomina
 Reproduce directly with `python certificates/xi_global_curvature_exact.py`. See `paper/global_curvature_certificate.tex` and [Issue #3](https://github.com/tonynewton79-web/RiemannHypothesis/issues/3). The algebraic large-tail margin has been submitted for separate Lean CI in `XiKernel/GlobalCurvatureAlgebra.lean`; the full analytic theta-series proof is **not yet end-to-end Lean formalized**.
 
 Reserved DOI 10.5281/zenodo.23461586 is unpublished; novelty is not established.
+
+## 19 October 2026 — Crucial Fourier-side counterexample
+
+A new exact Gaussian--cosh example separates **global radial curvature** from global Fourier Laguerre positivity:
+
+`K(u)=exp(-u^2/2)*(1+cosh(u)/2)`,
+`(-log K)'' >= 2/3`, and
+`(-log K)'''(u)>0` for every `u>0`.
+
+But `F(z)=sqrt(2*pi)*exp(-z^2/2)*(1+d*cos z)`, `d=exp(1/2)/2` between `1/2` and `1`, has explicit nonreal zeros and
+`L1[F](pi)=2*pi*exp(-pi*pi)*(1-d)*(1-2*d)<0`.
+
+This **rules out extrapolating the global curvature theorem by itself to all real Fourier arguments**. The curvature theorem for the *actual theta kernel* is unaffected. The resulting common bounded Laguerre band is still valid; RH remains unproved.
+
+A full family `K_c=exp(-u²/2)*(1+c*cosh u)`, `c>=1/2`, has positive radial third curvature and crosses from nonreal to real Fourier zeros precisely at `c=exp(-1/2)`. See `paper/radial_curvature_fourier_counterexample.tex`, Lean polynomial module `XiKernel/RadialCurvatureCounterexample.lean` and exact rational regression `certificates/gaussian_cosh_fourier_obstruction.py`.
+
+**Next gate**: genuine theta-specific Fourier-correlation positivity across all real frequencies, not generic curvature or pointwise positive correlation densities. Novelty of the example is not established.
