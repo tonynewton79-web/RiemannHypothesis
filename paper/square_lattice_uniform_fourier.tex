@@ -1,0 +1,301 @@
+\section{Square-lattice arithmetic, incomplete gamma and uniform Fourier bounds}
+\label{sec:squarelattice}
+The previous generic Gaussian--hyperbolic counterexamples
+show why shape restrictions cannot by themselves locate
+Fourier zeros. Here the exact square-lattice weights
+$q_m=\pi m^2$ restore genuinely arithmetic information.
+We distinguish three facts: a classical incomplete-gamma
+resummation, a quantitative \emph{uniform in real frequency}
+truncation theorem, and a modular cancellation mechanism
+that each fixed truncation necessarily loses.
+
+\paragraph{An exact incomplete-gamma expansion.}
+Let $q_m=\pi m^2$ and, on $r\ge0$, put
+\begin{equation}
+\phi_m(r)=q_m(2q_me^{4r}-3)e^{5r-q_me^{4r}}.
+\label{eq:arithmeticmode}
+\end{equation}
+Write $\Phi(r)=\sum_{m\ge1}\phi_m(r)$,
+$F(z)=\int_{\mathbb R}\Phi(r)e^{izr}\,dr$,
+and define the even positive-axis truncation
+\[
+F_M(z)=2\int_0^\infty
+\left(\sum_{m=1}^{M}\phi_m(r)\right)
+\cos(zr)\,dr.
+\]
+Then $F(z)=\xi(1/2+iz/2)/4$ in our fixed normalization.
+For $a_\pm=5/4\pm iz/4$, define
+\[
+H_m(a)=q_m^{1-a}
+\bigl(2\Gamma(a+1,q_m)-3\Gamma(a,q_m)\bigr).
+\]
+With $\Gamma(a,q)=\int_q^\infty t^{a-1}e^{-t}\,dt$,
+the substitution $t=e^{4r}$ gives the
+\emph{exact analytic identity}
+\begin{equation}
+F_M(z)=\frac14\sum_{m=1}^{M}
+\bigl(H_m(a_+)+H_m(a_-)\bigr).
+\label{eq:arithmeticgamma}
+\end{equation}
+On the real axis this becomes
+$F_M(x)=\frac12\Re\sum_{m\le M}H_m(5/4+ix/4)$.
+The series converges locally uniformly in $z$;
+incomplete-gamma representations of $\xi$ are established
+prior art \cite{DF,Haglund,Polson}, so
+\eqref{eq:arithmeticgamma} is used as an analytic
+tool rather than claimed as a new representation.
+
+\begin{theorem}[Uniform real-frequency derivative and Laguerre
+truncation]
+\label{thm:uniformFourier}
+For every integer $M\ge1$, derivative order $k\ge0$,
+and real $x$, let $q=q_{M+1}=\pi(M+1)^2$. Then
+\begin{equation}
+\boxed{\left|F^{(k)}(x)-F_M^{(k)}(x)\right|
+\le \frac{3k!}{4^k}q e^{-q}.}
+\label{eq:unifderiv}
+\end{equation}
+The constant
+\[
+C=e^{-\pi}
+\left(\pi+3+\frac6\pi+\frac6{\pi^2}\right)
++12\pi e^{-4\pi}
+\]
+also satisfies
+$|F^{(k)}(x)|,|F_M^{(k)}(x)|
+\le Ck!/4^k$ for all $k,M,x$.
+Consequently, for every $n\ge0$ and $x\in\mathbb R$,
+\begin{equation}
+\boxed{\left|L_n[F](x)-L_n[F_M](x)\right|
+\le
+\frac{6(2n+1)C}{4^{2n}}
+q_{M+1}e^{-q_{M+1}}.}
+\label{eq:uniformlag}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The theta summands are positive for $r\ge0$, since
+$q_m>3$ and $2q_me^{4r}-3>0$.
+For $k\ge0$, Taylor's exponential inequality gives
+$r^k\le k!e^{4r}/4^k$.
+Differentiating the Fourier transform under the
+integral and taking absolute values bounds the
+omitted tail by
+\begin{align*}
+&\frac{2k!}{4^k}
+\sum_{m>M}\int_0^\infty
+2q_m^2e^{13r-q_me^{4r}}\,dr\\
+&\quad=\frac{k!}{4^k}
+\sum_{m>M}q_m^2
+\int_1^\infty t^{9/4}e^{-q_m t}\,dt.
+\end{align*}
+As $t\ge1$, $t^{9/4}\le t^3$.
+Integrating the integer-degree upper bound yields
+\begin{equation}
+\frac{k!}{4^k}\sum_{m>M}e^{-q_m}
+\left(q_m+3+\frac6{q_m}+\frac6{q_m^2}\right).
+\label{eq:tailterm}
+\end{equation}
+For $m\ge2$, $q_m>12$ and elementary
+rational comparison gives
+\[
+q_m+3+6/q_m+6/q_m^2\le 3q_m/2.
+\]
+Moreover
+\[
+\frac{q_{m+1}e^{-q_{m+1}}}
+{q_me^{-q_m}}
+=\left(\frac{m+1}{m}\right)^2
+e^{-\pi(2m+1)}
+<4e^{-9}<\tfrac12.
+\]
+Summing this geometric majorant proves
+\eqref{eq:unifderiv}. Applying the same
+estimate to the initial $m=1$ term and the
+tail $m\ge2$ proves the stated $C$ bound
+for both $F$ and $F_M$.
+
+Write $E_k=F^{(k)}-F_M^{(k)}$.
+Expanding the difference of the products in
+the definition of $L_n$ yields
+\[
+E_kF^{(2n-k)}
++F_M^{(k)}E_{2n-k}.
+\]
+The derivative bounds, together with
+\[
+\binom{2n}{k}k!(2n-k)!=(2n)!,
+\]
+turn each of its $2n+1$ summands into at most
+$2C(3q e^{-q})/4^{2n}$ after factorial
+normalization. This proves \eqref{eq:uniformlag}.
+\end{proof}
+
+\section{An infinite modular odd-jet cancellation law}
+\label{sec:modularoddjets}
+Let $\psi(t)=\sum_{m\ge1}e^{-\pi m^2t}$,
+and put $h(r)=e^r\psi(e^{4r})$.
+The Jacobi theta transformation gives
+\begin{equation}
+h(r)-h(-r)=-\sinh r.
+\label{eq:modularh}
+\end{equation}
+Direct differentiation of one summand shows
+\[
+(D_r^2-1)h(r)=8\Phi(r).
+\]
+As $(D_r^2-1)\sinh r=0$,
+the functional equation \eqref{eq:modularh}
+proves $\Phi(-r)=\Phi(r)$ without assuming
+term-by-term evenness.
+
+For $P_0(q)=2q-3$ and
+$P_{j+1}=(5-4q)P_j+4qP_j'$,
+termwise differentiation gives
+\[
+\phi_m^{(j)}(0)=q_me^{-q_m}P_j(q_m).
+\]
+Evenness therefore establishes the
+\emph{infinite exact arithmetic identities}
+\begin{equation}
+\boxed{\sum_{m\ge1}
+q_me^{-q_m}P_{2j+1}(q_m)=0,
+\quad j=0,1,2,\ldots.}
+\label{eq:oddjetidentity}
+\end{equation}
+At $j=0$ this becomes
+\begin{equation}
+\boxed{
+\sum_{m\ge1}q_me^{-q_m}
+(-8q_m^2+30q_m-15)=0.}
+\label{eq:firstmodularcancellation}
+\end{equation}
+These identities are consequences of
+the classical theta modular transformation,
+not new modular equations.
+
+\begin{theorem}[Every fixed theta cutoff produces
+an eventual false first-Laguerre signal]
+\label{thm:falsecutoff}
+For every finite $M\ge1$, define
+$f_M(r)=\sum_{m=1}^M\phi_m(r)$ on $r\ge0$,
+and $F_M(x)=2\int_0^\infty f_M(r)\cos(xr)\,dr$.
+Then
+\[
+D_M:=f_M'(0)>0
+\]
+and, as real $|x|\to\infty$,
+\begin{align}
+F_M(x)&=-2D_Mx^{-2}+O(x^{-4}),\nonumber\\
+F_M'(x)&=4D_Mx^{-3}+O(x^{-5}),\nonumber\\
+F_M''(x)&=-12D_Mx^{-4}+O(x^{-6}).
+\end{align}
+Consequently
+\begin{equation}
+\boxed{
+L_1[F_M](x)
+=-8D_M^2x^{-6}+O(x^{-8})<0
+}
+\label{eq:spurious}
+\end{equation}
+for all sufficiently large real $|x|$.
+In contrast, the complete modular kernel $\Phi$
+has vanishing odd endpoint derivatives of
+\emph{every} order and its Fourier transform
+decays faster than any inverse power
+on the real axis.
+\end{theorem}
+\begin{proof}
+The polynomial
+$P_1(q)=-8q^2+30q-15$ is strictly negative
+for $q\ge12$: writing $q=12+t$, $t\ge0$,
+\[
+-P_1(q)=8t^2+162t+807>0.
+\]
+Every omitted lattice index $m>M\ge1$
+has $q_m=\pi m^2\ge4\pi>12$, so
+the omitted terms in
+\eqref{eq:firstmodularcancellation}
+are strictly negative. The full sum is
+zero; therefore $D_M$ is strictly positive.
+All derivatives of the finite smooth
+positive-axis sum decay integrably at
+infinity. Repeated integration by parts
+in the cosine integral produces the
+three stated endpoint asymptotics.
+Substitution into
+$L_1=(F')^2-FF''$ gives \eqref{eq:spurious}.
+For the complete kernel, the modular parity
+\eqref{eq:oddjetidentity} eliminates
+\emph{all} boundary terms; integrating
+by parts any fixed number of times
+establishes superalgebraic Fourier decay.
+\end{proof}
+
+\paragraph{Numerical replay and its limits.}
+The following $55$-digit mpmath evaluations
+at $x=39.5$ independently use the original
+Fourier integral and incomplete-gamma
+representation:
+\begin{center}\small
+\begin{tabular}{cc}
+\hline
+Mode cutoff $M$&$L_1[F_M](39.5)$\\
+\hline
+1 & $-5.74158212233354\,10^{-11}$\\
+2 & $+3.24498665006940\,10^{-11}$\\
+3 & $+3.24499162628817\,10^{-11}$\\
+\hline
+\end{tabular}
+\end{center}
+They illustrate a sign reversal between
+the first and second square-lattice modes;
+these sampled values are \emph{numerical
+evidence}, not directed-rounding sign
+certificates. The identities
+\eqref{eq:firstmodularcancellation} and
+\eqref{eq:spurious}, by contrast, are
+analytic theorems.
+
+\paragraph{Interpretation.}
+The quantitative bounds
+\eqref{eq:unifderiv}--\eqref{eq:uniformlag}
+converge uniformly over \emph{all real}
+Fourier frequencies for each fixed
+differentiation or Laguerre order.
+Nevertheless every finite truncation
+eventually has negative $L_1$.
+This is not a contradiction: the
+genuine transform and its Laguerre
+expressions approach zero at large
+frequencies, so an absolute uniform
+error bound alone cannot guarantee
+their \emph{sign} globally.
+A successful RH approach must preserve
+or control the exact modular cancellation,
+not rely on a fixed-mode sign extrapolation.
+
+\paragraph{Verification and prior art.}
+The scripts
+\texttt{certificates/xi\_square\_lattice\_uniform\_tail.py},
+\texttt{certificates/xi\_modular\_odd\_jet\_exact.py},
+and
+\texttt{certificates/xi\_arithmetic\_incomplete\_gamma\_replay.py}
+provide exact rational inequality checks
+and independent high-precision
+replays, with each status distinguished.
+The Lean modules
+\texttt{XiKernel/SquareLatticeFourierTail.lean}
+and \texttt{XiKernel/ModularOddJet.lean}
+certify the finite polynomial gates;
+the theta functional equation and all
+Fourier asymptotics remain analytical
+paper proofs, not end-to-end Lean theorems.
+Classical theta transformation,
+incomplete-gamma representations,
+and truncated-\(\Xi\) investigations
+have substantial prior art
+\cite{DF,Haglund,Polson};
+originality of this precise collection
+of bounds and truncation consequences
+has not been established.
