@@ -41,3 +41,5 @@ import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.ThetaHeatTail
 
 import XiKernel.HeatDoubleRootTransversality
+
+import XiKernel.HeatZeroGapObstruction
