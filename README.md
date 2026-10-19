@@ -216,3 +216,19 @@ resolution of the Riemann hypothesis is claimed.
 
 **Proof horizon:** A height-uniform relative contour lower bound
 and a genuine exclusion of nonreal zeros at unbounded height remain missing.
+
+## 19 October 2026 — genuine theta heat-flow / global RH mechanism audit
+
+**Intrinsic theta-family obstruction:** For `Phi_t(u)=exp(t*u²)*Phi(u)`, the potential
+`V_t(u)=-log Phi_t(u)=V_0(u)-t*u²` has exactly the same `V_t'''=V_0'''` for every heat time. Nevertheless by the established de Bruijn--Newman threshold `0<=Lambda<=1/2` (Rodgers--Tao 2020 and de Bruijn), `H_(-1)` has nonreal zeros and `H_(1/2)` has only real zeros. Thus **global theta curvature cannot, by itself, prove RH even within the true theta heat family**. This applies to the same classical theta kernel, not merely a Gaussian example.
+
+**Coupled Laguerre heat-PDE:** `Q_t(x,y)=H_t(x+i*y)H_t(x-i*y)` satisfies `∂_tQ=(∂_y²Q-∂_x²Q)/2`. Its `y^(2n)` coefficient obeys
+`∂_tL_n=(n+1)(2n+1)L_(n+1)-(1/2)∂_x²L_n`.
+Backwards from t=1/2, `U_n(s,x)=L_(n,1/2-s)(x)` satisfies `∂_sU_n=(1/2)∂_x²U_n-(n+1)(2n+1)U_(n+1)`.
+The negative source term identifies what global-in-order estimate is missing.
+
+**Conditional sufficient theorem, UNPROVED for Xi:** If for all n>=1 and every real x, t in [0,1/2], there is a finite uniform-in-x nonnegative `c_n(t)` satisfying `(n+1)(2n+1)L_(n+1,t)(x)<=c_n(t)L_(n,t)(x)`, scalar parabolic comparison would propagate positivity from t=1/2 to t=0. This may be stronger than RH and its validity has not been established. A Gaussian model has `c_n(t)=(2n+1)/(4-2t)`.
+
+**Verification:** exact SymPy algebra, exact Fraction arithmetic for 100 Gaussian Laguerre orders, and mpmath 65-digit evaluation of true theta third-curvature invariance at 4 arguments x 3 heat times all passed locally. `XiKernel/HeatFlowLaguerre.lean` contains algebraic jet lemmas; it is not a Lean proof of Rodgers--Tao, Jacobi integral calculus or RH. [Heat-flow CI](https://github.com/tonynewton79-web/RiemannHypothesis/actions) is tracked separately; do not call it passed until completed.
+
+**Manuscript:** `paper/theta_heat_flow_barrier.tex`, integrated into `paper/main.tex`; citations Rodgers--Tao, Newman--Wu and Polymath15. **RH remains open.**
