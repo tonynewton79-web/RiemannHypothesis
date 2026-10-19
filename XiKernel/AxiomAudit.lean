@@ -19,6 +19,7 @@ import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
 import XiKernel.HeatDuhamelSpectral
+import XiKernel.ThetaMixtureObstruction
 import XiKernel.SpatialHeatComparison
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.ThetaHeatTail
@@ -143,3 +144,7 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.atomic_heat_endpoint_negative
 #print axioms XiKernel.atomic_heat_collision
 #print axioms XiKernel.atomic_integrated_comparison_failure
+
+#print axioms XiKernel.two_frequency_square_identity
+#print axioms XiKernel.positive_gaussian_mixture_order
+#print axioms XiKernel.impossible_upper_lower_at_witness
