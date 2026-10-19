@@ -11,6 +11,7 @@ rational fractions, plus a provable 4th-derivative Simpson error.
 Run: python -m pip install mpmath==1.3.0
      python certificates/xi_first_zero_interval.py
 """
+import os
 import mpmath as mp
 from mpmath.libmp import to_rational
 from fractions import Fraction as Q
@@ -18,7 +19,8 @@ from math import factorial
 
 mp.iv.dps=28
 iv=mp.iv
-N=8192
+N=int(os.environ.get('XI_ZERO_SIMPSON_N', '8192'))
+assert N in (8192,16384)
 x0=iv.mpf(28269)/iv.mpf(1000)
 pi=iv.pi
 def exact_bounds(x):
