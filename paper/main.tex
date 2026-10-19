@@ -1,0 +1,46 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[a4paper,margin=16mm,columnsep=7mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\title{Kernel-Concavity Obstructions and Exact Certificates\\for the Riemann $\Xi$ Programme}
+\author{Tony Newton\\Newton Astro Labs\thanks{Newton Astro Labs is the trading name under which Tony Newton conducts independent computational research in the United Kingdom; it is not a limited company.}\\London, UK\\\texttt{tony.newton79@gmail.com}}
+\date{}
+\begin{document}
+\maketitle
+\noindent\textit{Reserved DOI, not yet published:}
+\href{https://doi.org/10.5281/zenodo.23461586}{10.5281/zenodo.23461586}.
+\begin{abstract}
+We give an exact integer-interval certificate showing that the fifth
+nonlinear differential concavity iterate of the genuine Riemann
+theta kernel is negative at the modular point, while iterates zero
+through four are positive. We exhibit two strongly log-concave
+Gaussian-polynomial kernels with positive iterates of every order
+but Fourier transforms with nonreal zeros. The smaller example
+violates the first Fourier-side Laguerre inequality at an explicit
+real point. Lean formalizes algebraic subclaims; the theta-series
+inequality is not Lean-certified. These results do not establish
+or refute the Riemann hypothesis. Priority remains unverified.
+\end{abstract}
+\input{fifth.tex}
+\input{gaussians.tex}
+\input{fourier.tex}
+\begin{thebibliography}{9}
+\bibitem{CD} G. Csordas and D. Dimitrov,
+Conjectures and theorems in the theory of entire functions,
+\emph{Numer. Algorithms} 25 (2000), 109--122.
+\bibitem{Cs} G. Csordas, Fourier transforms of positive definite kernels
+and the Riemann $\xi$-function, \emph{CMFT} 15 (2015), 373--391;
+\href{https://arxiv.org/abs/1309.0055}{arXiv:1309.0055}.
+\bibitem{PS} M. Planat and P. Sol\'e,
+\href{https://arxiv.org/abs/2608.19160}{arXiv:2608.19160} (2026).
+\bibitem{LM} Y. Liu and J. Mao,
+\href{https://arxiv.org/abs/2610.04972}{arXiv:2610.04972} (2026).
+\bibitem{DX} D. Dimitrov and Y. Xu,
+\href{https://arxiv.org/abs/1606.05011}{arXiv:1606.05011} (2016).
+\end{thebibliography}
+\end{document}
