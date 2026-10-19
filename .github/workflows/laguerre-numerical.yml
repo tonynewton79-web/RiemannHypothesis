@@ -5,6 +5,7 @@ on:
       - 'certificates/generalized_laguerre_scan.py'
       - 'certificates/xi_arithmetic_incomplete_gamma_replay.py'
       - 'certificates/gaussian_parity_repair_numerical.py'
+      - 'certificates/xi_complex_strip_numerical.py'
       - '.github/workflows/laguerre-numerical.yml'
   workflow_dispatch:
 permissions:
@@ -26,3 +27,5 @@ jobs:
         run: python certificates/xi_arithmetic_incomplete_gamma_replay.py
       - name: Numerical 52-digit Gaussian parity-repair L1 cross-check
         run: python certificates/gaussian_parity_repair_numerical.py
+      - name: Replay holomorphic Xi complex-strip arithmetic vs zeta
+        run: python certificates/xi_complex_strip_numerical.py
