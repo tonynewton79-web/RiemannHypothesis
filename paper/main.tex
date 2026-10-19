@@ -1,7 +1,7 @@
 \documentclass[10pt,twocolumn]{article}
 \usepackage[a4paper,margin=16mm,columnsep=7mm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,needspace}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
 \newtheorem{theorem}{Theorem}
@@ -27,6 +27,7 @@ inequality is not Lean-certified. These results do not establish
 or refute the Riemann hypothesis. Priority remains unverified.
 \end{abstract}
 \input{fifth.tex}
+\Needspace{10\baselineskip}
 \input{gaussians.tex}
 \input{fourier.tex}
 \input{transform_attack.tex}
