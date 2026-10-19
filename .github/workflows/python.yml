@@ -20,5 +20,7 @@ jobs:
         run: python certificates/xi_global_curvature_exact.py
       - name: Check Gaussian-cosh radial curvature and Fourier Laguerre obstruction
         run: python certificates/gaussian_cosh_fourier_obstruction.py
+      - name: Check every finite-depth Laguerre coefficient gate to order 100
+        run: python certificates/finite_depth_laguerre_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
