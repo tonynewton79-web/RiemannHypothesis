@@ -1,0 +1,219 @@
+\section{Global radial-curvature certificate for the Xi kernel}
+\label{sec:globalcurvature}
+
+We now discharge the curvature condition left open in
+Section~\ref{sec:weightedcurvature}, using an exact, finite
+rational interval proof joined to a separate analytic
+infinite-range estimate. The statement remains subject
+to independent specialist and certificate-code review;
+it makes no claim regarding the Riemann hypothesis.
+
+\begin{theorem}[Global monotone theta curvature]
+\label{thm:globalcurvature}
+For the classical Jacobi-theta kernel
+\[
+\Phi(u)=\sum_{m\ge1}\pi m^2
+  \bigl(2\pi m^2e^{4u}-3\bigr)
+  e^{5u-\pi m^2e^{4u}},
+\]
+let $V(u)=-\log\Phi(u)$. Then
+\begin{equation}\label{eq:globalthird}
+\boxed{V'''(u)>0\quad\text{for every }u>0.}
+\end{equation}
+Consequently $V''$ is strictly increasing in
+$|u|$. In the variable $t=u^2$, the function
+\[
+t^{3/2}\frac{\mathcal Ts(t)}{s(t)^2}
+\quad (s(t)=\Phi(\sqrt t))
+\]
+is strictly increasing on $(0,\infty)$.
+\end{theorem}
+
+\paragraph{Exact reduction.}
+Put $x=\pi e^{4u}$ and
+\begin{equation}
+A_j(x)=\sum_{m\ge1}(-1)^j
+ m^{2+2j}\bigl(2m^2x-3-2j\bigr)
+ e^{-(m^2-1)x}
+\quad (0\le j\le4).
+\label{eq:Aj}
+\end{equation}
+Then
+$\Phi(u)=\pi e^{5u-x}A_0(x)$ and
+$A_j'(x)=A_j(x)+A_{j+1}(x)$ for $j\le3$.
+All $A_j$ are absolutely convergent and
+smooth for $x\ge\pi$. Since $A_0(x)>0$,
+define the cubic numerator
+\begin{align}
+H(x)={}&-x^3
+\bigl(A_3A_0^2-3A_1A_2A_0+2A_1^3\bigr)
+\nonumber\\
+&-3x^2\bigl(A_2A_0^2-A_1^2A_0\bigr)
+-xA_1A_0^2.
+\label{eq:H}
+\end{align}
+Three applications of $4x\partial_x$ to
+$\log A_0(x)-x+5u+\log\pi$ give the
+\emph{exact identity}
+\begin{equation}\label{eq:thirdH}
+V'''(u)=\frac{64H(x)}{A_0(x)^3}.
+\end{equation}
+The Jacobi functional equation makes $\Phi$
+even about $u=0$, so $V'''(0)=0$ and
+$H(\pi)=0$.
+
+\paragraph{Finite interval portion.}
+The standalone standard-library script
+\texttt{certificates/xi\_global\_curvature\_exact.py}
+works with common denominator $10^{65}$,
+rounding every multiplication, reciprocal,
+and integer division outward. A rigorous
+Machin-series enclosure bounds $\pi$.
+For $0\le z<1/4$, an 80-term Taylor
+expansion encloses $e^z$, since
+\[
+0<e^z-\sum_{k=0}^{80}\frac{z^k}{k!}
+ \le \frac{2}{4^{81}81!}<10^{-65}.
+\]
+Exponentials $e^{-y}$ are then enclosed by
+\[
+e^{-y}=\bigl(e^{y/4096}\bigr)^{-4096}.
+\]
+For every $x\in[\pi,6]$, truncating
+\eqref{eq:Aj} at $m=8$ causes an error,
+for each $0\le j\le4$, smaller than
+\[
+2\cdot23\cdot9^{12}\cdot2^{-240}
+<10^{-58}.
+\]
+Indeed the $m$th absolute contribution
+for $m\ge9$ is bounded by
+$23m^{12}2^{-3(m^2-1)}$, and its
+successive ratio is less than $1/2$.
+The script explicitly enlarges all five
+intervals by $10^{-58}$.
+
+Using $A_j'=A_j+A_{j+1}$ and
+forward automatic differentiation of
+\eqref{eq:H}, $100$ rational interval cells
+covering $[\pi,7/2]$ establish
+\begin{equation}
+\boxed{H'(x)>46\quad(\pi\le x\le7/2).}
+\label{eq:Hprimebound}
+\end{equation}
+With $H(\pi)=0$, this yields $H(x)>0$
+for $\pi<x\le7/2$. Independently,
+$400$ rational interval cells on $[7/2,6]$
+establish
+\begin{equation}
+\boxed{H(x)>26\quad(7/2\le x\le6).}
+\label{eq:Hcompactbound}
+\end{equation}
+These are outward enclosures on whole
+intervals, not tests only at mesh nodes.
+
+\paragraph{Analytic infinite tail.}
+For $x\ge6$, let
+\[
+a_j=(-1)^j(2x-3-2j),\qquad E_j=A_j-a_j.
+\]
+For $0\le j\le3$ and $m\ge2$,
+the $m$th summand of $E_j$ has magnitude
+at most $3xm^{10}e^{-(m^2-1)x}$.
+Successive terms have ratio bounded by
+$(3/2)^{10}e^{-30}<1/2$.
+Consequently
+\begin{equation}\label{eq:Etail}
+|E_j(x)|\le6144x e^{-3x}=:\epsilon(x)x,
+\qquad 0\le j\le3.
+\end{equation}
+The first-summand numerator, a purely
+algebraic simplification, is
+\begin{equation}\label{eq:H0}
+H_0(x):=H(x)\big|_{A_j=a_j}
+=x(8x^3-36x^2+42x-45)
+>\frac74x^4
+\end{equation}
+for $x\ge6$. The latter strict inequality
+follows, for $t=x-6\ge0$, from
+\begin{align*}
+H_0(x)-\frac74x^4
+={}&\frac{25}{4}t^4+114t^3+744t^2\\
+&+1971t+1566>0.
+\end{align*}
+Along every straight-line interpolation
+between $(a_0,\ldots,a_3)$ and
+$(A_0,\ldots,A_3)$, we have
+$|A_j|\le3x$ because $\epsilon(x)<1$.
+Bounding the four first partial derivatives
+of the cubic \eqref{eq:H} by the
+multivariate mean-value inequality yields
+\begin{equation}\label{eq:Herror}
+|H-H_0|\le \epsilon(x)x^4
+(162x^2+162x+27).
+\end{equation}
+The function
+$e^{-3x}(162x^2+162x+27)$ is
+strictly decreasing for $x\ge6$.
+Finally the elementary rational Taylor bound
+$e^3>20$ gives $e^{18}>20^6=64{,}000{,}000$;
+hence for every $x\ge6$,
+\[
+\frac{|H-H_0|}{x^4}
+<\frac{6144\cdot6831}{64{,}000{,}000}
+<\frac74.
+\]
+Equations \eqref{eq:H0}--\eqref{eq:Herror}
+give $H(x)>0$ on $[6,\infty)$.
+Combining the three ranges with
+\eqref{eq:thirdH} proves
+Theorem~\ref{thm:globalcurvature}.
+
+\begin{proposition}[Unconditional common Laguerre band]
+\label{prop:commonlaguerre}
+Let $F(z)=\int_\mathbb{R}\Phi(u)e^{izu}\,du$,
+and let $A_n,B_n$ be the positive
+correlation moments of
+Section~\ref{sec:transformattack}.
+For every integer $n\ge1$,
+\[
+\frac{B_n}{A_n}\le\frac{B_1}{A_1}.
+\]
+In particular,
+\[
+\boxed{L_n[F](x)>0\quad
+\text{for all }n\ge1,\quad
+|x|<\sqrt{2A_1/B_1}.}
+\]
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:globalcurvature}
+establishes the radial monotonicity
+hypothesis of
+Proposition~\ref{prop:radial}.
+The reverse-likelihood-ratio argument
+therefore proves the moment-ratio
+inequality. Applying
+$L_n[F](x)\ge A_n-\tfrac12x^2B_n$
+finishes the proof.
+\end{proof}
+
+\paragraph{Certification and limitations.}
+The two finite inequalities above are
+established by exact integer operations and
+explicit analytic theta/exponential tails;
+the entire proof is independently auditable
+from the standalone Python 3 script.
+The algebraic identities and the rational
+infinite-tail margin are included in the
+Lean module
+\texttt{XiKernel/GlobalCurvatureAlgebra.lean}.
+The \emph{full} theta-series positivity
+statement and the interval verifier have
+not yet been formally imported and proved
+within Lean's kernel.
+Neither the global radial-curvature theorem
+nor its common finite Fourier-positivity
+band implies the Riemann hypothesis.
+Priority and independent specialist review
+remain outstanding.
