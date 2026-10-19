@@ -1,0 +1,257 @@
+\subsection{Zero-density obstruction to a height-independent heat comparison}
+\label{subsec:heatgap}
+The bounded-in-$x$ comparison in
+Proposition~\ref{prop:heatsufficient} is a valid
+sufficient hypothesis, but for the genuine
+Riemann heat flow its hypothesis is false
+already at the initial time $t=\tfrac12$.
+The obstruction does not depend on a
+hypothetical nonreal zero. It follows from
+the \emph{known real zeros} of $H_{1/2}$
+and their increasing density.
+
+\begin{lemma}[Laguerre ratios at a simple real zero]
+\label{lem:gapratio}
+Let $G$ be a nonzero real entire function
+of order at most one with only real zeros.
+Suppose $a$ is a simple zero and $b\ne a$
+is another real zero. Then, for the
+generalized Laguerre coefficients defined
+in Section~\ref{sec:transformattack},
+\begin{equation}
+\frac{L_2[G](a)}{L_1[G](a)}
+=-\left(\log\left|
+\frac{G(z)}{z-a}\right|\right)''\!\!(a)
+\ \ge\ \frac{1}{(a-b)^2}.
+\label{eq:gapratio}
+\end{equation}
+Here the logarithmic derivative is taken
+in a real neighborhood of $a$.
+\end{lemma}
+\begin{proof}
+Factor $G(z)=(z-a)g(z)$, with $g(a)\ne0$.
+The first three derivatives at $a$ are
+\[
+G'(a)=g(a),\qquad
+G''(a)=2g'(a),\qquad
+G'''(a)=3g''(a).
+\]
+The coefficients of $y^2$ and $y^4$
+in $G(a+iy)G(a-iy)$ are therefore
+\begin{align*}
+L_1[G](a)&=g(a)^2,\\
+L_2[G](a)&=g'(a)^2-g(a)g''(a).
+\end{align*}
+Taking their ratio gives the equality
+in \eqref{eq:gapratio}.
+For the lower bound, use the real-zero
+canonical product of an entire function
+of order at most one:
+\[
+G(z)=e^{A+Bz}
+\prod_\rho E_1(z/\rho),
+\qquad E_1(w)=(1-w)e^w,
+\]
+with the usual adjustment for zeros
+at the origin. On a real neighborhood
+of a simple zero $a$, removing its
+factor and differentiating the
+logarithm twice gives
+\[
+-\bigl(\log|g|\bigr)''(a)
+=\sum_{\rho\ne a}\frac{m_\rho}{(a-\rho)^2}.
+\]
+The series converges locally;
+all terms are nonnegative, and the
+summand for $b$ gives
+\eqref{eq:gapratio}.
+\end{proof}
+
+\begin{theorem}[The proposed bounded heat
+comparison fails for the actual theta family]
+\label{thm:heatgapobstruction}
+Let
+\[
+H_t(z)=\int_0^\infty
+e^{tu^2}\Phi(u)\cos(zu)\,du,
+\]
+with $\Phi$ the genuine Riemann theta kernel.
+Then the zeros of $H_{1/2}$ are all real
+and simple, but
+\begin{equation}
+\boxed{
+\sup_{\substack{x\in\mathbb R\\
+L_{1,1/2}(x)>0}}
+\frac{6L_{2,1/2}(x)}
+{L_{1,1/2}(x)}=+\infty.
+}
+\label{eq:unboundedratio}
+\end{equation}
+Indeed, for arbitrarily large $T$, there
+is a positive zero $a\in[T,2T]$ with
+\begin{equation}
+\frac{6L_{2,1/2}(a)}
+{L_{1,1/2}(a)}
+\ge\left(\frac{3}{8\pi^2}
++o(1)\right)(\log T)^2 .
+\label{eq:loggaplower}
+\end{equation}
+In particular no finite value of
+$c_1(0)$ can satisfy the
+comparison \eqref{eq:comparisonmissing}
+for all real $x$.
+\end{theorem}
+\begin{proof}
+The de Bruijn--Newman theorem and the
+strict upper bound $\Lambda<1/2$
+ensure that $H_{1/2}$ has only real
+simple zeros. Moreover, the known
+zero-count asymptotics for each
+fixed positive heat time give
+\[
+N_{1/2}(T)
+=\frac{T}{4\pi}\log T+O(T).
+\]
+This is a classical input, not an
+estimate established by the present
+paper; compare Ki--Kim--Lee
+\cite{KiKimLee} and the discussion of
+fixed-time zero counts in
+\cite{Polymath15,RodgersTao}.
+Thus
+\[
+N_{1/2}(2T)-N_{1/2}(T)
+=\left(\frac1{4\pi}+o(1)\right)
+T\log T.
+\]
+Ordering the zeros in $[T,2T]$,
+at least two adjacent positive zeros
+$a<b$ have separation no greater than
+\[
+b-a\le\frac{T}{N_{1/2}(2T)
+-N_{1/2}(T)-1}
+=\frac{4\pi+o(1)}{\log T}.
+\]
+The transform $H_{1/2}$ has order
+one and a real-zero canonical product.
+Lemma~\ref{lem:gapratio} therefore gives
+at the simple zero $a$,
+\[
+\frac{6L_{2,1/2}(a)}
+{L_{1,1/2}(a)}
+\ge\frac6{(a-b)^2}
+\ge\left(\frac{3}{8\pi^2}
++o(1)\right)(\log T)^2 .
+\]
+Letting $T\to\infty$ proves
+\eqref{eq:unboundedratio}.
+\end{proof}
+
+This result changes the logical
+status of Proposition~\ref{prop:heatsufficient}:
+its bounded comparison is not just
+unverified but \emph{inapplicable to
+the genuine theta heat flow}.
+The earlier Gaussian test and the
+double-zero example do not detect this
+obstruction, which is present even
+at a time where all actual theta-flow
+zeros are known to be simple and real.
+The theorem is an elementary
+consequence of established zero-density
+asymptotics and canonical products;
+we make no novelty claim for those inputs.
+
+\begin{proposition}[A corrected, spatially weighted
+sufficient comparison]
+\label{prop:weightedheatsufficient}
+Suppose for each $n\ge1$ that a
+nonnegative, locally bounded function
+$c_n(s,x)$ on $[0,\tfrac12]\times\mathbb R$
+satisfies
+\begin{equation}
+(n+1)(2n+1)U_{n+1}(s,x)
+\le c_n(s,x)U_n(s,x)
+\label{eq:weightedheatmissing}
+\end{equation}
+for every $s,x$, with $U_n$ as
+defined above. Assume the usual
+boundedness and regularity hypotheses
+ensuring the whole-line parabolic
+comparison principle. Then
+$U_n(s,x)\ge0$ for every
+$n\ge1$, $0\le s\le\tfrac12$,
+and $x\in\mathbb R$.
+Consequently all generalized
+Laguerre inequalities hold for
+$H_0$ and RH follows.
+\end{proposition}
+\begin{proof}
+The hierarchy and
+\eqref{eq:weightedheatmissing} give
+\[
+\partial_s U_n-\frac12\partial_x^2U_n
++c_n(s,x)U_n\ge0.
+\]
+Its initial value $U_n(0,x)$ is
+nonnegative because $H_{1/2}$ has
+only real zeros. The comparison
+principle on the real line for
+nonnegative locally bounded potentials,
+under the stated decay and boundary
+conditions, yields $U_n(s,x)\ge0$.
+At $s=1/2$ the generalized
+Laguerre--P\'olya criterion gives
+the real-zero property of $H_0$.
+\end{proof}
+
+\paragraph{What a successful global estimate must look like.}
+Theorem~\ref{thm:heatgapobstruction}
+forces every admissible comparison
+coefficient at $s=0$ to be
+unbounded in the spatial variable,
+and along a sequence to grow
+at least as fast as $(\log |x|)^2$.
+A possible sharper target would be
+\[
+0\le c_n(s,x)\le
+C_n\bigl(1+\log^2(2+|x|)\bigr),
+\qquad 0\le s\le\tfrac12,
+\]
+with constants $C_n$ independent
+of $x$ but allowed to depend on $n$.
+\emph{This estimate is a candidate,
+not a theorem or verified conjecture.}
+In particular it could fail at a
+double-zero collision, where
+$U_1=0<U_2$; the earlier
+transversality calculation identifies
+the exact mechanism.
+The outstanding RH challenge is to
+prove a valid spatially weighted
+all-order comparison, or to obtain
+a zero-exclusion argument that does
+not require it.
+
+\paragraph{Verification.}
+The equality and inequality of
+Lemma~\ref{lem:gapratio} are checked
+at the local derivative level in
+\path{XiKernel/HeatZeroGapObstruction.lean},
+including a rational comparison gate.
+The independent symbolic and
+exact-rational replay in
+\path{certificates/xi_heat_zero_gap_exact.py}
+checks the local polynomial identity
+and a sequence of shrinking-gap
+quadratic models. The global
+statement additionally uses the
+published real-zero density
+asymptotic for $H_{1/2}$
+and the standard canonical product;
+these substantial analytic inputs
+are \emph{not} presently formalized
+in Lean. The conclusion is a
+rigorous negative test for one
+proposed heat-flow proof step,
+not an RH proof.
