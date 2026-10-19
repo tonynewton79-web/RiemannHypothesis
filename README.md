@@ -234,7 +234,7 @@ The negative source term identifies what global-in-order estimate is missing.
 - **New exact obstruction:** the positive Gaussian–cosh heat family has a double real zero at `t*=(1-1/(2 log 2))/2≈0.13932623978`; at it `L1=0<L2=F''²/4`. Thus the proposed uniform comparison `6 L2<=c1 L1` cannot hold at a double zero. This is a negative test of the *sufficient heat comparison mechanism*, **not** a counterexample to RH or a claim about the genuine Xi flow's zero count.
 - Source: `XiKernel/HeatFlowDoubleZeroObstruction.lean` (Lean algebraic gate and axiom audit), `certificates/xi_heat_double_zero_test.py` (exact symbolic and numerical crossing), and the integrated `paper/theta_heat_flow_barrier.tex`. Local exact symbolic reproduction passed.
 - **CI status:** the newest GitHub Actions Lean/PDF/heat workflow runs were still QUEUED when last checked; do not claim the added Lean declaration compiled until GitHub returns a completed successful run.
-- The locally assembled user-delivered 20-page PDF combined the last compiled 18-page cumulative manuscript with a 2-page scientific heat-flow addendum, and removed obsolete DOI reservations. The GitHub LaTeX master integrates the new result in the main narrative; its fresh automatic build is pending.
+- A previously circulated 20-page PDF combined an 18-page cumulative manuscript with a two-page heat-flow addendum; the canonical LaTeX source now incorporates the heat-flow results directly. The GitHub LaTeX master integrates the new result in the main narrative; its fresh automatic build is pending.
 
 **Next proof gate:** prove or refute an actual theta-specific heat comparison/zero-exclusion statement uniform in real x and all Laguerre orders, with independent mathematical review. RH is not proved.
 
@@ -242,7 +242,7 @@ The negative source term identifies what global-in-order estimate is missing.
 
 **Canonical manuscript source:** `paper/main.tex` has a newly written problem-first abstract. The manuscript omits repository publication identifiers and retains only scholarly references. The eight main research sections remain, with the verification material promoted to Appendix A.
 
-**Uploaded manuscript reconciliation:** the two 20-page PDFs share the same 18-page main content but have distinct two-page addenda. The longer DOI-version addendum states the Gaussian-cosh double-real-zero theorem more precisely. That theorem, its correct fourth-derivative Laguerre term, the de Bruijn–Newman curvature invariance, and the coupled heat PDE were already included in `paper/theta_heat_flow_barrier.tex`. The alternative supplemental pages are **not** repeated in the canonical source.
+**Uploaded manuscript reconciliation:** the two 20-page PDFs share the same 18-page main content but have distinct two-page addenda. The longer previously circulated addendum states the Gaussian-cosh double-real-zero theorem more precisely. That theorem, its correct fourth-derivative Laguerre term, the de Bruijn–Newman curvature invariance, and the coupled heat PDE were already included in `paper/theta_heat_flow_barrier.tex`. The alternative supplemental pages are **not** repeated in the canonical source.
 
 **New theta-specific heat-flow estimate:** `paper/theta_heat_specific_tail.tex` proves uniformly for every `0<=t<=1/2`, all k>=0, and `|Im z|<=3`:
 `|H_t^(k)(z)-H_(t,M)^(k)(z)| <= (3*k!/(2*4^k)) * q*exp(-q+1/16)`,
@@ -253,3 +253,7 @@ where `q=pi*(M+1)^2`. For k=0 the strip extends to `|Im z|<=7`. The genuine thet
 **Verification:** `certificates/xi_theta_heat_tail_exact.py` passed locally using exact rational operations, including the quartic identity and combinatorial cancellations for n=0..80. `XiKernel/ThetaHeatTail.lean` contains polynomial and tilt sign subtheorems submitted to the Lean CI build; the full theta-series and Fourier integral proof is NOT end-to-end Lean formalized. See the current GitHub Actions status before declaring this new Lean module CI-PASS.
 
 **Unresolved RH step:** all-order global Fourier positivity or a height-uniform off-axis contour modulus lower bound. RH remains open. Prior-art/novelty review is pending.
+
+## 19 October 2026 — Newman GHS prior-work correction and citations
+
+Charles M. Newman's 1991 article, *The GHS Inequality and the Riemann Hypothesis* (*Constructive Approximation* **7**, 389–399), proves convexity of the classical Riemann theta potential derivative. The qualitative monotone-curvature property is therefore **known prior art**. Our rational-interval proof is an alternative quantitative verification, not a discovery of the curvature property. The canonical manuscript now cites Newman in the abstract, curvature theorem, heat-flow discussion and bibliography. Rodgers–Tao and Newman–Wu are explicitly cited where their prior results are used, including in a corrected self-contained addendum (`paper/newman_corrected_addendum.tex`). The Zenodo identifier has been excluded from manuscript metadata and text by request. RH is not proved.
