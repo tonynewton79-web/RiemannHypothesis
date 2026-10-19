@@ -6,6 +6,7 @@ on:
       - 'certificates/xi_arithmetic_incomplete_gamma_replay.py'
       - 'certificates/gaussian_parity_repair_numerical.py'
       - 'certificates/xi_complex_strip_numerical.py'
+      - 'certificates/xi_first_zero_rouche_contour_numerical.py'
       - '.github/workflows/laguerre-numerical.yml'
   workflow_dispatch:
 permissions:
@@ -29,3 +30,5 @@ jobs:
         run: python certificates/gaussian_parity_repair_numerical.py
       - name: Replay holomorphic Xi complex-strip arithmetic vs zeta
         run: python certificates/xi_complex_strip_numerical.py
+      - name: Numerical Rouche contour at first Xi zero (not certificate)
+        run: python certificates/xi_first_zero_rouche_contour_numerical.py
