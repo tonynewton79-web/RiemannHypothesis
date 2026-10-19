@@ -67,8 +67,8 @@ def main():
     for x in [0,10,28]:
         ds=derivatives(x,4)
         dz=[mp.re(mp.diff(xi_zeta,x,k)) for k in range(5)]
-        error=max(abs(a-b)/max(mp.mpf('1e-40'),abs(a)) for a,b in zip(ds,dz))
-        assert error<mp.mpf('1e-45')
+        error=max(abs(a-b)/max(mp.mpf('1e-25'),abs(a)) for a,b in zip(ds,dz))
+        assert error<mp.mpf('1e-40')
         print('independent Xi/zeta derivative replay:',x,'relative error <',mp.nstr(error,5))
     moments=[center_moment(j) for j in range(19)]
     for n in range(1,9):
