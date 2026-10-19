@@ -173,85 +173,25 @@ modulus-of-continuity bound (or
 a uniform analytic contour estimate).
 No rigorous winding/zero count
 is claimed from these samples.
-The experiment is reproduced by
-\texttt{certificates/xi\_first\_zero\_rouche\_contour\_numerical.py}.
+The original exploratory contour data
+remain available in the verification repository.
 
-\paragraph{A finite 4,096-node certification design.}
-The above exploratory contour admits a
-particularly simple rigorous
-modulus-of-continuity criterion.
-The exact derivative bound of
-Theorem~\ref{thm:complexstrip}
-gives, throughout $|\Im z|\le3$,
-\[
-|F_2'(z)|\le C/4<1/8.
-\]
-Indeed $3<\pi<22/7$,
-$e^3>20$, and the explicit
-value of $C$ imply the
-purely rational check
-\[
-C<
-\frac{22/7+3+2+2/3}{20}
-+\frac{12(22/7)}{20^4}<\frac12.
-\]
-With $N=4096$ equally spaced
-points on the radius-$1/2$
-circle, every point of the
-circle lies at distance at most
-$\pi/(2N)$ from a sample.
-Hence the Lipschitz loss
-from the nearest sample is
-bounded by
-\[
-\frac18\frac{\pi}{2N}
-<\frac{22}{7\cdot65536}.
-\]
-Also the rigorous $M=2$ strip
-error satisfies
-\[
-E_2<\frac{27(22/7)}{20^9}
-<10^{-9}.
-\]
-Therefore the following is an
-\emph{exact finite certificate target}:
-if all 4,096 sampled values of
-$F_2$ can be enclosed by directed
-complex interval arithmetic so
-that
-\[
-|F_2(z_j)|\ge7\cdot10^{-5}
-\qquad(0\le j<4096),
-\]
-then necessarily on the
-\emph{entire continuous contour}
-\[
-|F_2(z)|>
-7\cdot10^{-5}
--\frac{22}{7\cdot65536}
->E_2.
-\]
-The inequality and exact rational
-thresholds are kernel-checked in
-\texttt{XiKernel/ContourMeshGate.lean}.
-A validated winding number of
-the 4,096-node polygon would then
-produce a rigorous single-region
-Rouch\'e certificate.
-The necessary 4,096 directed
-complex enclosures and winding
-certificate have \emph{not}
-yet been constructed: existing
-96-node mpmath samples are
-numerical only. This is a
-finite proof obligation,
-not a completed zero-count
-certificate.
+\paragraph{From contour sampling to interval proof.}
+An initial 4,096-node contour-mesh plan
+would have required rigorous
+complex intervals at every node
+and a separate certified winding
+number. The Taylor comparison
+below is both simpler and stronger:
+it controls the entire circle
+analytically from four
+real interval integrals, without
+sampling the contour.
 
 \subsubsection{An interval-certified first-zero disk}
 \label{subsec:firstzerocert}
-The preceding 4,096-node design has a simpler
-replacement: one can compare $F_2$ with its
+To obtain a rigorous zero count,
+compare $F_2$ with its
 \emph{linear Taylor polynomial} on the circle.
 This requires just three Taylor coefficients
 and one strictly positive remainder integral,
