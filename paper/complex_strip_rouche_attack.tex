@@ -540,6 +540,110 @@ transcendental integrals.
 These finite zero counts
 do not settle RH.
 
+\subsubsection{A third certified real zero}
+\label{subsec:thirdzerocert}
+A third disk provides a sharper
+test of the same method at an
+appreciably smaller value of the
+Fourier transform.
+
+\begin{theorem}[Third bounded zero-count certificate]
+\label{thm:thirdzerodisk}
+The genuine Riemann transform
+$F(z)=\xi(\tfrac12+\tfrac{iz}{2})/4$
+has precisely one zero, counted
+with multiplicity, inside
+\[
+\boxed{|z-50.02171516|<\frac1{25}.}
+\]
+The zero is real and simple.
+\end{theorem}
+\begin{proof}
+Let $z_2=50.02171516$ and write
+$F_2(z_2+w)=a_0+a_1w+a_2w^2+R_3(w)$.
+On $|w|\le1/25$,
+\[
+|R_3(w)|\le
+\frac{64}{3\cdot10^6}
+\int_0^\infty
+(\phi_1+\phi_2)(r)
+r^3e^{r/25}\,dr.
+\]
+The same outward-rounded
+interval-Simpson construction
+as above, now with $z_2<51$,
+uses 49,152 and 65,536
+panels independently.
+The derivative-polynomial
+majorants $B_0,\ldots,B_4$
+are unchanged; for the remainder
+integrand, $e^{r/25}<2$ on
+$[0,2]$. The omitted
+$r>2$ contributions remain
+bounded by $10^{-20}$.
+
+Already at 49,152 panels
+the rational interval enclosures
+give
+\begin{equation}\label{eq:thirdTaylor}
+\boxed{\begin{gathered}
+|a_0|<10^{-9},\qquad
+a_1<-156\cdot10^{-9},\\
+|a_2|<5\cdot10^{-8},\\
+|R_3(w)|<27\cdot10^{-10}
+\quad(|w|\le\tfrac1{25}).
+\end{gathered}}
+\end{equation}
+The 65,536-panel replay
+independently satisfies
+all four inequalities.
+For $|w|=1/25$,
+comparison with the linear
+term $a_1w$ therefore yields
+\begin{align*}
+|F_2(z_2+w)|
+&>\frac{156\cdot10^{-9}}{25}
+-10^{-9}\\
+&\qquad-\frac{5\cdot10^{-8}}{625}
+-27\cdot10^{-10}\\
+&=2.46\cdot10^{-9}
+>2\cdot10^{-9}.
+\end{align*}
+The exact theta-tail bound
+$\sup_{|\Im z|\le7}|F-F_2|<10^{-9}$
+is strictly smaller.
+Two applications of
+Rouch\'e's theorem thus give
+a single zero of $F$
+inside the disk, counted
+with multiplicity.
+Conjugation symmetry again
+forces reality, and the
+multiplicity count gives
+simplicity.
+\end{proof}
+
+All three zero-count disks
+were established without
+asserting that their centres
+are exact zeros. Their
+certificates are independent
+finite computations with
+explicit analytic errors;
+they do not exclude
+off-critical zeros at other
+heights. The companion script
+\texttt{certificates/xi\_third\_zero\_interval.py}
+and the Lean algebra module
+\texttt{XiKernel/ThirdZeroDiskGate.lean}
+record the numerical and
+formal trust boundaries.
+This is further verification
+of a method on already-known
+classical zeta zeros, not
+a claim of newly discovered
+zeros or a proof of RH.
+
 \begin{proposition}[The exact remaining
 global zero-migration criterion]
 \label{prop:zeromigration}
