@@ -236,3 +236,20 @@ where `q=pi*(M+1)^2`. For k=0 the strip extends to `|Im z|<=7`. The genuine thet
 - **Publication correction:** C. M. Newman, *The GHS Inequality and the Riemann Hypothesis*, *Constructive Approximation* **7** (1991), 389–399, already proves convexity of the classical theta potential derivative. The qualitative global monotonicity is not original to this programme; `paper/global_curvature_certificate.tex` is now framed as an alternate quantitative verification. The source `paper/main.tex` includes the reference and in-text attribution. The referenced Rodgers–Tao (2020) and Newman–Wu (2020) papers are explicitly cited in `paper/newman_corrected_addendum.tex` and the heat section. The requested Zenodo identifier is absent from the current manuscript.
 - **New exact local mechanism:** If a smooth backward heat family has a simple double real zero with `H=H'=0`, `H''=a!=0`, then `L1=0`, `L2=a²/4` and `dL1/dt=a²>0`. A backward time step makes `L1<0` at that real point. The explicit polynomial heat solution `H_t(z)=z²−2t` realizes the crossing. This is a general heat-flow lemma, not a discovery of a double zero for actual Riemann Xi and not RH.
 - **Independent rational regression:** 250 test cases passed locally; source `certificates/xi_heat_double_root_transversality_exact.py`. `XiKernel/HeatDoubleRootTransversality.lean` contains the corresponding algebraic lemmas and an axiom audit. New GitHub CI builds are queued, not yet completed, at this checkpoint. The full theta/heat analytic chain is not Lean-certified.
+
+## 19 October 2026 — actual theta heat zero-density obstruction to global bounded comparison
+
+**New theorem from classical zero density (analytical proof added to the complete paper):** At t=1/2, all zeros of the genuine de Bruijn–Newman H_t are real and simple (Ki–Kim–Lee; de Bruijn–Newman), and N_t(T)=T log T/(4π)+O(T). For any simple real zero a and any other zero b, the real-root canonical product proves
+
+`L2[H_t](a)/L1[H_t](a) >= 1/(a-b)^2`.
+
+The increasing density forces some adjacent gap in [T,2T] <=(4π+o(1))/log T; hence
+`6L2[H_(1/2)](a)/L1[H_(1/2)](a) >= (3/(8π²)+o(1))log²T`
+along an unbounded sequence. Thus
+`sup_x 6L2[H_(1/2)](x)/L1[H_(1/2)](x)=infinity` on positive-denominator points.
+
+**Implication:** the paper's earlier sufficient condition `6U2 <= c1(s)U1` with *bounded-in-height* c1(s) is impossible **for the actual theta heat flow already at its known real-zero initial time**. It is not merely unproved. The corrected sufficient hypothesis allows a nonnegative locally bounded spatial coefficient `c_n(s,x)`, with the necessary possibility of at least log²|x| growth in n=1 at s=0. A suggested log² global *upper* envelope is a proposed test, **not a proven inequality**. Any collision at some intermediate heat time could still defeat it.
+
+**Exact reproducibility:** `paper/heat_zero_gap_global_obstruction.tex`, `XiKernel/HeatZeroGapObstruction.lean`, `certificates/xi_heat_zero_gap_exact.py`, `.github/workflows/xi-heat-zero-gap.yml`. Local symbolic and Fraction tests passed. GitHub Lean/CI runs have been queued; do not assert their success before completion. Published zero count and canonical product are cited mathematical inputs and NOT kernel-checked in Lean.
+
+**Paper and DOI:** The full GitHub manuscript integrates the result inside its heat-flow section. The user confirms DOI `10.5281/zenodo.23461586` is live; avoid obsolete 'reserved / not yet published' claims. No claim of RH proof or publication novelty. RH remains **OPEN**.
