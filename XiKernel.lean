@@ -11,3 +11,5 @@ import XiKernel.GlobalCurvatureAlgebra
 import XiKernel.RadialCurvatureCounterexample
 
 import XiKernel.FiniteDepthBarrier
+
+import XiKernel.NearRealFiniteDepth
