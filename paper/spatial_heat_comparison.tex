@@ -518,41 +518,132 @@ RH-equivalent for that kernel, rather
 than following from elementary source
 positivity.
 
-\paragraph{A testable theta-specific
-factorization target.}
-Writing $w=u+v$ and letting
-$\nu(v)$ also denote its positive density,
-the residual Laguerre correlation is
+\paragraph{The Gaussian-mixture proposal fails
+for the true theta correlations.}
+The residual correlation has the positive density
 \begin{align}
 \mathcal G_{n,s}(w)
 ={}&\frac{e^{-sw^2/2}}{2(2n)!}
 \int_{\mathbb R}b^{2n}e^{-sb^2/2}\nonumber\\
-&\quad\cdot\nu((w+b)/2)\nu((w-b)/2)\,db.
+&\quad\cdot\nu((w+b)/2)\nu((w-b)/2)\,db,
 \label{eq:duhamelcorrelation}
 \end{align}
-Its Fourier transform is $U_n(s,x)$.
-Pointwise positivity of $\mathcal G_{n,s}$
-is automatic; its positive definiteness
-would be equivalent to the desired
-global inequality, not a separate proof.
-A stronger sufficient condition, worth
-testing but currently unproved, is an
-explicit nonnegative Gaussian-mixture
-representation
+whose Fourier transform is $U_n(s,x)$.
+Positivity of this density does not
+establish Fourier positivity, and
+there is a precise obstruction to
+one stronger proposed factorization.
+
+\begin{theorem}[No positive Gaussian mixture
+for theta correlations]
+\label{thm:nogaussianmixture}
+For every $n\ge0$ and
+$0\le s\le1/2$, the genuine theta
+correlation $\mathcal G_{n,s}$ is
+strictly positive and decays faster
+than every fixed Gaussian:
+\begin{equation}
+\forall A>0\ \exists C_{A,n,s}<\infty:
+\quad
+0<\mathcal G_{n,s}(w)
+\le C_{A,n,s}e^{-Aw^2}
+\quad(w\in\mathbb R).
+\label{eq:supergaussiancorrelation}
+\end{equation}
+Consequently there exists no
+nonzero positive measure $\rho$
+on $(0,\infty)$ satisfying
+\begin{equation}
+\mathcal G_{n,s}(w)=
+\int_{(0,\infty)}e^{-\lambda w^2}
+\,d\rho(\lambda)
+\quad(w\in\mathbb R).
+\label{eq:impossiblemixture}
+\end{equation}
+\end{theorem}
+\begin{proof}
+By evenness and the defining
+square-lattice theta series, for
+$u\ge0$ one has
+\[
+0<\Phi(u)\le
+C e^{9u-\pi e^{4u}}.
+\]
+Indeed $e^{4u}\ge1$ and the
+remaining sum of
+$m^4e^{-\pi(m^2-1)}$
+is finite. Hence
+$\nu(u)=\frac12e^{u^2/2}\Phi(u)$
+decays faster than any Gaussian:
+for each $A>0$ a constant $K_A$
+satisfies
+$0<\nu(u)\le K_Ae^{-Au^2}$
+for all real $u$.
+Using $(w+b)^2+(w-b)^2
+=2(w^2+b^2)$ in
+\eqref{eq:duhamelcorrelation} gives
 \[
 \mathcal G_{n,s}(w)
-=\int_{(0,\infty)}e^{-\lambda w^2}
-\,d\rho_{n,s}(\lambda),\quad \rho_{n,s}\ge0.
+\le\frac{K_A^2}{2(2n)!}
+e^{-Aw^2/2}
+\int_{\mathbb R}
+b^{2n}e^{-Ab^2/2}\,db.
 \]
-It would make every Fourier transform
-nonnegative, but no such representation
-has been found for the theta correlations.
-The exact symbolic replay is
-\path{certificates/xi_heat_duhamel_source_exact.py},
-with rational algebraic gates in
-\path{XiKernel/HeatDuhamelSpectral.lean}.
-The full theta factorization and any
-unbounded-height zero exclusion remain open.
+The parameter $A$ is arbitrary,
+so replacing it by $2A$
+establishes \eqref{eq:supergaussiancorrelation}.
+The density is strictly positive
+because its integrand is positive
+off $b=0$.
+
+Suppose \eqref{eq:impossiblemixture}
+held. At $w=0$ the measure is
+finite and nonzero, since
+$\mathcal G_{n,s}(0)>0$.
+There must be a finite $L>0$
+with $m:=\rho((0,L])>0$.
+Then for all real $w$,
+\[
+\mathcal G_{n,s}(w)
+\ge m e^{-Lw^2}.
+\]
+Taking $A>L$ in
+\eqref{eq:supergaussiancorrelation}
+would require
+$m e^{-Lw^2}\le
+C_Ae^{-Aw^2}$ for every $w$,
+which is impossible as
+$|w|\to\infty$.
+\end{proof}
+
+This excludes \emph{positive mixtures
+of centred Gaussians}, not positive
+definiteness itself. Positive-definite
+functions may have super-Gaussian
+decay; for example autocorrelations
+of compactly supported smooth
+functions are positive definite.
+The remaining theta-specific
+task is therefore a different,
+constructive Fourier-positive
+representation, such as an explicit
+sum of convolution squares.
+Its existence is unproved
+and an abstract existence assertion
+would again be equivalent to
+the missing Laguerre inequalities.
+
+The Duhamel symbolic replay is
+\path{certificates/xi_heat_duhamel_source_exact.py};
+the Gaussian-mixture obstruction
+and elementary comparison checks are
+in the accompanying analytical
+release and
+\path{certificates/xi_theta_mixture_no_go_exact.py}.
+Lean currently certifies the
+finite algebraic gates only.
+The full theta positive-definiteness
+and RH remain unresolved.
 
 \paragraph{Verification scope.}
 Exact rational tests verify the
