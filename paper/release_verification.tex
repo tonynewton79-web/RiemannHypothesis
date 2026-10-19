@@ -109,6 +109,38 @@ equation nor the Fourier asymptotic has yet been
 formalized end-to-end in Lean. The corresponding
 manuscript results do not settle RH.
 
+\paragraph{October 2026 complex-strip proof attack.}
+The new work establishes
+the exact Gaussian parity-repair and
+zero-invariance theorems,
+a uniform theta truncation bound
+on $|\Im z|\le7$, and a
+conditional Rouch\'e zero-count
+criterion. The standard-axiom
+Lean subtheorems and their
+\texttt{\#print axioms} audit passed in
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39241484058}{Lean run 39241484058}.
+The exact-arithmetic coefficient and
+strip-exponent tests passed in
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39241940890}{run 39241940890}.
+The independent Gaussian
+and incomplete-gamma numerical
+replays, including a sampled
+first-zero contour, passed in
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39241873026}{numerical run 39241873026}.
+The 96-point contour winding
+is \emph{not} a certified
+continuous-contour winding number.
+The incomplete-gamma integral,
+the full Jacobi theta transformation,
+the complex-strip analytic error
+bound and the Rouch\'e/Hurwitz
+application are manuscript proofs,
+not end-to-end Lean theorems.
+The RH-equivalent eventual
+zero-evacuation assertion
+remains unproved.
+
 \paragraph{Release identity.}
 The source is maintained at
 \url{https://github.com/tonynewton79-web/RiemannHypothesis}.
