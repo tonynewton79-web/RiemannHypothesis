@@ -13,6 +13,12 @@
 
 **PASS:** [GitHub Actions Lean run #39182546267](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39182546267) on commit `922ed6c6` completed successfully. The successful job includes installation, Lake dependency resolution, and the Mathlib compilation action. The module `XiKernel/Algebra.lean` certifies polynomial two-cycles, positivity subclaims, an exact complex Fourier-polynomial zero, and arithmetic for the Fourier-side negative Laguerre value. It does **not** formalize the infinite-iteration theorem, Gaussian Fourier integration, analytic theta tail or fifth-iterate interval computation in Lean.
 
+## Verification trust audit (19 October 2026)
+
+- **PASS:** [Lean audit workflow run #39184421717](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39184421717).
+- `XiKernel.centerMoment_pos`, `XiKernel.correlation_quadratic_gate`, and `XiKernel.large_fourier_complex_zero` depend only on standard Mathlib axioms `[propext, Classical.choice, Quot.sound]`.
+- `XiKernel.rational_jet_fifth_negative` uses `native_decide`; `#print axioms` explicitly reports `Lean.ofReduceBool` and `Lean.trustCompiler`, in addition to the standard axioms. This is compiler-assisted reflection, **not a small-kernel-only check**. It still proves only the sign of the rational approximation jet, not the genuine theta-kernel fifth-iterate inequality.
+
 ## Not established
 
 - A Lean formalization of the actual theta-kernel fifth iterate, Machin/pi bounds, or analytic theta-tail estimate.
