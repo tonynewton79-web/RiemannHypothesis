@@ -82,7 +82,8 @@ at that same backward time and x=pi. -/
 theorem within_slab_source_deficit (budget source : ℝ)
     (h : source = budget + (15/256 : ℝ)) :
     ¬ source ≤ budget := by
-  rw [h]
-  norm_num
+  intro hbad
+  rw [h] at hbad
+  linarith
 
 end XiKernel
