@@ -1,8 +1,9 @@
 \section{Endpoint curvature of the actual theta kernel}
 \label{sec:curvatureendpoints}
-The condition $V'''(u)>0$ for $u>0$,
-with $V=-\log\Phi$, remains globally unresolved.
-We isolate both endpoint regimes by exact analytic arguments.
+We isolate the two endpoint regimes analytically.
+The compact intermediate region is subsequently certified
+in Section~\ref{sec:globalcurvature}, closing the global
+curvature condition without claiming RH.
 
 \begin{proposition}[Modular-point cancellation]
 Let
@@ -96,14 +97,8 @@ V'''(u)=64\pi e^{4u}+O(1)
 hence eventual strict positivity.
 \end{proof}
 
-The global problem is now concentrated on a
-\emph{compact intermediate interval}. The
-modular neighborhood is controlled through
-the positive second-level defect; the distant
-tail is controlled by first-summand dominance.
-An explicit rational subdivision certificate
-for the intermediate region, followed by an
-analytic/Lean transfer, is still missing.
-This endpoint theorem does not imply the
-complete Laguerre hierarchy on the real line,
-nor the Riemann hypothesis.
+The remaining compact interval has now been handled by
+the exact 500-cell certificate of
+Section~\ref{sec:globalcurvature}. The complete end-to-end
+Lean transfer and the global-in-$x$ Fourier positivity
+hierarchy still remain open, as does RH.
