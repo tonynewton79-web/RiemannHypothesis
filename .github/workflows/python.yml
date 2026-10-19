@@ -30,5 +30,7 @@ jobs:
         run: python certificates/xi_modular_odd_jet_exact.py
       - name: Verify Gaussian parity repair, Laguerre shift and uniform approximation gates
         run: python certificates/gaussian_parity_repair_exact.py
+      - name: Certify complex Xi strip theta exponent and Rouche modulus gates
+        run: python certificates/xi_complex_strip_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
