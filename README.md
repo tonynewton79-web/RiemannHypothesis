@@ -148,3 +148,26 @@ The interval checker `certificates/xi_first_zero_interval.py` certifies that the
 - **Global gap:** no exclusion of nonreal zeros at arbitrary heights; RH remains **open**. Next challenge is a height-uniform certified contour modulus or adaptive `M=M(R)` with an effective global separation guarantee.
 
 Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Reserved DOI `10.5281/zenodo.23461586` remains unpublished.
+
+## 19 October 2026 — three disjoint genuine Xi zero disks, independently interval-certified
+
+The same two-mode Jacobi-theta Fourier transform and exact complex-strip error theorem now certify **exactly one real simple zero in each of three disjoint disks**:
+
+| Complex Fourier disk | Certified lower bound for |F2| on boundary | Two outward-rounded interval-Simpson panel counts |
+| --- | ---: | --- |
+| `|z-28.269|<1/2` | `65e-6` | `8192,16384` |
+| `|z-42.04408|<1/10` | `105e-9` | `16384,32768` |
+| `|z-50.02171516|<1/25` | `2e-9` (actual rational margin `2.46e-9`) | `49152,65536` |
+
+For each disk the actual Xi Fourier transform satisfies `|F-F2|<1e-9` on its boundary, smaller than the strict certified lower bound. Two Rouché comparisons first show `F2` has one zero against its local linear Taylor term, then transfer the count to the **genuine** Xi function. Conjugation symmetry forces the unique zero to be real and simple.
+
+**GitHub interval CI (completed with success):**
+- [first disk — 39244890918](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39244890918)
+- [second disk — 39248345083](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39248345083)
+- [third disk — 39248816397](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39248816397)
+
+**Trust boundary:** Uses pinned `mpmath.iv==1.3.0` with outward-rounded transcendental interval operations converted to exact rationals, analytic fourth-derivative Simpson and r>2 integral-tail error bounds, the classical Jacobi theta/Fourier identity, and Rouché's theorem. Lean formally checks **only** the rational comparison gates; it has not kernel-checked all quadrature or theta/Fourier analysis. The zero locations are classical prior art; this is a reproducible proof-method validation, not discovery of unknown zeta zeros.
+
+**Riemann hypothesis:** still open. These checks do not exclude any zero outside the three bounded disks and do not prove zero-free off-real strips at arbitrary heights.
+
+**Sources:** `certificates/xi_first_zero_interval.py`, `certificates/xi_second_zero_interval.py`, `certificates/xi_third_zero_interval.py`; `XiKernel/{FirstZeroDiskGate,SecondZeroDiskGate,ThirdZeroDiskGate}.lean`; `paper/complex_strip_rouche_attack.tex`.
