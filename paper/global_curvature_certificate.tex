@@ -1,12 +1,19 @@
 \section{Global radial-curvature certificate for the Xi kernel}
 \label{sec:globalcurvature}
 
-We now discharge the curvature condition left open in
-Section~\ref{sec:weightedcurvature}, using an exact, finite
-rational interval proof joined to a separate analytic
-infinite-range estimate. The statement remains subject
-to independent specialist and certificate-code review;
-it makes no claim regarding the Riemann hypothesis.
+The monotonicity of the potential curvature for the
+classical Riemann theta kernel is not new: Newman proved
+in 1991 that $V'$ is convex on the positive half-line,
+using a GHS-type argument from statistical mechanics
+\cite{NewmanGHS}. Our aim here is different and narrower:
+to give a reproducible quantitative verification by
+outward-rounded rational intervals and an explicit
+infinite-range estimate, while isolating the exact
+bounds subsequently used in the Laguerre comparison.
+In particular, this is not a claim of first discovery
+of the underlying monotonic-curvature property.
+The numerical and analytic certificate still requires
+independent specialist review.
 
 \begin{theorem}[Global monotone theta curvature]
 \label{thm:globalcurvature}
@@ -213,5 +220,11 @@ within Lean's kernel.
 Neither the global radial-curvature theorem
 nor its common finite Fourier-positivity
 band implies the Riemann hypothesis.
-Priority and independent specialist review
-remain outstanding.
+Newman's prior theorem \cite{NewmanGHS} establishes
+the principal qualitative convexity assertion.
+Any possible contribution of this section is the
+alternative constructive certificate, its strict
+positive rational margins on the stated domains,
+and the way those estimates are applied here;
+their novelty has not been independently established.
+Independent specialist review remains outstanding.
