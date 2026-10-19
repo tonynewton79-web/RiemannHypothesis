@@ -38,4 +38,23 @@ theorem xiEntire_entire : Differentiable ℂ xiEntire := by
     (differentiable_const (1 : ℂ)).add hprod
   exact hsum.div_const (2 : ℂ)
 
+/-- The actual critical-line Xi entire function, with the Fourier
+variable z scaled so that the first real zero is at ~28.269... -/
+noncomputable def XiOnLine (z : ℂ) : ℂ :=
+  xiEntire ((1/2 : ℂ) + Complex.I * z / 2)
+
+theorem XiOnLine_even (z : ℂ) :
+    XiOnLine (-z) = XiOnLine z := by
+  unfold XiOnLine
+  have harg : (1/2 : ℂ) + Complex.I * (-z) / 2 =
+      1 - ((1/2 : ℂ) + Complex.I * z / 2) := by
+    ring
+  rw [harg, xiEntire_functional_eq]
+
+theorem XiOnLine_entire : Differentiable ℂ XiOnLine := by
+  unfold XiOnLine
+  have harg : Differentiable ℂ (fun z : ℂ => (1/2 : ℂ) + Complex.I * z / 2) := by
+    fun_prop
+  exact xiEntire_entire.comp harg
+
 end XiKernel
