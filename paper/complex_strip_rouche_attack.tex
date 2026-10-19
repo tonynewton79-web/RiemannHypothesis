@@ -248,6 +248,214 @@ finite proof obligation,
 not a completed zero-count
 certificate.
 
+\subsection{An interval-certified first-zero disk}
+\label{subsec:firstzerocert}
+The preceding 4,096-node design has a simpler
+replacement: one can compare $F_2$ with its
+\emph{linear Taylor polynomial} on the circle.
+This requires just three Taylor coefficients
+and one strictly positive remainder integral,
+rather than thousands of validated contour
+values or an independent winding computation.
+
+\begin{theorem}[A finite certified zero count for
+the genuine $\Xi$ transform]\label{thm:firstzerodisk}
+For $z_0=28269/1000$, the entire function
+\[
+F(z)=\frac14\xi\!\left(\frac12+\frac{iz}{2}\right)
+\]
+has exactly one zero, counted with
+multiplicity, in the disk
+\begin{equation}
+\boxed{|z-z_0|<\frac12.}
+\label{eq:firstzerodisk}
+\end{equation}
+That unique zero is real and simple.
+The proof is a finite interval-arithmetic
+certificate with explicit Simpson and
+theta-tail error bounds, not a proof of RH.
+\end{theorem}
+
+\begin{proof}
+Take the two-mode positive-axis Fourier
+transform
+\[
+F_2(z)=2\int_0^\infty
+\bigl(\phi_1(r)+\phi_2(r)\bigr)\cos(zr)\,dr
+\]
+and write $w=z-z_0$. Taylor's formula gives
+\[
+F_2(z_0+w)=a_0+a_1w+a_2w^2+R_3(w),
+\]
+where $a_k=F_2^{(k)}(z_0)/k!$.
+For $|w|\le1/2$, the integral remainder
+obeys
+\begin{equation}
+|R_3(w)|\le
+\frac1{24}\int_0^\infty
+\bigl(\phi_1(r)+\phi_2(r)\bigr)
+r^3e^{r/2}\,dr .
+\label{eq:firstzeroR}
+\end{equation}
+The four real quantities on the right
+and in the Taylor coefficients are
+enclosed by outward-rounded interval
+Simpson quadrature on $[0,2]$,
+with analytic bounds for the omitted
+$r>2$ part.
+
+For completeness, the verified
+uniform mode-derivative constants
+for $0\le j\le4$ are
+\[
+(B_0,B_1,B_2,B_3,B_4)=
+(30,1272,79320,6800400,762395760).
+\]
+Indeed each mode derivative has the form
+$q^{-1/4}v^{5/4}e^{-v}P_j(v)$,
+with $v=qe^{4r}\ge3$ and
+$|P_j(v)|\le\|P_j\|_1v^{j+1}$.
+The elementary exponential comparison
+$v^{j+3}e^{-v}\le(j+3)!$
+yields $B_j=\|P_j\|_1(j+3)!$.
+Applying Leibniz's rule to
+$2(\phi_1+\phi_2)r^k\cos(z_0r)/k!$
+(or the corresponding odd derivative)
+provides valid fourth-derivative bounds
+for $k=0,1,2$, respectively,
+\[
+8.388\cdot10^9,\quad
+1.706\cdot10^{10},\quad
+1.735\cdot10^{10}.
+\]
+For the positive remainder integrand
+in \eqref{eq:firstzeroR}, a valid
+fourth-derivative bound is
+$1.637\cdot10^9$.
+All constants are rounded
+\emph{upward} here; the code uses
+their exact rational values.
+With $8192$ equal Simpson panels
+on $[0,2]$, the formula
+\[
+|\mathrm{error}|
+\le\frac2{180}
+\left(\frac2{8192}\right)^4
+\sup_{[0,2]}|g^{(4)}|
+\]
+bounds the four quadrature errors
+by $3.32\cdot10^{-7}$,
+$6.74\cdot10^{-7}$,
+$6.85\cdot10^{-7}$ and
+$6.47\cdot10^{-8}$.
+
+The remaining $r>2$ tails
+are less than $10^{-20}$.
+For this last inequality, use
+$1000<e^8<5000$, $3<q_m<16$
+for $m=1,2$, $e^3>20$, and
+the elementary integer-degree
+incomplete-gamma upper bound
+\[
+e^{-q_me^8}
+\left(q_me^{24}+3e^{16}
++\frac{6e^8}{q_m}+\frac6{q_m^2}\right)
+<10^{14}20^{-1000}.
+\]
+These rational comparisons are
+checked explicitly by positive
+Taylor sums, including an upper
+tail estimate for $e^2<8$.
+
+The executable certificate therefore
+establishes the \emph{strict rational}
+enclosures
+\begin{equation}
+\boxed{
+\begin{gathered}
+|a_0|<10^{-6},\quad
+a_1<-17\cdot10^{-5},\\
+|a_2|<52\cdot10^{-6},\quad
+|R_3(w)|<6\cdot10^{-6}
+\quad(|w|\le\tfrac12).
+\end{gathered}}
+\label{eq:firstzeroTaylor}
+\end{equation}
+As an independent numerical-resolution
+test, the certificate was repeated
+using $16384$ Simpson panels; both
+full directed-rounding runs establish
+the same rational inequalities.
+
+On the circle $|w|=1/2$,
+\eqref{eq:firstzeroTaylor} gives
+\begin{align}
+|F_2(z)|
+&\ge|a_1w|-|a_0|-|a_2w^2|-|R_3(w)|\nonumber\\
+&> \frac{17\cdot10^{-5}}2
+-10^{-6}-\frac{52\cdot10^{-6}}4
+-6\cdot10^{-6}\nonumber\\
+&=65\cdot10^{-6}.
+\label{eq:linearmargin}
+\end{align}
+Therefore $F_2$ has exactly one
+zero in the disk by Rouch\'e's
+theorem, compared with
+$a_1(z-z_0)$.
+
+The genuine theta-tail inequality
+\eqref{eq:stripzero} yields, throughout
+the same disk and its boundary,
+\[
+|F(z)-F_2(z)|
+\le27\pi e^{-9\pi}
+<\frac{27(22/7)}{20^9}
+<10^{-9}.
+\]
+A second application of Rouch\'e
+shows that $F$ has precisely one
+zero there. Since $F(\bar z)=
+\overline{F(z)}$ and the disk is
+invariant under conjugation,
+a nonreal zero would occur with
+its distinct conjugate, impossible
+for a single zero counted with
+multiplicity. Hence the unique
+zero is real and simple.
+\end{proof}
+
+\paragraph{Trust boundary and significance.}
+The stand-alone checker
+\texttt{certificates/xi\_first\_zero\_interval.py}
+uses \texttt{mpmath.iv} version 1.3.0
+to enclose $\pi$, exponentials, sine
+and cosine at the Simpson nodes;
+every interval endpoint is converted
+to an exact rational number before
+the final inequalities are decided.
+The derivative majorants,
+composite Simpson remainder,
+integral tails and final Rouch\'e
+margin are explicit rational
+inequalities. The implementation
+was replayed at both $8192$ and
+$16384$ panels. The proof relies
+on the correctness of the interval
+library's transcendental enclosures
+and standard analytic theorems.
+The corresponding
+\texttt{XiKernel/FirstZeroDiskGate.lean}
+checks the final rational gap but
+does not formalize the transcendental
+quadrature, Fourier identity or
+Rouch\'e theorem end-to-end.
+A single certified classical
+real zero is a useful reproducibility
+benchmark; it does not verify
+infinitely many critical zeros
+or establish RH, and no novelty
+is asserted for this zero's existence.
+
 \begin{proposition}[The exact remaining
 global zero-migration criterion]
 \label{prop:zeromigration}
