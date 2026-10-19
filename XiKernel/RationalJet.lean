@@ -48,6 +48,6 @@ def jet5 : List ℚ :=
 
 theorem rational_jet_fifth_negative :
     jetCoeff jet5 0 < 0 := by
-  decide
+  native_decide
 
 end XiKernel
