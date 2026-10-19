@@ -35,7 +35,7 @@ lake build
 cd paper && pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-When Lean CI passes, it certifies only the theorem statements actually present in the Lean file.
+**Lean CI PASS (19 October 2026):** [GitHub Actions run #39182546267](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39182546267) successfully compiled the algebraic module with Lean 4.24.0 / Mathlib. It certifies only the theorem statements actually present in the Lean file. The fifth-iterate analytical bound is a separate exact Python interval certificate and remains outside the Lean proof assistant.
 
 ## Background
 
