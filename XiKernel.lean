@@ -23,3 +23,5 @@ import XiKernel.GaussianParityRepair
 import XiKernel.ComplexStripTransfer
 
 import XiKernel.ContourMeshGate
+
+import XiKernel.FirstZeroDiskGate
