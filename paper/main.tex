@@ -15,18 +15,22 @@
 \noindent\textit{Reserved DOI, not yet published:}
 \href{https://doi.org/10.5281/zenodo.23461586}{10.5281/zenodo.23461586}.
 \begin{abstract}
-We give an exact integer-interval certificate showing that the fifth
-nonlinear differential concavity iterate of the genuine Riemann
-theta kernel is negative at the modular point, while iterates zero
-through four are positive. We exhibit two strongly log-concave
-Gaussian-polynomial kernels with positive iterates of every order
-but Fourier transforms with nonreal zeros. The smaller example
-violates the first Fourier-side Laguerre inequality at an explicit
-real point. Lean certifies finite algebraic and moment-positivity subclaims, while
-an independently audited rational Python interval proves the local
-fifth-iterate bound for the actual theta series; full end-to-end
-Lean formalization remains open. These results do not establish
-or refute the Riemann hypothesis. Priority remains unverified.
+We investigate three distinct questions concerning the Riemann \\(\\Xi\\)
+Fourier kernel: differential-concavity iteration, generalized
+Laguerre inequalities, and theta-lattice truncation.
+The fifth iterate of the genuine theta kernel has a rigorous
+negative interval certificate; explicit Gaussian kernels show
+that no fixed finite Laguerre depth can certify real zeros.
+A theta-specific incomplete-gamma resummation yields explicit
+uniform-in-real-frequency derivative and Laguerre truncation
+bounds. More sharply, Jacobi modular inversion cancels all odd
+endpoint derivatives of the complete theta kernel, whereas every
+fixed square-lattice cutoff leaves a positive first-derivative
+defect and therefore an eventually negative first Laguerre
+expression. This explains a quantitative arithmetic cancellation
+not captured by generic curvature. Lean certifies algebraic
+gates but not the complete theta Fourier proof; RH remains open.
+Priority and independent review remain unresolved.
 \end{abstract}
 \input{fifth.tex}
 \Needspace{10\baselineskip}
@@ -40,9 +44,10 @@ or refute the Riemann hypothesis. Priority remains unverified.
 \input{radial_curvature_fourier_counterexample.tex}
 \input{finite_depth_laguerre_barrier.tex}
 \input{near_real_finite_depth_barrier.tex}
+\input{square_lattice_uniform_fourier.tex}
 \input{mathlib_xi_bridge.tex}
 \input{release_verification.tex}
-\begin{thebibliography}{9}
+\begin{thebibliography}{12}
 \bibitem{CD} G. Csordas and D. Dimitrov,
 Conjectures and theorems in the theory of entire functions,
 \emph{Numer. Algorithms} 25 (2000), 109--122.
@@ -55,5 +60,14 @@ and the Riemann $\xi$-function, \emph{CMFT} 15 (2015), 373--391;
 \href{https://arxiv.org/abs/2610.04972}{arXiv:2610.04972} (2026).
 \bibitem{DX} D. Dimitrov and Y. Xu,
 \href{https://arxiv.org/abs/1606.05011}{arXiv:1606.05011} (2016).
+\bibitem{DF} M. DeFranco, On a series for the upper incomplete
+Gamma function, \href{https://arxiv.org/abs/1909.06941}{arXiv:1909.06941} (2019).
+\bibitem{Haglund} J. Haglund, Some conjectures on the zeros of
+approximates to the Riemann $\Xi$-function and incomplete gamma
+functions, \href{https://arxiv.org/abs/0910.5228}{arXiv:0910.5228} (2009).
+\bibitem{Polson} N. G. Polson,
+Incomplete Gamma Representations of the Riemann Xi Function:
+a Thorin Bernstein Framework, SSRN, June 2026,
+\href{https://doi.org/10.2139/ssrn.6954119}{doi:10.2139/ssrn.6954119}.
 \end{thebibliography}
 \end{document}
