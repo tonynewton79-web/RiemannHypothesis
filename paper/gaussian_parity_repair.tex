@@ -1,0 +1,220 @@
+\section{A parity-preserving theta approximation that cannot improve the zero set}
+\label{sec:gaussianrepair}
+A natural response to the endpoint defect of
+Theorem~\ref{thm:falsecutoff} is to smooth each finite
+theta-mode approximation. We show exactly what such
+smoothing achieves and why it does not constitute
+the missing zero-location argument.
+
+\begin{theorem}[Positive analytic parity repair and zero invariance]
+\label{thm:parityrepair}
+Let $M\ge1$ and
+$f_M(r)=\sum_{m=1}^{M}\phi_m(r)>0$ for $r\ge0$,
+as in Section~\ref{sec:squarelattice}. Put
+$P_M(u)=f_M(|u|)$ and define, for $\sigma>0$,
+\begin{equation}
+K_{M,\sigma}(u)=
+\frac{1}{\sqrt{2\pi}\sigma}
+\int_{\mathbb R}
+e^{-(u-v)^2/(2\sigma^2)}P_M(v)\,dv .
+\label{eq:parityrepairK}
+\end{equation}
+Then $K_{M,\sigma}$ is positive, even, real
+analytic, rapidly decreasing, and has all odd
+derivatives zero at $u=0$.
+Its Fourier transform is the entire function
+\begin{equation}
+\boxed{
+F_{M,\sigma}(z)=e^{-\sigma^2z^2/2}F_M(z).
+}
+\label{eq:parityrepairF}
+\end{equation}
+In particular $F_{M,\sigma}$ and $F_M$
+have \emph{exactly the same complex zeros
+with the same multiplicities}.
+Their first generalized Laguerre expressions
+satisfy the pointwise exact identity
+\begin{equation}
+\boxed{
+L_1[F_{M,\sigma}](x)
+=e^{-\sigma^2x^2}
+\bigl(L_1[F_M](x)+\sigma^2F_M(x)^2\bigr).
+}
+\label{eq:parityrepairL}
+\end{equation}
+For every fixed $n\ge0$ and $\sigma>0$,
+as real $|x|\to\infty$,
+\begin{equation}
+\boxed{
+L_n[F_{M,\sigma}](x)
+=e^{-\sigma^2x^2}\frac{4D_M^2}{x^4}
+\left(\frac{\sigma^{2n}}{n!}
++O_{M,\sigma,n}(x^{-2})\right),
+}
+\label{eq:parityrepairasym}
+\end{equation}
+where $D_M=f_M'(0)>0$.
+Thus \emph{every fixed Laguerre order} of
+the smoothed cutoff is eventually strictly
+positive on the real axis, despite its
+unchanged complex zero set.
+\end{theorem}
+
+\begin{proof}
+The integrand in \eqref{eq:parityrepairK} is
+strictly positive, and convolution of an
+even integrable function with an even
+Gaussian is even. Gaussian differentiation
+under the integral proves real analyticity
+and Schwartz decay; all odd derivatives
+vanish at zero by parity. The Fourier
+convolution theorem initially on the real
+axis, followed by holomorphic continuation,
+gives \eqref{eq:parityrepairF}. Since
+$e^{-\sigma^2z^2/2}$ never vanishes,
+its zeros and their multiplicities are
+those of $F_M$.
+
+For $g(x)=e^{-\sigma^2x^2/2}$,
+\[
+\frac{g'(x)}{g(x)}=-\sigma^2x,\qquad
+\frac{g''(x)}{g(x)}=\sigma^4x^2-\sigma^2.
+\]
+Expanding $(g'F+gF')^2-(gF)(g''F+
+2g'F'+gF'')$ and cancelling cross terms
+proves \eqref{eq:parityrepairL}.
+
+The repeated integration-by-parts
+expansion in Theorem~\ref{thm:falsecutoff}
+extends uniformly to a fixed complex strip
+$|\operatorname{Im}z|\le R$:
+\[
+F_M(z)=-2D_Mz^{-2}+O_{M,R}(z^{-4}),
+\quad |\operatorname{Re}z|\to\infty.
+\]
+Uniform strip bounds also justify
+termwise extraction of finitely many
+coefficients in the local complex
+variable $y$ by Cauchy's formula.
+Indeed
+\begin{align*}
+F_{M,\sigma}(x+iy)F_{M,\sigma}(x-iy)
+={}&e^{-\sigma^2x^2}e^{\sigma^2y^2}\\
+&\cdot F_M(x+iy)F_M(x-iy).
+\end{align*}
+For bounded complex $y$ the last product
+is $4D_M^2x^{-4}+O_{M,R}(x^{-6})$.
+The coefficient of $y^{2n}$ in
+$e^{\sigma^2y^2}$ is $\sigma^{2n}/n!$.
+This gives \eqref{eq:parityrepairasym}.
+Its leading coefficient is strictly
+positive for every fixed $n$ and
+$\sigma>0$, completing the proof.
+\end{proof}
+
+\begin{theorem}[Quantitative uniform approximation
+with unchanged cutoff zeros]
+\label{thm:parityuniform}
+Let
+\[
+E_M=3q_{M+1}e^{-q_{M+1}},\qquad
+J_M=\int_0^\infty|f_M''(r)|\,dr<\infty.
+\]
+Then for all real $x$,
+\begin{equation}
+\boxed{
+|F(x)-F_{M,\sigma}(x)|
+\le E_M+\sigma^2(D_M+J_M).
+}
+\label{eq:uniformgauss}
+\end{equation}
+In particular, choosing
+$\sigma_M^2=E_M/(1+D_M+J_M)$ gives
+\[
+\sup_{x\in\mathbb R}
+|F(x)-F_{M,\sigma_M}(x)|<2E_M
+\longrightarrow0.
+\]
+Thus positive, even, real-analytic
+approximants with exact odd-jet parity
+converge \emph{uniformly on the full real
+Fourier axis} to the genuine Riemann
+$\Xi$ transform, while each retains
+the exact complex zeros of its
+unsmoothed finite theta-mode cutoff.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:uniformFourier} with
+$k=0$ gives
+$\sup_x|F-F_M|\le E_M$.
+Twice integrating by parts, for $x\ne0$,
+\[
+x^2F_M(x)
+=-2D_M-2\int_0^\infty
+f_M''(r)\cos(xr)\,dr,
+\]
+so $x^2|F_M(x)|\le2(D_M+J_M)$.
+The elementary inequality
+$0\le1-e^{-t}\le t$ for $t\ge0$ gives
+\[
+|F_M(x)-F_{M,\sigma}(x)|
+\le\frac{\sigma^2x^2}{2}|F_M(x)|
+\le\sigma^2(D_M+J_M).
+\]
+Continuity covers $x=0$, proving
+\eqref{eq:uniformgauss}.
+The displayed choice of $\sigma_M$
+makes the second term strictly
+less than $E_M$, while $E_M\to0$
+superexponentially in $M^2$.
+\end{proof}
+
+\paragraph{Independent tests.}
+For $M=1$, $\sigma=0.35$ and real
+$x\in\{39.5,60,100\}$, direct
+incomplete-gamma differentiation
+of $F_M$ verifies
+$L_1[F_M](x)<0$ but
+\[
+L_1[F_M](x)+\sigma^2F_M(x)^2>0
+\]
+at all three points. This is a
+numerical cross-check, whereas
+\eqref{eq:parityrepairL} and the
+eventual-positive theorem are exact
+analytic identities.
+\texttt{certificates/gaussian\_parity\_repair\_exact.py}
+checks the polynomial/inequality
+gates in rational arithmetic.
+The Lean module
+\texttt{XiKernel/GaussianParityRepair.lean}
+formalizes the first Laguerre
+product law and preservation of
+complex zeros under a Gaussian
+multiplier. It does not formalize
+all convolution integrals,
+Fourier asymptotics or the
+$\Xi$-specific uniform bound
+end-to-end.
+
+\paragraph{Proof boundary and prior art.}
+Gaussian smoothing is a classical
+operation, and finite Fourier
+transforms of Jacobi-theta kernels
+with nonreal zeros were studied
+by Csordas \cite{CsTrunc}.
+The point here is a falsification
+of a tempting \emph{new proof route}:
+even global uniform real-axis
+approximation, positivity,
+analytic parity repair, and
+eventual positivity at every
+fixed Laguerre order cannot
+certify the real-zero property
+without additional genuinely
+modular, global-in-order
+Fourier information.
+This theorem does not assert
+that the true $\Xi$ transform
+has any nonreal zero, and
+does not resolve RH.
