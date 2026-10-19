@@ -1,0 +1,73 @@
+\section{Two all-iteration counterexamples}
+
+\begin{proposition}[Small two-cycle]\label{prop:small}
+Let $K(u)=e^{-u^2/4}(u^4+22u^2+241)$ and
+$g(t)=K(\sqrt t)$. Put $A(t)=t^2+22t+241$
+and $B(t)=t^2+22t+1$. Then, for all $n\ge0$
+and $t\ge0$,
+\[
+\mathcal T^ng(t)=2^{2^n-1}e^{-2^nt/4}
+\begin{cases}A(t),&n\text{ even},\\B(t),&n\text{ odd}\end{cases}>0.
+\]
+Moreover $(\log K)''<-1/4$ for every real $u$, yet
+\[
+\frac{1}{2\sqrt\pi}\int_{\mathbb R}K(u)e^{izu}du
+=e^{-z^2}\big((4z^2-17)^2+8\big)
+\]
+has four nonreal zeros.
+\end{proposition}
+\begin{proof}
+Direct differentiation shows
+$\mathcal TA=2B$ and $\mathcal TB=2A$. Since
+$\mathcal T(ce^{-at}P)=c^2e^{-2at}\mathcal TP$,
+the iterate formula follows inductively.
+With $Q(u)=u^4+22u^2+241$, one has
+\begin{align*}
+\frac{Q^2}4-QQ''+(Q')^2
+&=\frac{u^8}4+15u^6+\frac{571u^4}2\\
+&\quad+727u^2+\frac{15665}4>0.
+\end{align*}
+Thus $(\log K)''=-1/4-
+\bigl(Q^2/4-QQ''+(Q')^2\bigr)/Q^2<-1/4$.
+Gaussian Fourier differentiation gives the claimed transform;
+its zeros satisfy $z^2=(17\pm2\sqrt2 i)/4$.
+\end{proof}
+
+\begin{proposition}[Original rational-root construction]
+Let
+\[
+K_*(u)=e^{-u^2/4}(62161+1848u^2+16u^4).
+\]
+Set $A_*(t)=62161+1848t+16t^2$ and
+$B_*(t)=44561+1848t+16t^2$.
+For $g_*(t)=K_*(\sqrt t)$,
+\[
+\mathcal T^n g_*(t)=32^{2^n-1}e^{-2^nt/4}
+\begin{cases}A_*(t),&n\text{ even},\\
+B_*(t),&n\text{ odd}\end{cases}>0.
+\]
+The kernel satisfies $(\log K_*)''<-3/8$ on $\mathbb R$,
+but its normalized Fourier transform is
+\[
+F_*(z)=e^{-z^2}\big[(16z^2-255)^2+1024\big],
+\]
+whose zeros are exactly $z=\pm4\pm i/4$.
+\end{proposition}
+\begin{proof}
+One checks $\mathcal TA_*=32B_*$ and
+$\mathcal TB_*=32A_*$. The exponential scaling identity
+used above proves the iteration formula. With
+$Q_*(u)=62161+1848u^2+16u^4$,
+\[
+Q_*(u)/8-Q_*''(u)=32593/8+39u^2+2u^4>0
+\]
+implies the stated log-concavity bound.
+Fourier differentiation gives $F_*$; since
+$16(4+i/4)^2-255=32i$, it has the claimed root,
+and evenness and complex conjugation supply the other three.
+\end{proof}
+
+The idea of counterexamples based on positive
+Gaussian-polynomial kernels predates this note; see
+Csordas~\cite{Cs}, Example 3.12. No priority claim is made
+for that general construction.
