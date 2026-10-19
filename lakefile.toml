@@ -1,0 +1,11 @@
+name = "XiKernel"
+version = "0.1.0"
+defaultTargets = ["XiKernel"]
+
+[[lean_lib]]
+name = "XiKernel"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.24.0"
