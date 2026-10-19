@@ -1,0 +1,89 @@
+\section{Fourier-side generalized Laguerre diagnostics}
+For the smaller counterexample in Proposition~\ref{prop:small},
+write $F(x)=e^{-x^2}H(x)$ with
+$H(x)=(4x^2-17)^2+8$. At $x=2$,
+\[
+H(2)=9,\qquad H'(2)=-32,\qquad H''(2)=496.
+\]
+Consequently the \emph{transform-side} first Laguerre expression
+is strictly negative:
+\begin{equation}\label{eq:lag}
+(F'(2))^2-F(2)F''(2)
+=e^{-8}(1024-4464+162)
+=-3278e^{-8}<0.
+\end{equation}
+This is compatible with positivity of \emph{every} iterated
+concavity expression on $g(t)$, and proves that kernel and
+transform inequalities are different hierarchies.
+
+For an even real Schwartz kernel and
+$F(x)=c\int_{\mathbb R}K(u)e^{ixu}du$, $c>0$, one has
+\begin{align}\label{eq:correlation}
+(F'(x))^2-F(x)F''(x)
+=\frac{c^2}{2}\iint_{\mathbb R^2}
+&(u-v)^2K(u)K(v)\\[-0.8em]
+&\cdot e^{ix(u+v)}\,du\,dv.\nonumber
+\end{align}
+Writing $w=u+v$, this is the Fourier transform of the
+pointwise nonnegative correlation
+\[
+G(w)=\frac{c^2}{2}\int_{\mathbb R}
+(2u-w)^2K(u)K(w-u)\,du.
+\]
+However $G(w)\ge0$ does \emph{not} imply its Fourier transform
+is nonnegative, as~\eqref{eq:lag} explicitly demonstrates.
+
+For a real entire function whose Taylor expansions permit the
+interchange, define the higher generalized Laguerre expressions
+through
+\[
+F(x+iy)F(x-iy)=\sum_{n\ge0}L_n[F](x)y^{2n},
+\]
+where
+\[
+L_n[F](x)=\frac{(-1)^n}{(2n)!}
+\sum_{k=0}^{2n}(-1)^k{2n\choose k}
+F^{(k)}(x)F^{(2n-k)}(x).
+\]
+Proper transform-level certificates are a more plausible approach
+to controlling complex zeros than indefinite kernel iteration.
+Wronskian criteria and related approaches are discussed by
+Dimitrov--Xu~\cite{DX}.
+
+\section{Machine verification and limitations}
+The repository contains \texttt{XiKernel/Algebra.lean}, with
+polynomial two-cycle identities and positivity sublemmas,
+a complex polynomial-zero identity and exact Laguerre-sign
+arithmetic. The Lean files do \emph{not} formalize the analytic
+theta-tail lemma, the interval implementation, or RH.
+The accompanying Python program implements exact fixed-point
+interval arithmetic; its analytic majorants are displayed in
+the proof above. A separate polynomial test gives an
+independent rational-arithmetic replay of the Gaussian identities.
+
+The repository has a GitHub Actions workflow for Lean compilation.
+\emph{Before a successful workflow result is available, no
+Lean compilation success is claimed.} Locally executed Python
+checks passed in the preparation environment.
+
+\section{Interpretation}
+Kernel differential iteration, infinite log-concavity of the
+\emph{Taylor coefficient sequence}, and generalized Laguerre
+inequalities on the \emph{Fourier transform} are distinct.
+In particular, Liu--Mao~\cite{LM} prove coefficient
+log-concavity without proving RH, and Planat--Sol\'e~\cite{PS}
+prove the second-level theta-kernel theorem without asserting RH.
+
+The fifth-iterate sign rules out an infinite differential
+concavity strengthening for the \emph{actual theta kernel}.
+It neither proves a nonreal zero of the Riemann $\Xi$ function
+nor rules one out. The next mathematical problem is a
+transform-level inequality that uses the exact modular kernel.
+
+\paragraph{Provenance and DOI.}
+Source repository:
+\url{https://github.com/tonynewton79-web/RiemannHypothesis}.
+Reserved, unpublished DOI:
+\href{https://doi.org/10.5281/zenodo.23461586}{10.5281/zenodo.23461586}.
+Neither peer review, independent novelty, nor a complete
+Lean proof is presently asserted.
