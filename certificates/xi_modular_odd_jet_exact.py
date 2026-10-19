@@ -17,7 +17,7 @@ P=[[-3,2]]
 for _ in range(10):
     p=P[-1];n=[0]*(len(p)+1)
     for j,c in enumerate(p):
-        n[j]+=5*c-4*j*0  # constant contribution
+        n[j]+=5*c
         if j: n[j]+=4*j*c
         n[j+1]-=4*c
     P.append(n)
