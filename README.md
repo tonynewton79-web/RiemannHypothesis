@@ -171,3 +171,48 @@ For each disk the actual Xi Fourier transform satisfies `|F-F2|<1e-9` on its bou
 **Riemann hypothesis:** still open. These checks do not exclude any zero outside the three bounded disks and do not prove zero-free off-real strips at arbitrary heights.
 
 **Sources:** `certificates/xi_first_zero_interval.py`, `certificates/xi_second_zero_interval.py`, `certificates/xi_third_zero_interval.py`; `XiKernel/{FirstZeroDiskGate,SecondZeroDiskGate,ThirdZeroDiskGate}.lean`; `paper/complex_strip_rouche_attack.tex`.
+
+## 19 October 2026 — Fourth classical Xi zero disk: adaptive three-mode local interval proof
+
+**New finite computer-assisted theorem, not RH.** The genuine
+`F(z)=xi(1/2+i*z/2)/4` has exactly one real simple zero in
+`|z-60.849752252|<1/200`, established by two outward-rounded
+Simpson interval runs and two classical Rouché comparisons.
+
+The first three zero disks are centered at `28.269`, `42.04408`,
+and `50.02171516`, each proven with the first two theta modes.
+The fourth disk cannot be certified with the same two-mode absolute
+error. Instead use **three theta modes**, whose complete infinite-tail
+error on the critical complex strip is
+`E3=3*(16*pi)*exp(-16*pi)<153/20^16<10^-18`.
+
+The decisive quadrature improvement is an 80-cell **local** derivative
+enclosure over `0<=r<=4/5`, replacing an extremely coarse global
+fourth derivative bound. Exact Simpson formula, outward interval
+transcendental calculations in `mpmath.iv==1.3.0`, and an analytic
+`r>4/5` gamma-tail bound `<10^-16` give, at `z0=60.849752252`,
+`F3(z0+w)=a0+a1*w+a2*w²+R3(w)` for `|w|<=1/200` with:
+`|a0|<5e-13`, `a1>3.012e-9`,
+`|a2|<1.5e-9`, `|R3|<5.2e-12`.
+Thus `|F3|>9.3225e-12` throughout the boundary.
+The source uses strictly rational comparisons; verified local
+panel counts `24576` and `32768` and successfully replayed in
+[dedicated GitHub CI #39253311159](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39253311159).
+
+**Files:** `certificates/xi_fourth_zero_local_adaptive.py`,
+`.github/workflows/xi-fourth-zero.yml`,
+`XiKernel/FourthZeroDiskGate.lean`,
+`paper/complex_strip_rouche_attack.tex`.
+
+**Trust boundary:** `mpmath.iv` transcendental interval correctness,
+composite Simpson remainder, Jacobi theta Fourier normalization,
+analytic tail bounds, Rouché's theorem and conjugation symmetry.
+Lean formally checks only the rational margin subclaims,
+not the complete analytic theorem.
+Four classical known zeros are now independently certified by this
+particular method, but Platt–Trudgian already verified RH to
+height `3e12`; no increase in finite verification height or
+resolution of the Riemann hypothesis is claimed.
+
+**Proof horizon:** A height-uniform relative contour lower bound
+and a genuine exclusion of nonreal zeros at unbounded height remain missing.
