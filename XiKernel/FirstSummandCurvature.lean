@@ -36,6 +36,30 @@ theorem curvature_shift_identity (t : ℝ) :
   unfold curvaturePolynomial
   ring
 
+/-- Quantitative negative-curvature region for the dominant theta term.
+The classical rational bounds 3 < π < 22/7 < 13/4 put y=π here
+at r=0. The inequalities are polynomial and kernel-checkable. -/
+theorem first_summand_negative_near_modular_y (y : ℝ)
+    (hylo : 3 ≤ y) (hyhi : y ≤ 13/4) :
+    curvaturePolynomial y < 0 := by
+  let t := y - 3
+  have ht0 : 0 ≤ t := by dsimp [t]; linarith
+  have ht1 : t ≤ 1/4 := by dsimp [t]; linarith
+  have hsmall : 0 ≤ 1/4 - t := by linarith
+  have ht2 : t^2 ≤ 1/16 := by
+    have h := mul_nonneg ht0 hsmall
+    nlinarith
+  have ht3 : t^3 ≤ 1/64 := by
+    have h := mul_nonneg (sq_nonneg t) hsmall
+    nlinarith [ht2]
+  have hpoly : curvaturePolynomial y =
+      8*t^3+36*t^2+42*t-27 := by
+    unfold curvaturePolynomial
+    dsimp [t]
+    ring
+  rw [hpoly]
+  nlinarith [ht2, ht3]
+
 theorem first_summand_positive_above_threshold (y : ℝ)
     (hy : (7/2 : ℝ) ≤ y) :
     0 < curvaturePolynomial y := by
