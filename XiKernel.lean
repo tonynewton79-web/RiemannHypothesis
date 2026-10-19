@@ -25,3 +25,5 @@ import XiKernel.ComplexStripTransfer
 import XiKernel.ContourMeshGate
 
 import XiKernel.FirstZeroDiskGate
+
+import XiKernel.SecondZeroDiskGate
