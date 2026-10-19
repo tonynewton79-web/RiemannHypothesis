@@ -4,6 +4,7 @@ import XiKernel.RationalJet
 import XiKernel.FirstSummandCurvature
 import XiKernel.EntireXi
 import XiKernel.GlobalCurvatureAlgebra
+import XiKernel.RadialCurvatureCounterexample
 
 /-!
 Axiom audit:
@@ -28,3 +29,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.leading_curvature_numerator
 #print axioms XiKernel.leading_large_margin
 #print axioms XiKernel.large_tail_margin
+
+#print axioms XiKernel.mixture_strong_convexity
+#print axioms XiKernel.mixture_third_curvature_pos
+#print axioms XiKernel.fourier_laguerre_failure
