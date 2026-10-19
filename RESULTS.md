@@ -290,3 +290,19 @@ yields an integrated source inequality equivalent to nonnegative `U_n`, allowing
 **Verification:** `certificates/xi_spatial_equivalence_exact.py` has 445 exact rational multiplicity configurations `m=2..90` and 36 forced-heat Duhamel checks; all passed locally. `XiKernel/SpatialLaguerreEquivalence.lean` and `XiKernel/ZeroCompatibleDuhamel.lean` state algebraic kernels; GitHub Lean CI may be queued and **must not be claimed as passed until its run completes**. Analytic canonical products, PDE comparison, theta Fourier integrals, and heat-flow real-zero results are paper proofs and cited prior art, not Lean-complete.
 
 **Publication wording:** The paper links directly to DOI `10.5281/zenodo.23461586`; the prior description of it as reserved/unpublished has been removed from the updated source. The full integrated LaTeX is on GitHub; a complete-paper PDF with this mathematical update appended is available separately while GitHub's new paper build is queued. RH and simplicity remain open.
+
+## 19 October 2026 — integrated Duhamel source: exact spectral identity and falsifying test
+
+The new full-manuscript section is in `paper/spatial_heat_comparison.tex` (within the existing eight-main-section structure).
+
+**Exact identity for the genuine theta heat flow.** Let `nu(u)=exp(u²/2)*Phi(u)/2`, `a=u+v`, `b=u-v`, and `U_n(s,x)=L_n[H_(1/2-s)](x)`. Then the integrated Duhamel source equals
+`1/(2n)! * integral integral b^(2n) exp(-s*a²/2)*(1-exp(-s*b²/2))*exp(i*x*a) dnu(u)dnu(v)`.
+The semigroup budget has the same integrand without `1-exp(-s*b²/2)`. Their exact difference equals `U_n(s,x)`. Pointwise spectral domination is real and rigorous, but does not survive arbitrary oscillatory Fourier transformation as an inequality.
+
+**Exact within-target-slab counterexample.** The positive even spectral measure `delta_0+(3/4)delta_{-1}+(3/4)delta_1` starts with `H_0(x)=1+(3/2)cos(x)`, which has only real zeros. Backward heat gives `H_s(x)=1+(3/2)exp(-s)cos(x)`. At `s=log(8/5)<1/2` and `x=pi`, `U_1=-15/256`; the source exceeds its heat-semigroup budget by exactly `15/256`. At the earlier collision `s=log(3/2)`, `U_1(pi)=0`, `U_2(pi)=1/4`. Thus neither naive positive-integrand source domination nor a finite spatial coefficient repairs the problem generically. Gaussian smoothing of the atomic measure retains the strict source failure, giving smooth positive Fourier kernels.
+
+**Positive prospective gate (OPEN).** Explicitly construct positive Gaussian-mixture representations for each genuine theta correlation density `G_(n,s)(w)` across all `n,s`, or find a counterexample to the proposed mixture structure by interval-certified complete-monotonicity tests. This is stronger than mere positivity and would imply Fourier-positive Laguerre coefficients. It is NOT proved and might be false.
+
+**Verification:** `python /mnt/data/xi_heat_duhamel_source_exact.py` passed locally (symbolic transfer identity, 101 exact all-order factorial gates, rational atomic values). The matching GitHub source is `certificates/xi_heat_duhamel_source_exact.py`. New Lean algebraic gates are in `XiKernel/HeatDuhamelSpectral.lean`. New GitHub Actions runs are QUEUED, not marked passed. No end-to-end Lean proof of the theta integral or RH.
+
+**Publication:** The manuscript links to `https://doi.org/10.5281/zenodo.23461586` with no reserved/unpublished label, following the author's confirmed live-DOI status. A 21-page complete retained manuscript plus current heat-Duhamel supplement was compiled and emailed to the primary research address. RH remains open.
