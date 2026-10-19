@@ -62,9 +62,11 @@ the proof above. A separate polynomial test gives an
 independent rational-arithmetic replay of the Gaussian identities.
 
 The repository has a GitHub Actions workflow for Lean compilation.
-\emph{Before a successful workflow result is available, no
-Lean compilation success is claimed.} Locally executed Python
-checks passed in the preparation environment.
+The GitHub Actions Lean job completed successfully on 19 October
+2026 with Lean 4.24.0 and Mathlib (commit \texttt{922ed6c6}).
+This certifies the declarations in the algebraic module only:
+the analytic theta-tail proof and interval certificate are
+independently checked in Python, not Lean.
 
 \section{Interpretation}
 Kernel differential iteration, infinite log-concavity of the
