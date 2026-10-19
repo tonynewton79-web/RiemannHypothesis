@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'certificates/generalized_laguerre_scan.py'
+      - 'certificates/xi_arithmetic_incomplete_gamma_replay.py'
       - '.github/workflows/laguerre-numerical.yml'
   workflow_dispatch:
 permissions:
