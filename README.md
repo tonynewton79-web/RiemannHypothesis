@@ -108,3 +108,29 @@ The first two square-lattice modes reverse the Laguerre sign.
 `certificates/xi_modular_odd_jet_exact.py`,
 `certificates/xi_arithmetic_incomplete_gamma_replay.py`.
 The incomplete-gamma representation is classical; prior art (DeFranco, Haglund, Polson) is cited. The complete theta modular identity/integration-by-parts proof is given analytically in TeX, **not certified end-to-end in Lean**. RH remains unresolved.
+
+## 19 October 2026 — parity-preserving Gaussian test + zero-relevant complex-strip certificate
+
+**Gaussian parity repair (analytic theorem):** For the positive even theta cutoff `P_M(u)=sum_{m<=M}phi_m(|u|)`, convolution `K_(M,sigma)=G_sigma*P_M` is positive, even and entire. Its Fourier transform satisfies
+`F_(M,sigma)(z)=exp(-sigma²*z²/2)*F_M(z)`, so **every complex zero is preserved**. Its first generalized Laguerre expression is exactly
+`L1[F_(M,sigma)](x)=exp(-sigma²*x²)*(L1[F_M](x)+sigma²*F_M(x)²)`.
+For every fixed n>=0, asymptotically at high real |x|,
+`L_n[F_(M,sigma)](x) ~ exp(-sigma²*x²)*4*D_M²*sigma^(2n)/(n!*x⁴)>0`.
+Thus repairing all odd endpoint derivatives and eventual positive Laguerre tests does not fix the zero set.
+A uniform approximation bound also holds:
+`sup_real |F-F_(M,sigma)| <= E_M+sigma²(D_M+J_M)`,
+where `E_M=3*pi*(M+1)²*exp(-pi*(M+1)²)` and
+`J_M=integral_0^infty abs(f_M''(r))dr`.
+Choose `sigma²=E_M/(1+D_M+J_M)` for a uniform error <`2E_M`.
+
+**New complex-strip theorem (analytic):** For *every complex* z with `|Im z|<=7`,
+`|F(z)-F_M(z)|<=E_M`.
+For all derivative orders k and `|Im z|<=3`,
+`|F^(k)(z)-F_M^(k)(z)|<=k!*E_M/4^k`.
+This entire region covers the RH-relevant Fourier strip `|Im z|<1` (`s=1/2+i*z/2`). By Rouché, a bounded contour Gamma on which `min|F_M|>E_M` yields the *same zero count* for Xi and the cutoff.
+
+**RH-equivalent zero-migration criterion (classical Hurwitz):** RH holds if and only if, for each `0<epsilon<1/2` and `R>0`, sufficiently deep theta approximants are eventually zero-free on the compact region `|Re z|<=R, epsilon<=|Im z|<=1-epsilon`. The **eventual zero-free property is NOT proved**; stating the equivalence does not solve RH.
+
+**Exact files:** `paper/gaussian_parity_repair.tex`, `paper/complex_strip_rouche_attack.tex`; `XiKernel/GaussianParityRepair.lean`, `XiKernel/ComplexStripTransfer.lean`; `certificates/gaussian_parity_repair_exact.py`, `certificates/gaussian_parity_repair_numerical.py`, `certificates/xi_complex_strip_exact.py`, `certificates/xi_complex_strip_numerical.py`.
+
+**Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The reserved DOI remains unpublished.
