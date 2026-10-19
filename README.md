@@ -257,3 +257,20 @@ where `q=pi*(M+1)^2`. For k=0 the strip extends to `|Im z|<=7`. The genuine thet
 ## 19 October 2026 — Newman GHS prior-work correction and citations
 
 Charles M. Newman's 1991 article, *The GHS Inequality and the Riemann Hypothesis* (*Constructive Approximation* **7**, 389–399), proves convexity of the classical Riemann theta potential derivative. The qualitative monotone-curvature property is therefore **known prior art**. Our rational-interval proof is an alternative quantitative verification, not a discovery of the curvature property. The canonical manuscript now cites Newman in the abstract, curvature theorem, heat-flow discussion and bibliography. Rodgers–Tao and Newman–Wu are explicitly cited where their prior results are used, including in a corrected self-contained addendum (`paper/newman_corrected_addendum.tex`). The Zenodo identifier has been excluded from manuscript metadata and text by request. RH is not proved.
+
+## 19 October 2026 — actual theta heat zero-density obstruction to global bounded comparison
+
+**New theorem from classical zero density (analytical proof added to the complete paper):** At t=1/2, all zeros of the genuine de Bruijn–Newman H_t are real and simple (Ki–Kim–Lee; de Bruijn–Newman), and N_t(T)=T log T/(4π)+O(T). For any simple real zero a and any other zero b, the real-root canonical product proves
+
+`L2[H_t](a)/L1[H_t](a) >= 1/(a-b)^2`.
+
+The increasing density forces some adjacent gap in [T,2T] <=(4π+o(1))/log T; hence
+`6L2[H_(1/2)](a)/L1[H_(1/2)](a) >= (3/(8π²)+o(1))log²T`
+along an unbounded sequence. Thus
+`sup_x 6L2[H_(1/2)](x)/L1[H_(1/2)](x)=infinity` on positive-denominator points.
+
+**Implication:** the paper's earlier sufficient condition `6U2 <= c1(s)U1` with *bounded-in-height* c1(s) is impossible **for the actual theta heat flow already at its known real-zero initial time**. It is not merely unproved. The corrected sufficient hypothesis allows a nonnegative locally bounded spatial coefficient `c_n(s,x)`, with the necessary possibility of at least log²|x| growth in n=1 at s=0. A suggested log² global *upper* envelope is a proposed test, **not a proven inequality**. Any collision at some intermediate heat time could still defeat it.
+
+**Exact reproducibility:** `paper/heat_zero_gap_global_obstruction.tex`, `XiKernel/HeatZeroGapObstruction.lean`, `certificates/xi_heat_zero_gap_exact.py`, `.github/workflows/xi-heat-zero-gap.yml`. Local symbolic and Fraction tests passed. GitHub Lean/CI runs have been queued; do not assert their success before completion. Published zero count and canonical product are cited mathematical inputs and NOT kernel-checked in Lean.
+
+**Paper and DOI:** The full GitHub manuscript integrates the result inside its heat-flow section. The user confirms DOI `10.5281/zenodo.23461586` is live; avoid obsolete 'reserved / not yet published' claims. No claim of RH proof or publication novelty. RH remains **OPEN**.
