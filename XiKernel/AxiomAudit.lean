@@ -16,6 +16,7 @@ import XiKernel.FirstZeroDiskGate
 import XiKernel.SecondZeroDiskGate
 import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
+import XiKernel.FourthZeroDiskGate
 
 /-!
 Axiom audit:
@@ -90,3 +91,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 
 #print axioms XiKernel.adaptive_theta_polynomial_margin
 #print axioms XiKernel.adaptive_rouche_requires_modulus
+
+#print axioms XiKernel.fourth_zero_exact_margin
+#print axioms XiKernel.fourth_zero_tail_rational_gate
+#print axioms XiKernel.fourth_zero_linear_comparison
