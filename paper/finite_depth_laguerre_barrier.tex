@@ -1,0 +1,169 @@
+\section{An explicit arbitrary-depth obstruction to finite Laguerre testing}
+\label{sec:finitedepth}
+The preceding Gaussian--hyperbolic example
+shows that radial curvature does not force even
+the first Fourier-side Laguerre inequality.
+There is a stronger structural obstruction:
+\emph{no fixed finite number of generalized
+Laguerre inequalities, even when valid for
+every real Fourier variable, implies the
+real-zero property.}
+
+\begin{theorem}[Finite-depth obstruction]
+\label{thm:finitedepth}
+For every integer $N\ge1$ put
+\[
+d_N=2^{-(N+2)},\qquad
+K_N(u)=e^{-u^2/2}
+\bigl(1+d_N e^{-1/2}\cosh u\bigr)
+\]
+and $F_N(z)=\int_{\mathbb R}K_N(u)e^{izu}\,du$.
+Then $K_N$ is positive, even, rapidly
+decreasing and
+\begin{equation}
+F_N(z)=\sqrt{2\pi}e^{-z^2/2}
+\bigl(1+d_N\cos z\bigr).
+\label{eq:finiteF}
+\end{equation}
+For every $1\le n\le N$ and $x\in\mathbb R$,
+\begin{equation}
+\boxed{
+L_n[F_N](x)\ge
+\frac{\pi e^{-x^2}}{n!}>0.
+}
+\label{eq:finitelb}
+\end{equation}
+Nevertheless $F_N$ has nonreal zeros
+\begin{equation}
+z=(2k+1)\pi\pm
+i\operatorname{arcosh}(1/d_N),
+\qquad k\in\mathbb Z.
+\label{eq:finitezero}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Gaussian Fourier integration gives
+\eqref{eq:finiteF} and
+\eqref{eq:finitezero} follows as in
+Theorem~\ref{thm:coshcounter}.
+The generalized Laguerre coefficients
+are determined by the generating function
+\[
+F_N(x+iy)F_N(x-iy)=2\pi e^{-x^2}
+e^{y^2}\Bigl[
+ 1+2d_N\cos x\cosh y+
+ \frac{d_N^2}{2}(\cosh 2y+\cos2x)
+\Bigr].
+\]
+Writing $L_n[F_N](x)$ for the
+coefficient of $y^{2n}$, set
+\begin{align*}
+a_n&=\frac1{n!},\\
+b_n&=\sum_{j=0}^n
+  \frac1{(n-j)!(2j)!},\\
+c_n&=\sum_{j=0}^n
+  \frac{4^j}{(n-j)!(2j)!}.
+\end{align*}
+Then
+\begin{equation}\label{eq:finitecoefs}
+\frac{L_n[F_N](x)}{2\pi e^{-x^2}}
+=a_n+2d_Nb_n\cos x+
+\frac{d_N^2}{2}
+\left(c_n+a_n\cos 2x\right).
+\end{equation}
+The last parenthesis is nonnegative
+because $c_n\ge a_n$. Next
+\[
+\frac{b_n}{a_n}
+=\sum_{j=0}^n
+\binom nj\frac{j!}{(2j)!}
+\le\sum_{j=0}^n\binom nj=2^n.
+\]
+Hence for $1\le n\le N$,
+\begin{align*}
+\frac{L_n[F_N](x)}{2\pi e^{-x^2}}
+&\ge a_n-2d_Nb_n\\
+&\ge a_n(1-2d_N2^n)\\
+&\ge a_n/2>0,
+\end{align*}
+which proves \eqref{eq:finitelb}.
+All bounds hold uniformly for
+$x\in\mathbb R$, not just on compact sets.
+\end{proof}
+
+\begin{proposition}[First-order positivity hides
+a second-order failure]
+\label{prop:firstsecond}
+With $d=2/5$, set
+\[
+F(z)=\sqrt{2\pi}\,e^{-z^2/2}
+\left(1+\frac25\cos z\right).
+\]
+Then $F(x)>0$ and $L_1[F](x)>0$
+for every real $x$, but
+\begin{equation}
+\boxed{L_2[F](\pi)=
+-\frac{2\pi e^{-\pi^2}}{25}<0.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+With $t=\cos x\in[-1,1]$,
+\begin{align*}
+\frac{L_1[F](x)}{2\pi e^{-x^2}}
+&=1+d^2+3dt+d^2t^2\\
+&\ge (1-d)(1-2d)=\frac3{25}>0.
+\end{align*}
+Indeed, for $d=2/5$ the difference
+from $3/25$ is
+$(t+1)(4t+26)/25\ge0$.
+For $L_2$ take $x=\pi$.
+Since $\cos(\pi\pm iy)=-\cosh y$,
+\[
+F(\pi+iy)F(\pi-iy)
+=2\pi e^{-\pi^2}e^{y^2}
+(1-d\cosh y)^2.
+\]
+Its $y^4$ coefficient is
+\[
+\frac12-\frac{25}{12}d+
+\frac{11}{6}d^2
+=\frac{22d^2-25d+6}{12}.
+\]
+At $d=2/5$ this is $-1/25$,
+as required.
+\end{proof}
+
+\paragraph{Exact tests and formalization scope.}
+The standard-library script
+\texttt{certificates/finite\_depth\_laguerre\_exact.py}
+checks the coefficient formulas by rational
+arithmetic through $N=100$, as well as
+the exact $d=2/5$ separation.
+The Lean module
+\texttt{XiKernel/FiniteDepthBarrier.lean}
+formally proves the associated
+real-algebraic positivity gate and low-order
+coefficient identities. A complete Lean
+formalization of the Fourier--Gaussian
+integral and all-$N$ binomial calculation
+is not yet claimed.
+
+\paragraph{Consequence for the Riemann hypothesis.}
+This theorem proves, within a positive
+analytic kernel class, that even globally
+positive inequalities
+$L_1,\ldots,L_N$ for any fixed $N$
+cannot prove all zeros real.
+The point is logical and methodological,
+not an assertion of novelty;
+Laguerre--P\'olya characterizations are
+classical and the correlation viewpoint
+has established prior art
+\cite{DX}.
+For the genuine Riemann $\Xi$, the
+research target must therefore be a
+uniform argument in \emph{all} orders
+$n$, or a materially stronger zero
+exclusion principle that explicitly uses
+Jacobi/theta arithmetic structure.
