@@ -134,3 +134,17 @@ This entire region covers the RH-relevant Fourier strip `|Im z|<1` (`s=1/2+i*z/2
 **Exact files:** `paper/gaussian_parity_repair.tex`, `paper/complex_strip_rouche_attack.tex`; `XiKernel/GaussianParityRepair.lean`, `XiKernel/ComplexStripTransfer.lean`; `certificates/gaussian_parity_repair_exact.py`, `certificates/gaussian_parity_repair_numerical.py`, `certificates/xi_complex_strip_exact.py`, `certificates/xi_complex_strip_numerical.py`.
 
 **Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The reserved DOI remains unpublished.
+
+## 19 October 2026 — First genuine Xi zero disk: finite interval-Simpson/Rouché certificate
+
+The interval checker `certificates/xi_first_zero_interval.py` certifies that the **actual** complete Riemann `F(z)=xi(1/2+i*z/2)/4` has exactly **one real simple zero** in the disk `|z-28.269|<0.5`.
+
+- Two-mode Fourier Taylor coefficients at `z0=28.269`: `|a0|<1e-6`, `a1<-17e-5`, `|a2|<52e-6`, with positive integrated Taylor remainder `|R3|<6e-6` for `|z-z0|<=1/2`.
+- Consequently the entire circle satisfies `|F2(z)|>65e-6`, compared with its linear Taylor term `a1(z-z0)`.
+- The proven full theta complex-strip bound gives `|F(z)-F2(z)|<=27*pi*exp(-9*pi)<1e-9` on the same circle, so two Rouché comparisons give exactly one zero for the true `F`. Reality follows by conjugation symmetry.
+- **Rigor method:** mpmath.iv version 1.3.0 outward binary interval arithmetic, endpoint conversion to exact fractions, composite Simpson on `[0,2]` with fourth-derivative bounds, analytically proved `r>2` tails, and strict rational margin assertions. The checker passed for both **8192** and **16384** panels locally and in [GitHub interval CI run 39244890918](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39244890918).
+- **Lean scope:** `XiKernel/FirstZeroDiskGate.lean` formalizes rational margins only, NOT the interval library's transcendental evaluations, Simpson quadrature, theta Fourier relation, or complex-analytic Rouché theorem.
+- **Prior art:** location/existence of the first zeta zero at imaginary ordinate 14.134725141... is classical and extensively verified; this is a new reproducible finite-test route in this project, not a new zeta zero and not a claimed research priority.
+- **Global gap:** no exclusion of nonreal zeros at arbitrary heights; RH remains **open**. Next challenge is a height-uniform certified contour modulus or adaptive `M=M(R)` with an effective global separation guarantee.
+
+Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Reserved DOI `10.5281/zenodo.23461586` remains unpublished.
