@@ -184,6 +184,86 @@ an exactly solvable entire Fourier model.
 The same bound is not known for the
 genuine Jacobi kernel.
 
+\begin{proposition}[A double-zero obstruction to the proposed comparison]
+\label{prop:doublezerofailure}
+Even for positive, even, rapidly decreasing kernels,
+the uniform comparison condition
+\eqref{eq:comparisonmissing} need not survive
+backward heat flow from a time at which all
+zeros are real. More precisely, set
+\[
+K_t(u)=e^{-(1/2-t)u^2}
+\left(1+\tfrac12\cosh u\right),
+\quad t<\tfrac12.
+\]
+Its full-line Fourier transform is
+\begin{equation}
+F_t(z)=\sqrt{\frac{2\pi}{\alpha_t}}\,
+e^{-z^2/(2\alpha_t)}
+\left(1+d_t\cos\frac z{\alpha_t}\right),
+\quad
+\alpha_t=1-2t,\quad
+d_t=\frac12e^{1/(2\alpha_t)} .
+\label{eq:gaussiancosheat}
+\end{equation}
+At the explicit time
+\[
+t_*=\frac12\left(1-\frac1{2\log2}\right)
+\in(0,\tfrac14)
+\]
+the transform has a double real zero at
+$z_*=\pi/(2\log2)$, for which
+\[
+L_{1,t_*}(z_*)=0,\qquad
+L_{2,t_*}(z_*)=
+\frac14F_{t_*}''(z_*)^2>0.
+\]
+Thus no finite constant $c_1$ can satisfy
+$6L_{2,t_*}(z_*)\le c_1L_{1,t_*}(z_*)$.
+\end{proposition}
+\begin{proof}
+Completing squares in the Gaussian
+Fourier integral gives \eqref{eq:gaussiancosheat}.
+Since $e^{1/2}<2<e$, one has
+$d_0<1<d_{1/4}$; continuity gives
+a unique crossing $d_{t_*}=1$
+at the displayed time.
+There $\cos(z_*/\alpha_{t_*})=-1$ and
+$\sin(z_*/\alpha_{t_*})=0$.
+The Gaussian factor is nowhere zero,
+so $F_{t_*}(z_*)=F'_{t_*}(z_*)=0$, while
+\[
+F''_{t_*}(z_*)=
+\sqrt{\frac{2\pi}{\alpha_{t_*}}}\,
+\frac{e^{-z_*^2/(2\alpha_{t_*})}}{\alpha_{t_*}^2}
+\ne0 .
+\]
+Substituting into
+\[
+L_1=(F')^2-FF'',\qquad
+L_2=\tfrac1{12}FF^{(4)}
+-\tfrac13F'F^{(3)}+\tfrac14(F'')^2
+\]
+proves the sign assertions and the impossibility
+of the stated comparison.
+At $t=1/4$ the cosine coefficient $d_t$
+exceeds one, giving only real Fourier zeros,
+whereas at $t=0$ it is less than one
+and gives nonreal conjugate zeros.
+\end{proof}
+
+This exact test explains why the Gaussian
+positive-control computation does not justify
+the missing Riemann-theta comparison.
+It is a counterexample to that \emph{general
+sufficient hypothesis}, not to the Riemann
+hypothesis. The double-zero algebra is
+formalized in
+\path{XiKernel/HeatFlowDoubleZeroObstruction.lean},
+while the parameter crossing and Fourier formula
+are checked symbolically by
+\path{certificates/xi_heat_double_zero_test.py}.
+
 Condition \eqref{eq:comparisonmissing} is
 \emph{not established}, and its truth for
 the Riemann heat flow has not been verified.
