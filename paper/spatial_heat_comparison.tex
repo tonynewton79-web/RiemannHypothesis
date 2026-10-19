@@ -393,6 +393,167 @@ theta-series structure without
 using the sought positivity
 as an assumption.
 
+\paragraph{The Duhamel source in two-frequency coordinates.}
+The proposed integral comparison admits an exact
+spectral formula for the genuine theta heat flow.
+Let
+\[
+d\nu(u)=\tfrac12e^{u^2/2}\Phi(u)\,du,
+\qquad a=u+v,\quad b=u-v.
+\]
+Then $H_{\frac12-s}(x)=
+\int_{\mathbb R}e^{-su^2}e^{ixu}\,d\nu(u)$,
+and the Laguerre coefficients satisfy
+\begin{equation}
+U_n(s,x)=\frac1{(2n)!}\iint b^{2n}
+e^{-s(u^2+v^2)}e^{ixa}\,d\nu(u)d\nu(v).
+\label{eq:duhamelspectralUn}
+\end{equation}
+The imaginary part vanishes by symmetry.
+Writing $\mathcal S_n$ for the integrated
+source on the left of \eqref{eq:duhamelmissing},
+one has the identity
+\begin{align}
+\mathcal S_n(s,x)
+={}&\frac1{(2n)!}\iint b^{2n}e^{-sa^2/2}\nonumber\\
+&\qquad\cdot(1-e^{-sb^2/2})
+e^{ixa}\,d\nu(u)d\nu(v).
+\label{eq:duhamelspectralsource}
+\end{align}
+
+\begin{proposition}[Exact spectral source
+decomposition]\label{prop:duhamelspectral}
+The formulas above hold for the actual theta
+heat flow at every $s\ge0$, real $x$ and
+integer $n\ge0$. Before Fourier inversion,
+the source is bounded pointwise by its
+semigroup budget because
+$0\le1-e^{-sb^2/2}\le1$.
+This does not, however, imply
+$\mathcal S_n(s,x)\le P_sU_n(0,x)$
+for every $x$. At $x=0$, that
+inequality is strict for $n\ge1$, $s>0$.
+\end{proposition}
+\begin{proof}
+Expand the product
+$H_{\frac12-s}(x+iy)H_{\frac12-s}(x-iy)$
+and take the coefficient of $y^{2n}$.
+The semigroup $P_\tau$ multiplies
+$e^{ixa}$ by $e^{-\tau a^2/2}$.
+The factorial identity
+\[
+\frac{(n+1)(2n+1)}{(2n+2)!}
+=\frac1{2(2n)!}
+\]
+and integration in $r$ give
+\[
+\frac{b^2}{2}\int_0^s e^{-rb^2/2}\,dr
+=1-e^{-sb^2/2}.
+\]
+Subtracting source from budget leaves
+$e^{-s(a^2+b^2)/2}$ in the
+double integral, exactly $U_n(s,x)$.
+At $x=0$ this residual is strictly
+positive, since the theta spectral
+density is positive off the diagonal.
+At general $x$, $\cos(xa)$ changes
+sign, destroying the inference from
+pointwise spectral order.
+\end{proof}
+
+\begin{proposition}[Exact source-budget
+failure inside the backward heat slab]
+\label{prop:atomicduhamel}
+Consider the positive even spectral measure
+\[
+d\nu_{\rm at}=\delta_0+
+\tfrac34\delta_{-1}+\tfrac34\delta_1.
+\]
+Its backward heat Fourier transform is
+$G_s(x)=1+d_s\cos x$, where
+$d_s=\tfrac32e^{-s}$.
+At $s=0$ its zeros are all real.
+Nevertheless, at $s=\log(8/5)<1/2$,
+\begin{equation}
+U_1(s,\pi)=-\frac{15}{256}.
+\label{eq:atomicnegative}
+\end{equation}
+Thus the integrated source exceeds its
+semigroup budget by exactly $15/256$.
+At the collision time $s_*=\log(3/2)<1/2$,
+$U_1(s_*,\pi)=0$ and $U_2(s_*,\pi)=1/4$.
+The strict source failure persists for
+sufficiently narrow positive Gaussian
+mollifications of the atomic measure.
+\end{proposition}
+\begin{proof}
+Differentiation gives
+\[
+U_1(s,x)=d_s(d_s+\cos x),\quad
+U_2(s,x)=d_s(4d_s+\cos x)/12.
+\]
+At $s=\log(8/5)$, $d_s=15/16$;
+at $s_*$, $d_s=1$. The
+displayed values follow by exact
+rational arithmetic. The first time
+is less than $1/2$ since
+$e^{1/2}>1+\frac12+\frac18>8/5$.
+Duhamel's identity says
+source minus budget equals $-U_1$.
+The initial equation $\cos z=-2/3$
+has only real solutions.
+Gaussian convolution yields an
+even positive rapidly decaying
+spectral density; dominated
+convergence preserves the strict
+negative value for sufficiently
+small convolution width.
+\end{proof}
+
+These calculations expose a genuine
+obstacle but do not disprove the proposed
+inequality for the Riemann theta kernel.
+The Duhamel inequality remains
+RH-equivalent for that kernel, rather
+than following from elementary source
+positivity.
+
+\paragraph{A testable theta-specific
+factorization target.}
+Writing $w=u+v$ and letting
+$\nu(v)$ also denote its positive density,
+the residual Laguerre correlation is
+\begin{align}
+\mathcal G_{n,s}(w)
+={}&\frac{e^{-sw^2/2}}{2(2n)!}
+\int_{\mathbb R}b^{2n}e^{-sb^2/2}\nonumber\\
+&\quad\cdot\nu((w+b)/2)\nu((w-b)/2)\,db.
+\label{eq:duhamelcorrelation}
+\end{align}
+Its Fourier transform is $U_n(s,x)$.
+Pointwise positivity of $\mathcal G_{n,s}$
+is automatic; its positive definiteness
+would be equivalent to the desired
+global inequality, not a separate proof.
+A stronger sufficient condition, worth
+testing but currently unproved, is an
+explicit nonnegative Gaussian-mixture
+representation
+\[
+\mathcal G_{n,s}(w)
+=\int_{(0,\infty)}e^{-\lambda w^2}
+\,d\rho_{n,s}(\lambda),\quad \rho_{n,s}\ge0.
+\]
+It would make every Fourier transform
+nonnegative, but no such representation
+has been found for the theta correlations.
+The exact symbolic replay is
+\path{certificates/xi_heat_duhamel_source_exact.py},
+with rational algebraic gates in
+\path{XiKernel/HeatDuhamelSpectral.lean}.
+The full theta factorization and any
+unbounded-height zero exclusion remain open.
+
 \paragraph{Verification scope.}
 Exact rational tests verify the
 multiplicity-$m$ model for
