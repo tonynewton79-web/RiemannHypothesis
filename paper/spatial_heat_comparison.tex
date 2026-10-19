@@ -159,11 +159,261 @@ The established logarithmic-square
 \emph{lower} cost along some $H_{1/2}$
 zeros (Theorem~\ref{thm:heatgapobstruction})
 must not be mistaken for a matching
-upper bound. A successful RH proof now
-requires a noncircular, all-order
-local-fin\-iteness estimate across the
-entire heat interval; such an estimate
-is presently missing.
+upper bound. A natural locally finite comparison is analyzed
+more sharply below. Its existence turns out to
+encode RH together with simplicity; a separate
+integral formulation avoids that extra requirement.
+
+\paragraph{A sharp equivalence, including simplicity.}
+The locally finite spatial condition is stronger
+than RH. This is not merely a consequence of
+the quadratic control example; the obstruction
+occurs at every multiple real zero of any
+real entire heat transform.
+
+\begin{lemma}[Multiplicity and the adjacent Laguerre orders]
+\label{lem:multiplicitylaguerre}
+Suppose a real entire function $G$ has a real
+zero $a$ of multiplicity $m\ge2$, so that
+$G(z)=(z-a)^m g(z)$ with $g(a)\ne0$.
+Then
+\begin{equation}
+L_k[G](a)=0\quad(0\le k<m),\qquad
+L_m[G](a)=g(a)^2>0.
+\label{eq:multiplicitylaguerre}
+\end{equation}
+Furthermore, as $h\to0$ through nonzero real
+values,
+\begin{align}
+L_{m-1}[G](a+h)&=
+m g(a)^2h^2+O(h^3),\nonumber\\
+L_m[G](a+h)&=g(a)^2+O(h),\nonumber\\
+m(2m-1)\frac{L_m[G](a+h)}
+{L_{m-1}[G](a+h)}
+&=\frac{2m-1}{h^2}(1+O(h)).
+\label{eq:multipleblowup}
+\end{align}
+\end{lemma}
+\begin{proof}
+At the multiple zero, the defining
+Laguerre generating function is
+\[
+G(a+iy)G(a-iy)
+=y^{2m}g(a+iy)g(a-iy).
+\]
+Its first nonzero even coefficient is
+$g(a)^2$, at degree $2m$,
+which proves \eqref{eq:multiplicitylaguerre}.
+At $x=a+h$, factor
+\[
+G(x+iy)G(x-iy)
+=(h^2+y^2)^m g(a+h+iy)g(a+h-iy).
+\]
+The coefficient of $y^{2m-2}$
+from the leading constant $g(a)^2$
+is $m h^2g(a)^2$.
+All other contributions to that
+coefficient are $O(h^3)$ or smaller.
+The $y^{2m}$ coefficient tends to
+$g(a)^2$.
+Division proves \eqref{eq:multipleblowup}.
+\end{proof}
+
+At $(s,a)$ a multiplicity-$m$ zero gives
+$U_{m-1}(s,a)=0$ but $U_m(s,a)>0$.
+Thus the right side of
+\eqref{eq:spatialheatgate} is zero
+for $n=m-1$, while its left side is
+strictly positive. No finite coefficient
+can satisfy the comparison there.
+Equation~\eqref{eq:multipleblowup}
+also shows that the required ratio
+has an inverse-square singularity
+in every punctured neighborhood.
+
+\begin{theorem}[Exact strength of the locally finite
+spatial comparison]\label{thm:spatialequivalence}
+For the classical Riemann theta heat flow,
+the following assertions are equivalent:
+\begin{enumerate}
+\item For every $n\ge1$ there is a
+nonnegative, locally bounded
+$c_n:[0,\tfrac12]\times\mathbb R\to\mathbb R$
+satisfying \eqref{eq:spatialheatgate}
+at all points of the closed slab.
+\item The Riemann hypothesis holds
+\emph{and all nontrivial zeros of the
+Riemann zeta function are simple}.
+\end{enumerate}
+The equivalence uses the classical
+de Bruijn--Newman zero dynamics and
+the usual genus-one real-zero
+canonical product; it is not itself
+a proof of either assertion.
+\end{theorem}
+\begin{proof}
+Assume (1). The spatial comparison
+principle in
+Theorem~\ref{thm:spatialmax}
+gives $U_n(s,x)\ge0$ for all
+$n,s,x$ and therefore RH.
+If $H_0$ had a multiple real zero,
+Lemma~\ref{lem:multiplicitylaguerre}
+would contradict
+\eqref{eq:spatialheatgate} at
+$s=\tfrac12$. Hence every zero
+of $H_0$ is simple, proving (2).
+
+Conversely assume (2). The
+Rodgers--Tao theorem gives
+$\Lambda\ge0$, while RH gives
+$\Lambda\le0$, hence $\Lambda=0$.
+At every $t>0=\Lambda$
+the classical zero-dynamics theorem
+gives real simple zeros of $H_t$;
+at $t=0$ this is our assumption.
+All these entire transforms
+have infinitely many real zeros.
+Their order-one real-zero canonical
+products show that
+$L_{n,t}(x)>0$ for every
+$n\ge1$, real $x$ and
+$0\le t\le\tfrac12$:
+away from a root, the product
+$H_t(x+iy)H_t(x-iy)$ has
+strictly positive even
+coefficients, and at a simple
+real root the factor $y^2$
+leaves the same positivity at
+every positive order.
+Thus the quotient
+\begin{equation}
+c_n(s,x)=
+(n+1)(2n+1)\frac{U_{n+1}(s,x)}{U_n(s,x)}
+\label{eq:exactlocquotient}
+\end{equation}
+is well defined, nonnegative
+and continuous on the closed slab.
+Every compact subset has a
+positive minimum for its
+denominator, so $c_n$ is
+locally bounded and satisfies
+\eqref{eq:spatialheatgate} with
+equality. This proves (1).
+\end{proof}
+
+The converse constructs the coefficient
+\emph{from the desired conclusion}.
+Consequently \eqref{eq:spatialheatgate},
+as a global existence assertion,
+is not an independent simplification
+of RH: it also requires the still-open
+simplicity conjecture. A proof that
+begins by assuming positive Laguerre
+denominators would therefore be circular.
+
+\paragraph{A zero-compatible, division-free alternative.}
+A more natural necessary-and-sufficient
+target keeps the coupled source inside
+the spatial heat semigroup. Let
+$P_s f(x)=\int_{\mathbb R}
+(2\pi s)^{-1/2}
+e^{-(x-y)^2/(2s)}f(y)\,dy$,
+for $s>0$, with $P_0$ the identity.
+The mild solution of
+\eqref{eq:backwardlaguerre} satisfies
+the exact Duhamel formula
+\begin{equation}
+U_n(s)=P_sU_n(0)-
+(n+1)(2n+1)\int_0^s
+P_{s-r}U_{n+1}(r)\,dr.
+\label{eq:duhamellaguerre}
+\end{equation}
+The theta transforms and their
+derivatives have sufficient
+real-axis decay to justify this
+representation on the finite slab.
+For fixed $n$, the division-free
+condition
+\begin{equation}
+\boxed{
+(n+1)(2n+1)\int_0^s
+P_{s-r}U_{n+1}(r,x)\,dr
+\le(P_sU_n(0))(x)
+}
+\label{eq:duhamelmissing}
+\end{equation}
+is \emph{exactly equivalent} to
+$U_n(s,x)\ge0$.
+Requiring it for all $n,s,x$ is
+therefore equivalent to RH, by
+the classical Laguerre--P\'olya
+criterion and the forward
+de Bruijn real-zero theorem.
+Unlike \eqref{eq:spatialheatgate},
+it does \emph{not} force simplicity:
+a legitimate equality at a
+multiple zero is permitted.
+
+For example, the exactly solvable
+backward heat polynomial
+$H_t(z)=z^2-2t$ has
+$U_1(s,x)=2x^2+4(t_0-s)$ and
+$U_2\equiv1$ if we start at
+$t_0>0$. Since
+\[
+P_sU_1(0,x)=2(x^2+s)+4t_0,
+\qquad 6\int_0^sP_{s-r}U_2\,dr=6s,
+\]
+the Duhamel inequality holds
+for $0\le s\le t_0$ and
+becomes an equality at
+$(s,x)=(t_0,0)$.
+At that point the polynomial
+has a double real zero and
+\eqref{eq:spatialheatgate}
+cannot hold for finite $c_1$.
+Thus the integral condition
+avoids the artificial simplicity
+requirement.
+
+The Duhamel criterion remains as
+hard as a global Laguerre proof;
+it is an equivalent reformulation,
+not a claimed advance toward
+proving RH. Its advantage is
+a better mathematical target
+for independent upper estimates
+on the \emph{integrated} theta
+heat source, with no ratios
+at vanishing denominators.
+The next genuinely new estimate
+must bound this source from the
+theta-series structure without
+using the sought positivity
+as an assumption.
+
+\paragraph{Verification scope.}
+Exact rational tests verify the
+multiplicity-$m$ model for
+$m=2,\ldots,90$ and the
+inverse-square coefficient
+for a range of rational offsets.
+Separate tests check the
+zero-compatible quadratic heat
+identity. Lean formalizes the
+adjacent-order contradiction,
+the polynomial algebra for
+$m=2,3,4$ and the quadratic
+Duhamel gates in
+\path{XiKernel/SpatialLaguerreEquivalence.lean}
+and
+\path{XiKernel/ZeroCompatibleDuhamel.lean}.
+The full genus-one canonical
+products, positivity criterion,
+heat semigroup and RH equivalence
+are analytical arguments, not
+end-to-end Lean theorems.
 
 The proof gates were tested by
 exact rational arithmetic in
