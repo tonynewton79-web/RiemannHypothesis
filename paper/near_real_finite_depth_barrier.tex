@@ -1,0 +1,154 @@
+\section{A stronger obstruction: nonreal zeros arbitrarily near the real axis}
+\label{sec:nearreal}
+Theorem~\ref{thm:finitedepth} exhibits
+nonreal zeros that recede into the complex plane
+as $N$ grows. That distance restriction is
+not essential. The Gaussian parameter can be
+chosen to conceal \emph{arbitrarily near-real}
+complex zeros from every prescribed finite
+number of global Laguerre tests.
+
+\begin{theorem}[Near-real finite-depth barrier]
+\label{thm:nearreal}
+For every integer $N\ge1$ and every
+$\varepsilon>0$ there exists a positive,
+even, rapidly decreasing real kernel $K$
+whose Fourier transform $F$ has nonreal
+zeros at distance less than $\varepsilon$
+from the real axis, although
+\[
+L_n[F](x)>0
+\qquad\text{for every real }x,\quad
+1\le n\le N.
+\]
+More explicitly, choose any $d\in(0,1)$,
+set
+\begin{equation}
+A=\frac{16N}{(1-d)^2},\qquad
+K(u)=e^{-u^2/(2A)}
+\left[1+d\,e^{-1/(2A)}\cosh(u/A)\right],
+\label{eq:nearK}
+\end{equation}
+and define $F(z)=\int K(u)e^{izu}\,du$.
+Then
+\[
+F(z)=\sqrt{2\pi A}\,e^{-Az^2/2}
+(1+d\cos z)
+\]
+and for all real $x$ and $1\le n\le N$
+\begin{equation}
+\boxed{
+L_n[F](x)\ge
+\frac{3\pi A}{2}
+\,e^{-Ax^2}\,
+\frac{(1-d)^2A^n}{n!}>0.
+}
+\label{eq:nearbound}
+\end{equation}
+The nonreal zeros are precisely
+\[
+(2k+1)\pi\pm i\operatorname{arcosh}(1/d).
+\]
+As $d\uparrow1$, their imaginary parts
+tend to zero.
+\end{theorem}
+
+\begin{proof}
+The inverse Fourier formula follows by
+completing the square in the Gaussian
+integral, with the $\cosh(u/A)$ term
+corresponding to shifts $z\mapsto z\pm i/A$.
+The resulting kernel is positive and
+rapidly decaying for real $u$.
+
+Fix $1\le n\le N$, and put
+\begin{align*}
+a&=\frac{A^n}{n!},\\
+b&=\sum_{j=1}^n
+\frac{A^{n-j}}{(n-j)!(2j)!},\\
+c&=\sum_{j=1}^n
+\frac{4^jA^{n-j}}{(n-j)!(2j)!}.
+\end{align*}
+The coefficient of $y^{2n}$ in
+$e^{Ay^2}(1+d\cos(x+iy))
+(1+d\cos(x-iy))$ is
+\begin{equation}
+a(1+d\cos x)^2
++2d\,b\cos x+\frac{d^2}{2}c.
+\label{eq:nearcoefficient}
+\end{equation}
+Here $c\ge0$. The other two terms have
+the lower bound
+\[
+a(1-d)^2-2db
+\]
+because $-1\le\cos x\le1$.
+To estimate $b$, use
+\[
+\frac ba=
+\sum_{j=1}^n
+\frac{n!}{(n-j)!(2j)!A^j}
+\le\sum_{j=1}^n\left(\frac nA\right)^j.
+\]
+Since $A\ge16N\ge2n$, the
+geometric series is bounded by
+\[
+\frac ba\le
+\frac{n/A}{1-n/A}\le\frac{2N}{A}.
+\]
+Therefore
+\[
+2db\le\frac{4dN}{A}a
+=\frac{d(1-d)^2}{4}a.
+\]
+Using $d<1$ gives
+\[
+a(1-d)^2-2db
+\ge\frac34a(1-d)^2>0.
+\]
+Multiplying by the positive Gaussian
+factor $2\pi A\,e^{-Ax^2}$ proves
+\eqref{eq:nearbound}.
+
+Finally, take for instance
+$d=1-m^{-2}$ with integer $m\ge2$.
+Then $\cosh y=1/d$ at the nonreal
+zero height $y>0$, and
+$1/d=1+1/(m^2-1)$.
+Since $\cosh\varepsilon\ge
+1+\varepsilon^2/2$, any
+$m$ satisfying
+$m^2-1>2/\varepsilon^2$
+gives $0<y<\varepsilon$.
+This explicitly establishes the
+arbitrary-nearness statement.
+\end{proof}
+
+\paragraph{Certification.}
+The standard-library script
+\texttt{certificates/near\_real\_finite\_depth\_exact.py}
+checks the exact rational coefficient
+bounds for several pairs $(N,m)$,
+including a height threshold below
+$10^{-3}$. The companion Lean module
+\texttt{XiKernel/NearRealFiniteDepth.lean}
+proves the underlying algebraic
+positivity gate under the explicit
+coefficient hypotheses; the
+all-$N$ binomial comparison and
+Gaussian integral are given above
+as exact paper proofs rather than
+end-to-end Lean theorems.
+
+\paragraph{Research significance.}
+Even global validity of any
+\emph{finite initial block}
+of generalized Laguerre inequalities
+cannot detect nonreal zeros arbitrarily
+near the real axis in this positive
+Fourier-kernel class.
+The issue is not the distance of a
+putative off-line zero, but uniform
+control of all Laguerre orders.
+This does not decide any zero of
+the genuine Riemann $\Xi$ function.
