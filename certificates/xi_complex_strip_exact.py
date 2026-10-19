@@ -44,3 +44,16 @@ print("PASS: k=0 complex strip |Im z|<=7 gates")
 print("PASS: 61 orders of exact Laguerre binomial cancellations")
 print("PASS: Xi critical-strip coordinate conversion and Rouché margin logic")
 print("NOT a numerical zero count or a proof of RH.")
+
+# Finite first-zero contour certificate architecture; node values and
+# integer winding remain UNVERIFIED until directed interval calculations.
+C_rough=((Q(22,7)+3+2+Q(2,3))/20 + 12*Q(22,7)/20**4)
+E2_rough=27*Q(22,7)/20**9
+N=4096
+sample_threshold=Q(7,100000)
+max_variation=Q(22,7)/(16*N)
+assert C_rough<Q(1,2)
+assert E2_rough<Q(1,1000000000)
+assert sample_threshold-max_variation>Q(1,1000000000)
+print("PASS: exact 4096-node contour-mesh gap blueprint")
+print("UNPROVED INPUT: all complex node moduli >=7e-5 plus a validated winding number")
