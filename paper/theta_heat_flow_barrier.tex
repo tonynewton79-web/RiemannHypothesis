@@ -189,6 +189,54 @@ an exactly solvable entire Fourier model.
 The same bound is not known for the
 genuine Jacobi kernel.
 
+\begin{lemma}[Transversal Laguerre sign crossing at a double zero]
+\label{lem:transversalheat}
+Let $H_t(z)$ be a real entire family satisfying
+$\partial_tH_t=-\partial_z^2H_t$.
+Suppose that for some real $x_*$ and heat time $t_*$
+\[
+H_{t_*}(x_*)=H'_{t_*}(x_*)=0,\qquad
+a:=H''_{t_*}(x_*)\ne0.
+\]
+Then
+\[
+L_{1,t_*}(x_*)=0,\quad
+L_{2,t_*}(x_*)=\frac{a^2}{4},\quad
+\left.\partial_t L_{1,t}(x_*)\right|_{t=t_*}=a^2>0.
+\]
+Consequently $L_{1,t}(x_*)<0$ for all $t<t_*$
+sufficiently close to $t_*$.
+\end{lemma}
+\begin{proof}
+From $L_1=(H')^2-HH''$,
+one has $\partial_x^2L_1=(H'')^2-HH''''$.
+At the double zero this equals $a^2$.
+The coefficient formula
+\[
+L_2=\frac{HH''''}{12}
+-\frac{H'H'''}3+\frac{(H'')^2}{4}
+\]
+gives $L_2=a^2/4$ there.
+The coupled heat identity
+$\partial_tL_1=6L_2-\tfrac12\partial_x^2L_1$
+therefore yields
+$6(a^2/4)-a^2/2=a^2>0$.
+Continuity and differentiability in the heat parameter
+give the stated strictly negative sign just before $t_*$.
+\end{proof}
+For a transparent polynomial test,
+$H_t(z)=z^2-2t$ solves the same backward
+heat equation and has
+$L_{1,t}(x)=2x^2+4t$.
+It has a double zero at $(t,x)=(0,0)$
+and $L_{1,t}(0)<0$ for $t<0$.
+This is a local heat-flow mechanism, not
+an assertion that the genuine Riemann theta
+heat family develops such a double zero
+at any particular time. The exact polynomial
+identities are recorded in
+\path{XiKernel/HeatDoubleRootTransversality.lean}.
+
 \begin{proposition}[A double-zero obstruction to the proposed comparison]
 \label{prop:doublezerofailure}
 Even for positive, even, rapidly decreasing kernels,
