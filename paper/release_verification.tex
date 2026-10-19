@@ -1,150 +1,126 @@
-\section{Verified release status and open proof gates}
+\section{Reproducibility and mathematical scope}
 \label{sec:verification-release}
-The following distinctions are important for interpreting the
-formal and computational evidence. GitHub Actions tests the
-repository at a specific commit, not mathematical claims which
-have not been stated and proved in the corresponding source.
-At the audited release baseline \texttt{14f5edfe5}
-the four checks all completed successfully:
-\begin{center}
-\small
-\begin{tabular}{p{0.43\columnwidth}p{0.41\columnwidth}}
-\hline
-\textbf{Verification layer} & \textbf{Status and scope}\\
-\hline
-Lean 4.24.0 / Mathlib &
-PASS: explicit finite algebra, abstract moment positivity,
-rational approximate fifth jet and axiom report.\\[2pt]
-Exact rational Python &
-PASS: directed-integer theta Taylor enclosures and
-$\mathcal T^5s(0)<0$ with analytic $m\ge13$ majorant.\\[2pt]
-Numerical Laguerre &
-PASS: 40 sampled positive values; independent
-completed-zeta normalization cross-check.\\[2pt]
-LaTeX / PDF &
-PASS: reproducible build of the manuscript.\\
-\hline
-\end{tabular}
-\end{center}
-See the CI evidence
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063496}{Lean},
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063454}{exact Python},
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063564}{numerical \(\Xi\)},
-and
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063479}{PDF}.
+The numerical claims in this paper arise from three
+different forms of calculation, and their logical roles
+should be kept separate. The fifth-iterate calculation
+for the genuine theta kernel uses outward rational
+integer intervals, a Machin-series enclosure for
+$\pi$, and explicit control of the omitted theta
+summands. Its certificate is reproduced by
+\path{certificates/xi_fifth_iterate_exact.py}.
+The Gaussian-polynomial identities, the
+large-frequency truncation coefficients and
+the rational bounds on the exponential theta
+tail can be checked directly from the
+recurrences given in the proofs.
 
-The axiom inspection has two separate outcomes.
-\texttt{XiKernel.centerMoment\_pos} and the
-small algebraic claims depend on the usual Mathlib axioms
-\texttt{propext}, \texttt{Classical.choice}, and
-\texttt{Quot.sound}. The rational-jet computation instead
-uses \texttt{native\_decide}, introducing
-\texttt{Lean.ofReduceBool} and \texttt{Lean.trustCompiler}.
-It is a Lean-compiled, compiler-assisted check of a
-finite rational approximation, but does \emph{not} certify
-the exact infinite theta series by Lean's small kernel.
-The independently derived rational-interval Python
-certificate proves a different claim: it encloses the
-actual fifth iterate under the explicit analytic majorants
-given in Section~1 and the companion source.
+The radial-curvature theorem is a
+computer-assisted analytic result.
+Its proof separates a compact interval,
+certified by 500 outward-rounded rational
+cells, from a distant region controlled
+by an explicit infinite-tail majorant.
+The implementation and the relevant
+polynomial identities appear in
+\path{certificates/xi_global_curvature_exact.py}.
+Although the arithmetic checks are exact,
+an independent mathematical review of
+the complete tail comparison and the
+placement of this theorem within earlier
+theta-kernel literature remains appropriate.
 
-There are three priority proof obligations.
-First, close the end-to-end Lean bridge from
-the actual theta series to the fifth-iterate rational
-interval, including analyticity, exact differentiation,
-Machin and exponential estimates, tail control, and
-sound outward arithmetic
-(\href{https://github.com/tonynewton79-web/RiemannHypothesis/issues/1}{Issue 1}).
-Second, certify noncentral transform-level
-Laguerre inequalities over whole real intervals, and
-seek genuinely all-order information rather than
-pointwise high-precision evidence
-(\href{https://github.com/tonynewton79-web/RiemannHypothesis/issues/2}{Issue 2}).
-Third, independently audit the newly established
-radially increasing curvature theorem
-$(-\log\Phi)'''(u)>0$ on every $u>0$
-(\href{https://github.com/tonynewton79-web/RiemannHypothesis/issues/3}{Issue 3});
-its 500-cell interval certificate is exact Python arithmetic,
-not an end-to-end Lean theorem.
+The three finite zero-count theorems use
+the same two-mode Fourier approximation
+but certify distinct disks.
+Their proofs reduce to enclosures of
+three Taylor coefficients and one
+positive remainder integral. Every
+coefficient is computed at two
+different composite-Simpson resolutions;
+the stated fourth-derivative bounds
+and the omitted $r>2$ integral tails
+are handled analytically.
+The integration nodes use
+\texttt{mpmath.iv} version 1.3.0 for
+interval enclosures of $\pi$,
+exponentials and trigonometric values,
+which are subsequently converted to
+exact rational endpoints.
+Thus the computational trust boundary
+includes that library's transcendental
+interval implementation as well as
+the elementary analytic estimates.
+The scripts, available in the
+\texttt{certificates} directory,
+may be run independently of the
+LaTeX build. The corresponding tests
+and their results are recorded
+in the public repository's
+\texttt{RESULTS.md} file.
 
-\paragraph{Scope and prior art.}
-The all-order correlation identity is closely related to
-the Fourier-transform Wronskian and correlation
-characterizations of Dimitrov--Xu~\cite{DX}; the
-second-level concavity of the true theta kernel
-is already established by Planat--Sol\'e~\cite{PS}.
-Strict infinite log-concavity of a \emph{different}
-Taylor-coefficient sequence was proved by
-Liu--Mao~\cite{LM}. Neither those results nor our local
-Laguerre band constitutes a proof of RH.
-The fifth-iterate obstruction and all-iterate
-Gaussian counterexamples warrant further specialist
-review before originality or publication claims.
+The Lean 4.24.0/Mathlib development
+certifies exact algebraic identities,
+moment-positivity statements, rational
+comparison gates, and the functional
+symmetry of an entire form of
+the classical completed zeta function.
+For these small algebraic theorems,
+the recorded axiom inspection reports
+the ordinary Mathlib axioms
+\texttt{propext}, \texttt{Classical.choice},
+and \texttt{Quot.sound}.
+The large rational-jet test instead
+uses \texttt{native\_decide}, which
+also relies on compiler-trust axioms;
+it is not a small-kernel-only check.
+Neither the interval-Simpson
+calculations nor the full
+Jacobi transformation, Fourier
+integrals and Rouch\'e transfers
+have been formalized end to end
+in Lean.
 
-\paragraph{19 October arithmetic/Fourier extension.}
-The new square-lattice modular-cancellation and
-uniform Fourier-truncation sections add a
-separate exact arithmetic verification layer.
-The combined standard-library Python workflow,
-including rational square-lattice error
-constants and the first odd-jet sign polynomial,
-passed in
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39237900767}{CI run 39237900767}.
-The new Lean algebraic gates in
-\texttt{SquareLatticeFourierTail.lean} and
-\texttt{ModularOddJet.lean} passed in
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39237653824}{CI run 39237653824},
-with only standard Mathlib axioms in the
-audited declarations. The corrected
-\emph{numerical} gamma/Fourier/zeta
-cross-check passed
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39237900768}{CI run 39237900768}.
-The three-mode calculation at $x=39.5$ is
-high precision, \emph{not} interval-certified;
-the eventual negative $L_1[F_M]$ theorem for
-every fixed $M$, by contrast, follows
-analytically from Jacobi parity and integration
-by parts. Neither the entire theta functional
-equation nor the Fourier asymptotic has yet been
-formalized end-to-end in Lean. The corresponding
-manuscript results do not settle RH.
+The existence and simplicity of
+the three zeros certified here
+are classical results. Indeed,
+Platt and Trudgian verified the
+critical-line location and
+simplicity of all nontrivial
+zeta zeros up to height
+$3\cdot10^{12}$ \cite{PlattTrudgian}.
+The present certificates therefore
+make no claim of a new zeta-zero
+location or an improvement in
+verified height. Their value is
+to test the particular theta-Fourier
+approximation and its explicit
+Rouch\'e error bounds.
 
-\paragraph{October 2026 complex-strip proof attack.}
-The new work establishes
-the exact Gaussian parity-repair and
-zero-invariance theorems,
-a uniform theta truncation bound
-on $|\Im z|\le7$, and a
-conditional Rouch\'e zero-count
-criterion. The standard-axiom
-Lean subtheorems and their
-\texttt{\#print axioms} audit passed in
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39241484058}{Lean run 39241484058}.
-The exact-arithmetic coefficient and
-strip-exponent tests passed in
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39241940890}{run 39241940890}.
-The independent Gaussian
-and incomplete-gamma numerical
-replays, including a sampled
-first-zero contour, passed in
-\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39241873026}{numerical run 39241873026}.
-The 96-point contour winding
-is \emph{not} a certified
-continuous-contour winding number.
-The incomplete-gamma integral,
-the full Jacobi theta transformation,
-the complex-strip analytic error
-bound and the Rouch\'e/Hurwitz
-application are manuscript proofs,
-not end-to-end Lean theorems.
-The RH-equivalent eventual
-zero-evacuation assertion
-remains unproved.
+The open difficulty remains global.
+The explicit theta truncation estimate
+can be made arbitrarily small on the
+complex strip, with an adaptive
+number of modes growing as
+$O(\sqrt{\log R})$ for prescribed
+polynomial accuracy at height $R$.
+What is unavailable is a
+height-uniform strict lower bound
+on the approximating transform
+over contours that would exclude
+off-critical zeros. Nor do the
+finite Laguerre tests supply that
+missing lower bound, as the
+counterexamples in this paper show.
+Consequently neither the three
+bounded zero counts nor the
+formal algebraic results prove
+the Riemann hypothesis.
 
-\paragraph{Release identity.}
-The source is maintained at
+The complete source, reproducibility
+instructions and verification record
+are maintained at
 \url{https://github.com/tonynewton79-web/RiemannHypothesis}.
 The identifier
 \href{https://doi.org/10.5281/zenodo.23461586}{10.5281/zenodo.23461586}
-is \emph{reserved} and must not be described as
-an already published Zenodo record.
+is reserved and is not asserted
+to be a published Zenodo record.
