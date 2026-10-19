@@ -123,6 +123,64 @@ The source estimate follows
 immediately from its definition.
 \end{proof}
 
+\begin{proposition}[A common all-order positivity band
+throughout the true theta heat flow]
+\label{prop:heatcommonband}
+For $0\le t\le1/2$ set
+\[
+M_j(t)=\int_{\mathbb R}
+u^j e^{tu^2}\Phi(u)\,du
+\quad(j=0,2,4).
+\]
+Assuming the globally increasing theta potential
+curvature established in
+Theorem~\ref{thm:globalcurvature},
+define the positive number
+\[
+r_*^2=
+\frac{2M_0(0)M_2(0)}
+{M_0(1/2)M_4(1/2)}.
+\]
+Then for \emph{every} $n\ge1$,
+$0\le t\le1/2$ and $|x|<r_*$,
+\[
+L_n[F_t](x)>0.
+\]
+\end{proposition}
+\begin{proof}
+The heat tilt changes
+$V_t=-\log\Phi_t$ by $-tu^2$,
+so $V_t'''=V_0'''>0$ on $u>0$.
+The reverse-likelihood-ratio
+moment comparison from the preceding
+sections applies to each $\Phi_t$:
+$B_{n,t}/A_{n,t}\le B_{1,t}/A_{1,t}$
+for $n\ge1$.
+For the even kernel, the
+order-one moments satisfy
+\[
+A_{1,t}=M_0(t)M_2(t),\qquad
+B_{1,t}=M_0(t)M_4(t)-M_2(t)^2.
+\]
+All the moments $M_{2j}(t)$
+are nondecreasing in $t$.
+Consequently
+\[
+A_{1,t}\ge M_0(0)M_2(0),\qquad
+0\le B_{1,t}\le M_0(1/2)M_4(1/2).
+\]
+The elementary cosine inequality
+$L_n[F_t](x)\ge
+A_{n,t}-x^2B_{n,t}/2$ gives
+the claimed strict common band.
+\end{proof}
+This all-order inequality really is uniform
+under backward heat travel from
+$t=1/2$ to $t=0$, but only for
+a \emph{bounded} Fourier interval.
+It does not rule out off-real zeros
+with large real parts, nor prove RH.
+
 \paragraph{What the estimate does not give.}
 Theorem~\ref{thm:uniformheattail} controls
 the actual theta heat family, simultaneously
