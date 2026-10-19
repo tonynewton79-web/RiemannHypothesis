@@ -18,6 +18,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.HeatFlowDoubleZeroObstruction
 
 /-!
 Axiom audit:
@@ -101,3 +102,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.first_laguerre_heat_coupling
 #print axioms XiKernel.gaussian_heat_hierarchy
 #print axioms XiKernel.heat_tilt_preserves_cubic_jet
+
+#print axioms XiKernel.double_zero_first_laguerre
+#print axioms XiKernel.double_zero_second_laguerre
+#print axioms XiKernel.double_zero_blocks_heat_comparison
