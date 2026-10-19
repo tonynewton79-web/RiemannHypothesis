@@ -21,6 +21,7 @@ import XiKernel.HeatFlowLaguerre
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.ThetaHeatTail
 import XiKernel.HeatDoubleRootTransversality
+import XiKernel.HeatZeroGapObstruction
 
 /-!
 Axiom audit:
@@ -116,3 +117,8 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.heat_double_zero_laguerre_derivative
 #print axioms XiKernel.heat_double_zero_laguerre_derivative_pos
 #print axioms XiKernel.heat_quadratic_model_negative
+#print axioms XiKernel.root_gap_first_jet_identity
+#print axioms XiKernel.root_gap_second_jet_identity
+#print axioms XiKernel.root_gap_second_lower
+#print axioms XiKernel.root_gap_scaled_ratio_gate
+#print axioms XiKernel.close_root_ratio_lower
