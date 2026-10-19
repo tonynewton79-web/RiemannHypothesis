@@ -5,6 +5,7 @@ import XiKernel.FirstSummandCurvature
 import XiKernel.EntireXi
 import XiKernel.GlobalCurvatureAlgebra
 import XiKernel.RadialCurvatureCounterexample
+import XiKernel.FiniteDepthBarrier
 
 /-!
 Axiom audit:
@@ -37,7 +38,6 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.mixture_family_third_curvature_pos
 #print axioms XiKernel.fourier_mixture_positive_on_real
 
-import XiKernel.FiniteDepthBarrier
 #print axioms XiKernel.finite_depth_fourier_gate
 #print axioms XiKernel.first_order_still_positive
 #print axioms XiKernel.second_order_coefficient_negative
