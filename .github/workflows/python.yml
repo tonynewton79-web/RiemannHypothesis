@@ -28,5 +28,7 @@ jobs:
         run: python certificates/xi_square_lattice_uniform_tail.py
       - name: Verify modular odd-jet and spurious finite-cutoff Laguerre signs
         run: python certificates/xi_modular_odd_jet_exact.py
+      - name: Verify Gaussian parity repair, Laguerre shift and uniform approximation gates
+        run: python certificates/gaussian_parity_repair_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
