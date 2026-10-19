@@ -274,3 +274,24 @@ along an unbounded sequence. Thus
 **Exact reproducibility:** `paper/heat_zero_gap_global_obstruction.tex`, `XiKernel/HeatZeroGapObstruction.lean`, `certificates/xi_heat_zero_gap_exact.py`, `.github/workflows/xi-heat-zero-gap.yml`. Local symbolic and Fraction tests passed. GitHub Lean/CI runs have been queued; do not assert their success before completion. Published zero count and canonical product are cited mathematical inputs and NOT kernel-checked in Lean.
 
 **Paper and DOI:** The full GitHub manuscript integrates the result inside its heat-flow section. The user confirms DOI `10.5281/zenodo.23461586` is live; avoid obsolete 'reserved / not yet published' claims. No claim of RH proof or publication novelty. RH remains **OPEN**.
+
+## 19 October 2026 — spatially dependent heat comparison: precise proof gate
+
+**Corrected maximum-principle theorem.** For any bounded classical solution U on [0,T]×ℝ, local boundedness and nonnegativity of c(s,x) suffice for the implication
+`U_s - U_xx/2 + c U >= 0; U(0,x)>=0 ⇒ U>=0`.
+Proof: `W=U+epsilon exp(s)cosh(x)` has strictly positive PDE residual `epsilon exp(s)(1/2+c)cosh(x)` and dominates U at large |x|. Thus the proof **does not require a global `log²(2+|x|)` upper bound**.
+
+**RH-conditional sufficient gate:** For every n>=1 and (s,x)∈[0,1/2]×ℝ, produce a nonnegative **locally bounded** coefficient c_n(s,x) such that
+`(n+1)(2n+1) U_(n+1)(s,x) <= c_n(s,x) U_n(s,x)`,
+`U_n(s,x)=L_(n,1/2-s)(x)` for the true Riemann heat transform. This is **unproved**. Merely defining c as a positive ratio is circular where U_n could vanish or change sign.
+
+**Exact necessary gap cost (finite real-rooted polynomials):** At any simple root a of `G(z)=C∏(z-rho_j)`,
+`L_n[G](a)=G'(a)^2 e_(n-1)((a-rho_j)^-2 : rho_j!=a)` and
+`(n+1)(2n+1)L_(n+1)/L_n <= ((n+1)(2n+1)/n) sum_(rho!=a)(a-rho)^-2`.
+At n=1 the required coefficient equals `6 sum_(rho!=a)(a-rho)^-2`. A universal log² upper envelope cannot follow from real-rootedness alone: for two roots a,b the exact ratio is `6/(a-b)^2`, arbitrarily large at bounded a if b approaches a. For the heat-polynomial `H_t=z²-2t`, the minimal required coefficient at x=0 is `3/(2t)` and diverges at a collision.
+
+**Tests:** 131 exact rational real-rooted ratio checks, inverse-gap stress examples, exact polynomial heat-collision tests and positive cosh barrier algebra all PASS locally (Python standard library). Lean subtheorems committed to `XiKernel/SpatialHeatComparison.lean`; latest GitHub Actions remain queued and no pass is yet asserted.
+
+**Full source:** `paper/spatial_heat_comparison.tex` included in the complete eight-section `paper/main.tex`, plus `certificates/xi_spatial_comparison_exact.py`. DOI `10.5281/zenodo.23461586` is now shown without obsolete 'reserved/unpublished' wording, as instructed by the user.
+
+**Remaining research-critical step:** a noncircular theta-specific, all-order, entire-slab estimate providing locally finite c_n(s,x), especially across possible near-collisions. No RH proof yet.
