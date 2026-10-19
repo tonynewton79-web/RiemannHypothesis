@@ -13,3 +13,5 @@ import XiKernel.RadialCurvatureCounterexample
 import XiKernel.FiniteDepthBarrier
 
 import XiKernel.NearRealFiniteDepth
+
+import XiKernel.SquareLatticeFourierTail
