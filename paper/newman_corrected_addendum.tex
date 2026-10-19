@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,hyperref}
+\title{Addendum: GHS curvature and Riemann theta heat flow}
+\author{Tony Newton}
+\date{}
+\begin{document}\maketitle
+The classical Riemann theta potential $V(u)=-\log\Phi(u)$
+was studied by Newman, who proved in 1991 that $V'$
+is convex on the positive half-line \cite{GHS}.
+Thus the qualitative monotone-curvature assertion in
+the present preprint is previously known. Our rational
+interval certificate should be regarded as an alternative
+quantitative verification, not a first proof of the
+underlying GHS-type property.
+
+We use the de Bruijn--Newman deformation in the
+normalization employed by Rodgers and Tao \cite{RT}:
+\[
+H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du .
+\]
+Newman and Wu review this deformation and its
+statistical-mechanical background \cite{NW}. For
+$V_t=-\log(e^{tu^2}\Phi)$ we have exactly
+\[
+V_t''=V_0''-2t,\qquad
+V_t^{(k)}=V_0^{(k)}\quad(k\ge3).
+\]
+Thus every derivative of the potential of order
+at least three is independent of the heat time.
+Nevertheless known de Bruijn--Newman theory gives
+$0\le\Lambda\le1/2$: $H_{1/2}$ has only
+real zeros, whereas $H_{-1}$ has nonreal
+zeros \cite{RT,NW}. The entire third-and-higher
+potential jet cannot determine the real-zero property.
+
+Differentiating the heat Fourier integral gives
+$\partial_tH_t=-\partial_z^2H_t$. With
+\[
+Q_t(x,y)=H_t(x+iy)H_t(x-iy)
+=\sum_{n\ge0}L_{n,t}(x)y^{2n}
+\]
+one obtains
+\[
+\partial_tQ_t=\tfrac12(Q_{yy}-Q_{xx}),\quad
+\partial_tL_{n,t}
+=(n+1)(2n+1)L_{n+1,t}
+-\tfrac12\partial_x^2L_{n,t}.
+\]
+The negative adjacent-order source on backward
+heat evolution defeats a direct scalar positivity
+comparison. An explicit Gaussian--hyperbolic
+double-zero example in the cumulative manuscript
+shows why one proposed universal comparison
+bound is too strong.
+
+The same manuscript provides a theta-specific,
+heat-uniform \emph{absolute} Fourier truncation
+estimate for $0\le t\le1/2$:
+\[
+|F_t^{(k)}(z)-F_{t,M}^{(k)}(z)|
+\le \frac{3k!}{4^k}q e^{-q+1/16},
+\quad q=\pi(M+1)^2,\quad|\Im z|\le3 .
+\]
+For $k=0$ the bound also holds on $|\Im z|\le7$.
+Together with curvature/moment comparisons it
+supports a bounded noncentral interval of
+Laguerre positivity uniformly in heat time, but
+it does not exclude off-critical zeros globally.
+
+This addendum clarifies earlier references.
+The qualitative GHS curvature result belongs
+to Newman \cite{GHS}; the zero threshold and
+its lower bound belong to the earlier
+de Bruijn--Newman work and Rodgers--Tao
+\cite{RT}; the relevant broader context is
+reviewed by Newman--Wu \cite{NW}.
+The Riemann hypothesis remains open.
+
+\begin{thebibliography}{3}
+\bibitem{RT} B. Rodgers and T. Tao,
+The de Bruijn--Newman constant is non-negative,
+\emph{Forum Math. Pi} \textbf{8} (2020), e6.
+\bibitem{NW} C. M. Newman and W. Wu,
+Constants of de Bruijn--Newman type in analytic
+number theory and statistical physics,
+\emph{Bull. Amer. Math. Soc.} \textbf{57} (2020), 595--614.
+\bibitem{GHS} C. M. Newman,
+The GHS inequality and the Riemann hypothesis,
+\emph{Constr. Approx.} \textbf{7} (1991), 389--399.
+\end{thebibliography}
+\end{document}
