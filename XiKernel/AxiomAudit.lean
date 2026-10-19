@@ -7,6 +7,7 @@ import XiKernel.GlobalCurvatureAlgebra
 import XiKernel.RadialCurvatureCounterexample
 import XiKernel.FiniteDepthBarrier
 import XiKernel.NearRealFiniteDepth
+import XiKernel.SquareLatticeFourierTail
 
 /-!
 Axiom audit:
@@ -45,3 +46,6 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 
 #print axioms XiKernel.near_real_finite_depth_gate
 #print axioms XiKernel.near_real_strict
+
+#print axioms XiKernel.square_lattice_tail_margin
+#print axioms XiKernel.square_lattice_tail_factor
