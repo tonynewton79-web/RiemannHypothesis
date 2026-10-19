@@ -1,0 +1,167 @@
+\section{An exact falsification of the curvature-to-real-zero inference}
+\label{sec:curvatureobstruction}
+
+The global radial-curvature theorem for the genuine Jacobi-theta
+kernel provides a common \emph{bounded} Fourier-side Laguerre
+positivity interval. It cannot on its own be extended to
+the entire real Fourier axis. The following exact example
+makes this logical boundary decisive.
+
+\begin{theorem}[Gaussian--hyperbolic counterexample]
+\label{thm:coshcounter}
+Let
+\[
+K(u)=e^{-u^2/2}\left(1+\frac12\cosh u\right),
+\qquad V(u)=-\log K(u).
+\]
+Then $K$ is positive, even, entire, and rapidly decreasing
+on the real axis, with
+\begin{align}
+V''(u)
+&=\frac{\cosh^2u+2\cosh u+3}
+        {(\cosh u+2)^2}\ge\frac23,\\
+V'''(u)
+&=\frac{2(\cosh u-1)\sinh u}
+        {(\cosh u+2)^3}>0\quad(u>0).
+\label{eq:coshcurv}
+\end{align}
+Nevertheless its Fourier transform is
+\begin{equation}
+F(z)=\int_{\mathbb R}K(u)e^{izu}\,du
+=\sqrt{2\pi}e^{-z^2/2}(1+d\cos z),
+\qquad d=\frac{e^{1/2}}2,
+\label{eq:coshfourier}
+\end{equation}
+where $1/2<d<1$. Thus $F(x)>0$ for \emph{every}
+real $x$, but $F$ has nonreal zeros
+\begin{equation}
+z=(2k+1)\pi\pm i\operatorname{arcosh}(1/d),
+\qquad k\in\mathbb Z.
+\end{equation}
+Its first Fourier-side Laguerre inequality is
+already violated at the explicit real point $x=\pi$:
+\begin{equation}\label{eq:coshlaguerre}
+\boxed{
+L_1[F](\pi)
+=2\pi e^{-\pi^2}(1-d)(1-2d)<0.
+}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Put $C=\cosh u$, $S=\sinh u$. The elementary identities
+$C^2-S^2=1$, $C'=S$, and $S'=C$ yield
+\[
+V''=1-\frac{2C+1}{(C+2)^2}
+\quad\text{and}\quad
+V'''=\frac{2(C-1)S}{(C+2)^3}.
+\]
+The strong convexity bound is exactly
+\[
+3(C^2+2C+3)-2(C+2)^2
+=(C-1)^2\ge0.
+\]
+For $u>0$, $C>1$ and $S>0$, proving
+strict radial curvature.
+
+The standard Gaussian Fourier integral
+$\int_{\mathbb R}e^{-u^2/2}e^{izu}du
+=\sqrt{2\pi}e^{-z^2/2}$ holds for complex $z$
+by analytic continuation.
+The hyperbolic factor is
+$\cosh u=(e^u+e^{-u})/2$; shifting the Fourier
+argument by $\mp i$ and completing squares
+yields \eqref{eq:coshfourier}.
+Elementary exponential series show
+$1<e^{1/2}<2$, hence $1/2<d<1$.
+For real $x$, $1+d\cos x\ge1-d>0$.
+On the other hand, at
+$z=(2k+1)\pi+iy$ one has
+$\cos z=-\cosh y$, and
+$\cosh y=1/d>1$ has a unique $y>0$,
+proving the explicit nonreal zero pair.
+
+Finally differentiating
+$F(z)=C_0e^{-z^2/2}H(z)$,
+$H(z)=1+d\cos z$, gives
+\[
+(F')^2-FF''
+=C_0^2e^{-z^2}
+\bigl[H^2+(H')^2-HH''\bigr].
+\]
+Substituting $z=\pi$, where
+$H=1-d$, $H'=0$, $H''=d$, gives
+\eqref{eq:coshlaguerre}. Every sign follows
+from $1/2<d<1$.
+\end{proof}
+
+\begin{proposition}[A sharp zero-location transition
+inside the radial-curvature class]\label{prop:coshfamily}
+For any $c\ge1/2$ define
+\[
+K_c(u)=e^{-u^2/2}(1+c\cosh u),\qquad
+d_c=c\,e^{1/2}.
+\]
+All these kernels have $(-\log K_c)'''(u)>0$
+for $u>0$, and their potentials are
+strictly convex. Their Fourier transforms are
+\[
+F_c(z)=\sqrt{2\pi}e^{-z^2/2}(1+d_c\cos z).
+\]
+The transform has only real zeros exactly when
+$d_c\ge1$, and nonreal zeros when $0<d_c<1$.
+Thus the continuous curvature-positive family
+passes through a real-zero transition at
+$c=e^{-1/2}$, a parameter strictly greater than $1/2$.
+\end{proposition}
+\begin{proof}
+Write $M=1+c\cosh u$ and $C=\cosh u$.
+Direct differentiation yields
+\[
+(\log M)'''=
+\frac{c\sinh u(1-cC-2c^2)}
+{(1+cC)^3}.
+\]
+For $c\ge1/2$ and $u>0$, one has
+$cC+2c^2>1$, so $(-\log K_c)'''>0$.
+Moreover
+\[
+(\log M)''=
+\frac{cC+c^2}{(1+cC)^2}<1,
+\]
+since the difference between denominator
+and numerator is $1+cC+c^2(C^2-1)>0$.
+Thus $(-\log K_c)''>0$.
+Gaussian integration gives the transform.
+If $d_c<1$, $\cos z=-1/d_c<-1$ has
+nonreal solutions and no real solutions.
+If $d_c\ge1$, solving
+$\cos z=-1/d_c\in[-1,0)$ shows all
+solutions are real (the boundary case
+$d_c=1$ has double real zeros).
+\end{proof}
+
+\paragraph{Implications for RH.}
+The counterexample proves that positivity of
+$V'''$, even coupled to uniform strong log-concavity,
+cannot imply either $L_1[F](x)\ge0$ for all real $x$
+or the real-zero property. This does not weaken
+Theorem~\ref{thm:globalcurvature} for the \emph{specific}
+theta kernel; it establishes that a successful RH proof
+must exploit additional theta/modular information
+\emph{at the Fourier-transform level}.
+A precise future target is a signed-cosine
+correlation inequality
+\[
+\int_{\mathbb R}
+G_n(w)\cos(xw)\,dw\ge0\qquad
+(\forall n\ge1,\ \forall x\in\mathbb R),
+\]
+where
+$G_n(w)=\int(2u-w)^{2n}\Phi(u)\Phi(w-u)\,du$
+with the positive factorial normalization
+specified earlier. The mere fact $G_n(w)\ge0$
+does not provide this Fourier-positivity statement.
+This distinction is consistent with the earlier
+Wronskian/correlation framework of
+Dimitrov--Xu~\cite{DX}.
