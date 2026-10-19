@@ -42,6 +42,24 @@ theorem mixture_third_derivative_numerator (c sh : ℝ) :
     (1-c)/2 + (sh^2-c^2+1)/2 := by
   ring
 
+/-- Hyperbolic mixture family: positivity of the entire third-curvature
+numerator for c≥1/2 and C=cosh(u)>1, S=sinh(u)>0. -/
+theorem mixture_family_third_curvature_pos
+    (c C S : ℝ) (hc : 1/2 ≤ c) (hC : 1 < C)
+    (hS : 0 < S) :
+    0 < c*S*(c*C+2*c^2-1)/(1+c*C)^3 := by
+  have hcpos : 0 < c := by linarith
+  have hCpos : 0 < C - 1 := by linarith
+  have hA : 0 ≤ 2*c-1 := by linarith
+  have hB : 0 < c+1 := by linarith
+  have hfact : c*C+2*c^2-1 =
+      c*(C-1)+(2*c-1)*(c+1) := by ring
+  have hp : 0 < c*C+2*c^2-1 := by
+    rw [hfact]
+    positivity
+  have hden : 0 < (1+c*C)^3 := by positivity
+  exact div_pos (by positivity) hden
+
 theorem fourier_laguerre_factor (d : ℝ) :
     2*d^2 - 3*d + 1 = (1-d)*(1-2*d) := by
   ring
