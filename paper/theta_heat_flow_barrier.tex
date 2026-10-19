@@ -1,10 +1,15 @@
 \section{The genuine theta heat flow and a limit of curvature arguments}
 \label{sec:thetaheat}
-The de Bruijn--Newman deformation supplies an unusually
-sharp test of which properties of the Jacobi kernel
-can actually determine the zero locations.
-We use the standard normalization of
-Rodgers and Tao~\cite{RodgersTao,NewmanWu},
+Newman's GHS paper \cite{NewmanGHS} established
+convexity of the theta potential derivative and
+discussed the limits of this information for RH.
+The de Bruijn--Newman deformation supplies an
+especially sharp test of whether that known
+curvature property can determine zero locations.
+We use the heat-flow normalization of
+Rodgers and Tao \cite{RodgersTao}; Newman and
+Wu review the connection with statistical
+mechanics \cite{NewmanWu}:
 \begin{equation}
 H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du,
 \qquad t\in\mathbb R,
@@ -291,10 +296,16 @@ and independently evaluates
 \eqref{eq:heatcurvatureinvariance}
 at four arguments and three heat times
 to 65-digit precision.
-The existence and properties of $\Lambda$,
-the backward heat equation, and the
-real-zero threshold are established
-prior work \cite{RodgersTao,NewmanWu,Polymath15}.
+The threshold theorem and the lower bound
+$\Lambda\ge0$ are due to earlier work,
+not to this paper \cite{RodgersTao}.
+For the statistical-mechanical and
+de Bruijn--Newman context, see Newman
+and Wu \cite{NewmanWu}, and for effective
+heat approximations see \cite{Polymath15}.
+Newman's earlier GHS theorem is the
+appropriate source for the qualitative
+curvature property \cite{NewmanGHS}.
 The Lean code formalizes only algebraic
 jet identities: it does not reprove
 Rodgers--Tao or certify the genuine
