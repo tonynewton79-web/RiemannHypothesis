@@ -32,9 +32,9 @@ for x in xs:
     fq=Fquad(x,3)
     fz=mp.re(xi(mp.mpf('.5')+1j*x/2))/4
     assert abs(fg-fq)<mp.mpf('1e-38')
-    assert abs(fg-fz)<mp.mpf('1e-38')
+    assert abs(Fgamma(x,12)-fz)<mp.mpf('1e-38')
     print('x=',mp.nstr(x,6),'gamma-quadrature gap=',mp.nstr(abs(fg-fq),7),
-          'gamma-xi/4 gap=',mp.nstr(abs(fg-fz),7))
+          '12-mode gamma-xi/4 gap=',mp.nstr(abs(Fgamma(x,12)-fz),7))
 
 x=mp.mpf('39.5')
 for M in (1,2,3):
