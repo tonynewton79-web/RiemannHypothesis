@@ -104,10 +104,15 @@ integrals is \emph{not} formalized.
 The module \texttt{XiKernel/RationalJet.lean}
 defines a finite Taylor-jet recurrence and computes the
 fifth iterate of rational 12-decimal approximants to the
-eleven genuine theta Taylor coefficients. This establishes
-only a rational algebraic sign for the \emph{approximate}
-jet; it cannot be substituted for Theorem~\ref{thm:five}
-without a formally checked enclosure/stability theorem.
+eleven genuine theta Taylor coefficients. GitHub Lean CI
+passed, but its \texttt{native\_decide} proof depends on
+\texttt{Lean.ofReduceBool} and \texttt{Lean.trustCompiler},
+as confirmed by an explicit \texttt{\#print axioms} audit.
+It is compiler-assisted reflection, \emph{not} a small-kernel-only
+certificate. This establishes only a rational sign for the
+\emph{approximate} jet; it cannot be substituted for
+Theorem~\ref{thm:five} without a formally checked
+analytic coefficient enclosure and stability theorem.
 
 To certify Theorem~\ref{thm:five} \emph{end to end in Lean},
 three missing links must all be discharged:
