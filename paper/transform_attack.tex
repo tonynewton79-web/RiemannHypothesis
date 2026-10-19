@@ -1,0 +1,124 @@
+\section{A transform-level Laguerre attack}\label{sec:transformattack}
+The Riemann hypothesis asks about zeros of the completed
+xi-function, rather than the curvature of its kernel.
+With the present Csordas--Planat--Sol\'e normalization,
+write $K(u)=\Phi(u)$ and
+\begin{equation}\label{eq:fourier-actual}
+F(z)=\int_{\mathbb R}K(u)e^{izu}\,du
+     =\frac14\,\xi\!\left(\frac12+\frac{iz}{2}\right).
+\end{equation}
+The factor $1/4$ and the half-frequency must be retained:
+the first real zero of $F$ is near $z=28.269$, not $14.134$.
+The scaling does not affect signs of generalized Laguerre
+expressions.
+
+For a sufficiently rapidly decreasing positive even kernel,
+set
+\begin{equation}
+L_n[F](x)=\frac{(-1)^n}{(2n)!}
+\sum_{j=0}^{2n}(-1)^j {2n\choose j}
+F^{(j)}(x)F^{(2n-j)}(x).
+\end{equation}
+Differentiating the Fourier integral and symmetrizing
+yields an exact correlation representation:
+\begin{equation}\label{eq:all-order-corr}
+L_n[F](x)=\frac{1}{(2n)!}
+\iint_{\mathbb R^2}(u-v)^{2n}K(u)K(v)
+\cos(x(u+v))\,du\,dv.
+\end{equation}
+
+\begin{proposition}[Central positivity and a local band]
+Let $K$ be real, even, positive almost everywhere and have
+the moments required in \eqref{eq:all-order-corr}.
+Define the positive quantities
+\begin{align}
+A_n&=\frac{1}{(2n)!}\iint (u-v)^{2n}K(u)K(v)\,du\,dv,\\
+B_n&=\frac{1}{(2n)!}\iint (u-v)^{2n}(u+v)^2K(u)K(v)\,du\,dv.
+\end{align}
+Then $L_n[F](0)=A_n>0$ and for every real $x$,
+\begin{equation}\label{eq:local-positive}
+L_n[F](x)\ge A_n-\frac{x^2}{2}B_n.
+\end{equation}
+In particular $L_n[F](x)>0$ for
+$|x|<\sqrt{2A_n/B_n}$ whenever $B_n>0$.
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:all-order-corr} is the coefficient of
+$y^{2n}$ in
+$F(x+iy)F(x-iy)$, using symmetry under $u\leftrightarrow v$.
+The strict inequality at $x=0$ follows from positivity of
+the integrand away from the measure-zero diagonal.
+Finally $\cos\theta\ge 1-\theta^2/2$ for every real $\theta$,
+and integration against the nonnegative correlation weight
+gives~\eqref{eq:local-positive}.
+\end{proof}
+This observation is a diagnostic obstruction, not an RH
+proof: central positivity holds even for the explicit
+counterexamples of the preceding section. The all-order
+correlation construction has prior art in
+Dimitrov--Xu~\cite{DX}.
+
+For example, with $M_j=\int_{\mathbb R}u^j K(u)\,du$
+and $M_{2j+1}=0$, direct expansion at order one gives
+\begin{equation}\label{eq:n1moments}
+A_1=M_0M_2,\qquad B_1=M_0M_4-M_2^2.
+\end{equation}
+The latter is nonnegative by Cauchy--Schwarz.
+
+\section{Numerical exploration of the genuine transform}
+The reproducible experiment
+\texttt{certificates/generalized\_laguerre\_scan.py}
+uses 65-decimal-digit \texttt{mpmath} quadrature for the
+Jacobi-theta representation. It evaluates
+$L_n[F](x)$ for $n=1,\ldots,5$ at
+$x\in\{0,5,10,15,20,25,28,30\}$.
+All 40 values were \emph{numerically} positive.
+At the endpoints, $L_1[F](0)\simeq
+1.78434856788\times 10^{-4}$ and
+$L_1[F](30)\simeq 1.09904761087\times10^{-8}$.
+Independent differentiation of the completed zeta function
+in \eqref{eq:fourier-actual} at $x=0,10,28$ agrees to roughly
+$10^{-60}$ relative precision for derivatives through order four.
+
+The numerically estimated local positivity radii
+$\sqrt{2A_n/B_n}$ for $n=1,\ldots,8$ are, respectively,
+\[
+9.8314,\ 10.3132,\ 10.7562,\ 11.1665,\
+11.5491,\ 11.9081,\ 12.2466,\ 12.5674.
+\]
+These are exploratory evaluations, \emph{not} rigorously
+enclosed moment integrals or proofs of positivity outside
+the sampled points. Their growth suggests looking for
+an $n$-uniform, noncentral correlation estimate, but no
+such estimate is claimed here.
+
+\section{Lean expansion and the remaining analytic bridge}
+The new module \texttt{XiKernel/TransformMoment.lean}
+proves a finite-sum central-moment positivity theorem for
+every natural number $n$, the elementary quadratic gate,
+and exact order-one moment identities. Its hypotheses
+involve abstract strictly positive even moments;
+the analytic identification with the real theta-kernel
+integrals is \emph{not} formalized.
+
+The module \texttt{XiKernel/RationalJet.lean}
+defines a finite Taylor-jet recurrence and computes the
+fifth iterate of rational 12-decimal approximants to the
+eleven genuine theta Taylor coefficients. This establishes
+only a rational algebraic sign for the \emph{approximate}
+jet; it cannot be substituted for Theorem~\ref{thm:five}
+without a formally checked enclosure/stability theorem.
+
+To certify Theorem~\ref{thm:five} \emph{end to end in Lean},
+three missing links must all be discharged:
+(i) the theta-series differentiation and Taylor-coefficient
+identities within Mathlib, including modular evenness;
+(ii) formal rational enclosures for $\pi$, exponential
+truncation, and every omitted $m\ge13$ summand;
+(iii) sound interval propagation from these enclosures
+to the actual fifth iterate and the strict negative bound.
+The existing standard-library Python calculation supplies
+a reproducible exact computational certificate but is not
+a kernel-checked Lean derivation of (i)--(iii).
+No \texttt{sorry}, fabricated axiom, or numerical
+observation is to be represented as closing these steps.
