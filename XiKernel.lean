@@ -21,3 +21,5 @@ import XiKernel.ModularOddJet
 import XiKernel.GaussianParityRepair
 
 import XiKernel.ComplexStripTransfer
+
+import XiKernel.ContourMeshGate
