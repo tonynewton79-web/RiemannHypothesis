@@ -1,0 +1,88 @@
+\section{Verified release status and open proof gates}
+\label{sec:verification-release}
+The following distinctions are important for interpreting the
+formal and computational evidence. GitHub Actions tests the
+repository at a specific commit, not mathematical claims which
+have not been stated and proved in the corresponding source.
+At the audited release baseline \texttt{14f5edfe5}
+the four checks all completed successfully:
+\begin{center}
+\small
+\begin{tabular}{p{0.43\columnwidth}p{0.41\columnwidth}}
+\hline
+\textbf{Verification layer} & \textbf{Status and scope}\\
+\hline
+Lean 4.24.0 / Mathlib &
+PASS: explicit finite algebra, abstract moment positivity,
+rational approximate fifth jet and axiom report.\\[2pt]
+Exact rational Python &
+PASS: directed-integer theta Taylor enclosures and
+$\mathcal T^5s(0)<0$ with analytic $m\ge13$ majorant.\\[2pt]
+Numerical Laguerre &
+PASS: 40 sampled positive values; independent
+completed-zeta normalization cross-check.\\[2pt]
+LaTeX / PDF &
+PASS: reproducible build of the manuscript.\\
+\hline
+\end{tabular}
+\end{center}
+See the CI evidence
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063496}{Lean},
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063454}{exact Python},
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063564}{numerical \(\Xi\)},
+and
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39185063479}{PDF}.
+
+The axiom inspection has two separate outcomes.
+\texttt{XiKernel.centerMoment\_pos} and the
+small algebraic claims depend on the usual Mathlib axioms
+\texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}. The rational-jet computation instead
+uses \texttt{native\_decide}, introducing
+\texttt{Lean.ofReduceBool} and \texttt{Lean.trustCompiler}.
+It is a Lean-compiled, compiler-assisted check of a
+finite rational approximation, but does \emph{not} certify
+the exact infinite theta series by Lean's small kernel.
+The independently derived rational-interval Python
+certificate proves a different claim: it encloses the
+actual fifth iterate under the explicit analytic majorants
+given in Section~1 and the companion source.
+
+There are three priority proof obligations.
+First, close the end-to-end Lean bridge from
+the actual theta series to the fifth-iterate rational
+interval, including analyticity, exact differentiation,
+Machin and exponential estimates, tail control, and
+sound outward arithmetic
+(\href{https://github.com/tonynewton79-web/RiemannHypothesis/issues/1}{Issue 1}).
+Second, certify noncentral transform-level
+Laguerre inequalities over whole real intervals, and
+seek genuinely all-order information rather than
+pointwise high-precision evidence
+(\href{https://github.com/tonynewton79-web/RiemannHypothesis/issues/2}{Issue 2}).
+Third, either prove or falsify the unverified
+radially increasing curvature condition
+$(-\log\Phi)'''(u)\ge0$ on every $u>0$
+(\href{https://github.com/tonynewton79-web/RiemannHypothesis/issues/3}{Issue 3}).
+
+\paragraph{Scope and prior art.}
+The all-order correlation identity is closely related to
+the Fourier-transform Wronskian and correlation
+characterizations of Dimitrov--Xu~\cite{DX}; the
+second-level concavity of the true theta kernel
+is already established by Planat--Sol\'e~\cite{PS}.
+Strict infinite log-concavity of a \emph{different}
+Taylor-coefficient sequence was proved by
+Liu--Mao~\cite{LM}. Neither those results nor our local
+Laguerre band constitutes a proof of RH.
+The fifth-iterate obstruction and all-iterate
+Gaussian counterexamples warrant further specialist
+review before originality or publication claims.
+
+\paragraph{Release identity.}
+The source is maintained at
+\url{https://github.com/tonynewton79-web/RiemannHypothesis}.
+The identifier
+\href{https://doi.org/10.5281/zenodo.23461586}{10.5281/zenodo.23461586}
+is \emph{reserved} and must not be described as
+an already published Zenodo record.
