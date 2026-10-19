@@ -1,0 +1,109 @@
+\section{Endpoint curvature of the actual theta kernel}
+\label{sec:curvatureendpoints}
+The condition $V'''(u)>0$ for $u>0$,
+with $V=-\log\Phi$, remains globally unresolved.
+We isolate both endpoint regimes by exact analytic arguments.
+
+\begin{proposition}[Modular-point cancellation]
+Let
+\[
+\Phi_1(u)=\pi(2\pi e^{4u}-3)e^{5u-\pi e^{4u}},
+\qquad V_1=-\log\Phi_1.
+\]
+For $y=\pi e^{4u}$,
+\begin{align}
+V_1'''(u)
+&=\frac{64y}{(2y-3)^3}P(y),\\
+P(y)&=(2y-3)^3-6(2y+3).
+\end{align}
+In particular $V_1'''(0)<0$, whereas
+$V_1'''(u)>0$ whenever $y\ge7/2$.
+The polynomial has exactly one real root
+on $[3,\infty)$, lying between $13/4$
+and $7/2$.
+\end{proposition}
+\begin{proof}
+Writing $\log\Phi_1(u)=
+\log\pi+\log(2y-3)+5u-y$
+and applying $(4y\,d/dy)^3$ yields
+the displayed expression. The polynomial is
+\[
+P(y)=8y^3-36y^2+42y-45.
+\]
+Its derivative $P'(y)=24(y-3/2)^2-12$
+is positive for $y\ge3$. The bounds
+$3<\pi<22/7<13/4$ and $P(13/4)=-113/8<0$
+give $P(\pi)<0$, while $P(7/2)=4>0$.
+For $y=t+7/2$ with $t\ge0$,
+\[
+P(y)=8t^3+48t^2+84t+4>0.
+\]
+Monotonicity and continuity give uniqueness.
+\end{proof}
+
+\begin{proposition}[Full-kernel endpoint positivity]
+Write $s(t)=\Phi(\sqrt t)=a_0+a_1t+a_2t^2+O(t^3)$
+with $a_0>0$. If $\mathcal T s(0)
+=a_1^2-2a_0a_2>0$, then
+\begin{equation}
+V'''(u)=\frac{12\,\mathcal T s(0)}{s(0)^2}
+\,u+O(u^3)\quad (u\to0^+).
+\end{equation}
+Hence $V'''(u)>0$ for all sufficiently
+small $u>0$ for the genuine theta kernel.
+Moreover $V'''(u)>0$ for all sufficiently
+large $u$, without assuming a global
+curvature hypothesis.
+\end{proposition}
+\begin{proof}
+The theta functional equation makes $\Phi$
+even near the modular fixed point.
+Expanding
+\[
+-\log s(u^2)=-\log a_0-\frac{a_1}{a_0}u^2
+-\left(\frac{a_2}{a_0}
+-\frac{a_1^2}{2a_0^2}\right)u^4+O(u^6)
+\]
+and differentiating three times yields
+the first assertion. Strict positivity of
+$\mathcal T s(0)$ is available from the
+earlier second-level kernel theorem
+and independently from the exact interval
+certificate in this work.
+
+For large $u$ put $y=\pi e^{4u}$. The ratio
+of the full sum to its first summand is
+$1+R(y)$, where
+\[
+R(y)=\sum_{m\ge2}
+m^2\frac{2m^2y-3}{2y-3}e^{-(m^2-1)y}.
+\]
+Termwise derivatives through order three
+are uniformly dominated by a polynomial
+in $y$ times $e^{-3y}$ for $y\ge y_0>3$;
+this follows by a convergent geometric
+majorant after bounding all factors by
+polynomials in $m$ and $y$.
+It follows that
+$(4y\partial_y)^3\log(1+R(y))
+=O(y^N e^{-3y})$ for some fixed $N$.
+Since the first-summand curvature above
+satisfies $V_1'''(u)=64y+O(1)$, we obtain
+\[
+V'''(u)=64\pi e^{4u}+O(1)
+\qquad(u\to\infty),
+\]
+hence eventual strict positivity.
+\end{proof}
+
+The global problem is now concentrated on a
+\emph{compact intermediate interval}. The
+modular neighborhood is controlled through
+the positive second-level defect; the distant
+tail is controlled by first-summand dominance.
+An explicit rational subdivision certificate
+for the intermediate region, followed by an
+analytic/Lean transfer, is still missing.
+This endpoint theorem does not imply the
+complete Laguerre hierarchy on the real line,
+nor the Riemann hypothesis.
