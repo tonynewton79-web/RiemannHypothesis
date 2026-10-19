@@ -6,3 +6,5 @@ import XiKernel.AxiomAudit
 import XiKernel.FirstSummandCurvature
 
 import XiKernel.EntireXi
+
+import XiKernel.GlobalCurvatureAlgebra
