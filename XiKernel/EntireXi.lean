@@ -30,6 +30,12 @@ theorem xiEntire_functional_eq (s : ℂ) :
 
 theorem xiEntire_entire : Differentiable ℂ xiEntire := by
   unfold xiEntire
-  fun_prop (disch := assumption)
+  have hpoly : Differentiable ℂ (fun s : ℂ => s * (s - 1)) := by
+    fun_prop
+  have hprod : Differentiable ℂ (fun s : ℂ => s * (s - 1) * completedRiemannZeta₀ s) :=
+    hpoly.mul differentiable_completedZeta₀
+  have hsum : Differentiable ℂ (fun s : ℂ => 1 + s * (s - 1) * completedRiemannZeta₀ s) :=
+    (differentiable_const (1 : ℂ)).add hprod
+  exact hsum.div_const (2 : ℂ)
 
 end XiKernel
