@@ -37,3 +37,5 @@ import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
 
 import XiKernel.HeatFlowDoubleZeroObstruction
+
+import XiKernel.ThetaHeatTail
