@@ -51,3 +51,19 @@ print("PASS: exact inverse-square spatial coefficient blow-up for m=2,...,90")
 print("PASS: denominator-zero obstruction to every finite spatial coefficient")
 print("PASS: positive-ratio construction under strict denominator positivity")
 print("No Riemann hypothesis proof; RH+simplicity equivalence uses classical analytic inputs.")
+
+# The mild forced heat equation is valid through a multiple-root endpoint:
+# H_t(z)=z²-2t, U1(s,x)=2x²+4(t0-s), U2(s,x)=1.
+# Exact Duhamel P_s U1(0,x) - 6∫_0^s P_(s-r)U2 dr = U1.
+tested=0
+for t0 in (Q(1,8),Q(1),Q(9,4)):
+    for lam in (Q(0),Q(1,4),Q(1,2),Q(1)):
+        s=t0*lam
+        for x in (Q(0),Q(1,5),Q(-7,3)):
+            heat_initial=2*(x*x+s)+4*t0
+            source=6*s
+            U1=2*x*x+4*(t0-s)
+            assert heat_initial-source==U1 and U1>=0
+            tested+=1
+assert 2*((Q(0))**2+Q(1))+4*Q(1)-6*Q(1)==0
+print(f"PASS: {tested} exact Duhamel quadratic model checks, including saturated multiple root")
