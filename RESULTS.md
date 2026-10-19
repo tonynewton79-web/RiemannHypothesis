@@ -209,3 +209,14 @@ The negative source term identifies what global-in-order estimate is missing.
 **Verification:** exact SymPy algebra, exact Fraction arithmetic for 100 Gaussian Laguerre orders, and mpmath 65-digit evaluation of true theta third-curvature invariance at 4 arguments x 3 heat times all passed locally. `XiKernel/HeatFlowLaguerre.lean` contains algebraic jet lemmas; it is not a Lean proof of Rodgers--Tao, Jacobi integral calculus or RH. [Heat-flow CI](https://github.com/tonynewton79-web/RiemannHypothesis/actions) is tracked separately; do not call it passed until completed.
 
 **Manuscript:** `paper/theta_heat_flow_barrier.tex`, integrated into `paper/main.tex`; citations Rodgers--Tao, Newman--Wu and Polymath15. **RH remains open.**
+
+## 19 October 2026 — DOI correction and new heat-flow double-zero Lean attack
+
+- The Zenodo DOI is **[10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586)**. The obsolete “reserved / not published” language was removed from `paper/main.tex`, the release verification section and project logs.
+- The recent heat-flow results were **not lost**: `paper/theta_heat_flow_barrier.tex`, `XiKernel/HeatFlowLaguerre.lean`, `certificates/xi_heat_flow_hierarchy_tests.py`, and the four finite Xi disk certification sources are retained in the repository.
+- **New exact obstruction:** the positive Gaussian–cosh heat family has a double real zero at `t*=(1-1/(2 log 2))/2≈0.13932623978`; at it `L1=0<L2=F''²/4`. Thus the proposed uniform comparison `6 L2<=c1 L1` cannot hold at a double zero. This is a negative test of the *sufficient heat comparison mechanism*, **not** a counterexample to RH or a claim about the genuine Xi flow's zero count.
+- Source: `XiKernel/HeatFlowDoubleZeroObstruction.lean` (Lean algebraic gate and axiom audit), `certificates/xi_heat_double_zero_test.py` (exact symbolic and numerical crossing), and the integrated `paper/theta_heat_flow_barrier.tex`. Local exact symbolic reproduction passed.
+- **CI status:** the newest GitHub Actions Lean/PDF/heat workflow runs were still QUEUED when last checked; do not claim the added Lean declaration compiled until GitHub returns a completed successful run.
+- The locally assembled user-delivered 20-page PDF combined the last compiled 18-page cumulative manuscript with a 2-page scientific heat-flow addendum, and removed obsolete DOI reservations. The GitHub LaTeX master integrates the new result in the main narrative; its fresh automatic build is pending.
+
+**Next proof gate:** prove or refute an actual theta-specific heat comparison/zero-exclusion statement uniform in real x and all Laguerre orders, with independent mathematical review. RH is not proved.
