@@ -36,3 +36,12 @@
 - **Trust distinction:** the finite rational jet checked with `native_decide` still depends on `Lean.ofReduceBool` and `Lean.trustCompiler`, unlike the newly audited standard-axiom theorems.
 
 Reserved DOI: 10.5281/zenodo.23461586 (unpublished). No RH proof or disproof; no originality claim.
+
+## 19 October 2026: global theta-curvature certificate
+
+- **PASS (exact Python):** `certificates/xi_global_curvature_exact.py` certifies `H'(x)>46` on 100 rational outward-rounded subintervals from `pi` to `7/2`, and `H(x)>26` across 400 subintervals `[7/2,6]`.
+- **PASS (analytic infinite range):** exact algebra `H0=x(8x^3-36x^2+42x-45)>7x^4/4`, a geometric ratio bound on the `m>=2` theta tail, and the rational `e^3>20` inequality yield `H>0` on `[6,infinity)`. Combined with modular evenness `H(pi)=0`, this proves `V'''(u)>0` for all real `u>0` in the exact arithmetic/analytic proof package.
+- **PASS (independent numeric cross-check):** 70-digit mpmath derivatives of the original theta series reproduce the normalized rational-polynomial curvature function at x approximately `pi,3.18,3.5,4,6,10,20`; this is independent evidence, not the proof itself.
+- **LEAN SCOPE:** `XiKernel/GlobalCurvatureAlgebra.lean` formalizes the cubic leading polynomial identity, its `x>=6` margin, and the rational infinite-tail constant inequality (GitHub CI result must be checked before asserting success). It does **not** formalize the infinite sum or 500 interval cells as a theorem about actual `Phi`.
+- **Riemann hypothesis:** unresolved. The resulting all-order generalized Laguerre positivity band has finite width and does not exclude nonreal zeros globally.
+- Full written proof: `paper/global_curvature_certificate.tex`. Reserved DOI 10.5281/zenodo.23461586 is **not yet published**; priority is unverified.
