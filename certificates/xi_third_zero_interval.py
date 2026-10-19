@@ -49,8 +49,8 @@ for j in range(5):
 assert B==[30,1272,79320,6800400,762395760]
 
 # Four test integrands: a0, a1, a2 and
-# majorant R3 = (sum phi_m)*r^3 exp(r/10)/3000.
-# Sum derivative bounds for BOTH m=1,2; |X0|<43.
+# majorant R3 = (sum phi_m)*r^3 exp(r/25)*64/3000000.
+# Sum derivative bounds for BOTH m=1,2; |X0|<51.
 M4=[]
 for k in range(3):
     ctot=Q(0)
@@ -65,7 +65,7 @@ for a in range(5):
     for b in range(min(3,4-a)+1):
         c=4-a-b
         mult=factorial(4)//(factorial(a)*factorial(b)*factorial(c))
-        # two-modes, exp(r/10)<2: coefficient 4/3000=1/750
+        # two modes, exp(r/25)<2: coefficient 4*(64/3000000)=256/3000000
         remM4+=Q(256,3000000)*mult*B[a]*Q(factorial(3),factorial(3-b))*2**(3-b)*Q(1,25)**c
 
 def simpson_err(bound):
