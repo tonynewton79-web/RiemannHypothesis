@@ -18,6 +18,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.SpatialHeatComparison
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.ThetaHeatTail
 import XiKernel.HeatDoubleRootTransversality
@@ -122,3 +123,8 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.root_gap_second_lower
 #print axioms XiKernel.root_gap_scaled_ratio_gate
 #print axioms XiKernel.close_root_ratio_lower
+
+#print axioms XiKernel.spatial_barrier_strict
+#print axioms XiKernel.two_root_first_laguerre
+#print axioms XiKernel.heat_collision_necessary_coefficient
+#print axioms XiKernel.heat_collision_not_locally_finite
