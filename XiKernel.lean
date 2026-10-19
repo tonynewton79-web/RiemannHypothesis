@@ -17,3 +17,5 @@ import XiKernel.NearRealFiniteDepth
 import XiKernel.SquareLatticeFourierTail
 
 import XiKernel.ModularOddJet
+
+import XiKernel.GaussianParityRepair
