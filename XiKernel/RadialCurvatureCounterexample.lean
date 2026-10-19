@@ -33,7 +33,9 @@ theorem mixture_third_curvature_pos (c s : ℝ)
     (hc : 1 < c) (hs : 0 < s) :
     0 < 2*(c-1)*s/(c+2)^3 := by
   have hd : 0 < (c+2)^3 := by positivity
-  exact div_pos (by positivity) hd
+  have hc' : 0 < c-1 := sub_pos.mpr hc
+  have hnum : 0 < 2*(c-1)*s := by positivity
+  exact div_pos hnum hd
 
 theorem mixture_third_derivative_numerator (c sh : ℝ) :
     (1+c/2)^2 - 3*(c/2)*(1+c/2) + 2*(sh/2)^2 =
@@ -55,8 +57,9 @@ theorem fourier_mixture_positive_on_real (d c : ℝ)
     (hd0 : 0 ≤ d) (hd1 : d < 1)
     (hc : -1 ≤ c) :
     0 < 1 + d*c := by
-  have h : -d ≤ d*c := by
-    nlinarith
+  have hc1 : 0 ≤ c+1 := by linarith
+  have hm : 0 ≤ d*(c+1) := mul_nonneg hd0 hc1
+  have h : -d ≤ d*c := by nlinarith
   linarith
 
 end XiKernel
