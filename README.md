@@ -378,3 +378,20 @@ square-lattice convolution-square decomposition remains unproved.
 - DOI link: https://doi.org/10.5281/zenodo.23461586
   (author reports it is live; no reserved or unpublished label).
 - RH remains open and no original priority is claimed.
+
+## 20 October 2026 — spatial heat comparison and microscopic gap constraint
+
+**New exact theorem (analytic paper proof):** For any order-one Laguerre–Pólya entire function with real simple zeros, the first Laguerre adjacent-order quotient at a zero a is
+`6*L2(a)/L1(a)=6*sum_(other zeros rho)1/(a-rho)^2`.
+A global logarithmic-square pointwise comparison
+`6*L2(x) <= C*(1+log(2+|x|)^2)*L1(x)` thus **forces**
+`|a-b| >= sqrt(6/C)/sqrt(1+log(2+|a|)^2)`
+for any distinct real zeros a,b.
+
+**New counterexample to inference from zero density:** Choose `T_k=8*pi*k/log(k+e)`, `S_k=T_k+2^(-k)`, and the compactly convergent even Laguerre–Pólya product over the pairs ±T_k,±S_k. It has only simple real zeros and `N_+(T)~T*log(T)/(4*pi)`, the same leading positive-zero density as the theta heat family, while at T_k its required spatial coefficient is at least `6*4^k`. Therefore a logarithmic-square upper bound cannot be deduced from that zero density or real-rootedness alone. This *does not* disprove such a bound for the genuine Riemann theta family; it identifies the missing zero-separation mechanism.
+
+**Formal/test scope:** `paper/spatial_heat_comparison.tex` now contains the theorem and proof. `XiKernel/HeatFlowSpatialGap.lean` formalizes only the finite two-root and rational separation algebra. `certificates/xi_spatial_gap_density_obstruction.py` checks finite exact fraction identities and provides diagnostics; the infinite canonical-product theorem is paper mathematics. Local exact tests passed; as checked, all newly triggered GitHub Actions runs remain **queued**, not passed. There is no end-to-end Lean theta heat-flow proof.
+
+**Paper and DOI:** The repository source displays DOI 10.5281/zenodo.23461586 with no reserved-status wording. A locally compiled **21-page combined PDF** retaining the prior 18-page manuscript with the latest heat-flow continuation was emailed to tony.newton79@gmail.com on 20 October. A new one-piece PDF build of the complete current GitHub LaTeX source is still pending in CI.
+
+**RH remains open.** The exact unresolved assertion is a theta-specific global comparison at all heat times and all Laguerre orders, or a genuinely new zero-exclusion mechanism that tolerates close pairs.
