@@ -1,9 +1,8 @@
 \section{A conditional all-order noncentral band}
-The numerical growth of the local radii suggests a more
-structural criterion, independent of individual moment
-calculations. It is presented as a conditional theorem,
-\emph{not} as an established property of the actual theta
-kernel.
+The radial-curvature criterion below was initially conditional.
+Theorem~\ref{thm:globalcurvature}, established later in the
+cumulative manuscript, now verifies its hypothesis for the actual
+Jacobi theta kernel by an exact interval-and-tail certificate.
 
 \begin{proposition}[Radially increasing potential curvature]\label{prop:radial}
 Let $K(u)=e^{-V(u)}$ be positive and even, with sufficient
@@ -51,20 +50,15 @@ inequality; the noncentral band follows from
 \eqref{eq:local-positive}.
 \end{proof}
 
-\paragraph{Unproved theta-kernel gate.}
+\paragraph{Theta-kernel gate, subsequently closed.}
 For the genuine Jacobi theta kernel, the required
 global hypothesis is
 \[
 V'''(u)=-\big(\log\Phi(u)\big)'''\ge0
 \qquad(u>0).
 \]
-High-precision numerical tests at
-$u=0.0001,0.001,0.01,0.025,0.05,0.1,0.2,
-0.4,0.8,1.5,2$ returned strictly positive values;
-this is not a rigorous interval or an all-$u$
-certificate. If proved, it would yield a
-nontrivial all-order Laguerre positivity \emph{strip}
-for the actual transform, but still not RH.
-Checking prior art and finding a falsifying region
-for the curvature condition are required before
-making a claim of novelty.
+The previous numerical tests only motivated the attack.
+A global exact-arithmetic and analytic proof is given in
+Section~\ref{sec:globalcurvature}. The resulting all-order
+Laguerre positivity band is still not RH; novelty
+and independent specialist review remain outstanding.
