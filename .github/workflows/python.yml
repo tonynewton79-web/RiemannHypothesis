@@ -22,5 +22,7 @@ jobs:
         run: python certificates/gaussian_cosh_fourier_obstruction.py
       - name: Check every finite-depth Laguerre coefficient gate to order 100
         run: python certificates/finite_depth_laguerre_exact.py
+      - name: Check near-real nonreal zeros invisible to arbitrary finite Laguerre depth
+        run: python certificates/near_real_finite_depth_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
