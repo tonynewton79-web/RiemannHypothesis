@@ -9,9 +9,9 @@
 - **PASS:** directed integer interval computation for `T^5 s(0)` in `(-4.813e65,-4.812e65)`, with strict positive signs for levels 0–4.
 - **PASS:** local PDF compilation and PDF extraction for the expanded manuscript in the research preparation environment.
 
-## What Lean would certify
+## Lean 4.24.0 + Mathlib — GitHub CI PASS (19 October 2026)
 
-The source `XiKernel/Algebra.lean` contains algebraic sublemmas for those two polynomial cycles, positivity, Fourier-polynomial zero and sign arithmetic. The GitHub Actions workflow is configured to run `lake build`. **Do not claim Lean compilation passed until a successful GitHub Actions result is verified.** Lean is unavailable in the local preparation runtime.
+**PASS:** [GitHub Actions Lean run #39182546267](https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39182546267) on commit `922ed6c6` completed successfully. The successful job includes installation, Lake dependency resolution, and the Mathlib compilation action. The module `XiKernel/Algebra.lean` certifies polynomial two-cycles, positivity subclaims, an exact complex Fourier-polynomial zero, and arithmetic for the Fourier-side negative Laguerre value. It does **not** formalize the infinite-iteration theorem, Gaussian Fourier integration, analytic theta tail or fifth-iterate interval computation in Lean.
 
 ## Not established
 
