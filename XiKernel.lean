@@ -50,3 +50,5 @@ import XiKernel.SpatialLaguerreEquivalence
 import XiKernel.ZeroCompatibleDuhamel
 
 import XiKernel.HeatDuhamelSpectral
+
+import XiKernel.ThetaMixtureObstruction
