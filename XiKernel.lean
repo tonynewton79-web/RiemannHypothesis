@@ -31,3 +31,5 @@ import XiKernel.SecondZeroDiskGate
 import XiKernel.ThirdZeroDiskGate
 
 import XiKernel.AdaptiveThetaCutoff
+
+import XiKernel.FourthZeroDiskGate
