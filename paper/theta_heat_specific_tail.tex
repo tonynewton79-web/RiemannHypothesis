@@ -1,0 +1,155 @@
+\subsection{A theta-specific heat-flow truncation estimate}
+\label{sec:heattail}
+The coupled evolution equation alone does not determine the
+sign of the Laguerre expressions. The square-lattice structure
+nevertheless gives an error estimate uniform in the heat time
+and in the real Fourier frequency. This separates the
+approximation problem from the missing positivity argument.
+
+Set $q_m=\pi m^2$ and
+\[
+H_{t,M}(z)=\int_0^\infty e^{tu^2}
+\left(\sum_{m=1}^M
+q_m(2q_me^{4u}-3)e^{5u-q_me^{4u}}\right)
+\cos(zu)\,du .
+\]
+The complete function is $H_t$, while the
+full-line transforms are $F_t=2H_t$ and $F_{t,M}=2H_{t,M}$.
+
+\begin{theorem}[Uniform theta-tail bounds along the heat flow]
+\label{thm:uniformheattail}
+For all $M\ge1$, $k\ge0$,
+$t\in[0,\tfrac12]$ and
+$z\in\mathbb C$ with $|\Im z|\le3$,
+put $q=\pi(M+1)^2$. Then
+\begin{equation}
+\left|F_t^{(k)}(z)-F_{t,M}^{(k)}(z)\right|
+\le\frac{k!}{4^k}\,3q\,e^{-q+1/16}.
+\label{eq:uniformheattail}
+\end{equation}
+For $k=0$ the same estimate is valid
+on the larger strip $|\Im z|\le7$.
+These bounds are simultaneous in $t$ and
+in $\Re z$, and require no assumption
+about the zeros of $H_t$.
+\end{theorem}
+\begin{proof}
+For $u\ge0$ the elementary exponential
+Taylor inequality $e^{4u}\ge8u^2$
+implies $tu^2\le e^{4u}/16$.
+Also $u^k\le(k!/4^k)e^{4u}$ and
+$|\sin(zu)|,|\cos(zu)|\le e^{|\Im z|u}$.
+Since $q_m>3$ and each theta
+summand is positive for $u\ge0$,
+its absolute value is bounded by
+$2q_m^2e^{9u-q_me^{4u}}$.
+For $a_m=q_m-1/16$ and $|\Im z|\le3$
+we obtain
+\begin{align*}
+&\left|F_t^{(k)}(z)-F_{t,M}^{(k)}(z)\right|\\
+&\le\frac{k!}{4^k}
+\sum_{m>M}q_m^2\int_1^\infty
+v^3e^{-a_mv}\,dv\\
+&=\frac{k!}{4^k}\sum_{m>M}
+q_m^2e^{-a_m}
+\left(\frac1{a_m}+\frac3{a_m^2}
++\frac6{a_m^3}+\frac6{a_m^4}\right).
+\end{align*}
+For $q_m\ge12$, rational algebra gives
+\begin{equation}
+2q_m(a_m^3+3a_m^2+6a_m+6)
+<3a_m^4 .
+\label{eq:heatrationalgate}
+\end{equation}
+Indeed the difference between the right
+and left sides, with $q_m=12+v$, is
+\[
+v^4+\frac{333}8v^3+
+\frac{39891}{64}v^2+
+\frac{7941835}{2048}v+
+\frac{522416259}{65536}>0 .
+\]
+Thus every term is bounded by
+$\tfrac32q_me^{-q_m+1/16}$.
+For $m\ge2$ the ratios of successive
+$q_me^{-q_m}$ are bounded by
+$4e^{-9}<1/2$. Summing the geometric
+majorant gives \eqref{eq:uniformheattail}.
+When $k=0$ the auxiliary $e^{4u}$
+is unnecessary; the exponent of $v$
+is $(5+|\Im z|)/4\le3$ throughout
+$|\Im z|\le7$, proving the second claim.
+\end{proof}
+
+\begin{corollary}[Effective approximation of the coupled sources]
+\label{cor:heatsources}
+Let $L_{n,t}$ and $L_{n,t,M}$ denote
+the generalized Laguerre expressions of
+$F_t$ and $F_{t,M}$.
+Define the finite positive majorant
+\[
+C_*=\sum_{m\ge1}q_m^2e^{-(q_m-1/16)}
+\left(\frac1{a_m}+\frac3{a_m^2}
++\frac6{a_m^3}+\frac6{a_m^4}\right).
+\]
+For every $n\ge0$,
+$t\in[0,\tfrac12]$ and $|\Im z|\le3$,
+\begin{equation}
+|L_{n,t}(z)-L_{n,t,M}(z)|
+\le \frac{6(2n+1)C_*}{4^{2n}}\,
+q e^{-q+1/16}.
+\label{eq:heatlagerror}
+\end{equation}
+Consequently the coupling source
+$S_{n,t}=(n+1)(2n+1)L_{n+1,t}$
+has the same explicit bound,
+with $n$ replaced by $n+1$ and
+multiplied by $(n+1)(2n+1)$.
+\end{corollary}
+\begin{proof}
+The estimate in the preceding theorem,
+applied to the complete sum, bounds
+$|F_t^{(j)}(z)|$ and
+$|F_{t,M}^{(j)}(z)|$ by
+$C_*j!/4^j$.
+Expand the difference of each product
+in the finite Laguerre derivative sum.
+The identity
+$\binom{2n}{j}j!(2n-j)!=(2n)!$
+cancels the factorials, leaving
+$2n+1$ identical upper bounds and
+the constant in \eqref{eq:heatlagerror}.
+The source estimate follows
+immediately from its definition.
+\end{proof}
+
+\paragraph{What the estimate does not give.}
+Theorem~\ref{thm:uniformheattail} controls
+the actual theta heat family, simultaneously
+for all real frequencies and heat times up
+to $1/2$. It is therefore a usable input
+to a certified finite-height contour
+analysis and to any proposed estimate of
+the adjacent-order heat coupling.
+It is an \emph{absolute} error estimate.
+At zeros or near zeros of $L_{n,t}$
+it gives no relative control over
+$L_{n+1,t}/L_{n,t}$ and cannot imply
+the comparison hypothesis
+\eqref{eq:comparisonmissing}.
+The precise missing assertion is a
+global-in-frequency, all-order source
+control or a different theta-specific
+complex zero-exclusion mechanism.
+No such assertion is proved here.
+
+The polynomial comparison
+\eqref{eq:heatrationalgate} and the
+factorial cancellation are checked in
+\path{XiKernel/ThetaHeatTail.lean}
+and independently by
+\path{certificates/xi_theta_heat_tail_exact.py}.
+The infinite theta-series, exponential
+Taylor domination and Fourier-integral
+transfer remain analytic arguments,
+not end-to-end Lean theorems.
