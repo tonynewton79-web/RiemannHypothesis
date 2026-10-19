@@ -220,3 +220,19 @@ The negative source term identifies what global-in-order estimate is missing.
 - The locally assembled user-delivered 20-page PDF combined the last compiled 18-page cumulative manuscript with a 2-page scientific heat-flow addendum, and removed obsolete DOI reservations. The GitHub LaTeX master integrates the new result in the main narrative; its fresh automatic build is pending.
 
 **Next proof gate:** prove or refute an actual theta-specific heat comparison/zero-exclusion statement uniform in real x and all Laguerre orders, with independent mathematical review. RH is not proved.
+
+## 19 October 2026 — Manuscript reconciliation, new abstract and theta-specific heat-flow result
+
+**Canonical manuscript source:** `paper/main.tex` has a newly written problem-first abstract. The Zenodo DOI was removed entirely from the title/abstract area; obsolete “reserved/unpublished” declarations and duplicate early metadata were removed. The DOI is recorded once in the final scholarly reproducibility/publication appendix. The eight main research sections remain, with the verification material promoted to Appendix A.
+
+**Uploaded manuscript reconciliation:** the two 20-page PDFs share the same 18-page main content but have distinct two-page addenda. The longer DOI-version addendum states the Gaussian-cosh double-real-zero theorem more precisely. That theorem, its correct fourth-derivative Laguerre term, the de Bruijn–Newman curvature invariance, and the coupled heat PDE were already included in `paper/theta_heat_flow_barrier.tex`. The alternative supplemental pages are **not** repeated in the canonical source.
+
+**New theta-specific heat-flow estimate:** `paper/theta_heat_specific_tail.tex` proves uniformly for every `0<=t<=1/2`, all k>=0, and `|Im z|<=3`:
+`|H_t^(k)(z)-H_(t,M)^(k)(z)| <= (3*k!/(2*4^k)) * q*exp(-q+1/16)`,
+where `q=pi*(M+1)^2`. For k=0 the strip extends to `|Im z|<=7`. The genuine theta square-lattice proof uses `exp(4u)>=8u²`, exact incomplete gamma bounds, and an explicit positive quartic polynomial in `q-12`. This produces a uniform-in-heat-time **absolute** approximation bound for adjacent-order Laguerre source terms.
+
+**All-order but bounded band:** conditional only on the earlier globally certified theta-curvature theorem, the paper derives an explicit common `|x|<r_*` positivity interval for all `n>=1` and all `t∈[0,1/2]`, where `r_*²=2 M0(0)M2(0)/(M0(1/2)M4(1/2))`, `M_j(t)=∫u^j exp(tu²)Phi(u)du`. This persists across the full backward heat interval **only within a bounded Fourier band**, not globally.
+
+**Verification:** `certificates/xi_theta_heat_tail_exact.py` passed locally using exact rational operations, including the quartic identity and combinatorial cancellations for n=0..80. `XiKernel/ThetaHeatTail.lean` contains polynomial and tilt sign subtheorems submitted to the Lean CI build; the full theta-series and Fourier integral proof is NOT end-to-end Lean formalized. See the current GitHub Actions status before declaring this new Lean module CI-PASS.
+
+**Unresolved RH step:** all-order global Fourier positivity or a height-uniform off-axis contour modulus lower bound. RH remains open. Prior-art/novelty review is pending.
