@@ -1,0 +1,23 @@
+name: Build research PDF
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile paper from tracked TeX source
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper
+      - name: Upload PDF as run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xi-kernel-research-paper
+          path: paper/main.pdf
