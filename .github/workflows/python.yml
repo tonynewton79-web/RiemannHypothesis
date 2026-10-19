@@ -38,5 +38,7 @@ jobs:
         run: python certificates/xi_heat_double_root_transversality_exact.py
       - name: Check spatial Laguerre comparison, zero-gap and collision gates
         run: python certificates/xi_spatial_comparison_exact.py
+      - name: Exact 445-case spatial multiplicity and Duhamel zero-compatibility audit
+        run: python certificates/xi_spatial_equivalence_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
