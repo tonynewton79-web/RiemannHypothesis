@@ -19,3 +19,5 @@ import XiKernel.SquareLatticeFourierTail
 import XiKernel.ModularOddJet
 
 import XiKernel.GaussianParityRepair
+
+import XiKernel.ComplexStripTransfer
