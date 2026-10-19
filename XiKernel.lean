@@ -15,3 +15,5 @@ import XiKernel.FiniteDepthBarrier
 import XiKernel.NearRealFiniteDepth
 
 import XiKernel.SquareLatticeFourierTail
+
+import XiKernel.ModularOddJet
