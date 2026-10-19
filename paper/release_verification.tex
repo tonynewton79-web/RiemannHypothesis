@@ -81,6 +81,34 @@ The fifth-iterate obstruction and all-iterate
 Gaussian counterexamples warrant further specialist
 review before originality or publication claims.
 
+\paragraph{19 October arithmetic/Fourier extension.}
+The new square-lattice modular-cancellation and
+uniform Fourier-truncation sections add a
+separate exact arithmetic verification layer.
+The combined standard-library Python workflow,
+including rational square-lattice error
+constants and the first odd-jet sign polynomial,
+passed in
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39237900767}{CI run 39237900767}.
+The new Lean algebraic gates in
+\texttt{SquareLatticeFourierTail.lean} and
+\texttt{ModularOddJet.lean} passed in
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39237653824}{CI run 39237653824},
+with only standard Mathlib axioms in the
+audited declarations. The corrected
+\emph{numerical} gamma/Fourier/zeta
+cross-check passed
+\href{https://github.com/tonynewton79-web/RiemannHypothesis/actions/runs/39237900768}{CI run 39237900768}.
+The three-mode calculation at $x=39.5$ is
+high precision, \emph{not} interval-certified;
+the eventual negative $L_1[F_M]$ theorem for
+every fixed $M$, by contrast, follows
+analytically from Jacobi parity and integration
+by parts. Neither the entire theta functional
+equation nor the Fourier asymptotic has yet been
+formalized end-to-end in Lean. The corresponding
+manuscript results do not settle RH.
+
 \paragraph{Release identity.}
 The source is maintained at
 \url{https://github.com/tonynewton79-web/RiemannHypothesis}.
