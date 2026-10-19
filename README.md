@@ -327,3 +327,54 @@ The semigroup budget has the same integrand without `1-exp(-s*b²/2)`. Their exa
 **Verification:** `python /mnt/data/xi_heat_duhamel_source_exact.py` passed locally (symbolic transfer identity, 101 exact all-order factorial gates, rational atomic values). The matching GitHub source is `certificates/xi_heat_duhamel_source_exact.py`. New Lean algebraic gates are in `XiKernel/HeatDuhamelSpectral.lean`. New GitHub Actions runs are QUEUED, not marked passed. No end-to-end Lean proof of the theta integral or RH.
 
 **Publication:** The manuscript links to `https://doi.org/10.5281/zenodo.23461586` with no reserved/unpublished label, following the author's confirmed live-DOI status. A 21-page complete retained manuscript plus current heat-Duhamel supplement was compiled and emailed to the primary research address. RH remains open.
+
+## 19 October 2026 — exact Duhamel spectral decomposition and *actual theta* Gaussian-mixture obstruction
+
+### Exact new analytic theorems (not RH)
+For the positive spectral theta measure dnu(u)=Phi(u)*exp(u²/2)du/2,
+and U_n(s,x)=L_n[H_(1/2-s)](x), the integrated source has the exact
+two-frequency form, a=u+v and b=u-v:
+  source = 1/(2n)! ∬ b^(2n) exp(-s*a²/2)*(1-exp(-s*b²/2))*exp(i*x*a) dnu(u)dnu(v).
+The semigroup budget has the same weight with the parenthesis omitted;
+its difference from source equals U_n(s,x) **exactly**. Positive spectral
+weights alone do not guarantee a positive oscillatory Fourier transform.
+
+An explicit positive even atomic heat flow, H_s(x)=1+(3/2)exp(-s)cos(x),
+has all real zeros at s=0 but at s=log(8/5)<1/2 has
+U_1(s,pi)=-15/256: source overshoots heat budget by 15/256.
+At s=log(3/2), U_1(s,pi)=0 while U_2(s,pi)=1/4,
+invalidating every finite coefficient comparison there.
+The strict source failure persists under sufficiently narrow
+positive Gaussian smoothing. This is a counterexample to a
+**general inference**, not to RH.
+
+**Stronger genuinely theta-specific theorem:** the actual
+two-frequency theta correlation G_(n,s)(w)>0 decays faster than
+exp(-A*w²) for every fixed A>0, for each n>=0 and s∈[0,1/2].
+No nonzero positive mixture ∫exp(-lambda*w²)ρ(dlambda)
+can therefore represent G_(n,s), because any positive mixture
+has at least one Gaussian lower envelope.
+This refutes a proposed sufficient proof architecture; it does
+NOT refute positive definiteness or RH. A genuinely constructive
+square-lattice convolution-square decomposition remains unproved.
+
+### Reproducibility and trust boundary
+- Exact local Python/SymPy and Fraction audit passed:
+  `certificates/xi_heat_duhamel_source_exact.py`
+  (101 factorial cases and rational atomic time-slab witness).
+- Exact rational Gaussian-mixture incompatibility checks passed:
+  `certificates/xi_theta_mixture_no_go_exact.py`.
+- Two new algebraic Lean files:
+  `XiKernel/HeatDuhamelSpectral.lean` and
+  `XiKernel/ThetaMixtureObstruction.lean`.
+- The new Lean CI and PDF CI were QUEUED at writing;
+  **do not describe them as passing or end-to-end Lean proofs**.
+  The infinite theta-series super-Gaussian tail, the measure
+  lower bound and heat-semigroup integration are paper proofs.
+- Full cumulative 22-page manuscript was assembled locally
+  from the previous complete 18-page paper plus a revised
+  4-page mathematical supplement; the older PDF's obsolete
+  reserved-DOI phrases were corrected.
+- DOI link: https://doi.org/10.5281/zenodo.23461586
+  (author reports it is live; no reserved or unpublished label).
+- RH remains open and no original priority is claimed.
