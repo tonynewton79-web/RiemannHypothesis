@@ -1,0 +1,60 @@
+\section{Weighted-defect form of the global curvature question}
+\label{sec:weightedcurvature}
+There is a particularly direct equivalent form of the
+remaining monotonicity condition, using the same variable
+$t$ as the earlier Csordas--Dimitrov differential operator.
+
+\begin{proposition}[Exact weighted-defect equivalence]
+Let $s:(0,\infty)\to(0,\infty)$ be three times
+continuously differentiable and put
+\[
+\Phi(u)=s(u^2),\quad V(u)=-\log\Phi(u),\quad
+q(t)=\frac{\mathcal Ts(t)}{s(t)^2}
+=-(\log s)''(t).
+\]
+For every $u>0$,
+\begin{align}
+V'''(u)&=12u\,q(u^2)+8u^3q'(u^2)\nonumber\\
+&=8\left.\frac{d}{dt}
+[t^{3/2}q(t)]\right|_{t=u^2}.
+\label{eq:weightedeq}
+\end{align}
+Consequently
+\[
+V'''(u)\ge0\ \ (u>0)
+\quad\Longleftrightarrow\quad
+t^{3/2}\frac{\mathcal Ts(t)}{s(t)^2}
+\text{ is nondecreasing on }t>0.
+\]
+\end{proposition}
+\begin{proof}
+Set $L(t)=\log s(t)$. Chain differentiation
+gives
+\[
+V''(u)=-2L'(u^2)-4u^2L''(u^2)
+\]
+and hence
+\[
+V'''(u)=-12uL''(u^2)-8u^3L'''(u^2).
+\]
+Substituting $q=-L''$ proves the first identity,
+and differentiating $t^{3/2}q(t)$ proves
+the second. Since the change $u\mapsto u^2$
+preserves the positive half-line, the final
+equivalence follows.
+\end{proof}
+
+The known second-level theorem controls the
+\emph{sign} of $\mathcal Ts$ but does not by
+itself control the derivative of the weighted
+quotient. Thus the new proof target is
+\[
+3q(t)+2tq'(t)\ge0,\qquad t>0.
+\]
+It is a one-dimensional inequality, involving
+no Fourier integration, and could be tackled
+through Jacobi's differential equation,
+a compact interval certificate, or a direct
+comparison inequality for $\mathcal Ts$ and
+$s$. Even full success establishes only a
+common finite Laguerre positivity band, not RH.
