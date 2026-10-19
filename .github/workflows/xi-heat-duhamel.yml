@@ -1,0 +1,23 @@
+name: Theta Duhamel source exact symbolic audit
+on:
+  push:
+    paths:
+      - 'certificates/xi_heat_duhamel_source_exact.py'
+      - 'XiKernel/HeatDuhamelSpectral.lean'
+      - '.github/workflows/xi-heat-duhamel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-integral-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned symbolic arithmetic
+        run: python -m pip install 'sympy==1.13.3'
+      - name: Check two-frequency Duhamel, atomic source failure and 101 factorial identities
+        run: python certificates/xi_heat_duhamel_source_exact.py
