@@ -9,3 +9,5 @@ import XiKernel.EntireXi
 
 import XiKernel.GlobalCurvatureAlgebra
 import XiKernel.RadialCurvatureCounterexample
+
+import XiKernel.FiniteDepthBarrier
