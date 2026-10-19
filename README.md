@@ -21,7 +21,7 @@
 
 ## DOI and reuse
 
-**Reserved DOI (not published):** [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586). An assigned/reserved DOI is **not** evidence of an available Zenodo record.
+**Zenodo DOI:** [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586). DOI record as supplied by the author.
 
 This is a research draft; prior-art and independent specialist review are still required. Do not describe it as a proof of the Riemann hypothesis or as completely Lean certified.
 
@@ -61,7 +61,7 @@ The proof uses the exact change of variables `x=pi exp(4u)`, a positive denomina
 
 Reproduce directly with `python certificates/xi_global_curvature_exact.py`. See `paper/global_curvature_certificate.tex` and [Issue #3](https://github.com/tonynewton79-web/RiemannHypothesis/issues/3). The algebraic large-tail margin has been submitted for separate Lean CI in `XiKernel/GlobalCurvatureAlgebra.lean`; the full analytic theta-series proof is **not yet end-to-end Lean formalized**.
 
-Reserved DOI 10.5281/zenodo.23461586 is unpublished; novelty is not established.
+Zenodo DOI 10.5281/zenodo.23461586; novelty is not established.
 
 ## 19 October 2026 — Crucial Fourier-side counterexample
 
@@ -133,7 +133,7 @@ This entire region covers the RH-relevant Fourier strip `|Im z|<1` (`s=1/2+i*z/2
 
 **Exact files:** `paper/gaussian_parity_repair.tex`, `paper/complex_strip_rouche_attack.tex`; `XiKernel/GaussianParityRepair.lean`, `XiKernel/ComplexStripTransfer.lean`; `certificates/gaussian_parity_repair_exact.py`, `certificates/gaussian_parity_repair_numerical.py`, `certificates/xi_complex_strip_exact.py`, `certificates/xi_complex_strip_numerical.py`.
 
-**Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The reserved DOI remains unpublished.
+**Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The Zenodo DOI is 10.5281/zenodo.23461586.
 
 ## 19 October 2026 — First genuine Xi zero disk: finite interval-Simpson/Rouché certificate
 
@@ -147,7 +147,7 @@ The interval checker `certificates/xi_first_zero_interval.py` certifies that the
 - **Prior art:** location/existence of the first zeta zero at imaginary ordinate 14.134725141... is classical and extensively verified; this is a new reproducible finite-test route in this project, not a new zeta zero and not a claimed research priority.
 - **Global gap:** no exclusion of nonreal zeros at arbitrary heights; RH remains **open**. Next challenge is a height-uniform certified contour modulus or adaptive `M=M(R)` with an effective global separation guarantee.
 
-Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Reserved DOI `10.5281/zenodo.23461586` remains unpublished.
+Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Zenodo DOI `10.5281/zenodo.23461586`.
 
 ## 19 October 2026 — three disjoint genuine Xi zero disks, independently interval-certified
 
