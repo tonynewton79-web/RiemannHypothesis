@@ -1,0 +1,203 @@
+\section{The genuine theta heat flow and a limit of curvature arguments}
+\label{sec:thetaheat}
+The de Bruijn--Newman deformation supplies an unusually
+sharp test of which properties of the Jacobi kernel
+can actually determine the zero locations.
+We use the standard normalization of
+Rodgers and Tao~\cite{RodgersTao,NewmanWu},
+\begin{equation}
+H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du,
+\qquad t\in\mathbb R,
+\label{eq:heatH}
+\end{equation}
+where $\Phi$ is exactly the kernel used in this paper.
+Our earlier full-line transform is $F(z)=2H_0(z)$.
+The deformation satisfies the backward heat equation
+\begin{equation}
+\partial_tH_t(z)=-\partial_z^2H_t(z)
+\label{eq:heatbackwards}
+\end{equation}
+by differentiation under the rapidly decreasing
+Fourier integral.
+
+\begin{theorem}[Curvature invariance cannot determine real zeros]
+\label{thm:heatcurvatureobstruction}
+Put $\Phi_t(u)=e^{tu^2}\Phi(u)$ and
+$V_t(u)=-\log\Phi_t(u)$. For every $t\in\mathbb R$,
+\begin{equation}
+V_t'''(u)=V_0'''(u),\qquad u\in\mathbb R.
+\label{eq:heatcurvatureinvariance}
+\end{equation}
+Nevertheless $H_{1/2}$ has only real zeros,
+whereas $H_{-1}$ has nonreal zeros.
+Thus even within the \emph{actual theta heat family},
+identical third-order potential curvature
+does not determine the Fourier real-zero property.
+\end{theorem}
+\begin{proof}
+The identity $V_t(u)=V_0(u)-tu^2$
+immediately gives \eqref{eq:heatcurvatureinvariance}.
+By the de Bruijn--Newman theorem there is a finite
+constant $\Lambda$ such that $H_t$ has only real
+zeros exactly for $t\ge\Lambda$.
+De Bruijn's upper bound gives $\Lambda\le1/2$.
+Rodgers and Tao proved $\Lambda\ge0$
+\cite{RodgersTao}. Hence $1/2\ge\Lambda$
+and $-1<\Lambda$, proving the contrasting
+zero-location statements.
+\end{proof}
+
+In particular the strict inequality
+$V_0'''(u)>0$ proved in
+Theorem~\ref{thm:globalcurvature} is unchanged
+by every heat deformation. It therefore holds
+both at a time with all real zeros and
+at a time with nonreal zeros.
+This is an obstruction within the genuine theta
+model, stronger in relevance than the
+Gaussian examples of Section~\ref{sec:curvatureobstruction}.
+It does not invalidate the bounded noncentral
+Laguerre positivity band, and it does not decide
+the case $t=0$.
+
+\begin{proposition}[Coupled Laguerre heat hierarchy]
+\label{prop:laguerreheat}
+Define for real $x,y,t$
+\[
+Q_t(x,y)=H_t(x+iy)H_t(x-iy)
+=\sum_{n\ge0}L_{n,t}(x)y^{2n}.
+\]
+Then
+\begin{equation}
+\partial_t Q_t
+=\tfrac12(\partial_y^2Q_t-\partial_x^2Q_t)
+\label{eq:laguerreheatQ}
+\end{equation}
+and, for every integer $n\ge0$,
+\begin{equation}
+\boxed{\partial_t L_{n,t}
+=(n+1)(2n+1)L_{n+1,t}
+-\tfrac12\partial_x^2L_{n,t}.}
+\label{eq:laguerreheatcoupling}
+\end{equation}
+For the first nontrivial order,
+\[
+\partial_tL_{1,t}
+=6L_{2,t}-\tfrac12\partial_x^2L_{1,t}.
+\]
+\end{proposition}
+\begin{proof}
+Write $A=H_t(x+iy)$ and $B=H_t(x-iy)$.
+Holomorphic differentiation gives
+\begin{align*}
+Q_{xx}&=A''B+2A'B'+AB'',\\
+Q_{yy}&=-A''B+2A'B'-AB'',\\
+Q_t&=-A''B-AB''.
+\end{align*}
+Subtracting yields \eqref{eq:laguerreheatQ}.
+The coefficient of $y^{2n}$ in
+$\tfrac12Q_{yy}$ is
+$(n+1)(2n+1)L_{n+1,t}$;
+equating coefficients proves
+\eqref{eq:laguerreheatcoupling}.
+The Fourier integrals and their derivatives
+decay sufficiently rapidly to justify the
+analytic differentiation and local
+power-series expansion.
+\end{proof}
+
+The hierarchy exposes a concrete obstruction to
+backward propagation of positivity.
+Set $s=\frac12-t$ and write
+$U_n(s,x)=L_{n,1/2-s}(x)$.
+Then
+\begin{equation}
+\partial_sU_n
+=\frac12\partial_x^2U_n
+-(n+1)(2n+1)U_{n+1}.
+\label{eq:backwardlaguerre}
+\end{equation}
+The spatial heat term diffuses, but the next
+Laguerre order enters with a negative source.
+Consequently positive Laguerre expressions at
+$t=1/2$ cannot simply be propagated backwards
+to $t=0$ by a scalar maximum principle.
+
+\begin{proposition}[A sufficient, unproved heat comparison]
+\label{prop:heatsufficient}
+Suppose that for every $n\ge1$ there exists
+a bounded nonnegative function $c_n(s)$ on
+$[0,1/2]$ such that
+\begin{equation}
+(n+1)(2n+1)U_{n+1}(s,x)
+\le c_n(s)U_n(s,x)
+\label{eq:comparisonmissing}
+\end{equation}
+for every $s\in[0,1/2]$ and every real $x$.
+Then all the generalized Laguerre inequalities
+$L_{n,0}(x)\ge0$ hold for $n\ge1$ and real $x$.
+In the Riemann entire-function setting,
+the classical Laguerre--P\'olya criterion would
+then imply RH.
+\end{proposition}
+\begin{proof}
+For fixed $n\ge1$, equations
+\eqref{eq:backwardlaguerre} and
+\eqref{eq:comparisonmissing} give
+\[
+\partial_sU_n\ge
+\tfrac12\partial_x^2U_n-c_n(s)U_n.
+\]
+At $s=0$ the transform $H_{1/2}$ has only
+real zeros, so the classical generalized
+Laguerre inequalities give $U_n(0,x)\ge0$.
+The parabolic comparison principle, using
+the rapid real-axis decay of these
+Fourier transforms and their derivatives,
+yields
+\[
+U_n(s,x)\ge
+e^{-\int_0^s c_n(r)\,dr}
+(P_sU_n(0,\cdot))(x)\ge0,
+\]
+where $P_s$ is the Gaussian heat semigroup.
+Taking $s=1/2$ gives the conclusion.
+\end{proof}
+
+Condition \eqref{eq:comparisonmissing} is
+\emph{not established}, and its truth for
+the Riemann heat flow has not been verified.
+It is a sufficient condition rather than an
+equivalent reformulation; it may be
+stronger than RH itself.
+Any use in an RH proof would require an
+honest uniform-in-$x$, all-order bound
+for \eqref{eq:comparisonmissing}, or a
+different mechanism controlling the
+negative source in
+\eqref{eq:backwardlaguerre}.
+
+\paragraph{Reproducibility and prior work.}
+The algebra behind
+\eqref{eq:laguerreheatQ} and
+the first-order coupling is checked in
+\path{XiKernel/HeatFlowLaguerre.lean}.
+The script
+\path{certificates/xi_heat_flow_hierarchy_tests.py}
+checks the identities symbolically, tests
+the Gaussian coefficient hierarchy with
+exact rational arithmetic for 100 orders,
+and independently evaluates
+\eqref{eq:heatcurvatureinvariance}
+at four arguments and three heat times
+to 65-digit precision.
+The existence and properties of $\Lambda$,
+the backward heat equation, and the
+real-zero threshold are established
+prior work \cite{RodgersTao,NewmanWu,Polymath15}.
+The Lean code formalizes only algebraic
+jet identities: it does not reprove
+Rodgers--Tao or certify the genuine
+heat-flow/Fourier analysis end to end.
+The comparison condition remains open;
+no proof of RH has been obtained.
