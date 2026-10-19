@@ -24,7 +24,7 @@
 - A Lean formalization of the actual theta-kernel fifth iterate, Machin/pi bounds, or analytic theta-tail estimate.
 - The Riemann hypothesis or the existence of any off-critical-line Riemann zero.
 - Priority/novelty or peer review.
-- Publication of reserved DOI [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586).
+- Zenodo DOI [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586).
 
 ## 19 October 2026 — Curvature endpoint and actual xi formalization
 
@@ -35,7 +35,7 @@
 - **Open:** prove this weighted-defect monotonicity globally, certify a noncentral all-real-x generalized Laguerre hierarchy, and formalize the equivalence of Mathlib's `RiemannHypothesis` with the real-zero property of `XiOnLine`. These are *not* proved by building the module.
 - **Trust distinction:** the finite rational jet checked with `native_decide` still depends on `Lean.ofReduceBool` and `Lean.trustCompiler`, unlike the newly audited standard-axiom theorems.
 
-Reserved DOI: 10.5281/zenodo.23461586 (unpublished). No RH proof or disproof; no originality claim.
+Zenodo DOI: 10.5281/zenodo.23461586. No RH proof or disproof; no originality claim.
 
 ## 19 October 2026: global theta-curvature certificate
 
@@ -44,7 +44,7 @@ Reserved DOI: 10.5281/zenodo.23461586 (unpublished). No RH proof or disproof; no
 - **PASS (independent numeric cross-check):** 70-digit mpmath derivatives of the original theta series reproduce the normalized rational-polynomial curvature function at x approximately `pi,3.18,3.5,4,6,10,20`; this is independent evidence, not the proof itself.
 - **LEAN SCOPE:** `XiKernel/GlobalCurvatureAlgebra.lean` formalizes the cubic leading polynomial identity, its `x>=6` margin, and the rational infinite-tail constant inequality (GitHub CI result must be checked before asserting success). It does **not** formalize the infinite sum or 500 interval cells as a theorem about actual `Phi`.
 - **Riemann hypothesis:** unresolved. The resulting all-order generalized Laguerre positivity band has finite width and does not exclude nonreal zeros globally.
-- Full written proof: `paper/global_curvature_certificate.tex`. Reserved DOI 10.5281/zenodo.23461586 is **not yet published**; priority is unverified.
+- Full written proof: `paper/global_curvature_certificate.tex`. Zenodo DOI 10.5281/zenodo.23461586; priority is unverified.
 
 ## 19 October 2026 — Fourier-side curvature sufficiency falsified
 
@@ -110,7 +110,7 @@ This entire region covers the RH-relevant Fourier strip `|Im z|<1` (`s=1/2+i*z/2
 
 **Exact files:** `paper/gaussian_parity_repair.tex`, `paper/complex_strip_rouche_attack.tex`; `XiKernel/GaussianParityRepair.lean`, `XiKernel/ComplexStripTransfer.lean`; `certificates/gaussian_parity_repair_exact.py`, `certificates/gaussian_parity_repair_numerical.py`, `certificates/xi_complex_strip_exact.py`, `certificates/xi_complex_strip_numerical.py`.
 
-**Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The reserved DOI remains unpublished.
+**Verification boundary:** Exact rational scripts test algebraic gates; separate 52/55-digit numerical replays cross-check complex-argument values. New Lean modules certify Gaussian multiplier/zero and strip modulus *subtheorems*, not the integral/Rouché/Hurwitz theorem end-to-end. No proof or disproof of RH, no novelty priority certification. Existing Csordas (2011) research on nonreal zeros of finite Fourier-Jacobi truncations is relevant prior art. The Zenodo DOI is 10.5281/zenodo.23461586.
 
 ## 19 October 2026 — First genuine Xi zero disk: finite interval-Simpson/Rouché certificate
 
@@ -124,7 +124,7 @@ The interval checker `certificates/xi_first_zero_interval.py` certifies that the
 - **Prior art:** location/existence of the first zeta zero at imaginary ordinate 14.134725141... is classical and extensively verified; this is a new reproducible finite-test route in this project, not a new zeta zero and not a claimed research priority.
 - **Global gap:** no exclusion of nonreal zeros at arbitrary heights; RH remains **open**. Next challenge is a height-uniform certified contour modulus or adaptive `M=M(R)` with an effective global separation guarantee.
 
-Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Reserved DOI `10.5281/zenodo.23461586` remains unpublished.
+Manuscript: `paper/complex_strip_rouche_attack.tex` § certified first-zero disk. Zenodo DOI `10.5281/zenodo.23461586`.
 
 ## 19 October 2026 — three disjoint genuine Xi zero disks, independently interval-certified
 
