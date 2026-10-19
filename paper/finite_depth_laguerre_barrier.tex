@@ -49,13 +49,12 @@ Gaussian Fourier integration gives
 Theorem~\ref{thm:coshcounter}.
 The generalized Laguerre coefficients
 are determined by the generating function
-\[
-F_N(x+iy)F_N(x-iy)=2\pi e^{-x^2}
-e^{y^2}\Bigl[
- 1+2d_N\cos x\cosh y+
- \frac{d_N^2}{2}(\cosh 2y+\cos2x)
-\Bigr].
-\]
+\begin{align*}
+&F_N(x+iy)F_N(x-iy)\\
+&\quad=2\pi e^{-x^2}e^{y^2}
+\bigl[1+2d_N\cos x\cosh y\\
+&\qquad\quad+\tfrac12d_N^2(\cosh 2y+\cos 2x)\bigr].
+\end{align*}
 Writing $L_n[F_N](x)$ for the
 coefficient of $y^{2n}$, set
 \begin{align*}
@@ -66,12 +65,12 @@ c_n&=\sum_{j=0}^n
   \frac{4^j}{(n-j)!(2j)!}.
 \end{align*}
 Then
-\begin{equation}\label{eq:finitecoefs}
+\begin{align}\label{eq:finitecoefs}
 \frac{L_n[F_N](x)}{2\pi e^{-x^2}}
-=a_n+2d_Nb_n\cos x+
-\frac{d_N^2}{2}
+&=a_n+2d_Nb_n\cos x\nonumber\\
+&\quad+\frac{d_N^2}{2}
 \left(c_n+a_n\cos 2x\right).
-\end{equation}
+\end{align}
 The last parenthesis is nonnegative
 because $c_n\ge a_n$. Next
 \[
