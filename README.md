@@ -79,3 +79,32 @@ This **rules out extrapolating the global curvature theorem by itself to all rea
 A full family `K_c=exp(-u²/2)*(1+c*cosh u)`, `c>=1/2`, has positive radial third curvature and crosses from nonreal to real Fourier zeros precisely at `c=exp(-1/2)`. See `paper/radial_curvature_fourier_counterexample.tex`, Lean polynomial module `XiKernel/RadialCurvatureCounterexample.lean` and exact rational regression `certificates/gaussian_cosh_fourier_obstruction.py`.
 
 **Next gate**: genuine theta-specific Fourier-correlation positivity across all real frequencies, not generic curvature or pointwise positive correlation densities. Novelty of the example is not established.
+
+## 19 October 2026 — Square-lattice arithmetic and Fourier truncation attack
+
+**Exact analytical theorem (prior-art/independent review pending).** In the actual Jacobi-theta kernel, the modular identity forces **all odd endpoint derivatives to cancel**:
+
+`sum_{m>=1} (pi*m²)*exp(-pi*m²)*P_(2j+1)(pi*m²) = 0` for every j>=0,
+where `P0=2q-3` and `P_(j+1)=(5-4q)P_j+4qP_j'`.
+
+As a consequence, **every finite mode cutoff M>=1** has a positive first-derivative defect `D_M=f_M'(0)>0`, and its cosine Fourier transform has asymptotics `F_M(x)=-2D_M/x²+O(x^-4)`, `L1[F_M](x)=-8D_M²/x^6+O(x^-8)<0` for sufficiently large |x|. The full kernel has all odd derivatives zero and decays superalgebraically in Fourier frequency; finite cutoffs cannot preserve the required global sign structure.
+
+**Uniform-in-all-real-frequency tail theorem.** For every k>=0, M>=1 and real x, with q=pi(M+1)²,
+`|F^(k)(x)-F_M^(k)(x)| <= 3*k!*q*exp(-q)/4^k`.
+Set `C=exp(-pi)*(pi+3+6/pi+6/pi²)+12*pi*exp(-4*pi)`. Then
+`|L_n[F](x)-L_n[F_M](x)| <= 6*(2n+1)*C*q*exp(-q)/4^(2n)`.
+These are explicit absolute bounds, not proof of global Laguerre positivity.
+
+**Independent replay at x=39.5 (55 digits; NUMERICAL, not interval):**
+`L1[F_1]=-5.741582122333544e-11`,
+`L1[F_2]=+3.244986650069400e-11`,
+`L1[F_3]=+3.244991626288171e-11`.
+The first two square-lattice modes reverse the Laguerre sign.
+
+**Proof and verification files:** `paper/square_lattice_uniform_fourier.tex`;
+`XiKernel/SquareLatticeFourierTail.lean`,
+`XiKernel/ModularOddJet.lean`,
+`certificates/xi_square_lattice_uniform_tail.py`,
+`certificates/xi_modular_odd_jet_exact.py`,
+`certificates/xi_arithmetic_incomplete_gamma_replay.py`.
+The incomplete-gamma representation is classical; prior art (DeFranco, Haglund, Polson) is cited. The complete theta modular identity/integration-by-parts proof is given analytically in TeX, **not certified end-to-end in Lean**. RH remains unresolved.
