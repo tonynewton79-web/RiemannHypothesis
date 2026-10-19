@@ -28,7 +28,7 @@ theorem heat_double_zero_laguerre_derivative_pos
   have hzero : a^2 = 0 := by
     have hh : a^2 ≤ 0 := le_of_not_gt h
     linarith
-  have ha0 : a = 0 := (sq_eq_zero_iff).mp hzero
+  have ha0 : a = 0 := by nlinarith [sq_nonneg a]
   exact ha ha0
 
 /-- Polynomial entire heat flow H_t(x)=x²-2t solves
