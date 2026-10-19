@@ -12,6 +12,7 @@ import XiKernel.ModularOddJet
 import XiKernel.GaussianParityRepair
 import XiKernel.ComplexStripTransfer
 import XiKernel.ContourMeshGate
+import XiKernel.FirstZeroDiskGate
 
 /-!
 Axiom audit:
@@ -71,3 +72,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.theta_derivative_rational_bound
 #print axioms XiKernel.theta_two_mode_tail_rational_bound
 #print axioms XiKernel.contour_4096_strict_gap
+
+#print axioms XiKernel.first_zero_disk_margin
+#print axioms XiKernel.certified_circle_modulus_gate
+#print axioms XiKernel.two_mode_rouche_gap
