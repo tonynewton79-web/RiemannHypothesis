@@ -29,6 +29,8 @@ Axiom audit:
 This does not create any theorem; it prints dependencies of the existing proofs.
 The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced decide.
 -/
+import XiKernel.SpatialLaguerreEquivalence
+import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.centerMoment_pos
 #print axioms XiKernel.correlation_quadratic_gate
 #print axioms XiKernel.rational_jet_fifth_negative
@@ -128,3 +130,9 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 #print axioms XiKernel.two_root_first_laguerre
 #print axioms XiKernel.heat_collision_necessary_coefficient
 #print axioms XiKernel.heat_collision_not_locally_finite
+
+#print axioms XiKernel.adjacent_laguerre_zero_obstruction
+#print axioms XiKernel.multiple_root_order_three_expansion
+#print axioms XiKernel.multiplicity_ratio_identity
+#print axioms XiKernel.quadratic_duhamel_nonnegative
+#print axioms XiKernel.quadratic_duhamel_saturated
