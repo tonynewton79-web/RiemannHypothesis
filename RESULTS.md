@@ -45,3 +45,14 @@ Reserved DOI: 10.5281/zenodo.23461586 (unpublished). No RH proof or disproof; no
 - **LEAN SCOPE:** `XiKernel/GlobalCurvatureAlgebra.lean` formalizes the cubic leading polynomial identity, its `x>=6` margin, and the rational infinite-tail constant inequality (GitHub CI result must be checked before asserting success). It does **not** formalize the infinite sum or 500 interval cells as a theorem about actual `Phi`.
 - **Riemann hypothesis:** unresolved. The resulting all-order generalized Laguerre positivity band has finite width and does not exclude nonreal zeros globally.
 - Full written proof: `paper/global_curvature_certificate.tex`. Reserved DOI 10.5281/zenodo.23461586 is **not yet published**; priority is unverified.
+
+## 19 October 2026 — Fourier-side curvature sufficiency falsified
+
+- **EXACT:** global radial-curvature positivity and uniform strong log-concavity hold for `exp(-u²/2)*(1+cosh u/2)`; transform is the explicit Gaussian-times-cosine function.
+- **EXACT:** transform has no real zeros but has nonreal zeros at `(2k+1)pi +- i*acosh(1/d)`, `d=exp(1/2)/2`.
+- **EXACT:** first transform Laguerre expression `L1[F](pi)=2*pi*exp(-pi²)*(1-d)*(1-2d)<0`.
+- **EXACT:** parameter family `c>=1/2` has positive third potential derivative while Fourier zeros transition at `c=exp(-1/2)`.
+- **RATIONAL REGRESSION:** `certificates/gaussian_cosh_fourier_obstruction.py` proves needed exponential bounds without floating-point decisions.
+- **LEAN SCOPE:** `XiKernel/RadialCurvatureCounterexample.lean` formalizes algebraic and sign gates. Do not call the complete analytic Gaussian Fourier integral or the full curvature derivative machine-checked unless separately formalized in Lean.
+- **INDEPENDENT CROSS-CHECK:** mpmath numerical quadrature at complex root agrees with analytic transform to ~1e-63 absolute error.
+- **RH STATUS:** unresolved. This is a rigorous falsifying case for an *overly general implication*, not a counterexample to RH.
