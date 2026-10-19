@@ -39,23 +39,44 @@ replays and Lean subtheorems support the stated
 analytical scope. Neither global zero migration
 nor RH is proved.
 \end{abstract}
+% All source sections are promoted to subsections under eight
+% substantive research sections; existing labels remain stable.
+\let\MainSection\section
+\let\section\subsection
+
+\MainSection{Differential certificates for the classical theta kernel}
 \input{fifth.tex}
+
+\MainSection{Counterexamples and Fourier-side diagnostics}
 \Needspace{10\baselineskip}
 \input{gaussians.tex}
 \input{fourier.tex}
+
+\MainSection{Laguerre correlations and local positivity}
 \input{transform_attack.tex}
 \input{radial_curvature.tex}
+
+\MainSection{Radial curvature: endpoint analysis and global certificate}
 \input{endpoint_curvature_attack.tex}
 \input{weighted_defect_gate.tex}
 \input{global_curvature_certificate.tex}
+
+\MainSection{Limits of curvature and finite-order zero criteria}
 \input{radial_curvature_fourier_counterexample.tex}
 \input{finite_depth_laguerre_barrier.tex}
 \input{near_real_finite_depth_barrier.tex}
+
+\MainSection{Square-lattice arithmetic and parity-preserving approximants}
 \input{square_lattice_uniform_fourier.tex}
 \input{gaussian_parity_repair.tex}
+
+\MainSection{Complex-strip transfer and certified zero counts}
 \input{complex_strip_rouche_attack.tex}
+
+\MainSection{Formal verification and open zero-exclusion problem}
 \input{mathlib_xi_bridge.tex}
 \input{release_verification.tex}
+
 \begin{thebibliography}{14}
 \bibitem{CD} G. Csordas and D. Dimitrov,
 Conjectures and theorems in the theory of entire functions,
