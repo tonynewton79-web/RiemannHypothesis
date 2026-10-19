@@ -18,6 +18,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.HeatDuhamelSpectral
 import XiKernel.SpatialHeatComparison
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.ThetaHeatTail
@@ -136,3 +137,9 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.multiplicity_ratio_identity
 #print axioms XiKernel.quadratic_duhamel_nonnegative
 #print axioms XiKernel.quadratic_duhamel_saturated
+
+#print axioms XiKernel.spectral_deficit_identity
+#print axioms XiKernel.spectral_source_weight_bounds
+#print axioms XiKernel.atomic_heat_endpoint_negative
+#print axioms XiKernel.atomic_heat_collision
+#print axioms XiKernel.atomic_integrated_comparison_failure
