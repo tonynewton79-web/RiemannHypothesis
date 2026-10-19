@@ -45,3 +45,6 @@ import XiKernel.HeatDoubleRootTransversality
 import XiKernel.HeatZeroGapObstruction
 
 import XiKernel.SpatialHeatComparison
+
+import XiKernel.SpatialLaguerreEquivalence
+import XiKernel.ZeroCompatibleDuhamel
