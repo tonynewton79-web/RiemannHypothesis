@@ -34,5 +34,7 @@ jobs:
         run: python certificates/xi_complex_strip_exact.py
       - name: Exact theta heat-flow square-lattice gamma-tail coefficient audit
         run: python certificates/xi_theta_heat_tail_exact.py
+      - name: Exact double-root heat-flow Laguerre transversality test
+        run: python certificates/xi_heat_double_root_transversality_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
