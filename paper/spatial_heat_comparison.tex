@@ -164,6 +164,122 @@ more sharply below. Its existence turns out to
 encode RH together with simplicity; a separate
 integral formulation avoids that extra requirement.
 
+\begin{theorem}[Zero density does not control the spatial
+Laguerre coefficient]\label{thm:gapdensity}
+There exists an even real entire function $G$ in the
+Laguerre--P\'olya class, of order one, whose positive
+zeros are all simple and satisfy
+\[
+N_G^+(T)\sim\frac{T}{4\pi}\log T,
+\]
+but for which
+\begin{equation}
+\sup_{\substack{x\in\mathbb R\\L_1[G](x)>0}}
+\frac{6L_2[G](x)}
+{(1+\log^2(2+|x|))L_1[G](x)}
+=+\infty.
+\label{eq:gapdensityfail}
+\end{equation}
+Consequently the fixed-time leading zero-counting
+asymptotic for $H_{1/2}$ alone cannot establish
+a logarithmic-square upper envelope in
+\eqref{eq:spatialheatgate}.
+\end{theorem}
+\begin{proof}
+For sufficiently large integers $k$, put
+\[
+T_k=\frac{8\pi k}{\log(k+e)},\qquad
+\delta_k=2^{-k},\qquad S_k=T_k+\delta_k.
+\]
+The sequences $T_k<S_k<T_{k+1}$ are strictly
+increasing from some finite index onward.
+Indeed $T_k$ is eventually increasing and
+$T_{k+1}-T_k\asymp1/\log k$, whereas
+$\delta_k$ decays exponentially.
+Consider the uniformly convergent product
+\[
+G(z)=\prod_{k\ge k_0}
+\left(1-\frac{z^2}{T_k^2}\right)
+\left(1-\frac{z^2}{S_k^2}\right).
+\]
+Uniform convergence on compact sets follows from
+\[
+\sum_{k\ge k_0}
+(T_k^{-2}+S_k^{-2})<\infty,
+\]
+since $T_k\asymp k/\log k$.
+Every finite partial product has only real zeros,
+so $G$ belongs to the Laguerre--P\'olya class.
+Its positive zero set consists of the pairs
+$T_k,S_k$; all zeros are simple. The exponent
+of convergence and counting asymptotic make
+its order one, and inversion of
+$T_k\sim8\pi k/\log k$ gives
+\[
+N_G^+(T)\sim
+\frac{T\log T}{4\pi}.
+\]
+At the simple root $x=T_k$, the real-zero
+canonical-product formula in
+Lemma~\ref{lem:gapratio} yields
+\[
+\frac{6L_2[G](T_k)}{L_1[G](T_k)}
+=6\sum_{\rho\ne T_k}
+\frac1{(T_k-\rho)^2}
+\ge\frac6{(T_k-S_k)^2}
+=6\cdot4^k.
+\]
+But $\log(2+T_k)=O(\log k)$, so dividing
+by $1+\log^2(2+T_k)$ proves
+\eqref{eq:gapdensityfail}.
+\end{proof}
+
+\begin{corollary}[Necessary local zero separation]
+\label{cor:necessarygap}
+Suppose $G$ is a real entire Laguerre--P\'olya
+function of order at most one, with simple
+real zeros, and for some $C>0$ it satisfies
+\[
+6L_2[G](x)
+\le C\left(1+\log^2(2+|x|)\right)L_1[G](x)
+\]
+for all real $x$. Then every pair of distinct
+real zeros $a,b$ satisfies
+\begin{equation}
+|a-b|\ge
+\frac{\sqrt{6/C}}
+{\sqrt{1+\log^2(2+|a|)}}.
+\label{eq:necessarygap}
+\end{equation}
+\end{corollary}
+\begin{proof}
+At the simple zero $a$,
+$L_1[G](a)=G'(a)^2>0$.
+The canonical-product formula gives
+$L_2[G](a)/L_1[G](a)
+\ge(a-b)^{-2}$.
+Substitute this lower bound into the
+hypothesized comparison and rearrange.
+\end{proof}
+
+This is a mathematical obstruction to deducing the
+proposed logarithmic-square estimate from
+\emph{zero density or real-rootedness alone}.
+It is not a counterexample to the actual theta
+heat flow: the function $G$ is a constructed
+Laguerre--P\'olya entire function, not asserted
+to arise from the Jacobi kernel. Genuine
+theta-specific estimates controlling very close
+pairs, or a comparison mechanism that permits
+them, are still missing. The exact quadratic
+finite-root identity and a sequence of
+shrinking-gap tests are reproduced by
+\path{certificates/xi_spatial_gap_density_obstruction.py}.
+The canonical-product construction and
+counting asymptotic are analytic arguments,
+not formalized by that finite checker or
+the small Lean algebra module.
+
 \paragraph{A sharp equivalence, including simplicity.}
 The locally finite spatial condition is stronger
 than RH. This is not merely a consequence of
