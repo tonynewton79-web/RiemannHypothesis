@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'certificates/xi_heat_flow_hierarchy_tests.py'
+      - 'certificates/xi_heat_double_zero_test.py'
+      - 'XiKernel/HeatFlowDoubleZeroObstruction.lean'
       - 'XiKernel/HeatFlowLaguerre.lean'
       - '.github/workflows/xi-heat-flow.yml'
   workflow_dispatch:
@@ -21,3 +23,5 @@ jobs:
         run: python -m pip install 'sympy==1.13.3' 'mpmath==1.3.0'
       - name: Exact Laguerre heat hierarchy, rational Gaussian and theta checks
         run: python certificates/xi_heat_flow_hierarchy_tests.py
+      - name: Exact Gaussian heat double-zero obstruction
+        run: python certificates/xi_heat_double_zero_test.py
