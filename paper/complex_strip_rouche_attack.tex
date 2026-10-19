@@ -396,6 +396,150 @@ infinitely many critical zeros
 or establish RH, and no novelty
 is asserted for this zero's existence.
 
+\subsubsection{A second certified real zero}
+\label{subsec:secondzerocert}
+The same finite certificate method applies to
+a second disk, where the Fourier function and
+its derivative are substantially smaller.
+This makes the Rouch\'e margin a more
+demanding test of the explicit Simpson
+and theta-tail bounds.
+
+\begin{theorem}[A second bounded zero-count certificate]
+\label{thm:secondzerodisk}
+Let $F(z)=\tfrac14\xi(\tfrac12+\tfrac{iz}{2})$.
+Then
+\[
+\boxed{\left|z-\frac{4204408}{100000}\right|
+<\frac1{10}}
+\]
+contains exactly one zero of $F$,
+counted with multiplicity. The zero
+is real and simple.
+\end{theorem}
+\begin{proof}
+Retain the same two-mode
+positive-axis transform $F_2$
+and set $z_1=42.04408$.
+Writing $w=z-z_1$ gives
+\[
+F_2(z_1+w)=a_0+a_1w+a_2w^2+R_3(w).
+\]
+Here, as before, $a_k=F_2^{(k)}(z_1)/k!$.
+On $|w|\le1/10$, the third-order
+Taylor remainder satisfies
+\[
+|R_3(w)|\le\frac{1}{3000}
+\int_0^\infty
+(\phi_1(r)+\phi_2(r))\,r^3e^{r/10}\,dr.
+\]
+An independent interval
+Simpson certificate,
+\texttt{xi\_second\_zero\_interval.py},
+encloses the four real
+integrals with outward-rounding
+at both 16,384 and 32,768
+equally spaced panels on $[0,2]$.
+The derivative-polynomial majorants
+are the $B_j$ of the preceding theorem.
+Here $z_1<43$, so the fourth
+derivative bounds for the
+three Taylor integrands use
+$43^c$ in the Leibniz
+sum; the positive remainder
+majorant uses $e^{r/10}<2$
+on the integration interval.
+The same analytical exponential
+bound contributes at most $10^{-20}$
+for each omitted $r>2$ integral.
+
+The coarser 16,384-panel
+run already proves the
+strict rational inequalities
+\begin{equation}\label{eq:secondTaylor}
+\boxed{\begin{gathered}
+|a_0|<5\cdot10^{-8},\qquad
+a_1>21\cdot10^{-7},\\
+|a_2|<10^{-6},\qquad
+|R_3(w)|<45\cdot10^{-9}
+\quad(|w|\le\tfrac1{10}).
+\end{gathered}}
+\end{equation}
+The corresponding Simpson
+error allowances are at most,
+respectively,
+$3.276\cdot10^{-8}$,
+$6.656\cdot10^{-8}$,
+$6.762\cdot10^{-8}$ and
+$2.124\cdot10^{-11}$;
+the finer 32,768-panel
+run reduces each by a factor
+of sixteen.
+All final sign comparisons
+use exact rational endpoints,
+not rounded decimals.
+
+For $|w|=1/10$,
+the triangle inequality
+and \eqref{eq:secondTaylor}
+give
+\begin{align*}
+|F_2(z_1+w)|
+&>\frac{21\cdot10^{-7}}{10}
+-5\cdot10^{-8}\\
+&\qquad-\frac{10^{-6}}{100}
+-45\cdot10^{-9}\\
+&=105\cdot10^{-9}.
+\end{align*}
+Thus $F_2$ has the same one-zero
+count as $a_1(z-z_1)$ in
+the disk, by Rouch\'e.
+The exact full-theta
+strip bound gives
+\[
+\sup_{|z-z_1|\le1/10}
+|F(z)-F_2(z)|<10^{-9},
+\]
+strictly smaller than the
+computed boundary margin.
+A second application of
+Rouch\'e yields precisely one
+zero of $F$, counted with
+multiplicity.
+Conjugation symmetry and
+the real-centred disk
+force that zero to be real.
+It must be simple because
+its multiplicity count is one.
+\end{proof}
+
+\paragraph{Scope of the two certificates.}
+The two disjoint
+interval-certified disks around
+$28.269$ and $42.04408$
+establish exactly one real
+simple zero in \emph{each}
+disk. These are already
+classical Riemann zeta zeros;
+we do not claim their
+existence or location is new.
+The contribution is a
+reproducible arithmetic/Fourier
+interval certification route.
+Both scripts depend on the
+correctness of the explicitly
+pinned \texttt{mpmath.iv}
+transcendental interval
+implementation and the
+analytic Simpson, Fourier
+and Jacobi/theta tail lemmas.
+The Lean modules check the
+final rational margins,
+not the complete
+transcendental integrals.
+These finite zero counts
+do not settle RH.
+
 \begin{proposition}[The exact remaining
 global zero-migration criterion]
 \label{prop:zeromigration}
