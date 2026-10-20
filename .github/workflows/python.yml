@@ -82,6 +82,8 @@ jobs:
         run: python certificates/xi_midpoint_zero_gap_exact.py
       - name: Division-free theta spectral heat-loss exact fraction tests
         run: python certificates/xi_division_free_spectral_loss_exact.py
+      - name: Check exact pole-free nearest-zero Laguerre comparison
+        run: python certificates/pole_free_laguerre_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
