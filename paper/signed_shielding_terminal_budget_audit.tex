@@ -1,0 +1,166 @@
+\paragraph{Endpoint shielding budgets and a finite collision test.}
+\label{par:terminal-budget-audit}
+The signed shielding identity is exact, but its proposed
+integrated bound must not be confused with an independently
+proved upper estimate. The distinction matters at both
+interior collisions and the terminal heat time.
+
+\begin{proposition}[The endpoint budget is an identity]
+\label{prop:budget-is-gap}
+Let $a(s)<b(s)$ be consecutive real simple zeros of
+$H_{1/2-s}$ on $0\le s<S$ and write
+$G(s)=(b(s)-a(s))^2$ and
+$\mathcal D(s)=2-G(s)\mathcal S(s)$.
+For every $0\le\sigma<S$,
+\begin{equation}
+4\int_0^\sigma\mathcal D(s)\,ds
+=G(0)-G(\sigma).
+\label{eq:terminal-identity}
+\end{equation}
+Consequently
+\begin{equation}
+4\int_0^\sigma\mathcal D(s)\,ds<G(0)
+\quad\Longleftrightarrow\quad G(\sigma)>0.
+\label{eq:strict-budget-equivalent}
+\end{equation}
+A strict inequality through $\sigma=1/2$, if the
+zero paths are defined there, is stronger than the
+Riemann hypothesis: it also requires simplicity of
+the corresponding critical-line zeros.
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:shieldgap} is $G'=-4\mathcal D$;
+the fundamental theorem of calculus gives
+\eqref{eq:terminal-identity}, and rearrangement gives
+\eqref{eq:strict-budget-equivalent}.
+RH places zeros on the critical line but does not
+exclude multiple real zeros. A multiple endpoint
+zero can arise from two distinct simple branches
+whose squared gap tends to zero as $s\uparrow1/2$.
+Thus demanding a strictly positive terminal gap
+adds the unproved simplicity condition.
+\end{proof}
+
+The correct \emph{interior} sufficient target is
+not the terminal strict budget itself but an
+independent, pair-dependent envelope
+$\mathcal B_i(\sigma)$ whose proof does not assume
+survival of that pair to $\sigma$, together with
+\begin{equation}
+\boxed{
+4\mathcal B_i(\sigma)\le
+G_i(0)-\eta_i(\sigma),\qquad
+\eta_i(\sigma)>0\quad
+(0\le\sigma<1/2).
+}
+\label{eq:noncircular-shielding}
+\end{equation}
+If an a priori estimate also gives
+$\int_0^\sigma\mathcal D_i\le\mathcal B_i(\sigma)$
+up to any hypothetical first collision, then
+\eqref{eq:terminal-identity} precludes that
+finite-gap collision at any interior time.
+The margin $\eta_i(\sigma)$ is allowed to
+approach zero at $1/2$ and must be scaled
+to the initial gap; no universal absolute
+positive margin across all high zeros is
+assumed. The independent envelope,
+valid for \emph{all genuine theta-flow pairs},
+has not been constructed. A separate
+completeness argument must also rule out
+a loss of the global real-zero property
+through zeros whose heights escape to
+infinity as the heat parameter varies.
+
+\begin{proposition}[An exact quartic heat-flow
+collision]\label{prop:quartic-shielding-control}
+Consider the polynomial heat evolution
+\begin{equation}
+p_s(z)=e^{s\partial_z^2}
+\bigl[(z^2-1)(z^2-4)\bigr]
+=z^4+(12s-5)z^2+12s^2-10s+4.
+\label{eq:quartic-heat-model}
+\end{equation}
+Initially its zeros are $-2,-1,1,2$,
+all simple and real. The two positive zeros
+collide at
+\begin{equation}
+s_*=\frac{10-\sqrt{46}}{24}
+\in\left(\frac18,\frac17\right)
+\subset(0,\tfrac12).
+\label{eq:quartic-collision}
+\end{equation}
+For their initial gap $g(0)=1$, the two
+exterior zeros contribute
+$\mathcal S(0)=\frac14$, so
+$\mathcal D(0)=\frac74$ and $G'(0)=-7$.
+The integrated signed shielding defect reaches
+\begin{equation}
+4\int_0^{s_*}\mathcal D(s)\,ds
+=G(0)=1.
+\label{eq:quartic-saturation}
+\end{equation}
+This polynomial is an adversarial
+heat-flow control, \emph{not} the
+Riemann theta transform.
+\end{proposition}
+\begin{proof}
+Since $\partial_z^2(z^4-5z^2+4)=12z^2-10$
+and $\partial_z^4(z^4-5z^2+4)=24$,
+the heat series terminates and gives
+\eqref{eq:quartic-heat-model}.
+Writing $v=z^2$, its quadratic
+discriminant is
+\[
+\Delta(s)=(5-12s)^2
+-4(12s^2-10s+4)
+=96s^2-80s+9.
+\]
+The smaller root of $\Delta=0$
+is \eqref{eq:quartic-collision}; it is
+strictly between $1/8$ and $1/7$
+and the two $v$-roots remain positive
+until the collision. With
+$B(s)=12s^2-10s+4>0$, the squared gap
+between the positive roots is
+\[
+G(s)=5-12s-2\sqrt{B(s)}.
+\]
+It starts at $G(0)=1$ and tends to
+$0$ at $s_*$. At $s=0$, the left
+exterior roots $-1,-2$ contribute
+\[
+\mathcal S(0)
+=\frac1{(1+1)(2+1)}
++\frac1{(1+2)(2+2)}
+=\frac16+\frac1{12}=\frac14.
+\]
+The zero-motion equation gives
+$\mathcal D(0)=2-\frac14=\frac74$
+and $G'(0)=-7$.
+The fundamental theorem of calculus
+applied up to the collision gives
+\eqref{eq:quartic-saturation}.
+\end{proof}
+
+The control shows that a positive exterior
+shielding sum alone does not guarantee
+continuation of simple real zeros:
+what matters is its signed accumulated
+deficit relative to the \emph{specific}
+initial gap. Moreover
+\eqref{eq:quartic-saturation} explains the
+strictness required on open heat-time
+intervals and why an endpoint equality
+should remain permissible. The accompanying
+exact-fraction regression tests $2{,}000$
+quartic identities and $1{,}000$ independent
+budget identities; a separate $70$-digit
+diagnostic checks the collision time and
+integral. See
+\path{certificates/xi_signed_shielding_budget_audit.py}
+and \path{XiKernel/SignedShieldingEndpoint.lean}.
+The Lean declarations certify the algebraic
+gates, not the whole theta zero-motion
+ODE or a universal signed-defect estimate.
+The full Riemann hypothesis remains open.
