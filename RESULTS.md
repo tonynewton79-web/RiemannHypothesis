@@ -626,3 +626,23 @@ so no new remote PASS is asserted. The prior literature on
 the de Bruijn--Newman constant supplies the known real-zero
 heat interval; priority of this particular penalty observation
 is not established.
+
+## 20 October 2026 — Dyadic central heat-defect reduction
+
+For the genuine theta heat flow, let N_n be the Gaussian-smoothed negative mass of the n-th Laguerre coefficient at the central observation point, and b_n=1+T(A_n+M_n) its positive normalization. The previously established central-point criterion and the adaptive theta cutoffs m_n(C) combine into the **single nonnegative defect**
+
+D = sum_{n>=1} 2^(-n) N_n / b_n,
+
+and a **single sequence of finite theta approximations**
+
+S_k = sum_{n=1}^k 2^(-n) E^(m_n(2^k))_(n,2^k)(T,0)/b_n.
+
+**New quantitative theorem:** for every integer k>=1,
+
+|2^(-k) S_k - D| < 2^(1-k).
+
+Analytic central positivity shows RH iff D=0 iff S_k<1 for all k. A rigorously established S_k>=1 at one stage would refute RH; none has been found. Proving S_k<1 simultaneously for every k from the genuine modular theta source is the open global RH step. This is a quantitative reformulation, not a proof of RH or a finite verification algorithm for every stage.
+
+**Files:** paper/dyadic_penalty_defect_attack.tex (included in full manuscript by paper/spatial_heat_comparison.tex), certificates/xi_dyadic_penalty_defect_exact.py, XiKernel/DyadicPenalty.lean (imported and axiom-inspected). The exact rational normalization cases passed independently in the model working environment. New GitHub Lean and PDF workflow runs were still **queued** at the time of this update; no CI pass is claimed for the new Lean declarations. The full analytic theta/Fourier/Duhamel argument is not end-to-end kernel formalized.
+
+**DOI:** https://doi.org/10.5281/zenodo.23461586 (live DOI supplied by author). The previous reserved-DOI label should not be used for the current paper.
