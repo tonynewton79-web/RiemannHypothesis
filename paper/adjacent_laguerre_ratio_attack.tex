@@ -1,0 +1,134 @@
+\subsubsection{Adjacent-order quotient dynamics and an obstruction to scalar closure}
+\label{subsec:adjacentratio}
+The preterminal spatial condition
+\eqref{eq:openslabrh} would imply RH, but constructing its
+coefficient by dividing by $U_n$ presupposes precisely
+the positivity that remains to be established.
+There is a useful exact PDE for these quotients
+\emph{where positivity has independently been proved}.
+It also explains why a tempting order-monotone
+bootstrap cannot close this gap.
+
+Put $k_n=(n+1)(2n+1)$,
+$D_n=U_n$, $V_n=k_nU_{n+1}$,
+$W_n=k_{n+1}U_{n+2}$ and
+$\mathcal D=\partial_s-\frac12\partial_x^2$.
+
+\begin{theorem}[Division-free adjacent-order identity]
+\label{thm:adjacentratio}
+For the genuine theta heat hierarchy,
+\begin{equation}
+\boxed{D_n\mathcal D V_n-V_n\mathcal D D_n
+=V_n^2-k_nD_nW_n.}
+\label{eq:adjacentdivisionfree}
+\end{equation}
+On every open region on which $D_n,V_n>0$,
+set $R_n=V_n/D_n$ and
+$R_{n+1}=k_nW_n/V_n$.
+Then
+\begin{equation}
+\boxed{
+\partial_s R_n=\frac12\partial_x^2R_n
++(\partial_x\log U_n)\partial_xR_n
++R_n(R_n-R_{n+1}).}
+\label{eq:adjacentheat}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The hierarchy gives $\mathcal D D_n=-V_n$
+and $\mathcal D V_n=-k_nW_n$.
+Their antisymmetric product is
+\eqref{eq:adjacentdivisionfree}.
+Substitute $V_n=R_nD_n$ into that identity
+and use the product rule
+$\mathcal D(R_nD_n)=D_n\mathcal DR_n+
+R_n\mathcal DD_n-(\partial_xR_n)(\partial_xD_n)$.
+Division by the positive $D_n^2$ yields
+\eqref{eq:adjacentheat}.
+\end{proof}
+
+If the as-yet-unproved ordering
+$R_n\le R_{n+1}$ held, the reaction term
+would be nonpositive, suggesting a
+scalar comparison. That ordering is
+false for general real-zero transforms.
+
+\begin{proposition}[Exact adjacent-order reversal]
+\label{prop:ratioreversal}
+For the polynomial $G(z)=z(z-1)(z-10)$,
+the generalized Laguerre ratios at the simple
+zero $z=0$ satisfy
+\[
+\boxed{R_1(0)=\frac{303}{50}>
+\frac{15}{101}=R_2(0).}
+\]
+\end{proposition}
+\begin{proof}
+At a simple real root $a$, let
+$b_j=(a-\rho_j)^{-2}$ for the other
+real roots, and let $e_k$ be the
+elementary symmetric polynomials in
+the $b_j$. The product
+$G(a+iy)G(a-iy)=G'(a)^2y^2
+\prod_j(1+b_jy^2)$ gives
+$R_n(a)=k_ne_n/e_{n-1}$.
+Here $b_1=1$, $b_2=1/100$, so
+$e_1=101/100$ and $e_2=1/100$,
+which gives the displayed exact fractions.
+\end{proof}
+
+As a diagnostic on the \emph{genuine} theta
+heat family at $t=1/2$, direct
+$46$-decimal-digit Fourier quadrature gives
+\begin{center}
+\begin{tabular}{rcc}
+\hline
+$x$ & $R_1$ & $R_2$\\
+\hline
+$0$ & $0.0116731531$ & $0.0337807219$\\
+$20$ & $0.0277960654$ & $0.0559941838$\\
+$28.269$ & $12.005931723$ & $0.1041071217$\\
+$42.044$ & $7.126195805$ & $0.2152913414$\\
+\hline
+\end{tabular}
+\end{center}
+The values suggest a similar reversal near
+known heat-flow real zeros; they are not
+directed interval certificates and are
+not used to establish a theta inequality.
+
+For a Gaussian Fourier transform with
+$A(s)=3+2s$, the exact ratio
+$R_n(s,x)=(2n+1)/A(s)$ satisfies
+\eqref{eq:adjacentheat} with a negative reaction.
+For the quadratic collision control
+$H_t(z)=z^2-2t$, by contrast,
+$R_1=3/(x^2+1-2s)$ and $R_2=0$;
+the reaction is positive and increases
+towards the terminal collision.
+Both models pass exact rational
+or symbolic checks.
+
+The next genuine analytic target is therefore
+to bound the transport
+$\partial_x\log U_n$ and the signed reaction
+\emph{without} assuming positivity of
+the denominators. A proposed upper barrier
+$R_n\lesssim1+\log^2(2+|x|)$ is not closed
+until those bounds and spatial boundary
+conditions are established. The division-free
+identity \eqref{eq:adjacentdivisionfree}
+remains well defined at zeros and may be a
+better starting point; alternatively one must
+prove the theta-specific Duhamel or dyadic
+defect bound already isolated above.
+This is a sharpened proof obstruction,
+not a proof of RH.
+
+The exact algebra appears in
+\path{XiKernel/AdjacentLaguerreRatio.lean}.
+The symbolic and numerical reproduction
+is in \path{certificates/xi_adjacent_ratio_heat_exact.py}.
+The Lean statement does not formalize the
+complex Fourier integrals or full
+parabolic quotient calculation.
