@@ -24,6 +24,7 @@ import XiKernel.HeatFlowLaguerre
 import XiKernel.PoleFreeLaguerre
 import XiKernel.HeatZeroShielding
 import XiKernel.OneSidedShielding
+import XiKernel.SignedShieldingEndpoint
 import XiKernel.ExactShieldingDefect
 import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
