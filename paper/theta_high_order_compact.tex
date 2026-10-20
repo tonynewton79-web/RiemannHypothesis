@@ -1,0 +1,193 @@
+\subsubsection{Eventual Laguerre positivity on compact Fourier intervals}
+\label{subsec:theta-high-order-compact}
+
+A bounded-frequency interval imposes a substantially
+weaker requirement than the spatial comparison on the
+whole real line. In fact, the large-order part of the
+generalized Laguerre hierarchy can be controlled without
+assuming RH or any inequality involving an unknown
+coefficient $c_n(s,x)$.
+
+\begin{theorem}[Uniform high-order positivity on compact intervals]
+\label{thm:compact-eventual-laguerre}
+Let $H_t$ be the genuine Riemann theta deformation
+\eqref{eq:heatH}, with $0\le t\le T=1/2$. For every
+$X<\infty$ there exists an integer $N_X$ such that
+\begin{equation}
+\boxed{L_{n,t}(x)>0
+\quad(n\ge N_X,\ |x|\le X,\ 0\le t\le T).}
+\label{eq:compact-eventual}
+\end{equation}
+More precisely, the normalized Fourier pair measure
+defined below satisfies
+\begin{equation}
+\boxed{\lim_{n\to\infty}\ \sup_{0\le t\le T}
+\mathbb E_{n,t}(u+v)^2=0.}
+\label{eq:conditional-squeeze}
+\end{equation}
+This is a compact-frequency, large-order assertion;
+the index $N_X$ is not claimed to be independent of $X$.
+\end{theorem}
+
+\begin{proof}
+Put $h_t(u)=\tfrac12e^{tu^2}\Phi(u)$, an even,
+strictly positive, rapidly decreasing function, and
+$V(u)=-\log\Phi(u)$. The Fourier product identity yields
+\begin{equation}
+L_{n,t}(x)=\frac{1}{(2n)!}
+\iint_{\mathbb R^2}
+h_t(u)h_t(v)(u-v)^{2n}
+\cos(x(u+v))\,du\,dv .
+\label{eq:high-order-pair}
+\end{equation}
+In particular $A_{n,t}=L_{n,t}(0)>0$. Let
+$\mathbb P_{n,t}$ be the probability measure obtained
+by dividing the integrand at $x=0$ by its total mass,
+and write $W=u+v$, $D=u-v$. We have
+\begin{equation}
+\frac{L_{n,t}(x)}{A_{n,t}}
+=\mathbb E_{n,t}\cos(xW)
+\ge1-\frac{x^2}{2}\mathbb E_{n,t}W^2 .
+\label{eq:compact-cos-gate}
+\end{equation}
+
+We estimate the last expectation. Conditional on
+$D=d$, the variable $W$ has a density proportional to
+$e^{-Q_{d,t}(w)}$, where
+\[
+Q_{d,t}(w)
+=V\!\left(\frac{w+d}{2}\right)
++V\!\left(\frac{w-d}{2}\right)
+-\frac t2(w^2+d^2).
+\]
+The density is even in $w$, and
+\begin{equation}
+Q_{d,t}''(w)
+=\frac14\left[
+V''\!\left(\frac{w+d}{2}\right)
++V''\!\left(\frac{w-d}{2}\right)-4t
+\right].
+\label{eq:conditional-curvature}
+\end{equation}
+Newman's theta-potential curvature theorem
+\cite{NewmanGHS} gives that $V''$ is even and
+nondecreasing in $|u|$. Its first-summand
+asymptotics also give
+$V''(u)\sim16\pi e^{4u}$ as $u\to+\infty$.
+Let $m=V''(0)$. Since at least one of
+$|(w+d)/2|$ and $|(w-d)/2|$ is at least
+$|d|/2$, for $|d|\ge D$ we obtain
+\[
+Q_{d,t}''(w)\ge
+\kappa_D:=
+\frac{V''(D/2)+m-2}{4}.
+\]
+In particular $\kappa_D\to\infty$.
+For sufficiently large $D$ it is positive.
+The elementary integration-by-parts identity
+\[
+1=\mathbb E(WQ_{d,t}'(W)\mid D=d)
+\]
+and $wQ_{d,t}'(w)\ge\kappa_Dw^2$
+then show
+\begin{equation}
+\mathbb E(W^2\mid D=d)\le\kappa_D^{-1}
+\quad(|d|\ge D).
+\label{eq:conditional-variance}
+\end{equation}
+
+For the remaining compact set $|d|\le D$,
+the conditional second moment is bounded,
+uniformly in $t\in[0,T]$, by some finite
+$B_D$. This follows directly from the
+positive continuous denominator and the
+uniform superexponential tails in the
+conditional $w$-integral.
+Moreover the factor $|u-v|^{2n}$ drives
+the separation away from every bounded
+set, uniformly in heat time.
+Indeed put
+$H_T=\int_{\mathbb R}h_T(u)\,du<\infty$
+and choose a fixed rectangle
+$\mathcal R_D$ on which $|u-v|\ge D+1$.
+The number
+$b_D=\iint_{\mathcal R_D}h_0(u)h_0(v)\,du\,dv$
+is positive. Because $h_0\le h_t\le h_T$,
+\begin{equation}
+\mathbb P_{n,t}(|D|\le D)
+\le \frac{H_T^2}{b_D}
+\left(\frac{D}{D+1}\right)^{2n}.
+\label{eq:separation-concentration}
+\end{equation}
+Equations \eqref{eq:conditional-variance} and
+\eqref{eq:separation-concentration} imply
+\begin{equation}
+\sup_{0\le t\le T}\mathbb E_{n,t}W^2
+\le B_D\frac{H_T^2}{b_D}
+\left(\frac{D}{D+1}\right)^{2n}
++\kappa_D^{-1}.
+\label{eq:highorder-second-moment}
+\end{equation}
+First let $n\to\infty$ and then
+$D\to\infty$ to prove
+\eqref{eq:conditional-squeeze}.
+Finally choose $n$ sufficiently large
+that the right side of
+\eqref{eq:compact-cos-gate} is strictly
+positive for all $|x|\le X$, uniformly
+in $t$. This proves
+\eqref{eq:compact-eventual}.
+\end{proof}
+
+\begin{corollary}[Finite-order reduction on a fixed frequency slab]
+\label{cor:compact-finite-order}
+For every finite $X$ the task of proving
+\[
+L_{n,t}(x)\ge0\quad
+(n\ge1,\ 0\le t\le1/2,\ |x|\le X)
+\]
+reduces to the finitely many orders
+$1\le n<N_X$. Moreover, for each
+fixed $n\ge N_X$, the strictly positive
+denominator $U_n(s,x)$ permits a
+nonnegative, locally bounded spatial
+comparison coefficient on
+$[0,1/2]\times[-X,X]$.
+\end{corollary}
+\begin{proof}
+The first assertion is
+Theorem~\ref{thm:compact-eventual-laguerre}.
+For the second, $U_n$ and $U_{n+1}$
+are continuous and strictly positive on
+the stated compact set, so their quotient
+is bounded there. One may take
+$c_n=k_nU_{n+1}/U_n$.
+This construction does not assume the
+comparison to prove the denominator's
+positivity: that positivity was already
+established independently above.
+\end{proof}
+
+\paragraph{Scope and connection with prior literature.}
+The proof is based on concentration of
+a positive theta pair measure, not on a
+finite mesh of Laguerre values. It is
+analogous in spirit, but not identical
+in its indexing or formulation, to
+eventual Jensen-polynomial hyperbolicity
+in the derivative aspect
+\cite{GORZ,JensenXi}.
+In particular, no novelty priority is claimed
+without a more complete comparison of
+these two formulations.
+The theorem provides no explicit numerical
+value of $N_X$; proving an effective
+joint rate in $n$ and $X$ is the next
+quantitative problem. A fixed finite $X$
+cannot be replaced by all of $\mathbb R$
+without an additional argument.
+The analytic integration-by-parts and
+separation-concentration steps have not
+been formalized end-to-end in Lean.
+The associated finite algebraic gates are
+recorded separately in the repository.
