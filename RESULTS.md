@@ -668,3 +668,11 @@ This is a conditional **ratio evolution identity**, not proof of the missing pos
 **Scientific frontier:** Independent theta-specific control of `∂x log U_n` and the signed reaction **without assuming Laguerre positivity**, or a direct bound for the existing division-free Duhamel/dyadic defect. RH remains open.
 
 **DOI:** https://doi.org/10.5281/zenodo.23461586 (author reports the DOI is live; no obsolete reserved/unpublished designation).
+
+## 20 October 2026 — compact theta spatial-transfer gate
+
+The cumulative manuscript now includes `paper/theta_compact_spatial_transfer.tex`. **Analytic theorem:** for the true heat-flow Laguerre coefficients `U_n` and finite theta-mode approximants `U_{n,M}`, with uniform errors `e_{n,M}` from the proved theta heat-tail bound, any certified rectangle-wide finite-mode inequality `k_n U_(n+1,M)-c U_(n,M) <= -(k_n e_(n+1,M)+C_K e_(n,M))`, `0<=c<=C_K`, rigorously transfers to `k_n U_(n+1)<=c U_n` for the full infinite theta kernel. No division by `U_n` or positivity assumption is needed. A rational bound `C_*<100` makes the analytical errors explicitly calculable.
+
+**Counter-check:** Every fixed finite-mode cutoff gives `U_(odd,M)<0<U_(even,M)` at sufficiently large frequencies, so it cannot satisfy the spatial comparison globally. This is an analytic consequence of the established odd-jet asymptotics. An *adaptive cutoff* and a new certified strict finite-mode sign margin on a compact exhaustion are still missing; RH is **not proved**.
+
+**Code:** `XiKernel/ThetaCompactSpatialTransfer.lean`; `certificates/xi_compact_spatial_transfer_exact.py` (exact rational test through 100 orders); GitHub Actions queued as of the latest check, so new code is **NOT** yet independently CI-confirmed. Local Python rational sanity check passed. **DOI** `https://doi.org/10.5281/zenodo.23461586` is shown in the paper without the obsolete reserved/unpublished disclaimer, following author confirmation of publication.
