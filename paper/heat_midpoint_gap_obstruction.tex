@@ -1,0 +1,112 @@
+\paragraph{An inverse-gap obstruction at the midpoint of two zeros.}
+\label{par:midpoint-spatial}
+The coefficient needed by the backward heat inequality
+can be forced to be large not only at a zero of the initial
+real-rooted transform, but between adjacent zeros.
+This gives a direct and sharp lower bound from one
+gap, independent of the rest of the zero set.
+
+\begin{theorem}[Exact midpoint inverse-gap bound]
+\label{thm:midpointgap}
+Let $G$ be a real entire Laguerre--P\'olya function
+of genus at most one with at least two distinct
+real zeros. Let $a<b$ be adjacent simple zeros,
+put $m=(a+b)/2$ and $g=b-a>0$.
+Then $G(m)\ne0$, $L_1[G](m)>0$, and
+\begin{equation}
+\boxed{\quad
+6\frac{L_2[G](m)}{L_1[G](m)}
+\ \ge\ \frac{12}{g^2}.
+\quad}
+\label{eq:midpointgap}
+\end{equation}
+Equality holds when $G$ is proportional to
+$(z-a)(z-b)$ times a zero-free exponential
+with no quadratic term.
+In particular, whenever $G=H_t$ is
+the genuine de Bruijn--Newman transform at a
+strictly real-rooted heat time $t>\Lambda$,
+every admissible comparison coefficient obeys
+\[
+c_1(\tfrac12-t,m)\ \ge\ \frac{12}{g^2}.
+\]
+\end{theorem}
+\begin{proof}
+At $m$, the two selected zeros contribute
+the identical positive inverse-square weight
+$\lambda=4/g^2$ to the real-zero canonical
+product. Let $B\ge0$ be the sum of the
+inverse-square weights of all remaining zeros,
+and let $E\ge0$ be their second elementary
+symmetric sum. Since $G$ has genus at most one,
+\[
+\frac{G(m+iy)G(m-iy)}{G(m)^2}
+=\bigl(1+\lambda y^2\bigr)^2
+\prod_{\rho\notin\{a,b\}}
+\left(1+\frac{y^2}{(m-\rho)^2}\right).
+\]
+Equating the first two coefficients of $y^2$
+gives
+\[
+\frac{L_1[G](m)}{G(m)^2}=2\lambda+B,
+\qquad
+\frac{L_2[G](m)}{G(m)^2}
+=\lambda^2+2\lambda B+E.
+\]
+The denominator is strictly positive, and
+\[
+6(\lambda^2+2\lambda B+E)
+-3\lambda(2\lambda+B)
+=9\lambda B+6E\ge0.
+\]
+Thus $6L_2/L_1\ge3\lambda=12/g^2$,
+as claimed. For the pure quadratic factor
+$B=E=0$ and equality holds.
+\end{proof}
+
+\begin{corollary}[Logarithmic-square envelopes force
+a zero-spacing lower bound]
+\label{cor:midpointspacing}
+Suppose that for some $t>\Lambda$,
+$c_1(\tfrac12-t,x)\le C\{1+\log^2(2+|x|)\}$
+holds at every real $x$, with $C>0$.
+Every adjacent pair $a<b$ of zeros of $H_t$ must obey
+\begin{equation}
+\boxed{
+b-a\ \ge\
+\sqrt{\frac{12}{C\left(1+\log^2(2+|(a+b)/2|)\right)}}.
+}
+\label{eq:midpointspacing}
+\end{equation}
+\end{corollary}
+\begin{proof}
+Combine \eqref{eq:midpointgap} with
+the hypothesized upper bound at the midpoint.
+All quantities are positive, and rearrange.
+\end{proof}
+
+This theorem sharpens the two-root obstruction
+at a root (which contributes $6/g^2$).
+It does not improve the separate
+global logarithmic-square \emph{average}
+lower threshold of Theorem~\ref{thm:log-square-necessary}.
+In particular, a proposed
+$O(\log^2(2+|x|))$ \emph{upper} envelope for
+the genuine theta heat flow would entail
+nontrivial pointwise lower bounds on
+\emph{every} positive-time zero gap.
+The known zero-counting asymptotic gives
+no such individual lower spacing bound;
+one cannot infer the envelope from
+density information or the already
+established central moment asymptotic.
+
+The coefficient inequality remains
+unproved at arbitrary Fourier height.
+The exact finite algebraic gap is checked in
+\path{XiKernel/HeatMidpointGap.lean} and
+\path{certificates/xi_midpoint_zero_gap_exact.py}.
+The infinite canonical-product step is
+analytical prior art, not an end-to-end
+Lean formalization, and this obstruction
+does not prove or disprove RH.
