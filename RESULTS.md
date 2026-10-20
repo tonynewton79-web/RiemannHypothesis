@@ -976,3 +976,23 @@ The finite version has the explicit remainder `1/(N+1+D_N)` on each side. It fol
 **Paper:** `paper/heat_one_sided_shielding.tex` updated. A 43-page cumulative working PDF was compiled, visually checked, and sent by email on 20 October 2026, combining the last previously emailed 38-page full body, the three-page earlier one-sided supplement, and a corrected two-page exact identity supplement. The canonical current GitHub source additionally contains research not yet rebuilt into that interim cumulative PDF; all-source GitHub CI remains queued.
 
 **Next global proof obligation:** bound `4*∫_0^(1/2) signed_defect_i(s) ds` uniformly for every actual Riemann theta gap at unbounded zero height and exclude first loss of real-rootedness entering from infinity. **RH remains unresolved.** DOI 10.5281/zenodo.23461586 is treated as live per author's report; remove reserved/unpublished boilerplate.
+
+## 20 October 2026 — Noncircular local Rouché-to-shielding certificate
+
+**Mathematical theorem (analytic):** For the *genuine* theta heat flow, start at any t*>Lambda, with a selected consecutive simple real zero pair a<b and initial gap g*=b-a. Pick radius 0<r<g*/2 and three conjugation-invariant contours around the two root disks and their enclosing zero-free corridor. Let m>0 be the initial minimum |H_(t*)| on all contours and let
+
+M_Y = integral_0^infty Phi(u) exp(t* u²) u² exp(Y u) du,
+
+where Y is the maximal boundary imaginary height. The exact Fourier-integral difference satisfies |H_(t*−tau)−H_(t*)|<=tau M_Y on all contours. Whenever sigma M_Y<m, classical Rouché counts one *real simple* root in each disk and no intervening root for tau<=sigma. Therefore g(tau)>=g*−2r>0 **independently** of the signed shielding gap identity. On any real-simple ODE interval,
+
+integral_0^tau D(v) dv <= B_r := r(g*−r), with 4 B_r=g*²−eta_r and eta_r=(g*−2r)²>0.
+
+This is a mathematically valid **short-time, pair-dependent, noncircular shielding envelope**, not the sought uniform-in-height/whole-time estimate. Every fixed actual theta zero pair has some positive certified local time by simplicity and compactness, but the threshold m/M_Y need not be uniform. The published Polymath de Bruijn–Newman bound Lambda<=0.22 independently guarantees global reality for all t>0.22; our contour theorem does not improve that published global range.
+
+**Adversarial quartic proof:** Starting from (z²−1)(z²−4), the backward heat polynomial has a uniform four-disk Rouché margin 231/256−709/800=103/6400>0 for 0<=s<=1/80 at disk radius r=1/4. The positive-pair integrated shielding envelope is B=3/16, eta=1/4. The same quartic nevertheless collides later at s*=(10−sqrt46)/24. This proves an independent *local* certificate cannot simply be iterated without a new verified contour margin.
+
+**Verification:** `paper/rouche_independent_shielding.tex`; `XiKernel/RoucheShieldingTransfer.lean` algebraic gates; `certificates/xi_rouche_shielding_local_exact.py` (20,000 exact Fraction tests and exact quartic margin; local exit 0). New GitHub Lean and PDF actions are queued as of this note, not called passed. The analytic Rouché/transcendental proof is not formalized end-to-end in Lean.
+
+**RH-level outstanding theorem:** independently verify contour lower bounds for the entire remaining interval down to t=0 for every root, prevent degeneration of margins at heights tending to infinity, and prove complete zero labeling/no migration from infinity. This remains unproved; no full RH proof.
+
+**Full paper PDF:** a recovered, previously emailed 43-page cumulative PDF plus a three-page mathematically edited shielding continuation was assembled and checked as a 46-page working PDF and emailed separately. The live DOI is `10.5281/zenodo.23461586` with no obsolete 'reserved' label.
