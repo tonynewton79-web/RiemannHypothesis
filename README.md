@@ -566,3 +566,46 @@ This uses no RH or positivity assumption. The theta heat transform and all its d
 **Exact local tests PASSED:** 15000 rational pointwise positive-part sandwiches, 1000 rational positive-weight heat-average models, and the exact constant negative-region model U=1-2s, v=2: mathcalE_C(1,x)=C/4+1+1/C and mathcalN=1/4. Script: certificates/xi_penalty_quantitative_exact.py. Algebraic Lean source: XiKernel/PenaltyQuantitative.lean. The new Lean and GitHub PDF CI are **QUEUED**, so new Lean source is NOT claimed compiled. The heat-semigroup theorem and RH equivalence are NOT formalized end-to-end in Lean.
 
 The complete updated manuscript source includes paper/penalty_quantitative_limit.tex, imported from paper/spatial_heat_comparison.tex, and an updated abstract/reproducibility narrative. The DOI is listed directly as https://doi.org/10.5281/zenodo.23461586 without obsolete reserved wording. The separately delivered immediate PDF is a consolidated previous 18-page verified paper with a dated 2-page research supplement; the GitHub new-source full recompilation is queued.
+
+## 20 October 2026 — final Duhamel attack: single-Fourier-point criterion and quantitative negative-witness theorem
+
+**Analytic theorem proved; RH itself remains open.** Let `T=1/2`,
+`U_n(s,x)=L_(n,1/2-s)(x)`, `k_n=(n+1)(2n+1)`,
+and `E_(n,C)=[k_n U_(n+1)-C U_n]_+`.
+Let `mathcalE_(n,C)(T,x)=int_0^T P_(T-s) E_(n,C)(s,.)(x) ds`.
+Strict positivity of the Gaussian semigroup and the already established
+uniform normalized-penalty identity yield the **sharper equivalence**:
+
+`RH ↔ ∀n≥1: sup_(C≥1) mathcalE_(n,C)(1/2,0)<∞`.
+
+The observation need only be made at the **single central Fourier height x=0**, but all Laguerre orders and unbounded C remain essential. More strongly, with
+`M_n=sup|k_n U_(n+1)|`, `A_n=sup|U_n|`, and `b_n=1+T(A_n+M_n)`,
+the well-defined scalar `S(C)=sum_(n≥1)2^-n mathcalE_(n,C)(T,0)/b_n`
+satisfies `RH ↔ sup_(C≥1) S(C)<∞`. This is a logically exact reformulation, **not a theta-specific bound proving RH**.
+
+**Quantitative witness theorem:** if for some n, `U_n(T,X)≤−delta<0`,
+`|partial_s U_n|≤A`, `|partial_x U_n|≤B`, choose
+`tau=min(T/4,delta/[8(1+A)])`,
+`r=min(1,delta/[4(1+B)])`, `Y=|X|+r`.
+Then the smoothed negative mass at the *origin* obeys
+`mathcalN_n(T,0) >= delta*r*sqrt(tau)/(2*sqrt(pi))*exp(-Y²/(2*tau)) > 0`.
+Hence `mathcalE_(n,C)(T,0) >= C*mathcalN_n(T,0)-T*M_n`.
+The exponentially tiny factor at high Fourier height explains why finite
+certificates cannot settle the global result.
+
+**New code and manuscript sections:**
+`paper/central_duhamel_penalty_attack.tex`,
+`XiKernel/CentralDuhamel.lean`,
+`certificates/xi_central_duhamel_exact.py`.
+Independent local rational replay passed 400 witness rectangles,
+36 scalar bounds and 5 negative-region models.
+The latest GitHub Lean/Python/PDF workflows are **queued**; do not claim
+they passed. The full Gaussian integration, real-entire Laguerre criterion
+and RH equivalence are analytical manuscript proofs, not end-to-end Lean.
+
+**Unproved decisive gate:** derive boundedness of `mathcalE_(n,C)(T,0)`
+from actual square-lattice theta correlations for all n and all C,
+without assuming U_n≥0 or an equivalent positive-definiteness claim.
+No Riemann-hypothesis proof or newly verified zero height is asserted.
+
+Manuscript DOI: https://doi.org/10.5281/zenodo.23461586
