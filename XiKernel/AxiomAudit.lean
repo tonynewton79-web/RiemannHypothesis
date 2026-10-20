@@ -42,6 +42,7 @@ import XiKernel.PenaltyQuantitative
 import XiKernel.CentralDuhamel
 import XiKernel.JointPenaltyCutoff
 import XiKernel.ZeroCompatibleDuhamel
+import XiKernel.OpenSlabCollision
 #print axioms XiKernel.centerMoment_pos
 #print axioms XiKernel.correlation_quadratic_gate
 #print axioms XiKernel.rational_jet_fifth_negative
@@ -197,3 +198,8 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.adaptive_penalty_denominator_identity
 #print axioms XiKernel.adaptive_penalty_strict_ratio
 #print axioms XiKernel.adaptive_penalty_unit_error
+
+#print axioms XiKernel.quadratic_collision_L1
+#print axioms XiKernel.quadratic_exact_spatial_comparison
+#print axioms XiKernel.collision_coefficient_lower_bound
+#print axioms XiKernel.collision_at_terminal_no_finite_coefficient
