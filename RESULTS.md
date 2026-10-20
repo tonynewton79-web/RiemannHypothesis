@@ -957,3 +957,22 @@ For a half-unit interval, the strict condition `G(0)>4/(R+1)+8*eps` gives a posi
 **Published paper:** DOI [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586) (author confirms live). No reserved-DOI language should appear.
 
 **Full-manuscript release:** The latest previously emailed 35-page version was combined with a 3-page mathematically edited shielding appendix and independently rendered as `Riemann_Xi_Full_Paper_Zero_Shielding_Update_20Oct2026.pdf` (38 pages). On GitHub, the same work is integrated as `paper/heat_zero_shielding_continuation.tex` in the eight-main-section LaTeX source; complete CI recompilation is pending.
+
+
+## 20 October 2026 — Exact nonlinear zero shielding; adversarial local-minimum audit
+
+**Analytically derived:** for a consecutive real simple zero gap g, with successive outward gap excesses eps_{side,m}=d_{side,m}/g-1 and D_{side,m}=sum_{j<=m}eps_{side,j}, the normalized bilateral shielding deficit satisfies
+
+`2-g^2*S = sum_{side=L,R} sum_{m>=1} eps_{side,m}/[(m+D_{side,m-1})(m+D_{side,m})]`.
+
+The finite version has the explicit remainder `1/(N+1+D_N)` on each side. It follows by elementary rational telescoping; the infinite passage assumes exterior zero locations diverge and uses outward ordered sums. The classical backward heat root ODE then gives the exact squared-gap rate `G'=-4*(signed bilateral defect)`.
+
+**Critical condition:** if g is a *global* minimum among all adjacent gaps, the squared gap is nonincreasing in backward heat time, with strict decrease except in a perfectly uniform bilateral lattice. For genuine infinite Riemann zero sets a global minimum is not automatically attained, and this instantaneous statement does not prove collision.
+
+**Exact falsifier for finite-neighborhood minimum:** central g=1, with exterior zero distances on each side 1,101/100,102/100 gives `g^2*S >=340039/115039>2` and hence `G'>=439844/115039>0`. The central gap is no larger than either immediately adjacent exterior gap; therefore finite-window minimality does not imply a negative backward squared-gap velocity.
+
+**Arithmetic:** `certificates/xi_exact_shielding_defect_audit.py` passed 1,800 signed rational finite-telescoping configurations, 100 exact one-gap perturbations, and 1,000 two-sided minimum-gap configurations locally. **Lean:** `XiKernel/ExactShieldingDefect.lean` contains algebraic and finite-induction proofs, but the new GitHub Lean build remains QUEUED at the latest check; do not state the new theorem is compiled until the workflow succeeds.
+
+**Paper:** `paper/heat_one_sided_shielding.tex` updated. A 43-page cumulative working PDF was compiled, visually checked, and sent by email on 20 October 2026, combining the last previously emailed 38-page full body, the three-page earlier one-sided supplement, and a corrected two-page exact identity supplement. The canonical current GitHub source additionally contains research not yet rebuilt into that interim cumulative PDF; all-source GitHub CI remains queued.
+
+**Next global proof obligation:** bound `4*∫_0^(1/2) signed_defect_i(s) ds` uniformly for every actual Riemann theta gap at unbounded zero height and exclude first loss of real-rootedness entering from infinity. **RH remains unresolved.** DOI 10.5281/zenodo.23461586 is treated as live per author's report; remove reserved/unpublished boilerplate.
