@@ -41,14 +41,12 @@ theorem poleFreeSourceComparison
     (hEnext : 0 ≤ Enext)
     (hfirst : n * Ecur ≤ S * Eprev)
     (hsecond : (n+1) * Enext ≤ S * Ecur) :
-    (n+1)*(2*n+1)*(b*Ecur+Enext) ≤
-      ((n+1)*(2*n+1)/n*S)*(b*Eprev+Ecur) := by
+    n * ((n+1)*(2*n+1)*(b*Ecur+Enext)) ≤
+      ((n+1)*(2*n+1)*S)*(b*Eprev+Ecur) := by
   have h := poleFreeLaguerreGate n b S Eprev Ecur Enext hn hb hEnext hfirst hsecond
-  have hnpos : 0 < n := by linarith
   have hm : 0 ≤ (n+1)*(2*n+1) := by positivity
-  have scaled := mul_le_mul_of_nonneg_left h hm
-  apply (le_div_iff₀ hnpos).2
-  nlinarith [scaled]
+  have hs := mul_le_mul_of_nonneg_left h hm
+  nlinarith [hs]
 
 theorem symmetricPolynomialGap
     (S Eprev Ecur Enext : ℝ)
