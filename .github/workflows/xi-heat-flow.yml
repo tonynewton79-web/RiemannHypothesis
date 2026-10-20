@@ -8,6 +8,7 @@ on:
       - 'XiKernel/HeatFlowLaguerre.lean'
       - 'XiKernel/AdjacentLaguerreRatio.lean'
       - 'certificates/xi_adjacent_ratio_heat_exact.py'
+      - 'certificates/xi_heat_six_band_exact.py'
       - '.github/workflows/xi-heat-flow.yml'
   workflow_dispatch:
 permissions:
@@ -30,3 +31,5 @@ jobs:
 
       - name: Adjacent-order ratio PDE and genuine-theta diagnostic
         run: python certificates/xi_adjacent_ratio_heat_exact.py
+      - name: Certified-moment all-order six-unit theta heat comparison
+        run: python certificates/xi_heat_six_band_exact.py
