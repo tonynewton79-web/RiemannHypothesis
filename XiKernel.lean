@@ -92,3 +92,5 @@ import XiKernel.LogSquareHeatGap
 import XiKernel.HeatCollisionRate
 
 import XiKernel.ZeroLatticeAndBand
+
+import XiKernel.SevenUnitHeatBand
