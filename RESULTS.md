@@ -1053,3 +1053,17 @@ GitHub Actions CI is queued; do not call it passing until confirmed.
 (3 and 2 pages). DOI 10.5281/zenodo.23461586 is displayed as live
 per the author; the old 'reserved, unpublished' boilerplate is absent.
 RH and endpoint simplicity remain unproved.
+
+## 21 October 2026 — Terminal Hurwitz closure and height-adaptive renewal adversarial test
+
+**Exact analytic reduction (not RH):** For the genuine Riemann theta heat family H_t, if there exists ANY sequence of positive t_j tending to zero such that **all** zeros of each H_(t_j) are real, then H_0 has only real zeros by locally uniform convergence and Rouché/Hurwitz. This eliminates any need for an additional 'escape from infinity' theorem at the *terminal* time after the positive-time premise has been established. It does NOT establish real-rootedness at any of those positive times.
+
+**Exact even high-height quartic:** Q_s(z)=z⁴+(12s−S)z²+P−2Ss+12s², S=(A+epsilon)²+(A+2epsilon)², P=(A+epsilon)²(A+2epsilon)². It solves ∂_s Q=∂_z²Q, starts with real simple zeros ±(A+epsilon),±(A+2epsilon), and has discriminant Δ(s)=(2A epsilon+3epsilon²)²−16Ss+96s². At s=epsilon², Δ=epsilon²(−28A²−84A epsilon+25epsilon²)<0 for A>=epsilon>0. IVT forces collisions at |z|>A/sqrt(2) before epsilon², arbitrarily high and arbitrarily fast. Independent completion-of-square and exact Fraction tests passed locally.
+
+**Rigorous research boundary:** The heat PDE, evenness, pairwise local contour protection, and the signed budget identity are not enough to establish a universal all-height backward time renewal. An independent theta-specific theorem proving real-zero exclusion globally at a sequence t_j→0 remains missing. These quartic controls are not Riemann zeros and not an RH counterexample.
+
+**Files:** `paper/height_renewal_terminal_closure.tex`, `XiKernel/HeightRenewalAndClosure.lean`, `certificates/xi_height_renewal_adversarial_exact.py`, `.github/workflows/xi-height-renewal.yml`.
+
+**Tests:** Local SymPy derivation, exact rational scale comparisons and independent square completion passed. GitHub Actions jobs are **queued / pending verification**; do not mark Lean compiled before its run completes. Lean checks only algebraic/sign steps, not Hurwitz nor the genuine theta analytic lemma end-to-end.
+
+**Full manuscript:** The previously emailed 51-page cumulative paper plus a two-page mathematical continuation was composed as a readable 53-page cumulative PDF and will be emailed. DOI: https://doi.org/10.5281/zenodo.23461586 (live according to the author).
