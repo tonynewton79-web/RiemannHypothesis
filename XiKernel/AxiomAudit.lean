@@ -1,3 +1,4 @@
+import XiKernel.HeatMidpointGap
 import XiKernel.Algebra
 import XiKernel.TransformMoment
 import XiKernel.RationalJet
@@ -267,3 +268,7 @@ import XiKernel.OpenSlabCollision
 
 #print axioms XiKernel.central_comparison_coefficient_lower
 #print axioms XiKernel.central_logsquare_lower_gate
+
+#print axioms XiKernel.midpoint_pair_ratio_gate
+#print axioms XiKernel.midpoint_inverse_gap_barrier
+#print axioms XiKernel.midpoint_logsquare_forces_spacing
