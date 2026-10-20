@@ -51,6 +51,6 @@ theorem midpoint_logsquare_forces_spacing
     (hgap : 12/g^2 ≤ C*scale) :
     12 ≤ C*scale*g^2 := by
   have hgg : 0 < g^2 := sq_pos_of_pos hg
-  exact (div_le_iff₀ hgg).mp (by nlinarith [hgap])
+  exact (div_le_iff₀ hgg).mp hgap
 
 end XiKernel
