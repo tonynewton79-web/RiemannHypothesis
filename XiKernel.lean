@@ -100,3 +100,5 @@ import XiKernel.ThetaCentralLogSquare
 import XiKernel.HeatMidpointGap
 
 import XiKernel.ThetaSpectralLoss
+
+import XiKernel.HighOrderCompactPositivity
