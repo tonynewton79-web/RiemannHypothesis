@@ -25,6 +25,7 @@ import XiKernel.AdjacentLaguerreRatio
 import XiKernel.HeatDuhamelSpectral
 import XiKernel.ThetaMixtureObstruction
 import XiKernel.SpatialHeatComparison
+import XiKernel.LogSquareHeatGap
 import XiKernel.ThetaCompactSpatialTransfer
 import XiKernel.FirstCompactThetaRectangle
 import XiKernel.HeatFlowDoubleZeroObstruction
@@ -242,3 +243,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.sixband_exponential_rational_tail
 #print axioms XiKernel.sixband_exp_weight_identity
 #print axioms XiKernel.sixband_mgf_domain
+
+#print axioms XiKernel.two_gap_jensen_polynomial
+#print axioms XiKernel.two_gap_jensen_nonnegative
+#print axioms XiKernel.log_square_threshold_gate
