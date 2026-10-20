@@ -704,3 +704,18 @@ A further **analytic, existence-level** result shows that for each fixed order `
 - **Global RH target still missing:** the sign comparison for *every* `n` and *arbitrarily large real x`, without using RH or a disguised equivalent hypothesis. The successful compact result makes no claim about RH outside K.
 
 DOI: https://doi.org/10.5281/zenodo.23461586
+
+## 20 October 2026 — Strictly increasing central Laguerre ratio and uniform order obstruction
+
+**Analytical theorem:** For the *genuine* classical Jacobi theta heat family on the full slab 0<=t<=1/2, put g_t=Phi_t*Phi_t (positive on every real w), M_(2n)(t)=integral_R w^(2n) g_t(w) dw, and U_n(s,x)=L_n[H_(1/2-s)](x). At x=0:
+
+`U_n(s,0)=M_(2n)(t)/(4(2n)!) > 0` and
+`(n+1)(2n+1)U_(n+1)(s,0)/U_n(s,0) = M_(2n+2)(t)/(2M_(2n)(t))`.
+
+Strict Cauchy–Schwarz moment log-convexity makes the ratio *strictly increasing in n*. Because the true theta convolution has positive unbounded support, it **diverges as n→infinity**, and compactness plus monotonicity upgrades divergence to **uniform in t∈[0,1/2]**.
+
+**Consequence:** Any claimed source comparison `k_n U_(n+1)<=c_n(s,x)U_n` needs coefficients satisfying `inf_s c_n(s,0)→+infinity`. A spatial logarithmic-square envelope `C*(1+log²(2+|x|))` with C independent of order is disproved. **An order-dependent coefficient C_n*(1+log²(2+|x|)) is NOT ruled out**; even a proposed `C_n~log²(n)` has not been proved and is a quantitative research target. Central positivity alone holds regardless of RH and cannot settle the noncentral global comparison.
+
+**Check status:** `certificates/xi_central_moment_ratio_exact.py` passed locally (101 factorial identities; strict finite-support moment ratio sanity test and essential negative control). Exploratory actual-theta quadratures at 512/1024/2048 nodes agree for orders 1,5,20,55 at heat times 0 and 1/2 (script: `certificates/xi_central_moment_ratio_numerical.py`). These samples do NOT prove asymptotic logarithmic-square growth. Lean algebra subtheorems live in `XiKernel/CentralMomentRatio.lean`. GitHub Actions builds/Lean were **queued** at last inspection; do not treat them as passing runs.
+
+Full proof: `paper/theta_central_moment_barrier.tex` included from `paper/main.tex`. The existing full-time first-order compact rectangle `|x|<=4` and other heat comparisons remain in their original sources. A 22-page local compiled cumulative supplement plus earlier archived manuscript was emailed on 20 Oct 2026, with the DOI linked as `https://doi.org/10.5281/zenodo.23461586`. This local PDF is a consolidation, not yet the rebuilt complete current GitHub LaTeX snapshot. RH unresolved.
