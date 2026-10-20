@@ -54,3 +54,5 @@ import XiKernel.HeatDuhamelSpectral
 import XiKernel.ThetaMixtureObstruction
 
 import XiKernel.HeatFlowSpatialGap
+
+import XiKernel.DuhamelOrderSaturation
