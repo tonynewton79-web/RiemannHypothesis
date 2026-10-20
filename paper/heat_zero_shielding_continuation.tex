@@ -1,0 +1,245 @@
+\subsubsection{Adjacent-zero shielding under backward heat flow}
+\label{subsec:zero-shielding}
+A pointwise Laguerre-source comparison is sufficient to
+preserve positivity, but the preceding collision analysis
+shows why the required coefficient can diverge. There is
+a complementary route that does not divide by Laguerre
+expressions: follow the \emph{distances between consecutive
+real zeros} while they exist.
+
+The zero-motion equation for the de Bruijn--Newman flow
+is classical, going back to Csordas, Smith and Varga
+and playing a central role in Rodgers and Tao
+\cite{RodgersTao}. The elementary subtraction below
+isolates an explicit interaction between a given gap
+and all the other zeros. We record it to clarify
+the quantitative continuation problem, not as a
+new zero-motion theorem.
+
+\begin{proposition}[Exact neighboring-gap identity]
+\label{prop:gapshield}
+On an interval of heat parameters where all zeros of
+$H_t$ are real and simple, take two consecutive zeros
+$a(t)<b(t)$, and put $g(t)=b(t)-a(t)$. Write
+$s=\frac12-t$ and
+\[
+\mathcal S_{a,b}(t):=
+\sum_{\rho(t)\ne a(t),b(t)}
+\frac{1}{(a(t)-\rho(t))(b(t)-\rho(t))}.
+\]
+The sum converges absolutely for each such pair,
+and is strictly positive. With $G(s)=g(\frac12-s)^2$,
+\begin{equation}
+\boxed{G'(s)=-8+4G(s)\,\mathcal S_{a,b}(\tfrac12-s).}
+\label{eq:shieldgap}
+\end{equation}
+Consequently, for any $0\le \sigma$ inside the
+real-simple-zero regime,
+\begin{equation}
+\boxed{
+G(\sigma)=G(0)-8\sigma+
+4\int_0^\sigma G(v)\mathcal S_{a,b}(\tfrac12-v)\,dv.
+}
+\label{eq:shieldbudget}
+\end{equation}
+In particular, a nonnegative endpoint gap necessarily
+requires
+\[
+4\int_0^\sigma G(v)\mathcal S_{a,b}(\tfrac12-v)\,dv
+\ge 8\sigma-G(0).
+\]
+\end{proposition}
+\begin{proof}
+The classical zero-motion equation is
+\[
+\dot a(t)=2\,\mathrm{PV}\sum_{\rho\ne a}
+\frac1{a-\rho},\qquad
+\dot b(t)=2\,\mathrm{PV}\sum_{\rho\ne b}
+\frac1{b-\rho}.
+\]
+The two terms contributed by the opposite endpoints
+give $4/g$ to $\dot b-\dot a$. For any other real zero,
+\[
+\frac1{b-\rho}-\frac1{a-\rho}
+=-\frac{g}{(a-\rho)(b-\rho)}.
+\]
+The principal-value issue disappears in the
+\emph{difference}: the terms converge absolutely
+because the zero counting function has the usual
+$O(T\log T)$ growth. Thus
+$\dot g=4/g-2g\mathcal S_{a,b}$.
+Changing to $s=\frac12-t$ and differentiating
+$G=g^2$ proves \eqref{eq:shieldgap}.
+Integration gives \eqref{eq:shieldbudget}.
+For consecutive real roots every other $\rho$
+lies outside $[a,b]$, so each denominator product
+is positive.
+\end{proof}
+
+\begin{proposition}[Exact cancellation in a regular lattice]
+\label{prop:latticeshield}
+For an ideal arithmetic progression of zeros
+$\rho_k=kg$ with consecutive endpoints $0,g$,
+\[
+\boxed{
+g^2\mathcal S_{0,g}
+=2\sum_{m=1}^\infty\frac1{m(m+1)}=2.}
+\]
+Therefore the right side of \eqref{eq:shieldgap}
+vanishes identically. If one retains only
+the closest $R$ roots on each side,
+\begin{equation}
+g^2\mathcal S_R=\frac{2R}{R+1},
+\qquad
+-8+4g^2\mathcal S_R=-\frac8{R+1}.
+\label{eq:truncatedshield}
+\end{equation}
+The deficit $8/(R+1)$ comes entirely from
+omitting the remaining zeros.
+\end{proposition}
+\begin{proof}
+The contribution from the $m$th exterior
+zero on either side is
+$1/(g^2m(m+1))$.
+Use $1/(m(m+1))=1/m-1/(m+1)$.
+The infinite sum is $1$ and
+the partial sum is $R/(R+1)$.
+\end{proof}
+
+The regular lattice is an exact heat-flow control:
+$e^{\kappa^2t}\sin(\kappa z)$ solves
+$\partial_tH=-\partial_z^2H$
+and has a stationary arithmetic zero lattice.
+It is not a positive theta Fourier transform.
+The cancellation in Proposition~\ref{prop:latticeshield}
+is thus a model identity, not a statement that
+the Riemann zeros form an arithmetic progression.
+
+\begin{theorem}[Conditional finite-window shielding estimate]
+\label{thm:nearshieldsurvival}
+Suppose the relevant zeros are real and simple
+on a backward-time interval $0\le s<S$.
+Fix a consecutive pair with gap $g(s)>0$.
+Let $R\ge1$ and $0\le\varepsilon<1$.
+Assume the $m$th root left of $a(s)$
+and the $m$th root right of $b(s)$,
+for each $1\le m\le R$, are within
+$\varepsilon g(s)$ of their ideal
+positions $a(s)-mg(s)$ and $b(s)+mg(s)$,
+respectively, throughout that interval.
+Then
+\begin{equation}
+\frac{2R}{(R+1)(1+\varepsilon)^2}
+\le g(s)^2\mathcal S_R(s)
+\le\frac{2R}{(R+1)(1-\varepsilon)^2},
+\label{eq:latticeeps}
+\end{equation}
+and the full squared gap satisfies
+\begin{equation}
+\boxed{
+G'(s)\ge-\frac8{R+1}-16\varepsilon,\qquad
+G(s)\ge G(0)-s
+\left(\frac8{R+1}+16\varepsilon\right).
+}
+\label{eq:gapstability}
+\end{equation}
+In particular, throughout any such interval of
+length at most $\tfrac12$, a sufficient
+\emph{conditional} positive-margin criterion is
+\begin{equation}
+\boxed{g(0)^2>\frac4{R+1}+8\varepsilon.}
+\label{eq:shieldcriterion}
+\end{equation}
+One explicit choice satisfying this numerical margin is
+$R\ge16/g(0)^2$ and
+$\varepsilon\le g(0)^2/32$, provided $\varepsilon<1$.
+\end{theorem}
+\begin{proof}
+For the left $m$th exterior root, the two
+distances to the endpoints lie between
+$(m-\varepsilon)g$ and $(m+\varepsilon)g$,
+and between $(m+1-\varepsilon)g$ and
+$(m+1+\varepsilon)g$.
+The same inequalities hold in absolute value
+for the right exterior root. Thus each
+positive summand of $g^2\mathcal S_R$
+lies between
+\[
+\frac{1}{(1+\varepsilon)^2m(m+1)}
+\quad\text{and}\quad
+\frac{1}{(1-\varepsilon)^2m(m+1)}.
+\]
+Summing and using the telescoping identity
+gives \eqref{eq:latticeeps}.
+All omitted exterior roots contribute
+positively, hence
+$G'\ge-8+8R/((R+1)(1+\varepsilon)^2)$.
+The elementary bound
+$1-(1+\varepsilon)^{-2}\le2\varepsilon$
+gives the first inequality in
+\eqref{eq:gapstability}; integration gives
+the second and \eqref{eq:shieldcriterion}.
+For the displayed parameter choice,
+$4/(R+1)<g(0)^2/4$ and
+$8\varepsilon\le g(0)^2/4$.
+\end{proof}
+
+\paragraph{The missing theta-specific estimate.}
+The hypotheses of Theorem~\ref{thm:nearshieldsurvival}
+have \emph{not} been established for the Riemann
+theta zeros as $t$ decreases from $\tfrac12$ to $0$.
+In fact, the required precision is severe.
+At height $X$ a typical gap is on the scale
+$g\asymp1/\log X$, so the displayed sufficient
+condition requires $R$ of order at least
+$(\log X)^2$ and relative lattice deviations
+$\varepsilon$ of order at most $(\log X)^{-2}$.
+Such pointwise rigidity should not be confused
+with average spacing laws or pair-correlation
+estimates. It may be far stronger than necessary.
+
+The more flexible exact target is the
+\emph{integrated shielding defect}
+\[
+\mathcal D_{a,b}(s)
+:=2-G(s)\mathcal S_{a,b}(\tfrac12-s),
+\qquad G'(s)=-4\mathcal D_{a,b}(s).
+\]
+To rule out a finite collision of this pair
+before backward time $S$, it would suffice,
+while the real-zero dynamics are valid, to
+establish
+\begin{equation}
+\boxed{
+4\int_0^\sigma
+[\mathcal D_{a,b}(v)]_+\,dv<G(0)
+\qquad(0\le\sigma\le S),
+}
+\label{eq:integratedshieldu}
+\end{equation}
+with a margin uniform across pairs and heights.
+A global RH deduction would further require
+control of possible loss of real-rootedness
+through zeros escaping to unbounded height.
+Neither estimate is known here.
+The equation of motion and regular-lattice
+equilibrium are classical aspects of the
+de Bruijn--Newman programme; the finite-window
+bounds are elementary conditional consequences,
+not a claim of a proof of RH.
+
+\paragraph{Exact verification.}
+The independent script
+\path{certificates/xi_heat_zero_shielding_exact.py}
+checks the telescoping sums to $R=500$,
+the heat-root ODE at 14 adjacent pairs
+of rational-root polynomials, and rational
+near-lattice inequalities for adversarial
+displacements. The Lean file
+\path{XiKernel/HeatZeroShielding.lean}
+checks the algebraic gap, shielding-budget
+and positive-margin implications only.
+Neither the genuine infinite zero-motion
+equation nor the necessary all-height
+theta-specific shielding estimate is
+currently formalized or proved end to end.
