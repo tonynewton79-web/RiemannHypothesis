@@ -169,7 +169,16 @@ an order-independent fractional slack,
 not the original RH-equivalent source
 inequality.
 
-The constant-penalty positive-part Duhamel criterion is\na zero-compatible reformulation, not an analytic proof\nof positivity. Its strict collision and negative-region\nmodel inequalities are checked exactly by\n\path{certificates/xi_penalty_defect_limit_exact.py};\nLean checks the algebraic comparisons in\n\path{XiKernel/PenaltyDefectLimit.lean}. The theta\nsemigroup limit is not formally proved in Lean.\n\n
+The constant-penalty positive-part Duhamel criterion is
+a zero-compatible reformulation, not an analytic proof
+of positivity. Its strict collision and negative-region
+model inequalities are checked exactly by
+\path{certificates/xi_penalty_defect_limit_exact.py};
+Lean checks the algebraic comparisons in
+\path{XiKernel/PenaltyDefectLimit.lean}. The theta
+semigroup limit is not formally proved in Lean.
+
+
 The quantitative normalized-penalty extension sharpens the
 previous collision-compatible criterion. Its pointwise
 source inequality is independent of RH, and Gaussian
@@ -187,7 +196,8 @@ in the main text, not formally checked end to end.
 The essential theta-specific bounded-penalty
 estimate remains open. The bibliographic record is separate from the computational verification record here.
 
-The complete source, reproducibility\ninstructions and verification record
+The complete source, reproducibility
+instructions and verification record
 are maintained at
 \url{https://github.com/tonynewton79-web/RiemannHypothesis}.
 
