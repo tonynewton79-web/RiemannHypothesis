@@ -56,6 +56,8 @@ jobs:
         run: python certificates/xi_spatial_defect_stability_exact.py
       - name: Exact constant-penalty collision and negative-region test
         run: python certificates/xi_penalty_defect_limit_exact.py
+      - name: Exact quantitative Duhamel penalty sandwich and Gaussian averaging tests
+        run: python certificates/xi_penalty_quantitative_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
