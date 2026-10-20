@@ -280,6 +280,161 @@ counting asymptotic are analytic arguments,
 not formalized by that finite checker or
 the small Lean algebra module.
 
+\paragraph{Quantitative stability under a spatial comparison defect.}
+The exact inequality \eqref{eq:spatialheatgate}
+is stronger than RH plus the possibility of multiple zeros:
+Theorem~\ref{thm:spatialequivalence} identifies
+its extra simplicity requirement. A useful
+approximate variant avoids dividing by a
+Laguerre expression and makes the error budget
+of any prospective theta certificate explicit.
+
+\begin{theorem}[Nonnegative-potential defect comparison]
+\label{thm:spatialdefect}
+Let $0<T<\infty$, and suppose
+$U\in C^{1,2}((0,T]\times\mathbb R)
+\cap C([0,T]\times\mathbb R)$ is bounded.
+Let $c\ge0$ be locally bounded and let
+$0\le\varepsilon(s,x)\le\delta$ be a bounded
+continuous forcing function. Suppose
+\[
+U_s-\tfrac12U_{xx}+c(s,x)U\ge-\varepsilon(s,x),
+\qquad U(0,x)\ge0.
+\]
+Then, with the ordinary heat semigroup $P_s$,
+\begin{equation}\label{eq:defectstability}
+\boxed{
+U(s,x)\ge
+-\int_0^s(P_{s-r}\varepsilon(r,\cdot))(x)\,dr
+\ge-s\delta.}
+\end{equation}
+No upper bound for $c(s,x)$ as $|x|\to\infty$
+is needed. On a finite rectangle
+$[0,T]\times[-R,R]$, if the initial face
+is nonnegative and the lateral boundary is
+at least $-b$ for some $b\ge0$,
+then
+\begin{equation}\label{eq:finiteheatdefect}
+U(s,x)\ge-b-s\delta .
+\end{equation}
+The constant $\delta s$ is optimal even
+when $c=0$.
+\end{theorem}
+\begin{proof}
+Set
+\[
+E(s,x)=\int_0^s P_{s-r}\varepsilon(r,\cdot)(x)\,dr .
+\]
+Standard differentiation under the heat kernel
+gives $E_s-\tfrac12E_{xx}=\varepsilon$,
+$E(0,x)=0$, and $0\le E\le s\delta$.
+For $W=U+E$ we have
+\[
+W_s-\tfrac12W_{xx}+cW
+\ge cE\ge0,\qquad W(0,x)\ge0 .
+\]
+The comparison principle of
+Theorem~\ref{thm:spatialmax} yields $W\ge0$,
+proving \eqref{eq:defectstability}.
+For a rectangle, compare $U$ with
+$-b-s\delta$: the difference has
+nonnegative parabolic boundary and its
+differential inequality acquires the
+additional nonnegative term
+$c(b+s\delta)$. The ordinary bounded-domain
+maximum principle gives
+\eqref{eq:finiteheatdefect}. Taking
+$U(s,x)=-s\delta$ and $c=0$
+gives equality in the full-line bound.
+\end{proof}
+
+For the actual theta heat hierarchy,
+introduce the \emph{positive part of the
+comparison defect}
+\begin{equation}\label{eq:actualdefect}
+\varepsilon_{n,c}(s,x)=
+\Bigl[
+(n+1)(2n+1)U_{n+1}(s,x)
+-c_n(s,x)U_n(s,x)
+\Bigr]_+ .
+\end{equation}
+Whenever this defect is bounded, nonnegative
+and continuous, Theorem~\ref{thm:spatialdefect}
+gives the quantitative unconditional
+\emph{implication}
+\begin{equation}\label{eq:actualdefectbound}
+U_n(s,x)\ge
+-\int_0^s
+P_{s-r}\varepsilon_{n,c}(r,\cdot)(x)\,dr .
+\end{equation}
+The word implication matters: a small
+bound on the right has not been
+established for the genuine theta flow.
+In particular, making
+$\varepsilon_{n,c}$ small by secretly
+assuming $U_n>0$ would be circular.
+A genuinely constructive RH proof via
+this method must produce coefficients and
+a family of error estimates independently
+from the square-lattice representation,
+with the integrated error tending to zero
+for every fixed $n,s,x$.
+
+\begin{proposition}[A persistent defect at a double-root collision]
+\label{prop:collisiondefect}
+For the backward heat polynomial
+$H_t(z)=z^2-2t$ one has
+\[
+L_{1,t}(x)=2x^2+4t,\qquad L_{2,t}(x)=1.
+\]
+At the collision $(t,x)=(0,0)$,
+for \emph{every finite} $c\ge0$,
+\[
+6L_{2,0}(0)-cL_{1,0}(0)=6 .
+\]
+More quantitatively, if $C\ge0$ and
+$0\le c\le C$ at a point where
+$0\le L_{1,t}(x)\le(1+C)^{-1}$, then
+\[
+6L_{2,t}(x)-cL_{1,t}(x)\ge5.
+\]
+\end{proposition}
+\begin{proof}
+The generating product is
+\[
+H_t(x+iy)H_t(x-iy)
+=(x^2-2t)^2+(2x^2+4t)y^2+y^4.
+\]
+The first two coefficients are the stated
+$L_1,L_2$. At the collision the
+$L_1$ term vanishes, while $L_2=1$.
+The quantitative estimate follows from
+$cL_1\le C/(1+C)<1$.
+\end{proof}
+
+This supplies an adversarial test for any
+proposed \emph{approximately}
+spatial comparison. With a coefficient
+locally bounded across a multiple-root
+collision, the positive defect cannot
+be made arbitrarily small. An
+unconditionally successful theta-based
+proof must either exclude such collisions
+from the actual heat slab independently,
+or use the zero-compatible
+division-free source inequality
+\eqref{eq:duhamelmissing}. The latter
+remains RH-equivalent and is not yet
+certified. Exact rational algebraic
+checks for this stability theorem and
+its collision model are provided in
+\path{XiKernel/SpatialDefectStability.lean}
+and
+\path{certificates/xi_spatial_defect_stability_exact.py}.
+These do not constitute an end-to-end
+Lean formalization of the parabolic
+maximum principle.
+
 \paragraph{A sharp equivalence, including simplicity.}
 The locally finite spatial condition is stronger
 than RH. This is not merely a consequence of
