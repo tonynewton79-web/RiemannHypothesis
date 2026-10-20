@@ -306,3 +306,10 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.gap_shell_finite_telescope
 #print axioms XiKernel.single_exterior_gap_exact
 #print axioms XiKernel.smallest_gap_shielding_deficit
+
+#print axioms XiKernel.shielding_strict_budget_iff_gap_positive
+#print axioms XiKernel.shielding_nonstrict_budget_iff_nonnegative_gap
+#print axioms XiKernel.independent_shielding_envelope_gate
+#print axioms XiKernel.quartic_heat_polynomial
+#print axioms XiKernel.quartic_square_discriminant
+#print axioms XiKernel.quartic_initial_shielding
