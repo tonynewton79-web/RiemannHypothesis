@@ -1,0 +1,179 @@
+
+\paragraph{An order-saturation theorem for the division-free budget.}
+The Duhamel condition avoids quotients that become
+singular at multiple zeros. It does not, however,
+admit an order-independent margin even at the
+central Fourier frequency. The following result
+is obtained directly from the genuine theta
+heat kernel and does not assume RH.
+
+\begin{theorem}[High-order saturation of the central heat budget]
+\label{thm:duhamelsaturation}
+Write $t_0=1/2$, let $0<s\le t_0$ be fixed, and put
+\[
+B_n(s)=(P_sU_n(0,\cdot))(0),\qquad
+D_n(s)=k_n\int_0^s
+(P_{s-r}U_{n+1}(r,\cdot))(0)\,dr,
+\]
+where $k_n=(n+1)(2n+1)$ and $P_s$
+is the Gaussian semigroup for
+$\frac12\partial_x^2$.
+For the classical Jacobi-theta heat flow,
+$B_n(s)>0$ for all $n\ge0$ and
+\begin{equation}\label{eq:duhamelcentralratio}
+0<\frac{U_n(s,0)}{B_n(s)}<1,\qquad
+\frac{U_{n+1}(s,0)}{B_{n+1}(s)}
+<
+\frac{U_n(s,0)}{B_n(s)}.
+\end{equation}
+Moreover
+\begin{equation}\label{eq:duhamelsaturation}
+\boxed{\lim_{n\to\infty}
+\frac{D_n(s)}{B_n(s)}=1.}
+\end{equation}
+In particular, for each fixed $s>0$ and
+$\eta>0$ the strengthened requirement
+$D_n(s)\le(1-\eta)B_n(s)$ fails for
+all sufficiently large Laguerre orders.
+\end{theorem}
+
+\begin{proof}
+Let
+$\nu(u)=\frac12e^{t_0u^2}\Phi(u)>0$,
+so that $H_{t_0}(x)=\int_{\mathbb R}
+\nu(u)e^{ixu}\,du$.
+Write $w=u+v$, $b=u-v$ and set
+\[
+W_s(b)=\frac12\int_{\mathbb R}
+e^{-sw^2/2}
+\nu\left(\frac{w+b}{2}\right)
+\nu\left(\frac{w-b}{2}\right)\,dw.
+\]
+The density $W_s$ is continuous,
+strictly positive on every real $b$,
+and has moments of every order,
+since the theta kernel decays faster
+than any Gaussian on the real axis.
+The Fourier correlation formula and
+the Gaussian multiplier in $P_s$ give
+\begin{align}
+B_n(s)&=\frac1{(2n)!}
+\int_{\mathbb R}b^{2n}W_s(b)\,db,
+\label{eq:duhamelbn}\\
+U_n(s,0)&=\frac1{(2n)!}
+\int_{\mathbb R}b^{2n}e^{-sb^2/2}
+W_s(b)\,db.
+\label{eq:duhamelun}
+\end{align}
+Indeed, $u^2+v^2=(w^2+b^2)/2$.
+Duhamel's identity gives
+$D_n(s)=B_n(s)-U_n(s,0)$;
+the integrand of the difference is
+strictly positive for $b\ne0$.
+
+To prove strict monotonicity, define
+the probability measure
+$d\mu_n(b)=b^{2n}W_s(b)\,db/
+\int b^{2n}W_s(b)\,db$.
+Then $r_n:=U_n(s,0)/B_n(s)
+=\int e^{-sb^2/2}\,d\mu_n$.
+The measure $\mu_{n+1}$ is the
+$b^2$-size-bias of $\mu_n$.
+As $e^{-sb^2/2}$ strictly decreases
+with $b^2$, the reverse covariance
+inequality gives $r_{n+1}<r_n$.
+Explicitly, the numerator of
+$r_n-r_{n+1}$ is one half of
+\[
+\iint (bc)^{2n}W_s(b)W_s(c)
+(b^2-c^2)
+\bigl(e^{-sc^2/2}-e^{-sb^2/2}\bigr)
+\,db\,dc,
+\]
+which is strictly positive because
+$W_s$ gives positive weight to
+different absolute values.
+
+Finally let $0<R<L$. From
+\eqref{eq:duhamelbn}--\eqref{eq:duhamelun},
+\begin{align}
+0<r_n&\le e^{-sR^2/2}
++\frac{\int_{|b|\le R}b^{2n}W_s(b)\,db}
+{\int_{\mathbb R}b^{2n}W_s(b)\,db}
+\nonumber\\
+&\le e^{-sR^2/2}
++\left(\frac RL\right)^{2n}
+\frac{\int_{|b|\le R}W_s(b)\,db}
+{\int_{|b|\ge L}W_s(b)\,db}.
+\label{eq:duhamelrate}
+\end{align}
+Both integrals in the final quotient
+are finite and its denominator is
+positive. Letting $n\to\infty$
+and then $R\to\infty$ proves
+$r_n\to0$. Equation
+\eqref{eq:duhamelsaturation}
+now follows from $D_n/B_n=1-r_n$.
+\end{proof}
+
+\paragraph{Interpretation and an exactly solvable benchmark.}
+The theorem is a real obstruction to
+a quantitative shortcut, not a refutation
+of the original division-free inequality:
+at $x=0$ that inequality holds strictly
+for each finite order, but its relative
+slack must vanish as $n\to\infty$.
+For the Gaussian reference measure
+$\nu(u)=e^{-au^2}$, $a>0$,
+the two variables $w,b$ separate,
+and a direct Gaussian moment
+calculation gives the exact formula
+\begin{equation}
+\frac{U_n(s,0)}{B_n(s)}
+=\left(\frac{a}{a+s}\right)^{n+1/2}.
+\label{eq:duhamelgaussian}
+\end{equation}
+Thus high-order budget saturation
+holds even for a Fourier transform
+without any zeros.
+The non-circular use of the theta
+representation is the explicit
+positive correlation density
+$W_s$, not a hidden assumption
+of all-order Laguerre positivity.
+
+\paragraph{Tests and the remaining gap.}
+The rational covariance identities and
+Gaussian benchmark are reproduced by
+\path{certificates/xi_duhamel_order_saturation_exact.py};
+their finite algebraic gates are in
+\path{XiKernel/DuhamelOrderSaturation.lean}.
+An independent numerical quadrature
+of the genuine theta density at
+$s=1/4$ gives the values
+\[
+\begin{array}{c|rrrrr}
+n&1&5&20&80&160\\ \hline
+D_n/B_n&
+0.0083901&0.0270099&0.0739146&
+0.1669065&0.2314472
+\end{array}
+\]
+as a diagnostic only, not an interval
+certificate. The analytic proof
+does not rely on these values.
+
+The division-free source inequality
+remains the desired statement for
+\emph{all} $(n,s,x)$. Theorem
+\ref{thm:duhamelsaturation} shows that
+even at $x=0$ one cannot expect any
+strict margin uniform in $n$.
+At nonzero $x$, the Fourier cosine
+factor can cause further cancellations.
+A genuine RH proof must therefore
+establish a theta-specific \emph{order-sensitive},
+sign-preserving Fourier inequality,
+or a different global zero-exclusion
+principle. Such a theorem has
+not yet been established.
