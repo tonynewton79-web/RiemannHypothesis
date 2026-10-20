@@ -56,3 +56,5 @@ import XiKernel.ThetaMixtureObstruction
 import XiKernel.HeatFlowSpatialGap
 
 import XiKernel.DuhamelOrderSaturation
+
+import XiKernel.ThetaConditionalSliceObstruction
