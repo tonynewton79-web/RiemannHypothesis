@@ -23,6 +23,7 @@ import XiKernel.ThetaMixtureObstruction
 import XiKernel.SpatialHeatComparison
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatFlowSpatialGap
+import XiKernel.DuhamelOrderSaturation
 import XiKernel.ThetaHeatTail
 import XiKernel.HeatDoubleRootTransversality
 import XiKernel.HeatZeroGapObstruction
@@ -153,3 +154,7 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.two_root_exact_ratio
 #print axioms XiKernel.spatial_comparison_forces_gap
 #print axioms XiKernel.close_pair_power_obstruction
+
+#print axioms XiKernel.two_point_reverse_covariance_identity
+#print axioms XiKernel.two_point_size_bias_strict
+#print axioms XiKernel.small_residual_forces_source_saturation
