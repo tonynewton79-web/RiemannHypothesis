@@ -442,3 +442,25 @@ DOI: https://doi.org/10.5281/zenodo.23461586 (author confirms live,
 old 'reserved' text no longer used).
 The cumulative complete 25-page PDF was assembled locally from the
 previous 23-page manuscript plus the two-page research continuation.
+
+## 20 October 2026 — fully weighted theta mode-pair attack
+
+**Analytical theorem added to the cumulative paper:** For \(q_m=\pi m^2\), \(D_m=\phi_m'(0)=q_m e^{-q_m}(-8q_m^2+30q_m-15)\) satisfies \(D_1>0\), \(D_m<0\) for all \(m\ge2\), and \(\sum_mD_m=0\) by Jacobi modular evenness.
+
+For the exactly normalized positive mode densities \(\nu_{m,t}(u)=\tfrac12e^{tu^2}\phi_m(|u|)\), the ordered weighted correlation \(G^{mk}_{n,t}(w)=\frac{1}{2(2n)!}\int b^{2n}\nu_{m,t}((w+b)/2)\nu_{k,t}((w-b)/2)\,db\) is nonnegative as a function of \(w\), yet its Fourier transform obeys
+\[
+\widehat G^{mk}_{n,t}(x)=(-1)^n(n+1)D_mD_k/x^{2n+4}+O_{m,k,n,t}(|x|^{-2n-6}).
+\]
+Thus every diagonal mode pair is eventually **negative at every fixed odd Laguerre order**, for **every finite heat time t**—including t=1/2 where the complete theta transform has only real zeros. The first-mode/higher-mode mixed correlations have the opposite leading sign and compensate the diagonal/tail modes. Their aggregate leading coefficient is zero exactly because \((\sum_m D_m)^2=0\).
+
+For each finite M, \(D_M=\sum_{m\le M}D_m>0\), so every fixed odd Laguerre order of the finite theta approximation is eventually negative: \(L_n[H_{M,t}](x)\sim-(n+1)D_M^2/x^{2n+4}\). This extends the earlier first-order truncation artifact to all odd orders.
+
+**Meaning:** pointwise nonnegativity of the weighted correlation densities DOES NOT give nonnegative Fourier transforms of their individual square-lattice mode pairs. Any viable proof requires an *entire-series, modularly compensated* Fourier estimate, all n,t,x. The leading modular cancellation is necessary but not sufficient for RH.
+
+**Tests and formalization:** The standard-library rational/SymPy coefficient test covers 60 orders and exact first-mode/higher-mode sign gates; local rational subset covers 35. The new Lean module proves finite sign/cancellation/cross-term algebra only. CI submitted but not claimed to have passed until verified. The full infinite Jacobi modular cancellation and Fourier integration-by-parts asymptotics are analytic manuscript proofs, not Lean-certified end to end.
+
+**Files:** `paper/theta_weighted_mode_pairs.tex`, `XiKernel/WeightedModePairs.lean`, `certificates/xi_mode_pair_weighted_exact.py`.
+
+**Priority:** this decomposition builds directly on Csordas, Csordas–Ruttan–Varga, and Dimitrov–Xu. No independent novelty review and no RH proof.
+
+**Next target:** construct a *non-circular* infinite-lattice compensation bound for the complete \(\widehat G_{n,t}\), with a relative sign lower bound uniform in Fourier height, heat time, and Laguerre order. Any finite-mode positivity claim is provably false at odd orders and high frequencies.
