@@ -31,6 +31,7 @@ import XiKernel.FirstCompactThetaRectangle
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatCollisionRate
 import XiKernel.ZeroLatticeAndBand
+import XiKernel.ThetaCentralLogSquare
 import XiKernel.SevenUnitHeatBand
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
@@ -263,3 +264,6 @@ import XiKernel.OpenSlabCollision
 
 #print axioms XiKernel.seven_unit_rational_gap
 #print axioms XiKernel.seven_unit_heat_source_gate
+
+#print axioms XiKernel.central_comparison_coefficient_lower
+#print axioms XiKernel.central_logsquare_lower_gate
