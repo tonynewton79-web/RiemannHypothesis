@@ -84,3 +84,5 @@ import XiKernel.FirstCompactThetaRectangle
 import XiKernel.CentralMomentRatio
 
 import XiKernel.SixBandDivisionFree
+
+import XiKernel.SixBandExponentialTail
