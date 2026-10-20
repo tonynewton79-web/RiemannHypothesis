@@ -1,0 +1,101 @@
+\paragraph{No uniform single-anchor step at unbounded height.}
+The optimal two-moment estimate above does not merely
+lack a verified uniform constant: its single-anchor
+criterion necessarily degenerates along a sequence
+of genuine theta-flow zero pairs.
+
+\begin{proposition}[Unavoidable high-zero degeneration]
+\label{prop:single-anchor-degeneration}
+Let $t_*=1/2$, where the genuine
+$H_{t_*}$ has only real simple zeros.
+Along an unbounded sequence of consecutive
+positive zeros $a_i<b_i$, the gaps
+$g_i=b_i-a_i$ tend to zero.
+For each pair choose a protecting disk of
+radius $0<r_i<g_i/2$ around $a_i$, and
+let $\Gamma_i$ contain its boundary,
+possibly together with the second disk
+and the enclosing corridor.
+Set
+\[
+m_i=\inf_{z\in\Gamma_i}|H_{t_*}(z)|,\quad
+Y_i=\sup_{z\in\Gamma_i}|\Im z|.
+\]
+For each fixed $\sigma>0$, the optimal
+two-moment upper bound
+\[
+J_i(\sigma)=A_{Y_i}
+(1-e^{-\sigma M_{Y_i}/A_{Y_i}})
+\]
+eventually exceeds $m_i$:
+\[
+\boxed{J_i(\sigma)>m_i
+\quad\text{for all sufficiently large }i.}
+\]
+Thus a single set of contours anchored at
+$t_*=1/2$, with one fixed positive
+backward-time step, cannot certify all
+genuine theta zero pairs by the Jensen
+or Pad\'e modulus test.
+\end{proposition}
+\begin{proof}
+The known real-zero density of $H_{1/2}$
+grows as $N_{1/2}(T)\sim
+T\log T/(4\pi)$; the interval $[T,2T]$
+therefore contains adjacent gaps
+of length $O(1/\log T)$. Select one
+such pair for each large $T$,
+with $g_i\to0$.
+
+For large $i$, $r_i<1$ and the
+circle around $a_i$ contains
+$a_i+i r_i$. Since $H_{t_*}(a_i)=0$,
+integrate its derivative on the
+vertical segment to obtain
+\[
+m_i\le|H_{t_*}(a_i+i r_i)|
+\le r_i C_1,\quad
+C_1=\int_0^\infty
+u\Phi(u)e^{t_*u^2+u}\,du<\infty.
+\]
+Hence $m_i\to0$.
+
+For fixed $\sigma>0$, put
+\[
+B_0(\sigma)=\int_0^\infty
+\Phi(u)e^{t_*u^2}
+(1-e^{-\sigma u^2})\,du>0.
+\]
+The positive-weight integral
+$B_{Y_i}(\sigma)$ from the proof
+of Theorem~\ref{thm:two-moment-shield}
+satisfies $B_{Y_i}(\sigma)\ge B_0(\sigma)$
+because $Y_i\ge0$.
+Jensen's inequality in that theorem
+gives
+\[
+J_i(\sigma)\ge B_{Y_i}(\sigma)
+\ge B_0(\sigma)>0.
+\]
+Since $m_i\to0$, eventually
+$J_i(\sigma)>m_i$ as claimed.
+The Pad\'e upper bound is at least
+$J_i(\sigma)$, so its contour
+criterion also fails for these pairs.
+\end{proof}
+
+The result does not assert a collision or
+an off-critical Riemann zero.
+It identifies a specific obstruction
+to the \emph{proof mechanism}.
+A genuine all-height continuation argument
+would need certified time-dependent contour
+recentering with no unbounded-height escape,
+or an independent global zero-exclusion theorem.
+The finite algebraic comparison is audited by
+\path{XiKernel/TwoMomentNoUniformStep.lean}
+and the exact rational regression
+\path{certificates/xi_two_moment_no_uniform_exact.py}.
+The theta real-zero density used here is
+classical prior work, not a new zero-count
+estimate.
