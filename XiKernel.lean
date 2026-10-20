@@ -76,3 +76,5 @@ import XiKernel.OpenSlabCollision
 import XiKernel.DyadicPenalty
 
 import XiKernel.AdjacentLaguerreRatio
+
+import XiKernel.ThetaCompactSpatialTransfer
