@@ -861,3 +861,19 @@ research paper and adding the two-page mathematical continuation.
 
 **DOI:** https://doi.org/10.5281/zenodo.23461586
 (no obsolete reserved/unpublished DOI wording).
+
+## 20 October 2026 — Pole-free nearest-zero Laguerre comparison
+
+**Analytic proposition (classical ingredients, originality unestablished):** If G is a real entire Laguerre–Pólya function of order at most one with infinitely many simple real zeros, choose a zero a and define S_a(x)=sum_{rho!=a}(x-rho)^(-2). On a zero-free punctured interval around a, and continuously at a, for every n>=1,
+
+`0 <= k_n*L_(n+1)[G](x)/L_n[G](x) <= k_n*S_a(x)/n`, where `k_n=(n+1)(2n+1)`.
+
+The apparent inverse-square pole of the chosen zero cancels **exactly** after separating its canonical-product factor. In an abstract globally g-separated simple real-zero set, the nearest-zero choice yields `S_a(x)<=pi²/g²`. This last hypothesis does not hold uniformly for the actual Riemann heat flow at high heights, whose zero density grows; it is a transparent control model.
+
+**Precise RH boundary:** The nearest-root formula presupposes that all zeros are real and simple. It works at t=1/2 but cannot be extrapolated to unknown earlier heat times without a genuine continuation/zero-exclusion argument. The next independent target is quantitative repulsion of the *other* roots or a division-free theta Fourier positivity theorem valid across the heat slab. No RH proof has been obtained.
+
+**Files:** `paper/pole_free_laguerre.tex`; `XiKernel/PoleFreeLaguerre.lean`; `certificates/pole_free_laguerre_exact.py`.
+
+**Tests:** Exact finite rational root-configuration checks passed locally; new Lean and automated Python CI at commit `254b07d1` are queued as of the latest observation and must not be called passed yet.
+
+**Correspondence release:** The latest known compiled 33-page manuscript plus a completely typeset 2-page pole-free continuation was delivered as a 35-page cumulative PDF by Gmail from `newtonastro.physics@gmail.com` to `tony.newton79@gmail.com`. The monolithic GitHub LaTeX source includes the new file, but its separate PDF recompilation is queued. DOI: https://doi.org/10.5281/zenodo.23461586 (author confirms live; no reserved designation).
