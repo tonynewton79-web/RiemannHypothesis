@@ -1,0 +1,200 @@
+\subsubsection{An all-order zero-lattice formula and a larger theta comparison interval}
+\label{subsec:zero-lattice-all-orders}
+The spatially dependent heat comparison must be compatible
+with two very different phenomena: the increasing density
+of known real zeros at positive heat time, and the
+possibility of multiple zeros at a transition.
+We give exact results in both directions.
+We also extend the previously certified all-order
+noncentral comparison interval without further numerical
+sampling.
+
+\begin{theorem}[All-order Laguerre coefficients at a simple real zero]
+\label{thm:zeroelementary}
+Let $G$ be a real entire function of genus at most one,
+with only real zeros and a simple zero $a$.
+List the other zeros, with multiplicities, as
+$\{b_j\}_{j\ge1}$ and set
+\[
+\lambda_j=\frac1{(a-b_j)^2},\qquad
+S(a)=\sum_{j\ge1}\lambda_j<\infty.
+\]
+Let $e_k(\lambda)$ be the elementary symmetric
+sum of degree $k$, with $e_0=1$.
+Then, for every integer $n\ge1$,
+\begin{equation}
+\boxed{\quad L_n[G](a)=G'(a)^2 e_{n-1}(\lambda).\quad}
+\label{eq:allorderzero}
+\end{equation}
+If there are infinitely many distinct other zeros, every
+$L_n[G](a)>0$ and the exact adjacent-order ratio is
+\begin{equation}
+\frac{(n+1)(2n+1)L_{n+1}[G](a)}{L_n[G](a)}
+=(n+1)(2n+1)\frac{e_n(\lambda)}{e_{n-1}(\lambda)}.
+\label{eq:allorderzeroratio}
+\end{equation}
+Moreover
+\begin{equation}
+0<\frac{e_n}{e_{n-1}}\le\frac{S(a)}{n},
+\qquad
+\frac{(n+1)(2n+1)L_{n+1}[G](a)}
+     {L_n[G](a)}
+\le\frac{(n+1)(2n+1)}n S(a).
+\label{eq:allordersymupper}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Factor the simple zero out of the canonical product
+$G(z)=(z-a)e^{Az+B}\prod_j
+(1-z/b_j)e^{z/b_j}$, with the standard
+minor modification when a zero is at the origin.
+For $z=a\pm iy$ each pair of canonical factors
+has product $1+y^2/(a-b_j)^2$ after
+normalization at $a$; the linear exponential
+terms cancel. Consequently
+\[
+G(a+iy)G(a-iy)
+=G'(a)^2y^2\prod_j(1+\lambda_j y^2).
+\]
+The product converges locally uniformly because
+$\sum_j\lambda_j<\infty$. Equating coefficients
+of $y^{2n}$ proves \eqref{eq:allorderzero}.
+For a finite family $(\lambda_1,\ldots,\lambda_N)$,
+counting how many times each $n$-element subset
+appears after first choosing one of its $n$ elements gives
+\[
+n e_n=\sum_{j=1}^N
+\lambda_j\,e_{n-1}(\lambda_{\ne j})
+\le \biggl(\sum_j\lambda_j\biggr)e_{n-1}.
+\]
+Monotone passage to the infinite family proves
+\eqref{eq:allordersymupper}. Strict positivity follows
+if there are at least $n$ nonzero $\lambda_j$.
+\end{proof}
+
+Applied to $G=H_{1/2}$, this theorem describes the
+initial-time comparison coefficient at every known simple
+real zero. It is a *necessary* pointwise condition,
+not a sufficient global height bound: $S(a)$ itself
+must be controlled without presupposing zero separation,
+and no estimate at nonzero values of $G$ follows
+automatically.
+
+\begin{theorem}[Higher-multiplicity obstruction without division]
+\label{thm:multizero}
+Let $G$ be real entire and suppose $a$ is a real zero
+of multiplicity $m\ge2$. Then
+\[
+L_0[G](a)=\cdots=L_{m-1}[G](a)=0,
+\qquad
+\boxed{L_m[G](a)=
+\left(\frac{G^{(m)}(a)}{m!}\right)^2>0.}
+\]
+In particular, with $n=m-1$, no finite real
+coefficient $c$ can satisfy
+\[
+(n+1)(2n+1)L_{n+1}[G](a)
+\le c\,L_n[G](a).
+\]
+This is a division-free obstruction at any multiple
+real zero, not just the double-zero case.
+\end{theorem}
+\begin{proof}
+Taylor's formula gives
+$G(a+iy)=\frac{G^{(m)}(a)}{m!}(iy)^m+O(y^{m+1})$
+and the conjugate expression with $-iy$.
+Their product is
+$\left(G^{(m)}(a)/m!\right)^2y^{2m}
++O(y^{2m+2})$ because it is even in $y$.
+Comparing coefficients gives the first assertion.
+For $n=m-1$ the left side of the proposed
+comparison is strictly positive, whereas its
+right side is zero for every finite $c$.
+\end{proof}
+The endpoint-singular open-slab criterion of
+Theorem~\ref{thm:openslab} is compatible with this
+obstruction: it does not demand a finite coefficient
+\emph{at} the endpoint of the backward heat interval.
+A global proof still has to exclude interior collisions,
+or replace the pointwise comparison by a controlled
+Duhamel defect.
+
+\begin{proposition}[Sharp interval furnished by the proved quadratic moment gate]
+\label{prop:largerband}
+Let $U_n(s,x)=L_n[H_{1/2-s}](x)$ and
+$A_n(s)=U_n(s,0)>0$, $0\le s\le1/2$.
+Assume the previously established theta-specific
+moment-ratio estimate
+\[
+0\le r_n(s):=\frac{B_n(s)}{2A_n(s)}<\frac1{48}
+\qquad(n\ge1).
+\]
+Then for every $n\ge1$, every heat time in the slab
+and every $|x|<\sqrt{48}$,
+\begin{equation}
+\boxed{A_n(s)\bigl(1-x^2/48\bigr)
+       \le U_n(s,x)\le A_n(s).}
+\label{eq:largerbandlower}
+\end{equation}
+The following explicitly spatial coefficient is
+nonnegative, finite on each smaller closed interval,
+and satisfies the division-free comparison:
+\begin{equation}
+\boxed{\quad
+c_n(s,x)=
+\frac{(n+1)(2n+1)A_{n+1}(s)}
+     {A_n(s)(1-x^2/48)},\qquad
+k_nU_{n+1}(s,x)\le c_n(s,x)U_n(s,x).\quad}
+\label{eq:largerbandcoefficient}
+\end{equation}
+In particular, throughout the closed strip
+$|x|\le13/2$ one may take
+\[
+c_n(s)=\frac{192}{23}\,
+\frac{(n+1)(2n+1)A_{n+1}(s)}{A_n(s)}.
+\]
+\end{proposition}
+\begin{proof}
+The correlation representation gives
+$|U_n(s,x)|\le A_n(s)$ and,
+using $\cos v\ge1-v^2/2$,
+\[
+U_n(s,x)\ge A_n(s)-\frac{x^2B_n(s)}2
+=A_n(s)(1-r_n(s)x^2)
+\ge A_n(s)(1-x^2/48).
+\]
+This lower bound is positive for
+$|x|<\sqrt{48}$. Similarly
+$k_nU_{n+1}(s,x)\le k_nA_{n+1}(s)$.
+Multiplying the former lower bound by the
+coefficient in \eqref{eq:largerbandcoefficient}
+proves the division-free inequality.
+For $|x|\le13/2$,
+$1-x^2/48\ge 1-169/192=23/192$,
+giving the uniform rational multiplier.
+\end{proof}
+
+This extension is a nontrivial improvement on the
+previously displayed $|x|\le6$ statement, but not a
+global-in-height argument. The apparent singularity
+at $|x|=\sqrt{48}$ is a limitation of the quadratic
+cosine minorant, not evidence that the genuine
+Laguerre coefficient vanishes there.
+No analytic-continuation principle transports the
+strict positive inequality from this interval to
+the whole real line.
+
+\paragraph{Verification scope.}
+The finite symmetric-polynomial identities and
+the arithmetic band constants are tested in
+\path{certificates/xi_zero_lattice_all_orders_exact.py}.
+The Lean module
+\path{XiKernel/ZeroLatticeAndBand.lean} checks
+the abstract multiplicity contradiction and
+the exact real-algebraic source comparison.
+It does not formalize the infinite canonical product,
+the zero density of $H_{1/2}$ or the genuine theta
+moment bounds end to end. The missing RH theorem
+is the global heat-time/height/all-order source
+inequality outside the established central band,
+with zero collisions handled independently.
