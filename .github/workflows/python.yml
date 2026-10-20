@@ -48,5 +48,7 @@ jobs:
         run: python certificates/xi_theta_mixture_no_go_exact.py
       - name: Exact close-pair inverse-gap certificate and density matched spatial test
         run: python certificates/xi_spatial_gap_density_obstruction.py
+      - name: Exact Duhamel source saturation and reverse covariance tests
+        run: python certificates/xi_duhamel_order_saturation_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
