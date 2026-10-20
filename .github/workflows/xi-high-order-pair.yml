@@ -1,0 +1,20 @@
+name: Theta high-order pair-concentration diagnostics
+on:
+  push:
+    paths:
+      - 'certificates/xi_high_order_pair_concentration.py'
+      - '.github/workflows/xi-high-order-pair.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pair-concentration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact quartic and 2-resolution theta pair-concentration diagnostic
+        run: python certificates/xi_high_order_pair_concentration.py
