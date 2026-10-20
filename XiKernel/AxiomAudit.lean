@@ -39,6 +39,7 @@ import XiKernel.SpatialLaguerreEquivalence
 import XiKernel.SpatialDefectStability
 import XiKernel.PenaltyDefectLimit
 import XiKernel.PenaltyQuantitative
+import XiKernel.CentralDuhamel
 import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.centerMoment_pos
 #print axioms XiKernel.correlation_quadratic_gate
@@ -186,3 +187,8 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.penalty_positive_part_sandwich
 #print axioms XiKernel.normalized_penalty_limit_gate
 #print axioms XiKernel.negative_part_finite_budget
+
+#print axioms XiKernel.central_penalty_budget_lower
+#print axioms XiKernel.negative_box_margin
+#print axioms XiKernel.scalar_penalty_term_bound
+#print axioms XiKernel.central_penalty_growth_gate
