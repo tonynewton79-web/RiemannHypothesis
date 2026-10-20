@@ -18,11 +18,11 @@ the first two genuine theta summands.
 Write
 \[
 U_{j,2}(s,x)=L_j[H_{T-s,2}](x),\qquad
-K=[0,T]\times[-1/100,1/100].
+K=[0,T]\times[-4,4].
 \]
 Then, everywhere on $K$,
 \begin{equation}\label{eq:firstrectanglefinite}
-\boxed{6U_{2,2}(s,x)-U_{1,2}(s,x)<-10^{-5}.}
+\boxed{6U_{2,2}(s,x)-U_{1,2}(s,x)<-2\cdot10^{-6}.}
 \end{equation}
 Let $e_{j,2}$ be the global theta truncation
 errors defined in \eqref{eq:compacttransfererror}.
@@ -68,7 +68,7 @@ m_2(T)&<\frac1{1000},
 
 The inequality $\cos y\ge1-y^2/2$,
 applied to the positive theta integrand,
-shows that for $|x|\le r_0=1/100$,
+shows that for $|x|\le r_0=4$,
 \begin{align*}
 H_{t,2}(x)&\ge
 m_0(0)-\frac{r_0^2}{2}m_2(T)>a,\\
@@ -108,8 +108,8 @@ b_2:=\frac{1}{10\cdot30000\cdot12}
 \end{equation}
 The exact rational calculation gives
 \[
-6b_2-ab=-0.00001783322500008333\ldots
-<-10^{-5},
+6b_2-ab=-\frac{79}{30\,000\,000}
+<-2\cdot10^{-6},
 \]
 proving \eqref{eq:firstrectanglefinite}.
 
@@ -192,7 +192,7 @@ In particular,
 The exact rational inequalities give even the
 stronger bound
 \[
-6b_2-ab+6e_{2,2}+e_{1,2}<-10^{-5},
+6b_2-ab+6e_{2,2}+e_{1,2}<-2\cdot10^{-6},
 \]
 which proves \eqref{eq:firstrectanglecertified}
 without division by a Laguerre expression.
@@ -204,7 +204,7 @@ This first successful rectangle already spans
 the \emph{entire backward heat-time interval}
 $s\in[0,1/2]$, including $t=0$.
 Its Fourier range is, however, confined to
-$|x|\le0.01$, and its Laguerre order is only
+$|x|\le4$, and its Laguerre order is only
 $n=1$. The proof relies mainly on
 positivity of the underlying theta moments,
 not on a mechanism excluding off-critical
