@@ -248,3 +248,42 @@ The complete source is given in
 \path{paper/zero_lattice_extended_band.tex}
 and \path{XiKernel/ZeroLatticeAndBand.lean}.
 No global RH exclusion has been obtained.
+
+
+\paragraph{Compact-frequency high-order theorem (20 October 2026).}
+A new analytic argument based on concentration of
+the positive theta pair measure establishes
+$\sup_{0\le t\le1/2}\mathbb E_{n,t}(u+v)^2\to0$.
+It follows that for each fixed bounded frequency
+interval, all sufficiently high generalized
+Laguerre orders are positive uniformly in heat time.
+This removes the infinite-order quantifier on
+each \emph{fixed} frequency rectangle,
+but not on the unbounded real axis.
+The proof uses Newman's established monotone
+theta-potential curvature, superexponential
+tails, a conditional integration-by-parts
+variance estimate, and elementary
+large-separation concentration.
+The accompanying Lean module
+\path{XiKernel/HighOrderCompactPositivity.lean}
+checks only finite algebraic inequalities and
+a quartic model identity; the conditional
+probability argument and all-order limit
+are not formalized end to end.
+The independent script
+\path{certificates/xi_high_order_pair_concentration.py}
+tests the predicted decrease of the
+pair-sum variance on two numerical meshes
+and uses exact rational arithmetic for
+the quartic identity.
+The theorem should be compared with
+the established derivative-aspect
+Jensen-polynomial results
+\cite{GORZ,JensenXi}; novelty is not
+asserted without that comparison.
+The linked DOI in this manuscript is
+the author's issued identifier
+10.5281/zenodo.23461586.
+No reserved-or-unpublished DOI statement
+is intended.
