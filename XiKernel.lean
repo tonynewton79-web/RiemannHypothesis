@@ -111,3 +111,5 @@ import XiKernel.OneSidedShielding
 import XiKernel.SignedShieldingEndpoint
 
 import XiKernel.ExactShieldingDefect
+
+import XiKernel.RoucheShieldingTransfer
