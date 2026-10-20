@@ -40,6 +40,7 @@ import XiKernel.SpatialDefectStability
 import XiKernel.PenaltyDefectLimit
 import XiKernel.PenaltyQuantitative
 import XiKernel.CentralDuhamel
+import XiKernel.DyadicPenalty
 import XiKernel.JointPenaltyCutoff
 import XiKernel.ZeroCompatibleDuhamel
 import XiKernel.OpenSlabCollision
@@ -203,3 +204,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.quadratic_exact_spatial_comparison
 #print axioms XiKernel.collision_coefficient_lower_bound
 #print axioms XiKernel.collision_at_terminal_no_finite_coefficient
+
+#print axioms XiKernel.dyadic_error_normalization
+#print axioms XiKernel.dyadic_negative_mass_normalization
+#print axioms XiKernel.dyadic_limit_separation
