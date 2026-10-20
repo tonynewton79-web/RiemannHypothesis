@@ -853,3 +853,17 @@ Consequently the central source ratio \(k_nU_{n+1}(s,0)/U_n(s,0)\sim(\log n)^2/8
 **Release:** a complete 25-page previously emailed cumulative paper has been combined with a new 3-page mathematically detailed supplement into a 28-page PDF, avoiding the loss of prior work while the monolithic GitHub PDF/Lean CI jobs remain queued. It uses the DOI link https://doi.org/10.5281/zenodo.23461586 without any 'reserved' statement.
 
 **Riemann hypothesis:** remains open. The theorem is a necessary scale for any global heat source comparison, not the missing noncentral all-order bound.
+
+## 20 October 2026 — Exact midpoint 12/g² barrier in the spatial heat comparison
+
+The real-zero canonical product gives a **sharp necessary coefficient estimate** at the midpoint of any adjacent simple real-zero pair a<b for a genus-at-most-one real-rooted entire transform G. With m=(a+b)/2 and g=b-a>0:
+
+`6 L2[G](m)/L1[G](m) >= 12/g²`.
+
+Proof: the pair contributes inverse-square weights lambda=4/g² twice; let B>=0 be the sum and E>=0 the second elementary symmetric sum of remaining inverse-square weights. Then `L1/G²=2lambda+B`, `L2/G²=lambda²+2lambda*B+E`, and `6L2/G²-3lambda*L1/G²=9lambda*B+6E>=0`. The two-zero polynomial gives equality. For the genuine Riemann theta flow at a real-rooted simple-zero heat time (e.g. t=1/2), any first-order spatial source coefficient must obey `c1(1/2-t,m)>=12/g²`.
+
+If `c1(s,x)<=C(1+log²(2+|x|))` for all x, then **every** such gap would satisfy `g >= sqrt(12/(C*(1+log²(2+|m|))))`. This is not implied by average zero density; the conjectured upper envelope remains unproved. No RH result follows.
+
+Sources: `paper/heat_midpoint_gap_obstruction.tex`, `XiKernel/HeatMidpointGap.lean`, `certificates/xi_midpoint_zero_gap_exact.py`. Local exact rational examples pass. New Lean/Mathlib GitHub CI jobs are **queued** as of this release, not independently passed. The corresponding analytic infinite canonical-product proof is not Lean-formalized end to end.
+
+The complete cumulative PDF was assembled as 28 pages of the most recent emailed manuscript plus a carefully typeset two-page mathematical continuation, making a 30-page complete artifact. The DOI 10.5281/zenodo.23461586 appears without obsolete “reserved” wording, per author update.
