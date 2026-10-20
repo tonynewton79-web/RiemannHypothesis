@@ -531,3 +531,17 @@ resolution was not available in this check.
 theta correlation measure, without presupposing `U_n>=0`, that
 `mathcalE_(n,C)(1/2,x)->0` for *all* Laguerre orders and real x.
 All finite tests and the heat-flow equivalence alone do not prove RH.
+
+## 20 October 2026 — quantitative normalized Duhamel penalty identity
+
+**New unconditional theorem (analytic proof):** For each fixed n>=1 and T in (0,1/2], let k_n=(n+1)(2n+1), U_n(s,x)=L_(n,1/2-s)(x), V=k_n U_(n+1), and E_(n,C)=[V-C U_n]_+. Write mathcalE_(n,C)(T,x)=integral_0^T P_(T-s) E_(n,C)(s,.)(x) ds, and mathcalN_n(T,x)=integral_0^T P_(T-s)[(-U_n(s,.))_+](x)ds. With M_(n,T)=sup_(s∈[0,T],x∈R)|V(s,x)|<infty, the 1-Lipschitz positive-part identity yields
+
+  sup_x |mathcalE_(n,C)(T,x)/C - mathcalN_n(T,x)| <= T*M_(n,T)/C.
+
+This uses no RH or positivity assumption. The theta heat transform and all its derivatives are bounded uniformly on the compact heat-time slab, so M_(n,T) is finite.
+
+**Sharper RH-equivalent proof target (NOT proved):** RH is equivalent to, for every n>=1 and real x, sup_(C>=1) mathcalE_(n,C)(1/2,x)<infty. It is also equivalent to mathcalE_(n,C)(1/2,x)=o(C). The equivalence uses positivity of the Gaussian heat kernel, continuity of U_n, the de Bruijn–Newman real-zero criterion for t>=0 under RH, and the generalized Laguerre–Pólya theorem. This improves the prior missing demand mathcalE_(n,C)->0 by requiring only boundedness, but proving that boundedness directly from the theta correlation measure remains open. These are RH-equivalent reformulations, **NOT a proof of RH**.
+
+**Exact local tests PASSED:** 15000 rational pointwise positive-part sandwiches, 1000 rational positive-weight heat-average models, and the exact constant negative-region model U=1-2s, v=2: mathcalE_C(1,x)=C/4+1+1/C and mathcalN=1/4. Script: certificates/xi_penalty_quantitative_exact.py. Algebraic Lean source: XiKernel/PenaltyQuantitative.lean. The new Lean and GitHub PDF CI are **QUEUED**, so new Lean source is NOT claimed compiled. The heat-semigroup theorem and RH equivalence are NOT formalized end-to-end in Lean.
+
+The complete updated manuscript source includes paper/penalty_quantitative_limit.tex, imported from paper/spatial_heat_comparison.tex, and an updated abstract/reproducibility narrative. The DOI is listed directly as https://doi.org/10.5281/zenodo.23461586 without obsolete reserved wording. The separately delivered immediate PDF is a consolidated previous 18-page verified paper with a dated 2-page research supplement; the GitHub new-source full recompilation is queued.
