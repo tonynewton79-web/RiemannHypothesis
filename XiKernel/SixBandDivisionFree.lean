@@ -52,7 +52,8 @@ theorem six_band_division_free_source
   have hleft := mul_le_mul_of_nonneg_left hv hk
   have hright := mul_le_mul_of_nonneg_left hu hc
   have hident : (4*k*B/A)*(A/4)=k*B := by
-    field_simp
+    have hAne : A ≠ 0 := ne_of_gt hA
+    field_simp [hAne]
     ring
   linarith
 
@@ -66,7 +67,8 @@ theorem six_band_quadratic_defect
   have hright := mul_le_mul_of_nonneg_left hu hc
   have hid : (4*k*B/A)*(A*(1-x^2/48)) =
       4*k*B*(1-x^2/48) := by
-    field_simp
+    have hAne : A ≠ 0 := ne_of_gt hA
+    field_simp [hAne]
     ring
   calc
     k*v-(4*k*B/A)*u ≤ k*B-(4*k*B/A)*(A*(1-x^2/48)) := by
