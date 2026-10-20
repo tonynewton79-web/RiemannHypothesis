@@ -7,6 +7,8 @@ on:
       - 'XiKernel/HeatFlowDoubleZeroObstruction.lean'
       - 'XiKernel/HeatFlowLaguerre.lean'
       - 'XiKernel/AdjacentLaguerreRatio.lean'
+      - 'XiKernel/HeatCollisionRate.lean'
+      - 'certificates/xi_heat_collision_envelope_exact.py'
       - 'certificates/xi_adjacent_ratio_heat_exact.py'
       - 'certificates/xi_heat_six_band_exact.py'
       - '.github/workflows/xi-heat-flow.yml'
@@ -29,6 +31,8 @@ jobs:
       - name: Exact Gaussian heat double-zero obstruction
         run: python certificates/xi_heat_double_zero_test.py
 
+      - name: Exact collision time-singularity and inverse-gap tests
+        run: python certificates/xi_heat_collision_envelope_exact.py
       - name: Adjacent-order ratio PDE and genuine-theta diagnostic
         run: python certificates/xi_adjacent_ratio_heat_exact.py
       - name: Certified-moment all-order six-unit theta heat comparison
