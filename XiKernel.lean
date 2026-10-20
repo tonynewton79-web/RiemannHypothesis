@@ -94,3 +94,5 @@ import XiKernel.HeatCollisionRate
 import XiKernel.ZeroLatticeAndBand
 
 import XiKernel.SevenUnitHeatBand
+
+import XiKernel.ThetaCentralLogSquare
