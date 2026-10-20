@@ -58,3 +58,5 @@ import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
 
 import XiKernel.ThetaConditionalSliceObstruction
+
+import XiKernel.WeightedModePairs
