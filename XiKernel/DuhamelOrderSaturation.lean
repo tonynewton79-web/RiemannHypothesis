@@ -56,10 +56,12 @@ theorem small_residual_forces_source_saturation
   rw [hadd]
   nlinarith
 
-theorem gaussian_budget_ratio_squared (n : ℕ) :
-    ((1 : ℚ)/(2^(2*n+1))) =
-      ((1 : ℚ)/(2^(n+1))) * (1/(2^n)) := by
-  rw [pow_add, pow_add]
+theorem gaussian_budget_ratio_square_step (r : ℚ) :
+    (r*r)/4 = (r/2)*(r/2) := by
   ring
+
+theorem gaussian_budget_ratio_monotone
+    (r : ℝ) (hr : 0 < r) : r/2 < r := by
+  linarith
 
 end XiKernel
