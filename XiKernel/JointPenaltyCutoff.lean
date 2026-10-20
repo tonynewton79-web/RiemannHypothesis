@@ -37,16 +37,16 @@ theorem adaptive_penalty_unit_error
     (hsmall : eps*(1+C)*(1+T*D) ≤ 1) :
     T*C*D*eps < 1 := by
   have hden : 0 < (1+C)*(1+T*D) := by positivity
-  have hscaled : T*C*D*eps <
-      (1+C)*(1+T*D)*eps := by
-    have h := adaptive_penalty_strict_ratio T C D hT hC hD
-    by_cases he0 : eps = 0
-    · simp [he0]
-      positivity
-    · exact mul_lt_mul_of_pos_right h (lt_of_le_of_ne heps (Ne.symm he0))
-  have hupper : (1+C)*(1+T*D)*eps ≤ 1 := by
-    nlinarith [hsmall]
-  linarith
+  by_cases he0 : eps = 0
+  · norm_num [he0]
+  · have hepos : 0 < eps := lt_of_le_of_ne heps (Ne.symm he0)
+    have hscaled : T*C*D*eps <
+        (1+C)*(1+T*D)*eps :=
+      mul_lt_mul_of_pos_right
+        (adaptive_penalty_strict_ratio T C D hT hC hD) hepos
+    have hupper : (1+C)*(1+T*D)*eps ≤ 1 := by
+      nlinarith [hsmall]
+    linarith
 
 /-- An absolute error bounded by one transfers
 uniform boundedness of nonnegative penalties. -/
