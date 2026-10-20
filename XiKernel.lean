@@ -74,3 +74,5 @@ import XiKernel.JointPenaltyCutoff
 import XiKernel.OpenSlabCollision
 
 import XiKernel.DyadicPenalty
+
+import XiKernel.AdjacentLaguerreRatio
