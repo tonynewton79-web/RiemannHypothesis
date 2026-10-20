@@ -84,4 +84,44 @@ theorem proved_positive_ratio_comparison
   have h : next ≤ max next 0 := le_max_left _ _
   exact mul_le_mul_of_nonneg_left h hk
 
+/-- Exact factorization used to transfer the central source ratio
+to a fixed spatial position; positivity and convergence of the
+normalized pair ratios are separate analytic inputs. -/
+theorem compact_source_ratio_factor
+    (central nextCentral rn rnnext k : ℝ)
+    (hc : central ≠ 0) (hr : rn ≠ 0) :
+    k*(nextCentral*rnnext)/(central*rn) =
+      (k*nextCentral/central)*(rnnext/rn) := by
+  field_simp
+  ring
+
+/-- Transfer a sharp central upper bound when normalized
+spatial ratios are uniformly close to one. -/
+theorem compact_source_ratio_upper_gate
+    (centralRatio spatialNumer spatialDen C delta : ℝ)
+    (hcenter : 0 ≤ centralRatio)
+    (hcenterUpper : centralRatio ≤ C)
+    (hC : 0 ≤ C)
+    (hdelta : 0 ≤ delta) (hdeltasmall : delta < 1)
+    (hden : 1-delta ≤ spatialDen)
+    (hnum : spatialNumer ≤ 1+delta) :
+    centralRatio*(spatialNumer/spatialDen)
+      ≤ C*(1+delta)/(1-delta) := by
+  have hpden : 0 < spatialDen := by linarith
+  have htarget : 0 < 1-delta := by linarith
+  have hdiv : spatialNumer/spatialDen ≤ (1+delta)/(1-delta) := by
+    apply (div_le_div_iff₀ hpden htarget).2
+    nlinarith [mul_nonneg
+      (show 0 ≤ spatialDen-(1-delta) by linarith)
+      (show 0 ≤ 1+delta by linarith)]
+  have hqpos : 0 ≤ (1+delta)/(1-delta) :=
+    div_nonneg (by linarith) (by linarith)
+  calc
+    centralRatio*(spatialNumer/spatialDen)
+        ≤ centralRatio*((1+delta)/(1-delta)) :=
+          mul_le_mul_of_nonneg_left hdiv hcenter
+    _ ≤ C*((1+delta)/(1-delta)) :=
+          mul_le_mul_of_nonneg_right hcenterUpper hqpos
+    _ = C*(1+delta)/(1-delta) := by ring
+
 end XiKernel
