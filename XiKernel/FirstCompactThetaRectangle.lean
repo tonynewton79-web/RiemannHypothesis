@@ -38,12 +38,12 @@ theorem rectangle_theta_budget_small :
     6*e2Upper+e1Upper < 1/10000000 := by
   norm_num [e1Upper,e2Upper,thetaCommon]
 
-theorem rectangle_finite_source_strict :
-    6*U2Upper-U1Lower < -(1/100000 : ℚ) := by
+theorem rectangle_finite_source_exact :
+    6*U2Upper-U1Lower = -(79/30000000 : ℚ) := by
   norm_num [U1Lower,U2Upper,mu0Lower,mu2Lower]
 
 theorem rectangle_strict_transfer_margin :
-    6*U2Upper-U1Lower+6*e2Upper+e1Upper < -(1/100000 : ℚ) := by
+    6*U2Upper-U1Lower+6*e2Upper+e1Upper < -(2/1000000 : ℚ) := by
   norm_num [U1Lower,U2Upper,mu0Lower,mu2Lower,e1Upper,e2Upper,thetaCommon]
 
 /-- Division-free full-rectangle source comparison. The hypotheses
@@ -57,7 +57,7 @@ theorem genuine_theta_first_rectangle_gate
     (he2 : 0 ≤ e2 ∧ e2 ≤ (e2Upper : ℝ)) :
     6*U2-U1 ≤ -(6*e2+e1) := by
   have hstrict : 6*(U2Upper : ℝ)-(U1Lower : ℝ)+
-      6*(e2Upper : ℝ)+(e1Upper : ℝ) < -(1/100000 : ℝ) := by
+      6*(e2Upper : ℝ)+(e1Upper : ℝ) < -(2/1000000 : ℝ) := by
     exact_mod_cast rectangle_strict_transfer_margin
   linarith
 
