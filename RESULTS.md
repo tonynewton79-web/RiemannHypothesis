@@ -867,3 +867,53 @@ If `c1(s,x)<=C(1+log²(2+|x|))` for all x, then **every** such gap would satisfy
 Sources: `paper/heat_midpoint_gap_obstruction.tex`, `XiKernel/HeatMidpointGap.lean`, `certificates/xi_midpoint_zero_gap_exact.py`. Local exact rational examples pass. New Lean/Mathlib GitHub CI jobs are **queued** as of this release, not independently passed. The corresponding analytic infinite canonical-product proof is not Lean-formalized end to end.
 
 The complete cumulative PDF was assembled as 28 pages of the most recent emailed manuscript plus a carefully typeset two-page mathematical continuation, making a 30-page complete artifact. The DOI 10.5281/zenodo.23461586 appears without obsolete “reserved” wording, per author update.
+
+## 20 October 2026 — genuine-theta division-free spectral heat-loss attack
+
+**New exact analytic result:** for `U_n(s,x)=L_{n,1/2-s}(x)`, define
+`h(u)=Phi(|u|)exp(u²/2)/2` and
+`W_n(u,v)=h(u)h(v)(u-v)^(2n)/(2n)!`. Then
+
+`Delta_n(s,x):=P_s U_n(0,x)-U_n(s,x)
+ = ∫∫ W_n(u,v) exp(-s(u+v)²/2)[1-exp(-s(u-v)²/2)] cos(x(u+v)) du dv`.
+
+Here `P_s` is the Gaussian heat semigroup, and the identity holds
+for every n>=1, s in [0,1/2], x real. The pair weight is nonnegative;
+`Delta_n(s,0)>0` for every s>0; and
+`|Delta_n(s,x)| <= s(n+1)(2n+1) M_(n+1)(s)` with a strictly positive
+explicit theta pair moment `M_(n+1)(s)`. Pushing the pair weight onto
+the sum frequency yields a smooth nonnegative Schwartz spectral
+density `K_(n,s)`, so
+`|Delta_n(s,x)| <= min(s*k_n*M_(n+1)(s), ||K''_(n,s)||_1/x²)`
+(and a 2j-derivative analogue). These bounds never divide by
+`U_n` or assume its positivity.
+
+**Exact no-go to a tempting shortcut:** in the positive symmetric
+three-atom model `mu(0)=1, mu(±1)=1/10`, at
+`s=2log(5/4)<1/2`, direct rational summation gives
+`Delta_1(s,0)=869/15625>0` but
+`Delta_1(s,pi)=-131/15625<0`. Thus positivity of the
+theta-type pair density does not itself imply Fourier-side sign.
+
+**Verified locally:** `python certificates/xi_division_free_spectral_loss_exact.py`
+checks 301 exact factorial identities, all three-atom pair weights,
+and both exact loss values. Companion Lean algebra subtheorems are in
+`XiKernel/ThetaSpectralLoss.lean`; these have been submitted to CI
+but the new runs are still **queued**, not counted as successful.
+The full theta convolution, spatial integration by parts and
+Feynman–Kac/Duhamel argument are analytic paper proofs, not
+end-to-end Lean formalizations.
+
+**Precise unsolved proof gate:** establish a theta-specific *relative*
+Fourier-sign estimate comparing the signed spectral loss with the
+positive heat baseline for every n,x,s, or an equivalent
+division-free integrated weighted-Duhamel source estimate.
+No unbounded-height off-critical zero exclusion or RH proof follows.
+
+**Paper:** `paper/theta_spectral_loss.tex`, included in the existing
+eight-section manuscript. The complete current user PDF is a
+32-page combination preserving the last emailed 30-page cumulative
+research paper and adding the two-page mathematical continuation.
+
+**DOI:** https://doi.org/10.5281/zenodo.23461586
+(no obsolete reserved/unpublished DOI wording).
