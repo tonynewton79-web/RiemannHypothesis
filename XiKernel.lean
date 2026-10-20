@@ -78,3 +78,5 @@ import XiKernel.DyadicPenalty
 import XiKernel.AdjacentLaguerreRatio
 
 import XiKernel.ThetaCompactSpatialTransfer
+
+import XiKernel.FirstCompactThetaRectangle
