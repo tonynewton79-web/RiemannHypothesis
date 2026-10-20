@@ -486,3 +486,48 @@ The DOI URL in `paper/main.tex` is now presented without the earlier “reserved
 [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586).
 
 **Research status:** RH is open. The locally bounded spatial comparison is equivalent (under standard analytic hypotheses) to **RH plus zero simplicity** and is therefore stronger than the desired result. The division-free Duhamel source inequality remains the zero-compatible RH-equivalent target; the new defect bound is a quantitative stability tool, not an RH proof.
+
+
+## 20 October 2026 — zero-compatible constant-penalty heat criterion
+
+New paper section: `paper/penalty_defect_limit.tex`, included after the
+spatial/Duhamel analysis in the complete `paper/main.tex` manuscript.
+
+For the actual Riemann theta heat family, let `U_n(s,x)=L_(n,1/2-s)(x)`,
+`k_n=(n+1)(2n+1)` and `P_h` be Gaussian heat convolution. Define
+`E_(n,C)=[k_n U_(n+1)-C U_n]_+` and
+`mathcalE_(n,C)(s,x)=int_0^s P_(s-r)E_(n,C)(r,.)(x) dr`.
+Under the standard analytic/semigroup hypotheses, the condition
+`lim_(C->infinity)mathcalE_(n,C)(1/2,x)=0` for all n>=1 and real x is
+equivalent to RH. This is an **exact, zero-compatible reformulation,
+not a proof of the necessary genuine-theta estimate**.
+
+The essential distinction is verified by exact control models:
+- `H_t(z)=z²-2t`: at the double-zero collision, the pointwise
+positive defect is exactly `6` for every C, but its convolved error
+is at most `9/C` (for C>=3). The original Duhamel budget is exactly
+saturated at the collision.
+- A negative Laguerre region in the model `U(s,x)=1-2s` produces
+a heat-convolved positive defect at least `3C/16` at s=1.
+- Positivity of actual theta's even `H_t(iy)` Taylor coefficients
+proves each `U_n(s,0)>0`, so every spatial analytic zero set has
+measure zero; dominated convergence establishes the RH=>defect-limit
+direction, and heat comparison gives the converse.
+
+**Verification:** `certificates/xi_penalty_defect_limit_exact.py`
+passed exact-rational tests locally. `XiKernel/PenaltyDefectLimit.lean`
+contains the finite algebraic gates, but **latest GitHub Lean CI remains
+queued** as of this update. The analytic theta heat-kernel theorem,
+Fubini/dominated convergence, and RH equivalence are not formalized
+end-to-end in Lean. No new global off-line zero exclusion is proved.
+
+The linked manuscript DOI is
+https://doi.org/10.5281/zenodo.23461586.
+The old “reserved DOI/not yet published” wording has been removed from
+the source. User reports the Zenodo DOI is live; independent web
+resolution was not available in this check.
+
+**Highest-value missing step:** directly estimate from the genuine
+theta correlation measure, without presupposing `U_n>=0`, that
+`mathcalE_(n,C)(1/2,x)->0` for *all* Laguerre orders and real x.
+All finite tests and the heat-flow equivalence alone do not prove RH.
