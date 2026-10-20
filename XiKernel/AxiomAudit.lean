@@ -27,6 +27,7 @@ import XiKernel.OneSidedShielding
 import XiKernel.SignedShieldingEndpoint
 import XiKernel.RoucheShieldingTransfer
 import XiKernel.TwoMomentShielding
+import XiKernel.TwoMomentNoUniformStep
 import XiKernel.ExactShieldingDefect
 import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
@@ -323,3 +324,6 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.pade_theta_below_linear
 #print axioms XiKernel.pade_theta_strictly_below_linear
 #print axioms XiKernel.two_moment_independent_contour_gate
+
+#print axioms XiKernel.no_uniform_theta_single_anchor
+#print axioms XiKernel.shrinking_radius_model
