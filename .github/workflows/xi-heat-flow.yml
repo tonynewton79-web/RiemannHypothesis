@@ -11,6 +11,8 @@ on:
       - 'certificates/xi_heat_collision_envelope_exact.py'
       - 'certificates/xi_adjacent_ratio_heat_exact.py'
       - 'certificates/xi_heat_six_band_exact.py'
+      - 'certificates/xi_heat_zero_shielding_exact.py'
+      - 'XiKernel/HeatZeroShielding.lean'
       - '.github/workflows/xi-heat-flow.yml'
   workflow_dispatch:
 permissions:
@@ -37,3 +39,5 @@ jobs:
         run: python certificates/xi_adjacent_ratio_heat_exact.py
       - name: Certified-moment all-order six-unit theta heat comparison
         run: python certificates/xi_heat_six_band_exact.py
+      - name: Verify exact zero-gap shielding, lattice telescopes and conditional persistence
+        run: python certificates/xi_heat_zero_shielding_exact.py
