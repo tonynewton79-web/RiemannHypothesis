@@ -21,6 +21,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.PoleFreeLaguerre
 import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
 import XiKernel.CentralMomentRatio
@@ -283,3 +284,6 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.compact_frequency_cosine_gate
 #print axioms XiKernel.compact_frequency_laguerre_gate
 #print axioms XiKernel.proved_positive_ratio_comparison
+
+#print axioms XiKernel.poleFreeLaguerreGate
+#print axioms XiKernel.poleFreeSourceComparison
