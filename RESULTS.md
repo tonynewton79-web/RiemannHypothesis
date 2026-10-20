@@ -836,3 +836,20 @@ wording. RH remains open.
 - Source: `paper/zero_lattice_extended_band.tex`, `paper/seven_unit_heat_band.tex`, `XiKernel/ZeroLatticeAndBand.lean`, `XiKernel/SevenUnitHeatBand.lean`, and the matching rational scripts under `certificates/`. **Latest GitHub Lean/PDF CI jobs are QUEUED, not passed**.
 - An immediate **25-page cumulative PDF** has been generated and emailed, combining the last verified eight-section archival PDF (with superseded DOI wording removed) and dated technical continuations. Because GitHub CI is queued, this is a consolidated interim publication PDF; the fully updated single-source full-paper build remains pending. DOI is shown without any reserved-status wording: https://doi.org/10.5281/zenodo.23461586.
 - **RH is still open:** no proof controls the division-free coupled Laguerre source for all real heights, orders and preterminal heat times, nor an equivalent zero-exclusion estimate uniformly to infinite height.
+
+
+## 20 October 2026 — Uniform high-order theta central moment growth
+
+**New analytic result (independent originality review pending):** the genuine Jacobi theta heat convolution moments satisfy, uniformly for \(0\le t\le 1/2\),
+\[
+M_{2n+2}(t)/(M_{2n}(t)(\log n)^2)\longrightarrow1/4.
+\]
+Consequently the central source ratio \(k_nU_{n+1}(s,0)/U_n(s,0)\sim(\log n)^2/8\) uniformly in backward heat time. Therefore any spatial comparison coefficient must have \(\liminf_n\inf_s c_n(s,0)/(\log n)^2\ge1/8\). This is an **order** lower bound at x=0, separate from the **height** logarithmic-square obstruction previously proved using positive-time real-zero gaps.
+
+**Analytic proof:** two-sided uniform double-exponential tail bounds for the theta convolution, followed by high-moment concentration near \(w=(1/2+o(1))\log n\) and uniform integrability. See `paper/theta_central_logsquare_asymptotic.tex`. The full limit proof is **not** Lean-kernel-certified; `XiKernel/ThetaCentralLogSquare.lean` proves only abstract algebraic coefficient transfer gates.
+
+**Independent numerical check:** `certificates/xi_central_logsquare_numeric.py` uses 320- and 500-point Gauss-Legendre grids for an actual positive double integral. Source-ratio values for t=0 at n=20,55,100,300,1000 are about 0.305956,0.587252,0.824135,1.416745,2.322162; at t=1/2 they are about 0.307551,0.589104,0.825958,1.418248,2.323170. The two grids agree to better than 5e-7. Convergence to the leading logarithmic asymptotic is extremely slow; finite values are not proof.
+
+**Release:** a complete 25-page previously emailed cumulative paper has been combined with a new 3-page mathematically detailed supplement into a 28-page PDF, avoiding the loss of prior work while the monolithic GitHub PDF/Lean CI jobs remain queued. It uses the DOI link https://doi.org/10.5281/zenodo.23461586 without any 'reserved' statement.
+
+**Riemann hypothesis:** remains open. The theorem is a necessary scale for any global heat source comparison, not the missing noncentral all-order bound.
