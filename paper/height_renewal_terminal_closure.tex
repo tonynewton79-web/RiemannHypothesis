@@ -1,0 +1,146 @@
+\subsubsection{Terminal closure and a scaled even heat-flow control}
+\label{subsec:terminal-closure-renewal}
+
+Local Rouch\'e margins protect individual theta-flow
+zero pairs. The terminal limit at $t=0$ and the
+all-height continuation at positive heat times
+are logically different questions.
+
+\begin{theorem}[Terminal real-zero closure]
+\label{thm:terminal-hurwitz}
+Suppose $t_j>0$ tends to zero and, for every $j$,
+all zeros of the genuine theta transform $H_{t_j}$
+are real. Then $H_0$ has only real zeros.
+Consequently the Riemann hypothesis holds.
+\end{theorem}
+\begin{proof}
+For each compact set of complex frequencies,
+$\Phi(u)e^{u^2/2+Y u}$ is an integrable
+majorant of the heat Fourier integrands.
+Dominated convergence gives
+$H_{t_j}\to H_0$ locally uniformly.
+If $H_0$ had a nonreal zero $z_0$,
+a sufficiently small disk about $z_0$ could be
+chosen disjoint from the real axis, with no
+boundary zeros. The boundary minimum of
+$|H_0|$ is positive. Rouch\'e's theorem
+then gives a zero of $H_{t_j}$ in the same
+nonreal disk for all sufficiently large $j$,
+a contradiction.
+\end{proof}
+
+The premise concerns \emph{all} zeros at each
+selected positive time. Individual finite-height
+certificates cannot supply it without an
+additional global tail argument.
+Once the premise is established, no separate
+terminal escape-from-infinity argument is needed.
+
+\begin{theorem}[Even high-height heat collisions on arbitrarily
+short intervals]\label{thm:even-high-collision}
+For $A\ge\varepsilon>0$, set
+\[
+S=(A+\varepsilon)^2+(A+2\varepsilon)^2,\qquad
+P=(A+\varepsilon)^2(A+2\varepsilon)^2,
+\]
+and
+\begin{equation}
+Q_s(z)=z^4+(12s-S)z^2+P-2Ss+12s^2.
+\label{eq:height-renewal-quartic}
+\end{equation}
+The polynomial is even and satisfies the exact
+backward-heat equation
+$\partial_sQ_s=\partial_z^2Q_s$.
+It has simple real zeros at
+$\pm(A+\varepsilon),\pm(A+2\varepsilon)$
+when $s=0$. At some
+$s_*\in(0,\varepsilon^2)$ its positive
+and negative zero pairs collide at positions
+of modulus at least $A/\sqrt2$.
+At $s=\varepsilon^2$ it has no real zero.
+Hence, for any $R>0$ and $\delta>0$,
+there are real-rooted even backward-heat data
+which lose real-rootedness beyond height $R$
+before time $\delta$.
+\end{theorem}
+\begin{proof}
+Direct differentiation verifies the PDE.
+Writing $v=z^2$, the quadratic discriminant is
+\begin{align}
+\Delta(s)&=(2A\varepsilon+3\varepsilon^2)^2
+-16Ss+96s^2,\label{eq:height-renewal-discr}\\
+\Delta(\varepsilon^2)&=\varepsilon^2
+(-28A^2-84A\varepsilon+25\varepsilon^2)<0.
+\end{align}
+The second sign holds for $A\ge\varepsilon>0$,
+while $\Delta(0)>0$.
+Continuity gives $s_*\in(0,\varepsilon^2)$
+with $\Delta(s_*)=0$. Its repeated $v$-root is
+\[
+v_*=\frac{S-12s_*}{2}>
+\frac{S-12\varepsilon^2}{2}\ge\frac{A^2}{2}>0,
+\]
+because
+$S-12\varepsilon^2-A^2
+=(A-\varepsilon)(A+7\varepsilon)\ge0$.
+Thus the collisions occur at
+$\pm\sqrt{v_*}$ on the real axis.
+At time $\varepsilon^2$ the completed square
+\[
+Q_{\varepsilon^2}(z)=
+\left(z^2+\frac{12\varepsilon^2-S}{2}\right)^2
+-\frac{\Delta(\varepsilon^2)}4>0
+\quad(z\in\mathbb R)
+\]
+shows that there are no remaining real zeros.
+Choose $A>\sqrt2R$ and
+$0<\varepsilon<\min(A,\sqrt\delta)$.
+\end{proof}
+
+The gap between the initial adjacent positive
+zeros is $\varepsilon$ and it closes at $s_*$.
+Its signed shielding identity therefore reaches
+$4\int_0^{s_*}\mathcal D(s)\,ds=\varepsilon^2$.
+This confirms at arbitrary scales the earlier
+warning: a strict integrated shielding budget
+cannot be derived merely from its own endpoint
+gap identity. This polynomial does not represent
+the theta function; it is an adversarial test
+of generic heat-flow continuation claims.
+
+\begin{proposition}[A countable complete-proof target]
+\label{prop:sequence-heattimes}
+RH is equivalent to the existence of
+a sequence of positive times $t_j\downarrow0$
+at which every zero of the genuine $H_{t_j}$
+is real.
+\end{proposition}
+\begin{proof}
+One implication is Theorem~\ref{thm:terminal-hurwitz}.
+Conversely RH is equivalent to $\Lambda\le0$,
+and the classical de Bruijn--Newman theorem
+then supplies real zeros for every $t>0$.
+\end{proof}
+
+The remaining RH-level obligation is a
+theta-specific \emph{all-height} zero-exclusion
+argument at positive heat times arbitrarily
+close to zero. Time-renewed contour margins
+on a finite collection of disks do not
+meet this quantifier, and the heat PDE plus
+evenness cannot supply a uniform renewal time.
+The sequence criterion is a reduction, not
+an independent proof of RH.
+
+\paragraph{Reproducibility.}
+The exact polynomial identities, the
+completed-square replay and adversarial
+height/time scales are checked by
+\path{certificates/xi_height_renewal_adversarial_exact.py}.
+The matching Lean module
+\path{XiKernel/HeightRenewalAndClosure.lean}
+formalizes algebraic and sign lemmas, not
+the full Hurwitz argument. Classical
+de Bruijn--Newman and Rodgers--Tao results
+are credited in the cumulative bibliography
+\cite{RodgersTao,NewmanWu}.
