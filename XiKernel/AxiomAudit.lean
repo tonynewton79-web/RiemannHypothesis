@@ -25,6 +25,7 @@ import XiKernel.PoleFreeLaguerre
 import XiKernel.HeatZeroShielding
 import XiKernel.OneSidedShielding
 import XiKernel.SignedShieldingEndpoint
+import XiKernel.RoucheShieldingTransfer
 import XiKernel.ExactShieldingDefect
 import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
@@ -313,3 +314,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.quartic_heat_polynomial
 #print axioms XiKernel.quartic_square_discriminant
 #print axioms XiKernel.quartic_initial_shielding
+
+#print axioms XiKernel.disk_separation_positive
+#print axioms XiKernel.rouche_to_signed_shielding_envelope
+#print axioms XiKernel.quartic_rouche_strict_margin
