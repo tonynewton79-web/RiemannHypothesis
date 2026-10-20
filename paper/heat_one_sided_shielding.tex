@@ -211,6 +211,144 @@ zero-density formula. Consequently
 Theorem~\ref{thm:onesidedshield}
 does not establish RH.
 
+\paragraph{An exact nonlinear exterior-gap identity.}
+\label{par:exact-gap-shielding}
+The positive-part estimate above admits an exact signed
+telescoping formula. Besides sharpening the estimate, the
+formula determines the backward heat-flow direction of an
+extremal gap.
+
+\begin{proposition}[Exact exterior-gap defect]
+\label{prop:exactexteriordefect}
+Let $a<b$ be consecutive simple real zeros,
+$g=b-a>0$, and write each successive left and right
+exterior gap as
+\[
+d_{\nu,m}=g(1+\varepsilon_{\nu,m}),
+\quad \nu\in\{L,R\},\quad m\ge1,
+\]
+where $\varepsilon_{\nu,m}>-1$.
+Set $D_{\nu,0}=0$ and
+$D_{\nu,m}=\sum_{j=1}^m\varepsilon_{\nu,j}$.
+Assume that the exterior zero sequences tend to
+$-\infty$ and $+\infty$, respectively.
+Then the shielding deficit is exactly
+\begin{equation}\label{eq:exactdefect}
+\boxed{
+2-g^2\mathcal S
+=\sum_{\nu\in\{L,R\}}\sum_{m=1}^\infty
+\frac{\varepsilon_{\nu,m}}
+{(m+D_{\nu,m-1})(m+D_{\nu,m})}.}
+\end{equation}
+If a corresponding series is not absolutely convergent,
+the equality is understood as the ordered outward limit
+of its partial sums. Its finite-$R$ form is
+\begin{align}
+1-\sum_{m=1}^R
+\frac1{(m+D_m)(m+1+D_m)}
+={}&\sum_{m=1}^R
+\frac{\varepsilon_m}
+{(m+D_{m-1})(m+D_m)}
+\nonumber\\
+&+\frac1{R+1+D_R}.
+\label{eq:exactdefectfinite}
+\end{align}
+For a single enlarged exterior gap
+$d_{\nu,j}=(1+\delta)g$, with $\delta\ge0$
+and all other gaps equal to $g$, its exact
+one-sided contribution to the deficit is
+\begin{equation}\label{eq:singlegapexact}
+\boxed{\Delta_j(\delta)=
+\frac{\delta}{j(j+\delta)}.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For one exterior side, the normalized distance from
+the nearer endpoint to the $m$th exterior zero
+is $z_m=m+D_m>0$, so its shielding term is
+$[z_m(z_m+1)]^{-1}$.
+Write $y_m=m+D_{m-1}$; then
+$z_m-y_m=\varepsilon_m$ and
+$y_{m+1}=z_m+1$.
+The elementary identity
+\[
+\frac1{z_m(z_m+1)}
++\frac{z_m-y_m}{y_mz_m}
+=\frac1{y_m}-\frac1{z_m+1}
+\]
+telescopes over $1\le m\le R$, because
+$y_1=1$. This proves
+\eqref{eq:exactdefectfinite}.
+Since $z_R=\ell_R/g$ (or $r_R/g$)
+tends to infinity, the final term tends to zero.
+Adding the two sides proves \eqref{eq:exactdefect},
+with the stated ordered interpretation.
+When only the $j$th outward gap changes,
+the shielding loss is
+\[
+\sum_{m=j}^\infty
+\left[\frac1{m(m+1)}
+-\frac1{(m+\delta)(m+1+\delta)}\right]
+=\frac1j-\frac1{j+\delta},
+\]
+which equals \eqref{eq:singlegapexact}.
+\end{proof}
+
+\begin{corollary}[Backward anti-diffusion of extremal gaps]
+\label{cor:mingapantidiffusion}
+On a backward heat-time interval where the
+zeros of $H_{\frac12-s}$ remain real and simple,
+let $G(s)=g(s)^2$ for a selected consecutive pair.
+Its exact evolution can be written
+\begin{equation}\label{eq:exactgapflow}
+\boxed{
+G'(s)=-4\sum_{\nu\in\{L,R\}}\sum_{m\ge1}
+\frac{\varepsilon_{\nu,m}(s)}
+{(m+D_{\nu,m-1}(s))(m+D_{\nu,m}(s))}.}
+\end{equation}
+In particular, at any time when $g(s)$ is a
+global minimum among all adjacent zero gaps,
+$G'(s)\le0$, with strict inequality unless the
+entire bilateral zero configuration is an
+arithmetic progression with spacing $g(s)$.
+If $g(s)$ is a global maximum, then
+$G'(s)\ge0$ under the same bilateral assumptions.
+These are instantaneous statements, not
+global minimum-gap persistence theorems.
+\end{corollary}
+\begin{proof}
+Insert \eqref{eq:exactdefect} into
+$G'=-8+4G\mathcal S$.
+If $g$ is minimal, all exterior
+$\varepsilon_{\nu,m}\ge0$; the denominators
+are positive. Equality holds only if every
+exterior excess vanishes. If $g$ is maximal,
+all excesses are nonpositive and the sign reverses.
+\end{proof}
+
+The identity isolates the exact integrated quantity
+needed for continuation:
+\[
+G(s)=G(0)-4\int_0^s
+\sum_{\nu,m}
+\frac{\varepsilon_{\nu,m}(v)}
+{(m+D_{\nu,m-1}(v))(m+D_{\nu,m}(v))}\,dv .
+\]
+At a shortest gap the integrand is nonnegative.
+This observation is a constraint on a proposed
+minimum-gap growth argument, not a theorem that
+the gap must collide. The difficult, still unproved
+step is a theta-specific bound on the accumulated
+defect uniformly in the pair, heat time and height.
+A first-collision continuation at unbounded height
+must also be excluded by a separate compactness argument.
+The finite algebra and adversarial signed-gap
+tests are in
+\path{certificates/xi_exact_shielding_defect_audit.py};
+\path{XiKernel/ExactShieldingDefect.lean} records the
+local telescoping identities and algebraic sign gates.
+Neither test proves a global zero-separation theorem or RH.
+
 \paragraph{Exact verification.}
 The standalone rational checker
 \path{certificates/xi_one_sided_shielding_exact.py}
