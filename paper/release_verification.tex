@@ -226,3 +226,25 @@ Neither the heat integral nor the full RH-equivalent
 bound is end-to-end formalized, and the actual
 theta-specific all-order bounded penalty estimate
 remains unproved.
+
+
+\paragraph{All-order zero-lattice and extended heat band (20 October).}
+The supplementary analysis identifies every Laguerre coefficient
+at a simple real zero of $H_{1/2}$ with an elementary symmetric
+sum of reciprocal squared zero gaps. It also proves that
+a zero of multiplicity $m\ge2$ makes any finite
+pointwise heat comparison impossible at Laguerre order $m-1$.
+The existing theta moment estimate extends its common
+all-order central comparison interval from $|x|\le6$
+to $|x|<\sqrt{48}$, with a spatial coefficient depending
+only on strictly positive central moments and the rational
+factor $(1-x^2/48)^{-1}$.
+The exact rational and finite symmetric-polynomial checks
+were rerun independently in the local container;
+the new CI workflows have not yet left their queued state.
+The analytic canonical-product and theta moment inputs
+are not formalized end to end in Lean.
+The complete source is given in
+\path{paper/zero_lattice_extended_band.tex}
+and \path{XiKernel/ZeroLatticeAndBand.lean}.
+No global RH exclusion has been obtained.
