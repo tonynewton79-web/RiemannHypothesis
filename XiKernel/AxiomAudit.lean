@@ -18,6 +18,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.AdjacentLaguerreRatio
 import XiKernel.HeatDuhamelSpectral
 import XiKernel.ThetaMixtureObstruction
 import XiKernel.SpatialHeatComparison
@@ -208,3 +209,8 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.dyadic_error_normalization
 #print axioms XiKernel.dyadic_negative_mass_normalization
 #print axioms XiKernel.dyadic_limit_separation
+
+#print axioms XiKernel.adjacent_division_free
+#print axioms XiKernel.adjacent_ratio_reaction
+#print axioms XiKernel.ratio_order_characterization
+#print axioms XiKernel.exact_root_pair_reverse_order
