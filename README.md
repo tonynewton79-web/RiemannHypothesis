@@ -715,3 +715,20 @@ Consequently **the strict spatial source comparison is valid for all orders and 
 **Reproduce exact arithmetic**: `python certificates/xi_heat_six_band_exact.py`. New Lean algebra `XiKernel/SixBandDivisionFree.lean` compiles only if current GitHub Actions run passes; do not treat a queued CI run as verified. Complete theta integrals are not end-to-end Lean proofs.
 
 **Open RH gate:** the defect becomes positive outside |x|≤6, and its Gaussian-smoothed upper bound is nonzero. Hence this does **not** imply the RH-equivalent vanishing negative-part criterion or prove RH. Full source: `paper/heat_six_band_division_free.tex` included in `paper/main.tex`. DOI: https://doi.org/10.5281/zenodo.23461586 (do not label it reserved).
+
+## 20 October 2026 — Exponential suppression of the global six-band Duhamel source
+
+**New analytic bound, contingent only on the already established full-theta six-band source theorem:** for every order n≥1, write k_n=(n+1)(2n+1), T=1/2, U_n(s,x)=L_(n,T-s)(x), A_(n+1)(t)=L_(n+1,t)(0)>0 and c_n(s)=4*k_n*A_(n+1)(T-s)/A_n(T-s). Put
+
+`E_n(s,x)=[k_n U_(n+1)(s,x)-c_n(s)U_n(s,x)]_+`.
+
+The six-band result gives `E_n <= k_n A_(n+1)(T-s)*(x²/12-3)_+`. A direct Gaussian exponential moment inequality with parameter a=15/16 yields the improved central penalty estimate
+
+`integral_0^(1/2) P_(1/2-s)[E_n(s,.)](0) ds <= (8/45)exp(-135/4)*k_n*sup_(0<=t<=1/2) A_(n+1)(t)`
+`< k_n*sup_t A_(n+1)(t)/10^14.`
+
+It sharpens the previous polynomial coefficient 1/3456 by >10 orders of magnitude. The **strict rational verification** uses `e^3>20`, so `(8/45)exp(-135/4)<8/(45*20^11)=1/1152000000000000<10^-14`.
+
+**Crucial scope:** the bound is exponentially small but not zero, and the normalization factor is order-dependent. It does not prove the RH-equivalent vanishing/uniform-penalty criterion; RH remains open. It does not resolve all frequencies via a scalar coefficient. This is a quantitative strengthening, not a complete global proof.
+
+Files: `paper/heat_six_band_exponential_tail.tex`, `XiKernel/SixBandExponentialTail.lean`, `certificates/xi_six_band_exponential_exact.py`. Exact rational tests have passed locally; new Lean/GitHub CI must be checked before marking those runs passed. The Gaussian MGF, actual theta correlation inequality and full parabolic transfer are analytical inputs, not Lean-formalized end-to-end. DOI https://doi.org/10.5281/zenodo.23461586 is now linked directly as the user's live DOI.
