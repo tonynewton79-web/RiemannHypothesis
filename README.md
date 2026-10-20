@@ -651,3 +651,31 @@ This is a conditional **ratio evolution identity**, not proof of the missing pos
 **Scientific frontier:** Independent theta-specific control of `∂x log U_n` and the signed reaction **without assuming Laguerre positivity**, or a direct bound for the existing division-free Duhamel/dyadic defect. RH remains open.
 
 **DOI:** https://doi.org/10.5281/zenodo.23461586 (author reports the DOI is live; no obsolete reserved/unpublished designation).
+
+## 20 October 2026 — Certified actual-theta comparison on a full-time rectangle
+
+**New scoped mathematical certificate (not RH).** Fix Laguerre order `n=1`, theta cutoff `M=2`, spatial coefficient `c=C_K=1`, and the full heat/frequency rectangle
+`K=[0,1/2] × [-4,4]`.
+
+A directed-interval Simpson calculation using the first two genuine Jacobi-theta summands (independently at 8,192 and 16,384 panels) with analytic fourth-derivative and `r>2` tail bounds establishes the following exact rational theta-moment enclosures:
+`m0(0)>1/20, m2(0)>1/2000`;
+`m0(1/2)<1/10, m1(1/2)<1/100, m2(1/2)<1/1000, m3(1/2)<1/5000, m4(1/2)<1/30000`.
+Positivity of the kernel, heat-moment monotonicity, `cos y ≥ 1-y²/2`, and standard L1/L2 derivative identities yield
+`6*U_(2,2)(s,x)-U_(1,2)(s,x) < -79/30000000 ≈ -2.63333e-6`.
+The complete analytic theta tail budget on K is
+`6 e_(2,2)+e_(1,2) < 5.05e-8`; therefore
+`6U_(2,2)-U_(1,2) ≤ -6e_(2,2)-e_(1,2)`
+throughout the **entire** rectangle, and the earlier noncircular transfer theorem proves
+`6U_2(s,x)≤U_1(s,x)` for the **genuine complete theta heat flow** there.
+The remaining strict margin exceeds `2.58e-6`.
+
+A further **analytic, existence-level** result shows that for each fixed order `n≥1` there exists an order-dependent radius `r_n>0`, a sufficiently large finite theta cutoff `M_n` and a finite constant coefficient `c_n>0` making the corresponding finite-mode transfer inequality true on `[0,1/2]×[-r_n,r_n]`. This does not supply any uniform radius or off-axis/global-in-height exclusion.
+
+- Full source: `paper/first_certified_compact_rectangle.tex`
+- Directed interval / exact arithmetic: `certificates/xi_first_compact_theta_rectangle.py`
+- Kernel-checked rational **subgoals only**: `XiKernel/FirstCompactThetaRectangle.lean`
+- Two-mesh GitHub action: `.github/workflows/xi-compact-rectangle.yml`
+- **Trust:** interval transcendentals from pinned `mpmath.iv==1.3.0`; Jacobi theta positive integral, Simpson fourth-derivative formula and explicit analytic tails. No end-to-end Lean proof of full theta heat/Fourier identities. Current GitHub CI was queued when this entry was written; local dual-resolution checks passed.
+- **Global RH target still missing:** the sign comparison for *every* `n` and *arbitrarily large real x`, without using RH or a disguised equivalent hypothesis. The successful compact result makes no claim about RH outside K.
+
+DOI: https://doi.org/10.5281/zenodo.23461586
