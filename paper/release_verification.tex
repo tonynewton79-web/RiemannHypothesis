@@ -317,3 +317,26 @@ the author's issued identifier
 10.5281/zenodo.23461586.
 No reserved-or-unpublished DOI statement
 is intended.
+
+
+The one-sided shielding reduction in
+Theorem~\ref{thm:onesidedshield} uses only
+the ordering of the real zeros and the
+convexity of $v\mapsto1/[v(v+1)]$.
+The accompanying exact-rational regression
+checked 1,000 convexity identities,
+1,800 adversarial finite zero-gap configurations,
+and sharp single-gap perturbations. The checker
+\path{certificates/xi_one_sided_shielding_exact.py}
+was run locally with all tests passing.
+The new Lean file
+\path{XiKernel/OneSidedShielding.lean}
+encodes the tangent identity,
+inverse-square coefficient and conditional
+integrated gap margin. Its GitHub compilation
+was still queued when this version was authored,
+so those additions are not described as
+Lean-certified here. The genuine time-integrated
+weighted exterior-gap bound remains an open
+analytic obligation; no claim of RH follows.
+
