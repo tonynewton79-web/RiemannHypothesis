@@ -777,3 +777,50 @@ Therefore every proposed `c_1(0,x) <= C*(1+log^2(2+|x|))` needs `C>=1/8` and eve
 Reproduction: exact rational tests `certificates/xi_heat_log_square_gap_exact.py` and Lean polynomial gates `XiKernel/LogSquareHeatGap.lean`. The canonical product, zero-density input, Jensen aggregation and heat maximum principle are not fully Lean-certified. Local exact rational checks passed. The latest GitHub Actions jobs were still **queued** as of the 20 October inspection; report no completed CI pass for this commit until they finish.
 
 Publication DOI: https://doi.org/10.5281/zenodo.23461586 (the user reports it is live). The manuscript header now uses the DOI rather than a reserved/unpublished label. The complete current paper source is `paper/main.tex` and its included modules; newest hosted PDF build may be delayed by the GitHub Actions queue.
+
+## 20 October 2026 — Sharp nonintegrable spatial comparison at heat collisions
+
+**Exact conditional theorem:** At a nondegenerate real double zero
+`H_(t*)(x*)=H'_(t*)(x*)=0`, `a=H''_(t*)(x*)≠0`
+of any real entire family solving `∂tH=-∂xxH`,
+the first adjacent Laguerre ratio satisfies
+`lim_(t↓t*) (t-t*)·6L₂(t,x*)/L₁(t,x*)=3/2`.
+Thus any nonnegative spatial coefficient satisfying
+`6U₂≤c₁(s,x)U₁` immediately before the collision time
+`s*=1/2-t*` must obey
+`liminf_(s↑s*) (s*-s)c₁(s,x*)≥3/2`.
+Its time integral diverges; it cannot remain locally bounded
+or time-integrable through the collision.
+
+**Exact polynomial normal form:** The backward heat solution
+`H_t(x)=x²-2(t-t*)` has
+`L₁=2x²+4(t-t*)`, `L₂=1`,
+`6L₂/L₁=3/(x²+2(t-t*))`.
+When its two real zeros are separated by gap `g`, the
+necessary coefficient at their midpoint is `12/g²`.
+This sharpens the previously established double-zero
+point obstruction by quantifying inverse-time and inverse-gap growth.
+It is *not evidence that the genuine theta heat flow has such a collision*.
+
+**Prior context:** `paper/spatial_heat_comparison.tex` already proves
+a maximum-principle criterion with locally bounded coefficients;
+a logarithmic-square spatial majorant is not necessary merely to
+apply that criterion. The closed-slab comparison would also force
+zero simplicity; preterminal and division-free alternatives are
+studied separately. The genuine-theta all-order `|x|≤6`
+comparison is not a global RH proof.
+
+**Verification:** Exact local symbolic and rational replay
+`certificates/xi_heat_collision_envelope_exact.py` passed in
+the working runtime. The Lean algebra source
+`XiKernel/HeatCollisionRate.lean` and
+`#print axioms` audit were committed; GitHub CI remains
+queued as of the last status check, so **do not label these
+new Lean declarations as CI-passed**. The universal
+analytic limit/nonintegrability theorem is proved in
+`paper/heat_collision_spatial_gate.tex`, not end-to-end
+in Lean.
+
+**Publication:** The main paper displays
+doi:10.5281/zenodo.23461586 without the obsolete reserved-DOI
+wording. RH remains open.
