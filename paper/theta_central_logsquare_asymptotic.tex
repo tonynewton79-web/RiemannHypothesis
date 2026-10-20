@@ -1,0 +1,211 @@
+\subsubsection{Exact logarithmic-square growth of the central heat source}
+\label{subsec:theta-central-asymptotic}
+The divergence established in
+Theorem~\ref{thm:centralmomentratio}
+has a definite leading order.
+This can be obtained without knowing the zeros of
+$H_t$ and without applying a saddle-point formula:
+the decisive input is the double-exponential
+tail of the \emph{actual} theta convolution.
+
+\begin{theorem}[Uniform central moment-ratio asymptotic]
+\label{thm:theta-central-logsquare}
+Let $\Phi$ be the even classical Jacobi theta kernel
+of this paper, and set
+\[
+\Phi_t(u)=e^{tu^2}\Phi(u),\quad
+g_t(w)=(\Phi_t*\Phi_t)(w),\quad
+M_{2n}(t)=\int_{\mathbb R}w^{2n}g_t(w)\,dw
+\]
+for $0\le t\le1/2$. Then
+\begin{equation}\label{eq:uniformmomentasymptotic}
+\boxed{\lim_{n\to\infty}\ \sup_{0\le t\le1/2}
+\left|
+\frac{M_{2n+2}(t)}
+{M_{2n}(t)(\log n)^2}-\frac14\right|=0.}
+\end{equation}
+Consequently, with $U_n(s,x)=L_{n,1/2-s}(x)$
+and $k_n=(n+1)(2n+1)$,
+\begin{equation}\label{eq:centralexactgrowth}
+\boxed{
+\frac{k_nU_{n+1}(s,0)}{U_n(s,0)}
+=\left(\frac18+o(1)\right)(\log n)^2}
+\end{equation}
+uniformly for $0\le s\le1/2$.
+The $o(1)$ is uniform in heat time.
+\end{theorem}
+
+\begin{proof}
+We first derive uniform two-sided tail estimates.
+For $u\ge0$, the single $m=1$ summand and $t\ge0$
+give, with $q_1=\pi$,
+\[
+\Phi_t(u)\ge
+\pi(2\pi-3)e^{-\pi e^{4u}}.
+\]
+Conversely, polynomial factors can be absorbed into
+a fixed fraction of the first exponential.
+The remaining sum over square-lattice indices
+is uniformly convergent for $e^{4u}\ge1$.
+Since $0\le t\le1/2$ and $e^{4u}$
+dominates $u^2$, there are positive constants
+$a,A,c,C$, independent of $t$, such that
+\begin{equation}\label{eq:theta-doubleexp}
+a e^{-A e^{4|u|}}
+\le\Phi_t(u)\le C e^{-c e^{4|u|}}
+\qquad (u\in\mathbb R,\ 0\le t\le1/2).
+\end{equation}
+Here the bounds for negative $u$ use the exact
+Jacobi evenness of $\Phi$.
+
+For $w\ge1$, restrict the convolution integral
+to $u\in[w/2-1/4,w/2+1/4]$. Both $u$ and $w-u$
+then have absolute value at most $w/2+1/4$.
+The lower bound in \eqref{eq:theta-doubleexp}
+therefore yields
+\[
+g_t(w)\ge
+\frac{a^2}{2}
+\exp(-2Ae\,e^{2w}).
+\]
+For the upper bound, at least one of $|u|$ and
+$|w-u|$ is not less than $w/2$.
+The other factor is integrable, with its $L^1$
+norm bounded uniformly in $t$.
+This gives constants $a_0,A_0,c_0,C_0>0$,
+independent of heat time, with
+\begin{equation}\label{eq:convolution-doubleexp}
+a_0e^{-A_0 e^{2w}}
+\le g_t(w)\le C_0e^{-c_0 e^{2w}},
+\qquad w\ge1.
+\end{equation}
+The density is even, positive, and has finite
+moments of every order.
+
+Write $I_n(t)=\int_0^\infty w^{2n}g_t(w)\,dw$.
+Fix $0<\varepsilon<1$, and put
+\[
+\alpha=\frac{1-\varepsilon}{2},\qquad
+\beta=\frac{1+\varepsilon}{2},\qquad
+\gamma=1-\frac{\varepsilon}{2},\qquad
+v_n=\frac\gamma2\log n.
+\]
+Thus $\alpha<\gamma/2<\beta$.
+Integrating the lower bound of
+\eqref{eq:convolution-doubleexp} on
+$[v_n,v_n+1]$ gives, uniformly in $t$,
+\begin{equation}\label{eq:denom-lower}
+I_n(t)\ge
+a_0 v_n^{2n}\exp(-A_0e^2 n^\gamma).
+\end{equation}
+
+Set $a_n=\alpha\log n$ and $b_n=\beta\log n$.
+Since $g_t$ is uniformly bounded, the
+small-$w$ portion of the next moment obeys
+\[
+\int_0^{a_n}w^{2n+2}g_t(w)\,dw
+\le C_1 a_n^{2n+3}.
+\]
+Relative to $(\log n)^2 I_n(t)$,
+this is bounded by a polynomial in $\log n$
+times
+\[
+\left(\frac{2\alpha}{\gamma}\right)^{2n}
+\exp(A_0e^2n^\gamma),
+\]
+which tends to zero because $2\alpha<\gamma<1$.
+
+For $w\ge b_n$ and all sufficiently large $n$,
+the inequality
+\[
+(2n+2)\log w\le \frac{c_0}{2}e^{2w}
+\]
+holds throughout the half-line: it holds at
+$b_n$, since $e^{2b_n}=n^{1+\varepsilon}$,
+and the difference is increasing thereafter.
+By \eqref{eq:convolution-doubleexp},
+\[
+\int_{b_n}^\infty w^{2n+2}g_t(w)\,dw
+\le C_0\int_{b_n}^\infty
+e^{-(c_0/2)e^{2w}}\,dw
+\le C_2 e^{-(c_0/4)n^{1+\varepsilon}}.
+\]
+This is $o((\log n)^2 I_n(t))$
+by \eqref{eq:denom-lower}, again uniformly
+in $t$. The same estimates, with the power
+$2n$ instead of $2n+2$, show that the
+$w^{2n}g_t(w)$-probability of the complement
+of $[a_n,b_n]$ tends to zero uniformly.
+
+It follows that
+\[
+\alpha^2-o(1)\le
+\frac{I_{n+1}(t)}{I_n(t)(\log n)^2}
+\le\beta^2+o(1)
+\]
+uniformly for $0\le t\le1/2$.
+Letting $\varepsilon\downarrow0$ proves
+\eqref{eq:uniformmomentasymptotic};
+the factor two from integrating over
+positive and negative $w$ cancels in
+the moment ratio.
+
+Finally, the exact central identity
+\eqref{eq:centralratio} gives
+$k_nU_{n+1}(s,0)/U_n(s,0)
+=\frac12M_{2n+2}(t)/M_{2n}(t)$,
+where $t=1/2-s$, proving
+\eqref{eq:centralexactgrowth}.
+\end{proof}
+
+\begin{corollary}[Necessary order dependence of a
+global spatial heat comparison]\label{cor:necessary-order}
+Suppose nonnegative coefficients $c_n(s,x)$
+satisfy
+\[
+k_nU_{n+1}(s,x)\le c_n(s,x)U_n(s,x)
+\quad
+(n\ge1,\ 0\le s\le1/2,\ x\in\mathbb R).
+\]
+Then necessarily
+\begin{equation}\label{eq:necessarycn}
+\liminf_{n\to\infty}\ 
+\inf_{0\le s\le1/2}
+\frac{c_n(s,0)}{(\log n)^2}\ge\frac18.
+\end{equation}
+In particular no coefficient with
+$c_n(s,0)=o((\log n)^2)$ uniformly
+in $s$ can satisfy the required comparison.
+\end{corollary}
+\begin{proof}
+The positive central convolution
+gives $U_n(s,0)>0$ for every $n,s$.
+Divide the proposed source inequality
+by $U_n(s,0)$ and invoke
+\eqref{eq:centralexactgrowth}.
+\end{proof}
+
+The scale $(\log n)^2$ is an \emph{order}
+requirement at the centre, distinct from
+the $(\log|x|)^2$ lower-growth
+obstruction arising from increasing zero
+density at positive heat time.
+The simultaneous spatial-and-order
+upper comparison remains unproved;
+a prospective envelope such as
+$C\{(\log(n+2))^2+(\log(e+|x|))^2\}$
+must not be asserted without controlling
+zero collisions and the noncentral
+oscillatory correlation.
+Moreover, the asymptotic alone is not a
+sufficient criterion for RH.
+
+The two-sided tail argument above is analytic,
+not an end-to-end Lean formalization.
+Exact finite algebraic transfer gates are in
+\path{XiKernel/ThetaCentralLogSquare.lean};
+the accompanying tests check these gates,
+not the infinite asymptotic statement.
+The novelty of the asymptotic relative to
+earlier moment-asymptotic literature has
+not yet been independently established.
