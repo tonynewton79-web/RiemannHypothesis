@@ -24,6 +24,7 @@ import XiKernel.HeatFlowLaguerre
 import XiKernel.PoleFreeLaguerre
 import XiKernel.HeatZeroShielding
 import XiKernel.OneSidedShielding
+import XiKernel.ExactShieldingDefect
 import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
 import XiKernel.CentralMomentRatio
@@ -299,3 +300,8 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.shielding_weight_identity
 #print axioms XiKernel.shielding_single_doubled_gap
 #print axioms XiKernel.one_sided_integrated_shielding_gate
+
+#print axioms XiKernel.gap_shell_local_identity
+#print axioms XiKernel.gap_shell_finite_telescope
+#print axioms XiKernel.single_exterior_gap_exact
+#print axioms XiKernel.smallest_gap_shielding_deficit
