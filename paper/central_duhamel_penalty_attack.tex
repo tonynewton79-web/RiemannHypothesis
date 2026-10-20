@@ -245,3 +245,122 @@ The one-point reduction,
 scalar packaging and witness lower bound
 are rigorous structural results,
 not a full proof of the Riemann hypothesis.
+
+
+\begin{theorem}[The penalty limit and theta-mode
+limit do not commute]\label{thm:noncommutingtheta}
+Fix the unconditional heat interval
+$\tfrac14\le t\le\tfrac12$ and write
+$T_*=\tfrac14$. Let $H_{M,t}$ be the
+positive-axis Fourier integral using the
+first $M$ classical theta summands,
+and let $U_{n,M}$ and
+$\mathcal E^{(M)}_{n,C}$ be the corresponding
+Laguerre heat coefficients and central
+positive-part penalties. Then
+\begin{align}
+\lim_{C\to\infty}\lim_{M\to\infty}
+\mathcal E^{(M)}_{1,C}(T_*,0)&=0,
+\label{eq:limitsfirst}\\
+\lim_{M\to\infty}\lim_{C\to\infty}
+\mathcal E^{(M)}_{1,C}(T_*,0)&=+\infty.
+\label{eq:limitssecond}
+\end{align}
+This noncommutation holds \emph{unconditionally}
+for the genuine theta kernel.
+\end{theorem}
+\begin{proof}
+The published bound $\Lambda\le0.22$
+for the de Bruijn--Newman constant
+\cite{Polymath15} implies that
+every full $H_t$, $1/4\le t\le1/2$,
+has only real zeros. Consequently
+$U_n(s,x)\ge0$ for every $n\ge1$,
+$s\in[0,T_*]$, and real $x$.
+For fixed $s$, $U_1(s,\cdot)$ is
+a nonzero real-analytic function:
+in particular its value at the
+origin is positive by the
+strictly positive even moments
+of the theta kernel. Its real
+zero set has measure zero.
+The integrand
+$[6U_2-CU_1]_+$ therefore
+tends to zero for almost every
+space--time point as $C\to\infty$.
+It is bounded by $6U_2$, a
+uniformly bounded nonnegative
+function on the slab.
+Dominated convergence under
+Gaussian heat convolution gives
+\[
+\lim_{C\to\infty}\mathcal E_{1,C}(T_*,0)=0.
+\]
+
+For each \emph{fixed} finite $M$,
+the modular cancellation of the
+complete kernel is broken.
+By Theorem~\ref{thm:finiteoddorders},
+uniformly over compact heat-time
+intervals,
+\[
+L_1[H_{M,t}](x)=
+-\frac{2D_M^2}{x^6}
++O_{M,t}(x^{-8})<0
+\qquad(|x|\text{ sufficiently large}),
+\]
+where $D_M>0$ is the finite
+first-derivative defect.
+Choose any $t_*\in(1/4,1/2)$.
+A negative Laguerre value at
+a sufficiently large real $x_*$
+extends by continuity to an open
+space--time rectangle.
+The strictly positive Gaussian
+heat kernel therefore gives
+$\mathcal N_{1,M}(T_*,0)>0$.
+The pointwise positive-part
+bound, with a finite constant
+$M_{1,M}$, implies
+\[
+\mathcal E^{(M)}_{1,C}(T_*,0)
+\ge C\mathcal N_{1,M}(T_*,0)
+-T_*M_{1,M}\ \longrightarrow+\infty.
+\]
+
+Finally, for every fixed $C>0$,
+the theta heat-tail estimates of
+Theorem~\ref{thm:uniformheattail}
+give convergence of the finitely
+many Fourier derivatives entering
+$U_{1,M}$ and $U_{2,M}$
+\emph{uniformly} on the real
+Fourier axis and heat-time slab.
+The positive-part map is
+Lipschitz and Gaussian convolution
+is a contraction on bounded
+functions. Hence
+\[
+\lim_{M\to\infty}
+\mathcal E^{(M)}_{1,C}(T_*,0)
+=\mathcal E_{1,C}(T_*,0).
+\]
+The two displayed limit identities
+follow.
+\end{proof}
+
+This theorem is a rigorous obstruction
+to the most natural finite-mode proof
+strategy for the constant-penalty
+criterion. Even in a heat-time interval
+where the complete transform's
+real-zero property is \emph{already
+known}, every finite theta truncation
+gives a divergent unscaled penalty as
+$C\to\infty$. An argument aiming
+at RH must control $M$ and $C$
+\emph{jointly}, with an estimate
+stronger than independent absolute
+theta-tail convergence. No such joint,
+all-order positive-source bound has
+been established here.
