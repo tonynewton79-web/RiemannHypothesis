@@ -96,3 +96,5 @@ import XiKernel.ZeroLatticeAndBand
 import XiKernel.SevenUnitHeatBand
 
 import XiKernel.ThetaCentralLogSquare
+
+import XiKernel.HeatMidpointGap
