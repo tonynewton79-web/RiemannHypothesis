@@ -799,3 +799,15 @@ in Lean.
 **Publication:** The main paper displays
 doi:10.5281/zenodo.23461586 without the obsolete reserved-DOI
 wording. RH remains open.
+
+## 20 October 2026 — exact all-order zero lattice and seven-unit theta heat band
+
+**New complete analytical deductions, conditional only on existing established theta moment bounds, not on RH**:
+
+- Simple real-zero canonical-product identity at every Laguerre order: `L_n[H_t](a)=H_t'(a)^2*e_(n-1)({(a-b)^(-2):b≠a})`. Hence any proposed spatial heat coefficient at such a zero must dominate `(n+1)(2n+1)e_n/e_(n-1)`; the elementary symmetric inequality gives `n*e_n<=S(a)*e_(n-1)`, `S(a)=sum_(b≠a)(a-b)^(-2)`. This is a necessary zero-lattice relation, not a global sufficient bound.
+- A multiple real zero of multiplicity `m>=2` forces `L_(m-1)(a)=0` while `L_m(a)=(H^(m)(a)/m!)²>0`. Therefore no finite spatial coefficient can satisfy the proposed comparison there at order `m-1`. This extends the earlier double-root obstruction; open-slab comparison may still allow endpoint singularities.
+- From `B_n/A_n<=1/24` and the positive genuine theta correlation kernel, `|∂_x U_n|<=A_n*min(|x|/24,1/sqrt(24))`. Integrating yields the piecewise all-order lower bound `U_n/A_n>=1-x²/48` for `|x|<=sqrt(24)`, and `U_n/A_n>=3/2-|x|/sqrt(24)` above that threshold. Consequently the actual theta heat family has a positive all-order common spatial band `|x|<3sqrt(6)≈7.348` and the particularly useful **closed seven-unit source comparison** `k_n U_(n+1) <= [15 k_n A_(n+1)/A_n] U_n` for **every** order and heat time `|x|<=7`. This strictly improves the previously proven six-unit band and the intermediate sqrt48 band.
+- Exact rational tests passed independently in the local Python environment: elementary symmetric families of size 2–10, multiplicities 2–17, and the strict seven-unit numerical identity `24*(43/30)²-49=23/75>0`.
+- Source: `paper/zero_lattice_extended_band.tex`, `paper/seven_unit_heat_band.tex`, `XiKernel/ZeroLatticeAndBand.lean`, `XiKernel/SevenUnitHeatBand.lean`, and the matching rational scripts under `certificates/`. **Latest GitHub Lean/PDF CI jobs are QUEUED, not passed**.
+- An immediate **25-page cumulative PDF** has been generated and emailed, combining the last verified eight-section archival PDF (with superseded DOI wording removed) and dated technical continuations. Because GitHub CI is queued, this is a consolidated interim publication PDF; the fully updated single-source full-paper build remains pending. DOI is shown without any reserved-status wording: https://doi.org/10.5281/zenodo.23461586.
+- **RH is still open:** no proof controls the division-free coupled Laguerre source for all real heights, orders and preterminal heat times, nor an equivalent zero-exclusion estimate uniformly to infinite height.
