@@ -150,6 +150,25 @@ bounded zero counts nor the
 formal algebraic results prove
 the Riemann hypothesis.
 
+The high-order Duhamel budget theorem added
+in the latest revision is a purely analytic
+consequence of the genuine positive theta
+correlation measure. For fixed positive
+backward heat time, its central-frequency
+source/budget fraction increases strictly
+with Laguerre order and tends to one.
+The finite rational covariance identities
+and Gaussian reference model are tested in
+\path{certificates/xi_duhamel_order_saturation_exact.py};
+Lean checks their algebraic subclaims in
+\path{XiKernel/DuhamelOrderSaturation.lean}.
+No end-to-end Lean proof of the infinite
+correlation integral or the all-order
+limit is claimed. The theorem rules out
+an order-independent fractional slack,
+not the original RH-equivalent source
+inequality.
+
 The complete source, reproducibility
 instructions and verification record
 are maintained at
