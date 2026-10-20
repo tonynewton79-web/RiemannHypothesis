@@ -68,3 +68,5 @@ import XiKernel.PenaltyDefectLimit
 import XiKernel.PenaltyQuantitative
 
 import XiKernel.CentralDuhamel
+
+import XiKernel.JointPenaltyCutoff
