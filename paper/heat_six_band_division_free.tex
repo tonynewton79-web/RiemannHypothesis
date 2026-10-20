@@ -1,0 +1,196 @@
+\subsubsection{A common six-unit heat slab: all-order division-free comparison}
+\label{subsec:sixbanddivisionfree}
+The preceding all-order heat positivity band can be made
+\emph{explicit} without computing a separate Laguerre
+threshold for each order. More importantly, the same
+calculation bounds the coupled parabolic source directly,
+without dividing by a Laguerre expression at a point
+where it might be small or vanish.
+
+For $0\le t\le1/2$ write
+$\mu_j(t)=\int_0^\infty u^j e^{tu^2}\Phi(u)\,du$.
+Let $A_n(t)=L_{n,t}(0)>0$ for the half-line transform
+$H_t$ and $k_n=(n+1)(2n+1)$.
+
+\begin{theorem}[Explicit common division-free heat band]
+\label{thm:sixband}
+For the genuine Jacobi-theta heat family,
+every $n\ge1$, every $t\in[0,1/2]$ and
+every $x\in\mathbb R$ satisfy
+\begin{equation}\label{eq:sixbandlower}
+\boxed{
+L_{n,t}(x)\ge
+A_n(t)\left(1-\frac{x^2}{48}\right).}
+\end{equation}
+Define the positive coefficient
+\[
+c_n(t)=4k_n\,\frac{A_{n+1}(t)}{A_n(t)}.
+\]
+Then for \emph{all} real $x$
+\begin{equation}\label{eq:sixbandresidual}
+\boxed{\begin{aligned}
+k_nL_{n+1,t}(x)-c_n(t)L_{n,t}(x)
+&\le k_nA_{n+1}(t)
+\left(\frac{x^2}{12}-3\right).
+\end{aligned}}
+\end{equation}
+In particular the required source inequality
+\begin{equation}\label{eq:sixbandsource}
+\boxed{k_nL_{n+1,t}(x)\le
+c_n(t)L_{n,t}(x)}
+\end{equation}
+holds simultaneously for \emph{every order and heat time}
+whenever $|x|\le6$.
+The coefficient involves only strictly positive
+central correlation moments. No division by the
+potentially vanishing noncentral $L_{n,t}(x)$
+is used anywhere.
+
+\end{theorem}
+\begin{proof}
+The earlier validated two-mode moment certificate
+(Theorem~\ref{thm:firstcompactrectangle},
+equation~\eqref{eq:rectangle-moment-bounds}) gives
+\[
+\mu_{0,2}(0)>\frac1{20},\qquad
+\mu_{2,2}(1/2)<\frac1{1000}.
+\]
+The omitted $m\ge3$ theta terms are positive.
+The uniform heat-tail estimate
+\eqref{eq:uniformheattail} with $k=2$,
+applied to the half-line transform at the origin,
+bounds their second moment by
+\[
+0\le\mu_2(t)-\mu_{2,2}(t)
+\le\frac3{16}q_3e^{-q_3+1/16},
+\quad q_3=9\pi.
+\]
+The elementary inequalities
+$27<q_3<198/7$, $q_3-1/16>24$
+and $e^3>20$ give the exact rational estimate
+\[
+\frac3{16}q_3e^{-q_3+1/16}
+<\frac3{16}\frac{198/7}{20^8}
+<10^{-8}.
+\]
+As $\mu_j(t)$ is increasing in $t$
+for each even $j$, we conclude
+\begin{equation}\label{eq:sixmomentgate}
+\boxed{
+\frac{\mu_2(t)}{\mu_0(t)}
+<\frac{1/1000+10^{-8}}{1/20}
+=\frac{100001}{5000000}<\frac1{48}.}
+\end{equation}
+
+The heat tilt changes the potential
+$-\log\Phi$ only by $-tu^2$,
+so Newman's radially monotone
+curvature criterion applies at every $t$
+\cite{NewmanGHS}. The reverse-likelihood-ratio
+argument of Proposition~\ref{prop:radial}
+therefore gives
+\[
+\frac{B_{n,t}}{A_{n,t}}
+\le\frac{B_{0,t}}{A_{0,t}}
+=2\frac{\mu_2(t)}{\mu_0(t)}<\frac1{24}.
+\]
+Here $A_{n,t},B_{n,t}$ are the
+positive correlation moments of the
+half-line transform, differing from
+those for the full-line transform by a
+common factor of $1/4$.
+Using $\cos(xw)\ge1-x^2w^2/2$ yields
+\[
+L_{n,t}(x)\ge A_n(t)
+-\frac{x^2}{2}B_{n,t}
+\ge A_n(t)\left(1-\frac{x^2}{48}\right),
+\]
+proving \eqref{eq:sixbandlower}.
+Also
+$L_{n+1,t}(x)\le A_{n+1}(t)$
+since its correlation measure is positive
+and $\cos(xw)\le1$.
+Multiplying the lower bound by $c_n(t)>0$
+and subtracting it from the last upper bound gives
+\begin{align*}
+&k_nL_{n+1,t}(x)-c_n(t)L_{n,t}(x)\\
+&\quad\le k_nA_{n+1}(t)
+-4k_nA_{n+1}(t)\left(1-\frac{x^2}{48}\right)\\
+&\quad=k_nA_{n+1}(t)\left(\frac{x^2}{12}-3\right).
+\end{align*}
+This proves \eqref{eq:sixbandresidual}.
+The right side is nonpositive when $|x|\le6$,
+giving \eqref{eq:sixbandsource}.
+\end{proof}
+
+\begin{corollary}[A global source estimate with a
+controlled nonzero defect]
+\label{cor:sixbandduhamel}
+Put $U_n(s,x)=L_{n,\,1/2-s}(x)$,
+$T=1/2$, and use
+$c_n(s)=4k_nA_{n+1}(1/2-s)/A_n(1/2-s)$.
+For the nonnegative source
+\[
+E_n(s,x)=[k_nU_{n+1}(s,x)-c_n(s)U_n(s,x)]_+
+\]
+we have, for all $s$ and $x$,
+\begin{equation}
+0\le E_n(s,x)\le
+k_nA_{n+1}(1/2-s)
+\left(\frac{x^2}{12}-3\right)_+ .
+\end{equation}
+Consequently its heat-smoothed central mass obeys
+\begin{equation}\label{eq:sixbandduhamel}
+\boxed{
+\int_0^{1/2}(P_{1/2-s}E_n(s,\cdot))(0)\,ds
+\le\frac{k_n}{3456}
+\sup_{0\le t\le1/2}A_{n+1}(t).
+}
+\end{equation}
+\end{corollary}
+\begin{proof}
+The positive-part inequality follows from
+\eqref{eq:sixbandresidual}.
+For $Z_h\sim N(0,h)$, $\mathbb E Z_h^4=3h^2$.
+Since
+$(x^2/12-3)_+\le x^4/432$
+for every real $x$, Gaussian averaging yields
+\[
+\left(P_h(x^2/12-3)_+\right)(0)
+\le h^2/144.
+\]
+Integrating over $0\le s\le1/2$ gives
+$\int_0^{1/2}(1/2-s)^2\,ds/144=1/3456$,
+which proves \eqref{eq:sixbandduhamel}.
+\end{proof}
+
+This is an all-order, entire-heat-slab
+\emph{theta-specific estimate}, stronger in
+quantifiers than the earlier certified $n=1$
+rectangle. It is an explicit bound
+on a nonnegative global defect, \emph{not}
+a proof that the defect vanishes.
+The central Duhamel criterion
+(Theorem~\ref{thm:onepointcriterion}) needs
+zero negative-part mass, or equivalently
+a penalty bound uniform as its penalty
+parameter tends to infinity.
+The finite fixed-coefficient bound
+\eqref{eq:sixbandduhamel} does not
+supply that conclusion: at $|x|>6$
+the polynomial envelope becomes positive.
+It therefore does not prove RH.
+
+The exact arithmetic checks are in
+\path{certificates/xi_heat_six_band_exact.py};
+the algebraic gates are formalized in
+\path{XiKernel/SixBandDivisionFree.lean}.
+The theta moment inputs are the already
+validated two-resolution quadratures,
+not new independently recalculated intervals.
+The full infinite-kernel integral
+identities and the semigroup estimate
+are analytic rather than end-to-end Lean proofs.
+No priority claim is made for the
+curvature-to-correlation method;
+Newman's earlier result is credited.
