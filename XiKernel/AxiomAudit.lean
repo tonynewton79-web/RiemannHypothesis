@@ -37,6 +37,7 @@ The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced deci
 -/
 import XiKernel.SpatialLaguerreEquivalence
 import XiKernel.SpatialDefectStability
+import XiKernel.PenaltyDefectLimit
 import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.centerMoment_pos
 #print axioms XiKernel.correlation_quadratic_gate
@@ -175,3 +176,8 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.defect_global_barrier_algebra
 #print axioms XiKernel.defect_rectangle_barrier_algebra
 #print axioms XiKernel.quadratic_collision_local_defect
+
+#print axioms XiKernel.collision_penalty_point_defect
+#print axioms XiKernel.collision_heat_error_bound
+#print axioms XiKernel.negative_region_penalty_lower
+#print axioms XiKernel.penalty_defect_negative_region_growth
