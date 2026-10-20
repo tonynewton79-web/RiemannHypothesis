@@ -29,6 +29,7 @@ import XiKernel.LogSquareHeatGap
 import XiKernel.ThetaCompactSpatialTransfer
 import XiKernel.FirstCompactThetaRectangle
 import XiKernel.HeatFlowDoubleZeroObstruction
+import XiKernel.HeatCollisionRate
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
 import XiKernel.ThetaConditionalSliceObstruction
@@ -247,3 +248,8 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.two_gap_jensen_polynomial
 #print axioms XiKernel.two_gap_jensen_nonnegative
 #print axioms XiKernel.log_square_threshold_gate
+
+#print axioms XiKernel.collision_model_heat_identity
+#print axioms XiKernel.collision_model_adjacent_ratio
+#print axioms XiKernel.collision_pair_inverse_gap
+#print axioms XiKernel.collision_ratio_unbounded
