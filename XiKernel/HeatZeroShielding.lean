@@ -33,7 +33,11 @@ theorem regular_lattice_shielding (g2 : ℝ) (hg : g2 ≠ 0) :
 
 theorem finite_lattice_edge_defect (R : ℝ) (hR : R ≠ -1) :
     -8+4*(2*R/(R+1)) = -8/(R+1) := by
-  field_simp [show R+1 ≠ 0 by linarith]
+  have hden : R+1 ≠ 0 := by
+    intro hz
+    apply hR
+    linarith
+  field_simp [hden]
   ring
 
 theorem lower_shielding_rate_gate
@@ -67,7 +71,9 @@ theorem logheight_gap_rigidity_gate
   have hRpos : 0 < R+1 := by
     have : 0 < 16/gapSq := div_pos (by norm_num) hg
     linarith
-  have hRlower : 16 ≤ gapSq*R := (div_le_iff₀ hg).mp hR
+  have hRlower : 16 ≤ gapSq*R := by
+    have ht : 16 ≤ R*gapSq := (div_le_iff₀ hg).mp hR
+    nlinarith
   have hR1 : 0 < gapSq*(R+1) := mul_pos hg hRpos
   have h1 : 4/(R+1) < gapSq/4 := by
     apply (div_lt_iff₀ hRpos).2
