@@ -1,4 +1,4 @@
-\section{A collision-rate obstruction to spatial Laguerre comparisons}
+\paragraph{Quantitative collision-rate obstruction.}
 \label{sec:collisionrate}
 The heat hierarchy \eqref{eq:backwardlaguerre} suggests a
 spatially dependent comparison
@@ -105,50 +105,21 @@ collision at any $t\in[0,1/2]$ for the genuine Jacobi
 theta transform, and the preceding theorem does not
 assert its existence.
 
-\begin{proposition}[An integrable spatial envelope suffices]
-\label{prop:logspatialsufficient}
-Assume that for every fixed integer $n\ge1$ there is a
-nonnegative $a_n\in L^1([0,\tfrac12])$ and a measurable
-nonnegative $c_n(s,x)$ such that
-\begin{equation}\label{eq:logspatialgate}
-\begin{gathered}
-k_nU_{n+1}(s,x)\le c_n(s,x)U_n(s,x),\\
-0\le c_n(s,x)\le
-a_n(s)\bigl(1+\log^2(2+|x|)\bigr)
-\end{gathered}
-\end{equation}
-for all real $x$ and almost every $s\in[0,\tfrac12]$.
-Suppose these coefficients have the regularity needed
-for the standard parabolic comparison principle
-(the genuine Fourier coefficients themselves are smooth
-and bounded). Then $U_n(s,x)\ge0$ for all $n\ge1$,
-$s\in[0,\tfrac12]$ and real $x$. In particular,
-\eqref{eq:logspatialgate} for the Riemann theta heat
-family would imply the Riemann hypothesis.
-\end{proposition}
-\begin{proof}
-With $D=\partial_s-\tfrac12\partial_x^2$,
-the hierarchy gives
-$DU_n=-k_nU_{n+1}\ge-c_nU_n$.
-At $s=0$, $H_{1/2}$ has only real zeros, so
-$U_n(0,x)\ge0$ by the classical Laguerre--P\'olya
-criterion. The linear parabolic problem with
-potential $c_n\ge0$ has a positivity-preserving
-Feynman--Kac propagator. Under the stated envelope
-the stochastic exponential is well-defined on every
-finite interval; the Brownian supremum has Gaussian
-tails, which control the logarithmic-square spatial
-growth. Comparing $U_n$ with the nonnegative solution
-started from $U_n(0,\cdot)$ gives $U_n\ge0$.
-At $s=1/2$ every generalized Laguerre inequality
-holds for $H_0$, so the classical real-zero criterion
-implies RH.
-\end{proof}
+For the genuine Riemann theta flow, the precise sufficient
+spatial comparison theorem has already been established in
+Theorem~\ref{thm:spatialmax} and
+Corollary~\ref{cor:spatialRH}. It requires no global
+logarithmic-square upper bound: nonnegative coefficients
+locally bounded on the closed heat slab suffice.
+A proposed logarithmic-square upper envelope is a
+quantitative target, not an independently necessary
+hypothesis for the maximum-principle argument.
 
-This is a conditional sufficiency theorem, not a proof
-of \eqref{eq:logspatialgate}. The collision theorem shows
-why a coefficient with a nonintegrable time singularity
-is insufficient for the preceding comparison argument.
+The collision theorem shows why even a spatially varying
+coefficient cannot remain locally bounded through a
+nondegenerate collision, and why admitting a
+nonintegrable time singularity does not repair the
+closed-slab comparison.
 The genuine theta all-order comparison on $|x|\le6$
 established earlier is compatible with this result
 but does not discharge the missing global-in-$x$,
