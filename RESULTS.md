@@ -374,3 +374,20 @@ for any distinct real zeros a,b.
 **Paper and DOI:** The repository source displays DOI 10.5281/zenodo.23461586 with no reserved-status wording. A locally compiled **21-page combined PDF** retaining the prior 18-page manuscript with the latest heat-flow continuation was emailed to tony.newton79@gmail.com on 20 October. A new one-piece PDF build of the complete current GitHub LaTeX source is still pending in CI.
 
 **RH remains open.** The exact unresolved assertion is a theta-specific global comparison at all heat times and all Laguerre orders, or a genuinely new zero-exclusion mechanism that tolerates close pairs.
+
+## 20 October 2026 — Strict high-order Duhamel source saturation (analytic theorem, RH open)
+
+At backward heat time s∈(0,1/2], let B_n(s)=(P_s U_n(0))(0), D_n(s)=(n+1)(2n+1)∫_0^s(P_(s-r)U_(n+1)(r))(0)dr. For the **genuine positive Riemann theta kernel**:
+
+- 0 < D_n/B_n < D_(n+1)/B_(n+1) < 1 for every n≥0.
+- D_n(s)/B_n(s) → 1 as n→∞ for every fixed s>0. Therefore no order-independent fractional reserve η>0 can satisfy D_n≤(1−η)B_n at all orders, even at x=0.
+- Proof: the positive full-support density W_s(b)=(1/2)∫ exp(−s w²/2)ν((w+b)/2)ν((w−b)/2)dw; ν(u)=(1/2)exp(u²/2)Φ(u). Then B_n=(2n)!⁻¹∫b^(2n)W_s(b)db, U_n(s,0)=(2n)!⁻¹∫b^(2n)exp(−s b²/2)W_s(b)db. Reverse covariance under b²-size bias proves monotonicity; a two-radius (R<L) moment estimate proves convergence to zero of U_n/B_n.
+- Explicit Gaussian benchmark ν=e^(−a u²): U_n/B_n=(a/(a+s))^(n+1/2).
+- Theta quadrature at s=1/4 gives source fractions 0.00839 (n=1), 0.02701 (n=5), 0.07391 (n=20), 0.16691 (n=80), 0.23145 (n=160); numerical diagnostics only.
+- Sources: paper/duhamel_order_saturation.tex, XiKernel/DuhamelOrderSaturation.lean, certificates/xi_duhamel_order_saturation_exact.py; injected into spatial_heat_comparison.tex and exact Python CI.
+
+**What this does NOT prove:** Failure of the original Duhamel inequality. At x=0 it holds strictly at each finite n. The outstanding RH-equivalent assertion is U_n(s,x)≥0 at every x, s and n. The new theorem shows that the necessary comparison cannot have an n-uniform positive relative margin.
+
+**Verification:** local analytic proof and exact/rational diagnostic established; newest GitHub CI runs are QUEUED as of update, not reported as successful; no end-to-end Lean proof of full theta integrals. The complete 23-page PDF (prior 21-page paper plus 2-page continuation) was emailed to tony.newton79@gmail.com. DOI https://doi.org/10.5281/zenodo.23461586 is cited without 'reserved' qualification.
+
+**Next actionable gate:** test a genuinely theta-specific Fourier-positive conditional-slice or signed-correlation decomposition, which would imply the source inequality without dividing by U_n. First attempt to falsify any proposed stronger slice condition before elevating it to an RH lemma.
