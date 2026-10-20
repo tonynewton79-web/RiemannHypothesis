@@ -108,5 +108,6 @@ import XiKernel.PoleFreeLaguerre
 import XiKernel.HeatZeroShielding
 
 import XiKernel.OneSidedShielding
+import XiKernel.SignedShieldingEndpoint
 
 import XiKernel.ExactShieldingDefect
