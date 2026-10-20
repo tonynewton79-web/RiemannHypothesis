@@ -1,0 +1,200 @@
+\subsection{Signed conditional slices at genuine theta zeros}
+\label{sec:thetasignedslices}
+
+The division-free Duhamel formula identifies positivity
+of the complete weighted Fourier correlation as the
+unproved step toward RH. One tempting strengthening
+is to insist that the Fourier transform of each
+fixed-difference slice be nonnegative. The following
+argument tests this proposal \emph{within the genuine
+Jacobi-theta family}, without assuming RH.
+
+For any heat time $t$ write
+\[
+\nu_t(u)=\tfrac12e^{tu^2}\Phi(u),\qquad
+H_t(x)=\int_{\mathbb R}\nu_t(u)e^{ixu}\,du .
+\]
+For $b,x\in\mathbb R$ define the real, even
+fixed-difference slice
+\begin{equation}
+C_t(b,x)=\frac12\int_{\mathbb R}
+\nu_t\!\left(\frac{w+b}{2}\right)
+\nu_t\!\left(\frac{w-b}{2}\right)
+\cos(xw)\,dw .
+\label{eq:thetafixedslice}
+\end{equation}
+The two variables have a distinct meaning:
+$w$ is the sum of the original pair of
+Fourier variables, and $b$ their difference.
+This is an ambiguity-function-type slice;
+it is not the positive density obtained by
+integrating \emph{without} the cosine factor.
+
+\begin{proposition}[Exact slice transform and moments]
+\label{prop:thetafixedsliceidentities}
+For every real $t,x,\eta$ and integer $n\ge0$,
+\begin{align}
+\int_{\mathbb R}C_t(b,x)e^{i\eta b}\,db
+&=H_t(x+\eta)H_t(x-\eta),\label{eq:slicesymbol}\\
+\frac{1}{(2n)!}
+\int_{\mathbb R}b^{2n}C_t(b,x)\,db
+&=L_{n,t}(x).\label{eq:slicemoments}
+\end{align}
+Both identities are absolutely convergent.
+\end{proposition}
+
+\begin{proof}
+In the double integral make the linear substitution
+$u=(w+b)/2$, $v=(w-b)/2$, for which
+$du\,dv=\tfrac12\,dw\,db$. The transform
+with $\cos(xw)e^{i\eta b}$ then factors into
+the average of
+$H_t(x+\eta)H_t(x-\eta)$ and
+$H_t(-x+\eta)H_t(-x-\eta)$; these coincide
+because $\nu_t$ is even and real.
+This proves \eqref{eq:slicesymbol}.
+Differentiation of the latter identity at
+$\eta=0$ gives the even moments.
+Equivalently,
+\[
+H_t(x+iy)H_t(x-iy)
+=\sum_{n\ge0}L_{n,t}(x)y^{2n}
+\]
+and the change $y=i\eta$ matches
+the characteristic function of $C_t$.
+\end{proof}
+
+\begin{theorem}[Necessary sign compensation at every
+simple real theta zero]\label{thm:thetaslicesign}
+Suppose $H_t(a)=0$ and $H_t'(a)\ne0$
+for a real $a$. Then the genuine theta
+slice $b\mapsto C_t(b,a)$ takes
+\emph{both positive and negative values}.
+More precisely,
+\begin{equation}
+\int C_t(b,a)\,db=0,\qquad
+\int b^2C_t(b,a)\,db=2H_t'(a)^2>0 .
+\label{eq:twosignmoment}
+\end{equation}
+Its Fourier transform in $b$ satisfies
+\begin{equation}
+\widehat C_t(\eta,a)
+= -H_t'(a)^2\eta^2+O(\eta^4)<0
+\label{eq:negativeslicesymbol}
+\end{equation}
+for all sufficiently small nonzero real $\eta$.
+Consequently neither a pointwise nonnegative
+slice decomposition nor a positive
+convolution-square (positive-definite)
+factorization of these \emph{individual}
+fixed-difference slices can hold.
+
+These conclusions apply unconditionally
+to the actual theta heat family at $t=0$
+using any of its established simple real
+zeros, and at $t=1/2$ by the classical
+real-simple-zero theorem.
+\end{theorem}
+\begin{proof}
+At a simple real zero $a$,
+$L_{0,t}(a)=H_t(a)^2=0$, while
+$L_{1,t}(a)=H_t'(a)^2>0$.
+Proposition~\ref{prop:thetafixedsliceidentities}
+yields \eqref{eq:twosignmoment}.
+If $C_t(\cdot,a)$ were nonnegative
+almost everywhere, its zero integral
+would force it to vanish almost
+everywhere, contradicting its strictly
+positive second moment. Since $C_t$ is
+continuous, real and integrable, it must
+take both signs.
+
+Taylor's theorem and reality on the real
+axis give
+\[
+H_t(a+\eta)H_t(a-\eta)
+=-H_t'(a)^2\eta^2+O(\eta^4).
+\]
+Equation~\eqref{eq:slicesymbol} proves
+\eqref{eq:negativeslicesymbol}.
+A positive-definite integrable function
+has a nonnegative Fourier transform;
+equivalently any sum or positive mixture
+of convolution squares has nonnegative
+Fourier symbol. The strict negative
+value contradicts such a representation.
+The stated actual-theta applications use
+known real simple zeros, not an assumption
+that \emph{all} theta zeros are real.
+\end{proof}
+
+\paragraph{Two separate tests.}
+An exact rational control uses the
+even two-atom measure
+$\nu=\tfrac12(\delta_{-1}+\delta_1)$,
+for which $H(x)=\cos x$.
+At its simple zero $a=\pi/2$,
+the signed slice has masses
+\[
+C(-2,a)=\tfrac14,\qquad
+C(0,a)=-\tfrac12,\qquad
+C(2,a)=\tfrac14
+\]
+in the atomic sense. Their total
+is zero, whereas their second moment
+is $2$. This normalization test is
+checked by exact rational arithmetic.
+
+For the \emph{actual} theta series,
+a separate double-precision Simpson
+diagnostic at $x=28.269$ gives
+\[
+C_0(0,x)\simeq-3.26794\cdot10^{-7},
+\quad
+C_0(\tfrac12,x)\simeq+9.74345\cdot10^{-8}.
+\]
+The signs were reproduced using
+8,000 and 16,000 panels. These sampled
+signs are not interval enclosures and
+are not used in the theorem.
+The code is
+\path{certificates/xi_theta_conditional_slice_attack.py}.
+The algebraic signs are also
+formally checked in
+\path{XiKernel/ThetaConditionalSliceObstruction.lean};
+the infinite theta Fourier integral
+is not formalized there.
+
+\paragraph{The remaining viable decomposition.}
+This result invalidates positivity
+\emph{before} integration in the
+difference variable $b$; it does not
+refute positivity of the completed
+Laguerre correlations
+\[
+L_{n,t}(x)=\frac1{(2n)!}
+\int b^{2n}C_t(b,x)\,db.
+\]
+The weights $b^{2n}$ can compensate
+negative and positive slices,
+as \eqref{eq:twosignmoment} already
+demonstrates at a simple zero.
+To obtain a non-circular RH proof one
+would need a theta-specific inequality
+for the \emph{fully weighted} signed
+integral simultaneously for all
+$n,t,x$, or a different complex
+zero-exclusion theorem. Showing
+positivity of every fixed slice,
+or positive definiteness in the
+difference variable, is not that
+missing mechanism.
+
+The correlation and Fourier-positivity
+setting has significant prior art
+in the work of Csordas~\cite{Cs}
+and Dimitrov--Xu~\cite{DX}.
+The identities above are deliberately
+presented as an obstruction to the
+proposed proof mechanism, not a
+new criterion for RH or a proof of it.
