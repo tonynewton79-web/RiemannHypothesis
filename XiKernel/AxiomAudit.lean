@@ -36,6 +36,7 @@ This does not create any theorem; it prints dependencies of the existing proofs.
 The native_decide test may rely on Lean.ofReduceBool, unlike kernel-reduced decide.
 -/
 import XiKernel.SpatialLaguerreEquivalence
+import XiKernel.SpatialDefectStability
 import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.centerMoment_pos
 #print axioms XiKernel.correlation_quadratic_gate
@@ -170,3 +171,7 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.theta_higher_mode_polynomial_negative
 #print axioms XiKernel.theta_diagonal_odd_mode_negative
 #print axioms XiKernel.theta_modular_two_block_cancellation
+
+#print axioms XiKernel.defect_global_barrier_algebra
+#print axioms XiKernel.defect_rectangle_barrier_algebra
+#print axioms XiKernel.quadratic_collision_local_defect
