@@ -1,0 +1,136 @@
+\subsubsection{An exponentially small central heat-tail bound}
+\label{subsec:sixband-exponential}
+The six-band comparison in Theorem~\ref{thm:sixband}
+gives a nonnegative defect that is supported, under its
+explicit upper envelope, only outside the interval
+$[-6,6]$. The polynomial bound used in
+Corollary~\ref{cor:sixbandduhamel} discards
+the Gaussian concentration of the heat semigroup.
+Retaining it yields a substantially sharper,
+but still nonzero, source estimate.
+
+\begin{theorem}[Exponential six-band Duhamel bound]
+\label{thm:sixband-exponential}
+Retain $T=1/2$, $k_n=(n+1)(2n+1)$ and
+$A_{n+1}(t)=L_{n+1,t}(0)$, as in
+Theorem~\ref{thm:sixband}. Let
+\[
+E_n(s,x)=
+[k_nU_{n+1}(s,x)-c_n(s)U_n(s,x)]_+,
+\quad
+c_n(s)=4k_n\frac{A_{n+1}(T-s)}{A_n(T-s)}.
+\]
+Then every $n\ge1$ satisfies
+\begin{equation}\label{eq:sixband-exponential}
+\boxed{
+\begin{aligned}
+0\le
+\int_0^T(P_{T-s}E_n(s,\cdot))(0)\,ds
+&\le \frac8{45}e^{-135/4}
+\,k_n\sup_{0\le t\le T}A_{n+1}(t)\\
+&<
+\frac{k_n}{10^{14}}
+\sup_{0\le t\le T}A_{n+1}(t).
+\end{aligned}}
+\end{equation}
+The right side improves the coefficient $1/3456$
+of Corollary~\ref{cor:sixbandduhamel} by
+more than ten orders of magnitude.
+\end{theorem}
+\begin{proof}
+Put $b(x)=(x^2/12-3)_+=(x^2-36)_+/12$.
+For $a=15/16$ and $v\ge0$,
+$av\le e^{av}$, so for all real $x$,
+\begin{equation}\label{eq:sixband-pointwise}
+b(x)\le
+\frac1{12a}e^{a(x^2-36)}
+=\frac4{45}e^{-135/4}e^{15x^2/16}.
+\end{equation}
+Let $Z_h$ be a centred real Gaussian
+with variance $h\in[0,1/2]$.
+Completing the square in the Gaussian
+integral gives
+\[
+\mathbb E e^{aZ_h^2}=(1-2ah)^{-1/2}.
+\]
+Since $1-2ah\ge1/16$, equation
+\eqref{eq:sixband-pointwise} implies
+\begin{equation}
+(P_hb)(0)\le
+\frac{16}{45}e^{-135/4}
+\qquad(0\le h\le1/2).
+\end{equation}
+The six-band source inequality states
+\[
+E_n(s,x)\le k_nA_{n+1}(T-s)b(x).
+\]
+Positivity of $P_{T-s}$, integration over
+$0\le s\le T$ and the preceding Gaussian
+bound yield the first line of
+\eqref{eq:sixband-exponential}.
+
+For the rational final comparison,
+$135/4>33$ and the positive Taylor series
+gives $e^3>20$. Consequently
+\[
+\frac8{45}e^{-135/4}
+<
+\frac8{45\cdot20^{11}}
+=\frac1{1\,152\,000\,000\,000\,000}
+<10^{-14}.
+\]
+No floating-point comparison enters
+this part of the proof.
+\end{proof}
+
+\paragraph{A spatial envelope and its limitation.}
+For an observation point $x_0\in\mathbb R$,
+the noncentral Gaussian identity
+\[
+\mathbb E e^{a(x_0+Z_h)^2}
+=(1-2ah)^{-1/2}
+\exp\!\left(\frac{a x_0^2}{1-2ah}\right)
+\]
+gives the further estimate
+\begin{equation}\label{eq:sixband-spatial-upper}
+\int_0^{1/2}
+(P_{1/2-s}E_n(s,\cdot))(x_0)\,ds
+\le \frac8{45}
+e^{-135/4+15x_0^2}\,
+k_n\sup_t A_{n+1}(t).
+\end{equation}
+This is useful near the central observation point,
+but it grows in $|x_0|$ and does not
+establish the global sign of $U_n$.
+
+Crucially, even a very small positive
+upper bound on the heat-smoothed
+comparison defect does \emph{not}
+show that the defect vanishes. The
+RH-equivalent criterion of
+Theorem~\ref{thm:onepointcriterion}
+demands a uniform bound under an
+unbounded penalty, or an exact
+zero-defect statement, rather than
+a fixed small nonzero upper bound.
+Moreover the factor
+$k_n\sup_t A_{n+1}(t)$ is
+order-dependent, and no
+all-order relative sign conclusion
+follows from \eqref{eq:sixband-exponential}.
+The result is a quantitative
+improvement of the completed
+six-band estimate, not a proof of RH.
+
+The rational identities and
+elementary exponential comparisons
+are reproduced by
+\path{certificates/xi_six_band_exponential_exact.py};
+the corresponding Lean algebraic
+gates are in
+\path{XiKernel/SixBandExponentialTail.lean}.
+The Gaussian moment formula
+and the genuine theta-correlation
+source inequality are analytic
+inputs to this argument, not
+end-to-end Lean formalizations.
