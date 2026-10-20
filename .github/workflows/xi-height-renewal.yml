@@ -1,0 +1,23 @@
+name: Xi height renewal and terminal closure exact audit
+on:
+  push:
+    paths:
+      - 'certificates/xi_height_renewal_adversarial_exact.py'
+      - 'XiKernel/HeightRenewalAndClosure.lean'
+      - '.github/workflows/xi-height-renewal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rational-height-renewal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic dependency
+        run: python -m pip install 'sympy==1.13.3'
+      - name: Exact even heat-polynomial and arbitrary-height collision tests
+        run: python certificates/xi_height_renewal_adversarial_exact.py
