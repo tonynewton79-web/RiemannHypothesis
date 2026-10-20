@@ -282,6 +282,36 @@ the established derivative-aspect
 Jensen-polynomial results
 \cite{GORZ,JensenXi}; novelty is not
 asserted without that comparison.
+\paragraph{Adjacent-zero backward-heat continuation.}
+The new shielding calculation uses the classical
+zero-motion equations of Csordas--Smith--Varga
+and Rodgers--Tao. Subtraction at adjacent
+roots gives an absolutely convergent
+external-zero shielding sum and an exact
+squared-gap evolution equation.
+Regular-lattice telescoping and its
+$R$-neighbor truncation admit exact rational
+tests. The corresponding near-lattice
+survival estimate is conditional on
+pointwise control of $2R$ exterior zeros
+throughout the entire real-zero time interval;
+neither this rigidity nor the weaker
+integrated shielding-defect estimate is
+proved for the genuine theta flow.
+The independent checker
+\path{certificates/xi_heat_zero_shielding_exact.py}
+passed locally at 14 polynomial heat-root
+pairs, 32 adversarial rational lattice
+perturbations and four survival-margin cases.
+Its Lean analogue
+\path{XiKernel/HeatZeroShielding.lean}
+formalizes only the algebraic implications.
+At the date of this update the newly
+triggered GitHub workflow jobs were still
+queued, so they are not reported as passed.
+The earlier zero-motion literature is
+credited rather than claimed as new.
+
 The linked DOI in this manuscript is
 the author's issued identifier
 10.5281/zenodo.23461586.
