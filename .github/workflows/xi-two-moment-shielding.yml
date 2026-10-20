@@ -3,7 +3,10 @@ on:
   push:
     paths:
       - 'certificates/xi_two_moment_shielding_exact.py'
+      - 'certificates/xi_two_moment_no_uniform_exact.py'
       - 'XiKernel/TwoMomentShielding.lean'
+      - 'XiKernel/TwoMomentNoUniformStep.lean'
+      - 'paper/heat_two_moment_no_uniform.tex'
       - 'paper/heat_two_moment_shielding.tex'
       - '.github/workflows/xi-two-moment-shielding.yml'
   workflow_dispatch:
@@ -20,3 +23,5 @@ jobs:
           python-version: '3.12'
       - name: Exact rational two-moment theta heat shielding gate
         run: python certificates/xi_two_moment_shielding_exact.py
+      - name: Exact shrinking-gap obstruction to one uniform contour step
+        run: python certificates/xi_two_moment_no_uniform_exact.py
