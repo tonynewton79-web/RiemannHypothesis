@@ -111,9 +111,11 @@ theorem compact_source_ratio_upper_gate
   have htarget : 0 < 1-delta := by linarith
   have hdiv : spatialNumer/spatialDen ≤ (1+delta)/(1-delta) := by
     apply (div_le_div_iff₀ hpden htarget).2
-    nlinarith [mul_nonneg
-      (show 0 ≤ spatialDen-(1-delta) by linarith)
-      (show 0 ≤ 1+delta by linarith)]
+    have h1 : spatialNumer*(1-delta) ≤ (1+delta)*(1-delta) :=
+      mul_le_mul_of_nonneg_right hnum (le_of_lt htarget)
+    have h2 : (1+delta)*(1-delta) ≤ (1+delta)*spatialDen :=
+      mul_le_mul_of_nonneg_left hden (by linarith)
+    exact le_trans h1 h2
   have hqpos : 0 ≤ (1+delta)/(1-delta) :=
     div_nonneg (by linarith) (by linarith)
   calc
