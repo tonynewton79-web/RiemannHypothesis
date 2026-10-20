@@ -192,3 +192,29 @@ unverified publication metadata are inferred here.
 The complete source, reproducibility\ninstructions and verification record
 are maintained at
 \url{https://github.com/tonynewton79-web/RiemannHypothesis}.
+
+
+The central-observation Duhamel reduction is proved in
+\path{paper/central_duhamel_penalty_attack.tex}.
+It uses the unconditional positive-part sandwich, strict
+positivity of Gaussian convolution and the classical
+Laguerre--P\'olya criterion to reduce the RH-equivalent
+boundedness test to $x=0$ for all orders.
+The negative-witness theorem gives an explicit
+Gaussian-suppressed lower bound for any hypothetical
+off-axis violation. A further noncommutation theorem,
+using the published bound $\Lambda\le0.22$ and the
+finite theta-mode endpoint asymptotics, proves that the
+large-$C$ penalty limit cannot be taken before removing
+any fixed modal cutoff, even on the already known
+real-zero heat interval $t\in[1/4,1/2]$.
+Local exact Fraction tests passed for 400 witness
+rectangles, 36 scalar normalizations and five negative
+toy limits. The Lean algebra file
+\path{XiKernel/CentralDuhamel.lean} was submitted,
+but its latest CI run remained queued at the time of
+this revision; it is not described as passing.
+Neither the heat integral nor the full RH-equivalent
+bound is end-to-end formalized, and the actual
+theta-specific all-order bounded penalty estimate
+remains unproved.
