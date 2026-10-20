@@ -694,3 +694,24 @@ Strict Cauchy–Schwarz moment log-convexity makes the ratio *strictly increasin
 **Check status:** `certificates/xi_central_moment_ratio_exact.py` passed locally (101 factorial identities; strict finite-support moment ratio sanity test and essential negative control). Exploratory actual-theta quadratures at 512/1024/2048 nodes agree for orders 1,5,20,55 at heat times 0 and 1/2 (script: `certificates/xi_central_moment_ratio_numerical.py`). These samples do NOT prove asymptotic logarithmic-square growth. Lean algebra subtheorems live in `XiKernel/CentralMomentRatio.lean`. GitHub Actions builds/Lean were **queued** at last inspection; do not treat them as passing runs.
 
 Full proof: `paper/theta_central_moment_barrier.tex` included from `paper/main.tex`. The existing full-time first-order compact rectangle `|x|<=4` and other heat comparisons remain in their original sources. A 22-page local compiled cumulative supplement plus earlier archived manuscript was emailed on 20 Oct 2026, with the DOI linked as `https://doi.org/10.5281/zenodo.23461586`. This local PDF is a consolidation, not yet the rebuilt complete current GitHub LaTeX snapshot. RH unresolved.
+
+## 20 October 2026 — All-order six-unit spatial comparison, full heat slab
+
+**Proved from existing theta moment certificates and Newman's GHS curvature theorem:** for every n≥1, t∈[0,1/2], x∈ℝ, with central A_n(t)=L_n[H_t](0)>0,
+
+`L_n[H_t](x) >= A_n(t)*(1-x²/48)`.
+
+The required heat coupling has a **division-free global source upper estimate** with positive central coefficient
+`c_n(t)=4*(n+1)*(2n+1)*A_(n+1)(t)/A_n(t)`:
+
+`k_n*L_(n+1)[H_t](x) - c_n(t)*L_n[H_t](x) <= k_n*A_(n+1)(t)*(x²/12-3)`.
+
+Consequently **the strict spatial source comparison is valid for all orders and all heat times on |x|≤6**, without dividing by the possibly small noncentral Laguerre expression. For the global positive-part defect, Gaussian heat averaging at the centre proves the nonzero explicit estimate
+
+`integral_0^(.5) P_(.5-s)[k_n U_(n+1)-c_n U_n]_+(0) ds <= k_n * max_t A_(n+1)(t) /3456`.
+
+**Inputs:** the previously validated full heat-time two-mode moments `mu0,2(0)>1/20`, `mu2,2(.5)<1/1000`, the heat Fourier tail `mu2(t)-mu2,2(t)<1e-8`, and the known curvature/moment-ratio monotonicity (Newman 1991). Thus `mu2(t)/mu0(t)<(1/1000+1e-8)/(1/20)=100001/5000000<1/48`. These inputs are not newly verified by an independent interval backend in this turn.
+
+**Reproduce exact arithmetic**: `python certificates/xi_heat_six_band_exact.py`. New Lean algebra `XiKernel/SixBandDivisionFree.lean` compiles only if current GitHub Actions run passes; do not treat a queued CI run as verified. Complete theta integrals are not end-to-end Lean proofs.
+
+**Open RH gate:** the defect becomes positive outside |x|≤6, and its Gaussian-smoothed upper bound is nonzero. Hence this does **not** imply the RH-equivalent vanishing negative-part criterion or prove RH. Full source: `paper/heat_six_band_division_free.tex` included in `paper/main.tex`. DOI: https://doi.org/10.5281/zenodo.23461586 (do not label it reserved).
