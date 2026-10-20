@@ -1,0 +1,143 @@
+\subsubsection{A single dyadic finite-mode defect test}
+\label{subsec:dyadicdefect}
+The central-point reduction and the adaptive theta cutoff
+can be combined into a single sequence of nonnegative scalar
+quantities. This eliminates the need to take separate limits
+in the penalty size, Laguerre order and number of theta modes.
+It does not by itself establish the required boundedness.
+
+Retain the notation of Theorems~\ref{thm:onepointcriterion}
+and~\ref{thm:adaptivepenalty}. In particular, $T=\tfrac12$,
+$k_n=(n+1)(2n+1)$ and
+\[
+\mathcal N_n=
+\int_0^T\bigl(P_{T-s}[-U_n(s,\cdot)]_+\bigr)(0)\,ds,
+\quad
+b_n=1+T(A_n+M_n).
+\]
+Here $A_n=\sup|U_n|$ and
+$M_n=\sup|k_nU_{n+1}|$ on the heat slab,
+so $0\le\mathcal N_n\le T A_n$.
+For each $C\ge1$, denote by
+$\mathcal E_{n,C}^{(M)}(T,0)$
+the finite-theta-mode central positive-part penalty
+defined in the preceding section.
+Let $m_n(C)$ be the explicit cutoff prescribed by
+\eqref{eq:jointcutoff}, with its previously proved bound
+\[
+\big|\mathcal E_{n,C}^{(m_n(C))}(T,0)
+-\mathcal E_{n,C}(T,0)\big|<1.
+\]
+
+\begin{theorem}[Quantitative dyadic defect limit]
+\label{thm:dyadicdefect}
+Define the nonnegative infinite-series defect
+and its finite adaptive approximations by
+\begin{align}
+\mathscr D&=\sum_{n=1}^\infty
+2^{-n}\frac{\mathcal N_n}{b_n},
+\label{eq:defectD}\\
+S_k&=\sum_{n=1}^k2^{-n}
+\frac{\mathcal E_{n,2^k}^{(m_n(2^k))}(T,0)}{b_n},
+\qquad k\ge1.
+\label{eq:defectSk}
+\end{align}
+The series defining $\mathscr D$ converges absolutely,
+with $0\le\mathscr D\le1$, and for every $k\ge1$
+one has the \emph{explicit unconditional} estimate
+\begin{equation}
+\boxed{\left|2^{-k}S_k-\mathscr D\right|
+<2^{1-k}.}
+\label{eq:dyadicrate}
+\end{equation}
+Moreover, the following conditions are equivalent:
+\begin{equation}
+\boxed{
+\mathrm{RH}\quad\Longleftrightarrow\quad
+\mathscr D=0\quad\Longleftrightarrow\quad
+S_k<1\ \ \text{for every integer }k\ge1.
+}
+\label{eq:dyadicRH}
+\end{equation}
+In particular, a rigorously certified value $S_k\ge1$
+at one finite stage would refute RH.
+No such value is asserted here.
+\end{theorem}
+\begin{proof}
+By the central penalty sandwich
+\eqref{eq:onepointsandwich},
+\[
+\big|\mathcal E_{n,C}(T,0)-C\mathcal N_n\big|
+\le TM_n.
+\]
+The adaptive estimate then implies
+\[
+\big|\mathcal E_{n,C}^{(m_n(C))}(T,0)
+-C\mathcal N_n\big|<TM_n+1\le b_n.
+\]
+Set $C=2^k$ and sum over $1\le n\le k$:
+\begin{align*}
+\left|2^{-k}S_k-
+\sum_{n=1}^k2^{-n}\frac{\mathcal N_n}{b_n}\right|
+&<2^{-k}\sum_{n=1}^k2^{-n}
+<2^{-k}.
+\end{align*}
+Meanwhile $0\le\mathcal N_n/b_n\le1$, so
+the omitted infinite tail is no larger than
+$\sum_{n>k}2^{-n}=2^{-k}$.
+Combining the bounds gives
+\eqref{eq:dyadicrate}.
+
+Strict positivity of the Gaussian heat kernel,
+the central-point theorem and the
+Laguerre--P\'olya characterization prove that
+RH is equivalent to $\mathcal N_n=0$ at every
+order. Every summand in $\mathscr D$ is
+nonnegative, so this is equivalent to
+$\mathscr D=0$.
+
+If RH holds, the true $U_n$ are nonnegative,
+hence $\mathcal E_{n,C}(T,0)\le TM_n$.
+The adaptive error gives
+$\mathcal E_{n,C}^{(m_n(C))}(T,0)
+<TM_n+1\le b_n$,
+and consequently
+$S_k<\sum_{n=1}^k2^{-n}<1$.
+
+Conversely, if RH fails, then $\mathscr D>0$.
+Equation~\eqref{eq:dyadicrate} implies
+$S_k>2^k\mathscr D-2$.
+For all sufficiently large $k$,
+this lower bound exceeds $1$.
+Thus $S_k<1$ for all $k$ implies RH.
+\end{proof}
+
+\paragraph{What this reduction has, and has not, achieved.}
+Theorem~\ref{thm:dyadicdefect} is a quantitative
+reorganization of the preceding exact heat-penalty
+identities. It replaces an uncontrolled interchange
+of three limits by one joint dyadic sequence, with
+an explicit error $2^{1-k}$.
+The cutoff $m_n(2^k)$ depends on $n$ and $k$
+but is finite and grows as $O_n(\sqrt{k})$.
+Each $S_k$ involves finitely many orders and
+finite theta sums, although rigorous evaluation
+of its heat integrals over all Fourier heights
+still requires separate analytical and interval
+control. The difficult global assertion is
+\emph{not} convergence of the approximation:
+it is $\mathscr D=0$, or equivalently the
+unproved bound $S_k<1$ for every $k$.
+Neither positivity of the underlying theta
+kernel nor the finite-zero disk certificates
+establish that inequality.
+
+The rational inequalities in the proof are
+independently replayed in
+\path{certificates/xi_dyadic_penalty_defect_exact.py}
+and the normalization and threshold gates are
+formalized in \path{XiKernel/DyadicPenalty.lean}.
+These tests do not formalize the infinite
+series, the heat integrals or RH end to end;
+no new solution of the Riemann hypothesis
+is claimed.
