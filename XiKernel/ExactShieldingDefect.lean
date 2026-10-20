@@ -39,7 +39,7 @@ theorem gap_shell_local_identity
     (y z : ℝ) (hy : y ≠ 0) (hz : z ≠ 0) (h1 : z+1 ≠ 0) :
     1/(z*(z+1)) + (z-y)/(y*z) =
       1/y - 1/(z+1) := by
-  field_simp
+  field_simp [hy, hz, h1]
   ring
 
 theorem gap_shell_finite_telescope
@@ -57,16 +57,23 @@ theorem gap_shell_finite_telescope
       have hy0 := hy n
       have hz0 := hz n
       have hz1 := hy (n+1)
+      have hy0 : (n : ℝ)+1+D n ≠ 0 := hy n
+      have hz0 : (n : ℝ)+1+D (n+1) ≠ 0 := hz n
+      have hz1 : (n : ℝ)+2+D (n+1) ≠ 0 := by
+        convert hy (n+1) using 1 <;> push_cast <;> ring
       have hk :
           gapShell D n + gapExcess D n =
             1/((n : ℝ)+1+D n) -
             1/((n : ℝ)+2+D (n+1)) := by
         unfold gapShell gapExcess
-        convert gap_shell_local_identity
-          ((n : ℝ)+1+D n) ((n : ℝ)+1+D (n+1))
-          hy0 hz0 (by convert hz1 using 1 <;> push_cast <;> ring) using 1 <;> ring
-      rw [hk]
-      convert ih using 1 <;> push_cast <;> ring
+        field_simp [hy0, hz0, hz1]
+        ring
+      have hc : (((n+1 : ℕ) : ℝ)+1+D (n+1)) =
+          (n : ℝ)+2+D (n+1) := by
+        push_cast
+        ring
+      rw [hk, hc]
+      linarith [ih]
 
 theorem gap_shell_nonnegative (z : ℝ) (hz : 0 < z) :
     0 ≤ 1/(z*(z+1)) := by positivity
