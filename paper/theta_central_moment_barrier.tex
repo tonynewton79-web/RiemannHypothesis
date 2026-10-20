@@ -1,0 +1,175 @@
+\subsubsection{An exact central-order obstruction for spatial comparison}
+\label{sec:centralmomentratio}
+The spatially dependent coefficient in
+\eqref{eq:comparisonmissing} cannot be chosen
+independently of Laguerre order. This is a
+consequence of the positive theta convolution,
+without dividing by any transform value away
+from the centre. We record the exact
+moment identity and the resulting obstruction.
+
+\begin{theorem}[Uniform divergence of the central comparison ratio]
+\label{thm:centralmomentratio}
+Let $\Phi_t(u)=e^{tu^2}\Phi(u)$ for
+$0\le t\le1/2$, and let
+$H_t(z)=\int_0^\infty\Phi_t(u)\cos(zu)\,du$.
+For $n\ge0$ write $L_{n,t}(x)$ for the
+generalized Laguerre coefficient of
+$H_t(x+iy)H_t(x-iy)$ and
+$k_n=(n+1)(2n+1)$. Set
+\[
+g_t(w)=(\Phi_t*\Phi_t)(w)>0,\qquad
+M_{2n}(t)=\int_{\mathbb R}w^{2n}g_t(w)\,dw.
+\]
+Then
+\begin{equation}\label{eq:centralratio}
+\boxed{\quad
+\frac{k_nL_{n+1,t}(0)}{L_{n,t}(0)}
+=\frac12\frac{M_{2n+2}(t)}{M_{2n}(t)}.
+\quad}
+\end{equation}
+The right-hand side is strictly increasing
+in $n$ and tends to infinity. In fact,
+\begin{equation}\label{eq:centraluniform}
+\boxed{\quad
+\lim_{n\to\infty}\inf_{0\le t\le1/2}
+\frac{k_nL_{n+1,t}(0)}{L_{n,t}(0)}
+=+\infty.
+\quad}
+\end{equation}
+Consequently no coefficient that remains
+bounded uniformly in $n$ at $x=0$
+can satisfy
+$k_nU_{n+1}(s,x)\le c_n(s,x)U_n(s,x)$
+for all orders and the entire heat-time
+interval.
+\end{theorem}
+
+\begin{proof}
+Since the Jacobi kernel is even, the
+Fourier transform has the full-line form
+\[
+H_t(z)=\frac12\int_{\mathbb R}
+\Phi_t(u)e^{izu}\,du.
+\]
+At $x=0$, the product
+$H_t(iy)H_t(-iy)=H_t(iy)^2$
+is the bilateral Laplace transform of
+the positive convolution measure:
+\[
+H_t(iy)^2=\frac14\int_{\mathbb R}
+g_t(w)e^{-yw}\,dw
+=\sum_{n\ge0}
+\frac{M_{2n}(t)}{4(2n)!}y^{2n}.
+\]
+Odd moments vanish by parity.
+Thus $L_{n,t}(0)=M_{2n}(t)/(4(2n)!)>0$.
+The factorial identity
+\[
+\frac{(n+1)(2n+1)(2n)!}{(2n+2)!}
+=\frac12
+\]
+proves \eqref{eq:centralratio}.
+
+Cauchy--Schwarz in the positive measure
+$g_t(w)\,dw$ gives
+\[
+M_{2n+2}(t)^2\le
+M_{2n}(t)M_{2n+4}(t).
+\]
+The inequality is strict because $g_t$
+has a continuous strictly positive density
+on the whole real line, rather than
+support concentrated at a single value
+of $w^2$. Dividing by the positive
+moments shows strict increase in $n$.
+
+To prove divergence, fix $A>0$ and choose
+$B>A$. The positive measure has strictly
+positive mass in $B\le|w|\le B+1$.
+Under the probability distribution
+with density proportional to
+$w^{2n}g_t(w)$, the probability of
+$|w|\le A$ is bounded by a constant
+times $(A/B)^{2n}$ and tends to zero.
+The corresponding expectation of
+$w^2$ is
+$M_{2n+2}(t)/M_{2n}(t)$, and its
+limit inferior is therefore at least
+$A^2$. Because $A$ is arbitrary,
+the quotient diverges.
+
+All $M_{2n}(t)$ are finite and
+continuous in $t\in[0,1/2]$, by the
+super-exponential decay of the theta
+kernel and dominated convergence.
+For every fixed threshold $C>0$,
+the sets
+\[
+O_n=\left\{t\in[0,1/2]:
+\frac{M_{2n+2}(t)}{2M_{2n}(t)}>C\right\}
+\]
+are open relative to the heat-time
+interval and increasing in $n$.
+Their union covers that compact interval
+by pointwise divergence.
+A finite subcover, followed by monotonicity,
+gives an index $N$ such that
+$O_N=[0,1/2]$. The same inequality holds
+for all $n\ge N$, proving
+\eqref{eq:centraluniform}.
+\end{proof}
+
+A proposed envelope of the form
+$c_n(s,x)\le C\{1+\log^2(2+|x|)\}$,
+with a constant $C$ independent of $n$,
+is therefore \emph{impossible already at
+$x=0$}. An order-dependent envelope
+$c_n(s,x)\le C_n\{1+\log^2(2+|x|)\}$
+is not excluded: it must simply have
+$C_n\to\infty$. A quantitative estimate
+on that required growth (for example,
+one of order $\log^2(n+2)$ at the centre)
+is a research candidate, not a theorem
+proved here.
+
+\paragraph{Exact and numerical checks.}
+The finite algebra behind
+\eqref{eq:centralratio} and the
+Cauchy--Schwarz ratio comparison is
+formalized in
+\path{XiKernel/CentralMomentRatio.lean}.
+The rational certificate
+\path{certificates/xi_central_moment_ratio_exact.py}
+checks the factorial cancellation and
+moment log-convexity on an independent
+positive discrete model.
+For the genuine theta kernel, independent
+Gauss--Legendre quadratures at 512, 1024
+and 2048 nodes agree in the displayed
+precision. The ratios for
+$n=1,5,20,55$ are approximately
+\[
+\begin{array}{c|cccc}
+n&1&5&20&55\\ \hline
+t=0&.033451&.108858&.305956&.587252\\
+t=1/2&.033781&.109741&.307551&.589104
+\end{array}
+\]
+These computations illustrate growth
+at finite order and are not directed
+interval certificates of its asymptotic
+rate. The monotonicity and divergence
+in Theorem~\ref{thm:centralmomentratio}
+follow analytically, not from
+these sampled values.
+
+The central identity also pinpoints a
+limitation of this route to RH:
+$L_{n,t}(0)>0$ holds for the full theta
+heat family regardless of whether
+$H_0$ has any nonreal zeros. The missing
+global proof must therefore use
+noncentral information, especially
+where Fourier oscillations can reverse
+the sign of a Laguerre expression.
