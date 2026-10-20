@@ -1,0 +1,113 @@
+\paragraph{A pole-free adjacent-order bound near a real zero.}
+The spatial source coefficient appears singular if one
+substitutes $-\partial_x^2\log|H_t(x)|$ directly at
+a real zero. A simple algebraic cancellation removes
+this artificial pole, and makes explicit the role
+of \emph{other} real zeros.
+
+\begin{proposition}[Nearest-root removal and a
+pole-free Laguerre ratio]\label{prop:polefree}
+Let $G$ be a nonconstant real entire function
+in the Laguerre--P\'olya class of order at most
+one, with infinitely many simple real zeros.
+Fix a zero $a$. For $x$ in an open interval
+containing $a$ but no other zeros, put
+\[
+S_a(x)=\sum_{\substack{\rho\in Z(G)\\\rho\ne a}}
+\frac{1}{(x-\rho)^2}.
+\]
+Then $S_a$ is finite and continuous near $a$,
+and for every integer $n\ge1$ and every such
+real $x$,
+\begin{equation}\label{eq:polefree}
+\boxed{\quad
+0\le
+\frac{(n+1)(2n+1)L_{n+1}[G](x)}
+{L_n[G](x)}
+\le\frac{(n+1)(2n+1)}{n}S_a(x).
+\quad}
+\end{equation}
+In particular $L_n[G](x)>0$ for all $n\ge1$,
+and the bound holds \emph{at} $x=a$ without
+introducing a singular factor $(x-a)^{-2}$.
+\end{proposition}
+\begin{proof}
+For $x$ different from all zeros, the canonical
+product gives
+\[
+\frac{G(x+iy)G(x-iy)}{G(x)^2}
+=\prod_{\rho\in Z(G)}
+\left(1+\frac{y^2}{(x-\rho)^2}\right).
+\]
+Write $b=(x-a)^{-2}$, and let $E_j$ be the
+$j$th elementary symmetric function of
+the positive numbers
+$b_\rho=(x-\rho)^{-2}$ with $\rho\ne a$.
+Then
+\begin{align*}
+L_n[G](x)&=G(x)^2(bE_{n-1}+E_n),\\
+L_{n+1}[G](x)&=G(x)^2(bE_n+E_{n+1}).
+\end{align*}
+The finite elementary-symmetric inequality
+$kE_k\le S_aE_{k-1}$ passes to the convergent
+canonical-product coefficients by monotone
+approximation. Thus
+\[
+nE_n\le S_aE_{n-1},\qquad
+(n+1)E_{n+1}\le S_aE_n.
+\]
+For $b\ge0$,
+\begin{align*}
+n(bE_n+E_{n+1})
+&\le S_a bE_{n-1}+S_a E_n\\
+&=S_a(bE_{n-1}+E_n).
+\end{align*}
+Dividing by the positive denominator yields
+\eqref{eq:polefree} away from $a$.
+At $x=a$, factor $G(z)=(z-a)g(z)$.
+The identity
+\[
+L_n[G](a)=G'(a)^2E_{n-1}(a)
+\]
+and continuity of all the other zero factors
+give exactly the same inequality there.
+The infinitude and simplicity of the real
+zero set ensure the required coefficients
+are positive at every finite order.
+\end{proof}
+
+The bound is conditional when applied to the
+de Bruijn--Newman heat family: it is available
+at those heat times where all the zeros are
+known to be real and simple (notably $t=1/2$).
+Extending it to the entire time slab
+\emph{without assuming the unknown real-zero
+property} is precisely the missing proof step.
+There is no singularity from the selected
+real zero; the genuine difficulty is controlling
+the remaining inverse-square gap sum,
+uniformly in heat time and Fourier height.
+
+For example, a bound of the form
+\[
+S_a(t,x)\le C\bigl(1+\log^2(2+|x|)\bigr)
+\]
+for every heat time before a first collision
+would imply a spatial coefficient of size at
+most $C(n+1)(2n+1)n^{-1}
+(1+\log^2(2+|x|))$ on the real-zero side.
+Such a repulsion estimate is \emph{not} proved
+for the genuine theta flow. It cannot be
+inferred from average zero density alone,
+and it must remain valid as the heat
+parameter approaches any possible collision.
+
+The elementary comparison is checked in
+\path{XiKernel/PoleFreeLaguerre.lean} and by
+exact rational examples in
+\path{certificates/pole_free_laguerre_exact.py}.
+The full infinite canonical-product identity
+is an analytical input rather than an
+end-to-end Lean theorem. The result is
+a sharpened diagnostic for the remaining
+heat-flow comparison, not a proof of RH.
