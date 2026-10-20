@@ -34,12 +34,13 @@ theorem central_logsquare_lower_gate
     (hsource : k*v ≤ c*u) :
     b ≤ c := by
   have h := le_trans hratio hsource
-  nlinarith
+  exact (mul_le_mul_right hu).mp h
 
 /-- The moment-to-source algebraic factor is exactly one half. -/
 theorem central_moment_ratio_half
     (m mn : ℝ) (hm : 0 < m) :
     ((mn / (4*m)) * (2:ℝ)) = mn/(2*m) := by
+  field_simp [ne_of_gt hm]
   ring
 
 /-- The candidate order and height scales must both be accommodated. -/
