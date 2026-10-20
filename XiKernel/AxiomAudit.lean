@@ -24,6 +24,7 @@ import XiKernel.SpatialHeatComparison
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
+import XiKernel.ThetaConditionalSliceObstruction
 import XiKernel.ThetaHeatTail
 import XiKernel.HeatDoubleRootTransversality
 import XiKernel.HeatZeroGapObstruction
@@ -158,3 +159,8 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.two_point_reverse_covariance_identity
 #print axioms XiKernel.two_point_size_bias_strict
 #print axioms XiKernel.small_residual_forces_source_saturation
+
+#print axioms XiKernel.atomic_slice_mass_zero
+#print axioms XiKernel.atomic_slice_second_moment
+#print axioms XiKernel.slice_nonnegative_mass_zero_contradiction
+#print axioms XiKernel.simple_zero_spectral_sign
