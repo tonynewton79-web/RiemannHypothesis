@@ -1,0 +1,223 @@
+\subsubsection{An unconditional first compact comparison for the actual theta series}
+\label{sec:firstcertifiedrectangle}
+The strict finite-mode hypothesis in
+Theorem~\ref{thm:compacttransfer} can be verified
+on an explicit, nontrivial rectangle.
+Unlike tests of the abstract transfer algebra, this
+calculation uses the first two summands of the
+actual Jacobi-theta kernel. It certifies a complete
+two-variable region without discretizing time
+or the Fourier argument.
+
+\begin{theorem}[A certified full-time, first-order rectangle]
+\label{thm:firstcompactrectangle}
+Let $T=1/2$, $H_{t,2}(x)=
+\int_0^\infty e^{tu^2}f_2(u)\cos(xu)\,du$,
+where $f_2=\phi_1+\phi_2$ consists of
+the first two genuine theta summands.
+Write
+\[
+U_{j,2}(s,x)=L_j[H_{T-s,2}](x),\qquad
+K=[0,T]\times[-1/100,1/100].
+\]
+Then, everywhere on $K$,
+\begin{equation}\label{eq:firstrectanglefinite}
+\boxed{6U_{2,2}(s,x)-U_{1,2}(s,x)<-10^{-5}.}
+\end{equation}
+Let $e_{j,2}$ be the global theta truncation
+errors defined in \eqref{eq:compacttransfererror}.
+They satisfy
+\[
+6e_{2,2}+e_{1,2}<10^{-7},
+\]
+and consequently the required \emph{strict
+finite-mode comparison certificate} holds:
+\begin{equation}\label{eq:firstrectanglecertified}
+\boxed{6U_{2,2}-U_{1,2}
+\le -6e_{2,2}-e_{1,2}\quad\text{throughout }K.}
+\end{equation}
+It follows unconditionally that the
+\emph{complete} theta heat flow obeys
+\[
+\boxed{6U_2(s,x)\le U_1(s,x)
+\qquad ((s,x)\in K).}
+\]
+\end{theorem}
+
+\begin{proof}
+For $j\ge0$ let
+\[
+m_j(t)=\int_0^\infty
+u^j e^{tu^2}f_2(u)\,du .
+\]
+Every integrand is nonnegative, hence
+$m_j(t)$ is nondecreasing on $0\le t\le T$.
+The exact validated quadrature below proves
+the following coarse \emph{strict} bounds,
+chosen rationally for easy independent replay:
+\begin{align}
+m_0(0)&>\frac1{20},
+&m_2(0)&>\frac1{2000},\nonumber\\
+m_0(T)&<\frac1{10},
+&m_1(T)&<\frac1{100},\nonumber\\
+m_2(T)&<\frac1{1000},
+&m_3(T)&<\frac1{5000},
+&m_4(T)&<\frac1{30000}.
+\label{eq:rectangle-moment-bounds}
+\end{align}
+
+The inequality $\cos y\ge1-y^2/2$,
+applied to the positive theta integrand,
+shows that for $|x|\le r_0=1/100$,
+\begin{align*}
+H_{t,2}(x)&\ge
+m_0(0)-\frac{r_0^2}{2}m_2(T)>a,\\
+-H_{t,2}''(x)&\ge
+m_2(0)-\frac{r_0^2}{2}m_4(T)>b,
+\end{align*}
+where
+\[
+a=\frac1{20}-\frac{r_0^2}{2\cdot1000},
+\qquad
+b=\frac1{2000}-\frac{r_0^2}{2\cdot30000}.
+\]
+Both $a,b$ are positive. Hence the
+first Laguerre expression has the
+\emph{uniform} lower bound
+\begin{equation}
+U_{1,2}=(H_{t,2}')^2-H_{t,2}H_{t,2}''
+>ab.
+\label{eq:rectangle-U1}
+\end{equation}
+For the second expression the exact
+derivative formula is
+\[
+U_{2,2}=
+\frac{H_{t,2}H_{t,2}^{(4)}}{12}
+-\frac{H_{t,2}'H_{t,2}^{(3)}}3
++\frac{(H_{t,2}'')^2}{4}.
+\]
+Using $|H_{t,2}^{(j)}(x)|\le m_j(T)$,
+we obtain
+\begin{equation}
+U_{2,2}<
+b_2:=\frac{1}{10\cdot30000\cdot12}
++\frac{1}{100\cdot5000\cdot3}
++\frac{1}{4\cdot1000^2}.
+\label{eq:rectangle-U2}
+\end{equation}
+The exact rational calculation gives
+\[
+6b_2-ab=-0.00001783322500008333\ldots
+<-10^{-5},
+\]
+proving \eqref{eq:firstrectanglefinite}.
+
+For completeness we specify the analytic
+trust boundary of \eqref{eq:rectangle-moment-bounds}.
+The interval certificate computes the integrals
+for $t=0$ and $t=1/2$ over $0\le u\le2$
+by outward-rounded composite Simpson quadrature
+with respectively $8192$ and $16384$ panels.
+The first five derivatives of the theta summands
+are controlled by
+\[
+\phi_m^{(j)}(u)=q_me^{5u-q_me^{4u}}
+P_j(q_me^{4u}),\quad
+P_{j+1}(v)=(5-4v)P_j(v)+4vP_j'(v).
+\]
+Writing $B_j=\|P_j\|_1(j+3)!$
+gives the valid global bounds
+\[
+(B_0,B_1,B_2,B_3,B_4)
+=(30,1272,79320,6800400,762395760).
+\]
+For $0\le u\le2$, the derivatives of
+$u^j e^{tu^2}$ are bounded by $8$
+times the positive-coefficient polynomial
+envelope obtained recursively from
+\[
+R_{j,0}(u)=u^j,\qquad
+R_{j,h+1}=R_{j,h}'+uR_{j,h},
+\]
+evaluated at $u=2$.
+Leibniz's rule therefore provides the
+explicit fourth-derivative bound
+\[
+M_{4,j}=
+16\sum_{a=0}^4{4\choose a}
+B_aR_{j,4-a}(2).
+\]
+The corresponding Simpson error is at most
+\[
+\frac2{180}\left(\frac2N\right)^4M_{4,j}.
+\]
+The omitted integrals $u>2$ are smaller
+than $10^{-100}$ for $j\le4$, using
+$u^j\le j!e^u$, $e^{tu^2}\le e^{e^{4u}}$,
+$3<q_m<16$ and
+$e^8>1000$, $e^3>20$.
+After $v=e^{4u}$, the tail is at most
+\[
+j!\,256\int_{1000}^\infty
+v^2e^{-2v}\,dv
+<10^{-100}.
+\]
+Every transcendental Simpson node is
+enclosed by \texttt{mpmath.iv} 1.3.0,
+converted to exact rational endpoints;
+the displayed moment bounds are
+verified in both separate resolutions.
+
+Finally Theorem~\ref{thm:compacttransfer}
+uses the uniform theta heat-tail
+coefficient
+\[
+e_{j,2}
+=\frac{3(2j+1)C_*}{2\cdot4^{2j}}\,
+q_3e^{-q_3+1/16},\quad q_3=9\pi,\quad C_*<100.
+\]
+The rational bounds $27<q_3<198/7$,
+$e^3>20$, and $q_3-1/16>24$ yield
+\[
+e_{j,2}<
+\frac{3(2j+1)100}{2\cdot4^{2j}}
+\frac{198/7}{20^8}.
+\]
+In particular,
+\[
+6e_{2,2}+e_{1,2}
+<5.05\cdot10^{-8}<10^{-7}.
+\]
+The exact rational inequalities give even the
+stronger bound
+\[
+6b_2-ab+6e_{2,2}+e_{1,2}<-10^{-5},
+\]
+which proves \eqref{eq:firstrectanglecertified}
+without division by a Laguerre expression.
+The compact transfer theorem then yields the
+claimed genuine-theta inequality.
+\end{proof}
+
+This first successful rectangle already spans
+the \emph{entire backward heat-time interval}
+$s\in[0,1/2]$, including $t=0$.
+Its Fourier range is, however, confined to
+$|x|\le0.01$, and its Laguerre order is only
+$n=1$. The proof relies mainly on
+positivity of the underlying theta moments,
+not on a mechanism excluding off-critical
+zeros. Extending this result to every order
+and unbounded Fourier height remains the
+unproved global problem. In particular it
+would be incorrect to infer RH from
+\eqref{eq:firstrectanglecertified} alone.
+
+The complete interval source is
+\path{certificates/xi_first_compact_theta_rectangle.py};
+the kernel-checked rational algebra is in
+\path{XiKernel/FirstCompactThetaRectangle.lean}.
+The integral enclosures and complete analytic
+heat/Fourier passage have not been certified
+end to end in Lean.
