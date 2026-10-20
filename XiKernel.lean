@@ -115,3 +115,5 @@ import XiKernel.ExactShieldingDefect
 import XiKernel.RoucheShieldingTransfer
 
 import XiKernel.TwoMomentShielding
+
+import XiKernel.TwoMomentNoUniformStep
