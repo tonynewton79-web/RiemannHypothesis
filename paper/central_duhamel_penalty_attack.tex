@@ -364,3 +364,126 @@ stronger than independent absolute
 theta-tail convergence. No such joint,
 all-order positive-source bound has
 been established here.
+
+
+\begin{theorem}[Adaptive theta cutoffs control the Duhamel error]
+\label{thm:adaptivepenalty}
+Let $C_*$ be the finite positive
+absolute Fourier-moment majorant of
+Corollary~\ref{cor:heatsources}, and set
+\[
+B_n=\frac{3(2n+1)C_*}{2\cdot4^{2n}},
+\qquad
+D_n=B_n+(n+1)(2n+1)B_{n+1}.
+\]
+For every $n\ge1$, $C\ge1$, and
+integer $M\ge1$ with
+$q=\pi(M+1)^2$, the actual and
+truncated central penalties obey
+\begin{equation}
+\boxed{
+|\mathcal E^{(M)}_{n,C}(T,0)-
+\mathcal E_{n,C}(T,0)|
+\le TC D_n\,q e^{-q+1/16}.
+}
+\label{eq:adaptivepenaltyerror}
+\end{equation}
+If $M=M_n(C)$ is the least integer
+$M\ge1$ satisfying
+\begin{equation}
+q\ge
+\max\!\left\{12,\
+2\log\!\left[e^{1/16}(1+C)(1+TD_n)\right]\right\},
+\label{eq:jointcutoff}
+\end{equation}
+then, uniformly for all $C\ge1$,
+\begin{equation}
+\boxed{
+|\mathcal E^{(M_n(C))}_{n,C}(T,0)-
+\mathcal E_{n,C}(T,0)|<1.
+}
+\label{eq:jointgap}
+\end{equation}
+For fixed $n$, $M_n(C)=O_n(\sqrt{\log(2+C)})$.
+Consequently RH is equivalent to
+\[
+\forall n\ge1:\quad
+\sup_{C\ge1}
+\mathcal E^{(M_n(C))}_{n,C}(T,0)<\infty .
+\]
+This is an explicit \emph{finite-mode,
+joint-limit} criterion, not a
+proof of its boundedness.
+\end{theorem}
+\begin{proof}
+The uniform theta heat-tail estimate
+and its Laguerre consequence,
+Corollary~\ref{cor:heatsources},
+give
+\[
+\sup_{t,x}
+|U_{n,M}(t,x)-U_n(t,x)|
+\le B_n q e^{-q+1/16}.
+\]
+Here $U_n$ is computed from $H_t$,
+which is one half of the full-line
+transform $F_t$, so each
+quadratic Laguerre expression is
+one quarter of the corresponding
+full-line expression. The
+$1$-Lipschitz property of the
+positive-part map now gives, for
+$C\ge1$,
+\begin{align*}
+|E^{(M)}_{n,C}-E_{n,C}|
+&\le k_n|U_{n+1,M}-U_{n+1}|\\
+&\qquad+C|U_{n,M}-U_n|\\
+&\le C D_n q e^{-q+1/16}.
+\end{align*}
+Gaussian convolution preserves the
+supremum norm. Integration over
+the slab proves
+\eqref{eq:adaptivepenaltyerror}.
+
+For $q\ge12$, the elementary
+exponential estimate
+$e^{q/2}\ge q^2/8\ge q$
+implies $q e^{-q}\le e^{-q/2}$.
+Condition \eqref{eq:jointcutoff}
+therefore gives
+\[
+TC D_n\,q e^{-q+1/16}
+\le\frac{TC D_n}{(1+C)(1+TD_n)}<1.
+\]
+The final strict inequality follows
+from
+\[
+(1+C)(1+TD_n)-TC D_n
+=1+C+TD_n>0.
+\]
+The logarithmic growth of $q$ and
+$q=\pi(M+1)^2$ prove the claimed
+mode complexity. Finally, the
+difference of the two penalties is
+uniformly less than one, so
+boundedness for one family in $C$
+is equivalent to boundedness
+for the other. Apply
+Theorem~\ref{thm:onepointcriterion}.
+\end{proof}
+
+Theorem~\ref{thm:adaptivepenalty}
+is the appropriate repair of
+Theorem~\ref{thm:noncommutingtheta}.
+It shows that the accuracy of
+finite theta approximants need
+not be the asymptotic obstacle;
+an explicitly adaptive
+cutoff controls the absolute
+positive-part penalty error.
+The difficulty lies in proving
+a \emph{uniform upper bound} on
+the resulting genuine
+theta-specific penalty itself.
+The present proof does not
+supply such a bound.
