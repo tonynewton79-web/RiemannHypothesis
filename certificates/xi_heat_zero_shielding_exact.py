@@ -24,7 +24,7 @@ for R in [1,2,3,4,7,10,100,500]:
 print("PASS telescoping exact lattice shield through R=500")
 
 x=sp.Symbol("x")
-families=[[-5,-2,0,3,7],[-10,-7,-2,3,9],[-6,-5,-1,2,4,11]]
+families=[[-3,2],[-5,-2,0,3,7],[-10,-7,-2,3,9],[-6,-5,-1,2,4,11]]
 count=0
 for roots in families:
     P=sp.prod(x-sp.Rational(r) for r in roots)
