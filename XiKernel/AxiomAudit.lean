@@ -23,6 +23,7 @@ import XiKernel.HeatDuhamelSpectral
 import XiKernel.ThetaMixtureObstruction
 import XiKernel.SpatialHeatComparison
 import XiKernel.ThetaCompactSpatialTransfer
+import XiKernel.FirstCompactThetaRectangle
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
@@ -219,3 +220,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.compact_spatial_defect_transfer
 #print axioms XiKernel.odd_cutoff_blocks_global_spatial_comparison
 #print axioms XiKernel.compact_error_budget
+
+#print axioms XiKernel.rectangle_theta_budget_small
+#print axioms XiKernel.rectangle_strict_transfer_margin
+#print axioms XiKernel.genuine_theta_first_rectangle_gate
