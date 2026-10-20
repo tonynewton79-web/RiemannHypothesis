@@ -58,6 +58,8 @@ jobs:
         run: python certificates/xi_penalty_defect_limit_exact.py
       - name: Exact quantitative Duhamel penalty sandwich and Gaussian averaging tests
         run: python certificates/xi_penalty_quantitative_exact.py
+      - name: Exact one-point theta Duhamel witness, negative-mass and scalar-normalization algebra
+        run: python certificates/xi_central_duhamel_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
