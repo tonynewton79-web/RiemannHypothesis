@@ -31,6 +31,7 @@ import XiKernel.FirstCompactThetaRectangle
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatCollisionRate
 import XiKernel.ZeroLatticeAndBand
+import XiKernel.SevenUnitHeatBand
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
 import XiKernel.ThetaConditionalSliceObstruction
@@ -259,3 +260,6 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.extended_band_source_gate
 #print axioms XiKernel.multiple_real_zero_comparison_impossible
 #print axioms XiKernel.symmetric_two_gap_bound
+
+#print axioms XiKernel.seven_unit_rational_gap
+#print axioms XiKernel.seven_unit_heat_source_gate
