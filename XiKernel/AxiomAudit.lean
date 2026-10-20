@@ -66,6 +66,8 @@ import XiKernel.DyadicPenalty
 import XiKernel.JointPenaltyCutoff
 import XiKernel.ZeroCompatibleDuhamel
 import XiKernel.OpenSlabCollision
+import XiKernel.HeightRenewalAndClosure
+
 #print axioms XiKernel.centerMoment_pos
 #print axioms XiKernel.correlation_quadratic_gate
 #print axioms XiKernel.rational_jet_fifth_negative
@@ -327,3 +329,8 @@ import XiKernel.OpenSlabCollision
 
 #print axioms XiKernel.no_uniform_theta_single_anchor
 #print axioms XiKernel.shrinking_radius_model
+
+#print axioms XiKernel.even_heat_initial_factor
+#print axioms XiKernel.even_heat_discriminant_identity
+#print axioms XiKernel.even_heat_end_discriminant_negative
+#print axioms XiKernel.even_heat_collision_vertex_positive
