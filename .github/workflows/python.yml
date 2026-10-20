@@ -74,6 +74,8 @@ jobs:
         run: python certificates/xi_six_band_exponential_exact.py
       - name: Exact inverse-gap Jensen and necessary log-square heat coefficient tests
         run: python certificates/xi_heat_log_square_gap_exact.py
+      - name: Exact theta extended-band and all-order zero-lattice rational audit
+        run: python certificates/xi_zero_lattice_all_orders_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
