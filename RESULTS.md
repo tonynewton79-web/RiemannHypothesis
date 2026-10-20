@@ -1012,3 +1012,44 @@ The first inequality is optimal among positive measures with just those two mome
 **Publication:** The new theorem is integrated in `paper/heat_two_moment_shielding.tex` and the full manuscript source `paper/main.tex`. The working **49-page PDF** is the complete previously mailed 46-page cumulative edition plus a three-page rigorously written continuation. DOI 10.5281/zenodo.23461586 is represented as live per the author's report; no reserved/unpublished boilerplate is added.
 
 **RH:** **OPEN.** Neither a full-half-unit all-pair lower contour bound nor an exclusion of zero migration from unbounded height is proved. The new Jensen inequality upgrades only a valid independent local certificate; it does not prove the endpoint budget or RH.
+
+## 20 October 2026 — High-zero obstruction to a universal single-anchor shielding step
+
+**New analytic consequence for the ACTUAL theta family, not just a polynomial control.**
+At `t*=1/2`, the established real-zero density implies there are
+adjacent positive zeros `a_i<b_i` with gaps `g_i=b_i-a_i -> 0`.
+Protecting disks must have `r_i<g_i/2`. The positive weighted theta
+first moment
+`C1=integral_0^infty u*Phi(u)*exp(t* u²+u) du`
+is finite and bounds the minimum contour modulus by
+`m_i<=|H_t*(a_i+i*r_i)|<=C1*r_i ->0`.
+
+For any fixed positive backward time `sigma`, the OPTIMAL two-moment
+Jensen upper allowance is
+`J_i=A_(Y_i)*(1-exp(-sigma*M_(Y_i)/A_(Y_i)))`,
+and it satisfies
+`J_i>=B0(sigma)=integral Phi(u)*exp(t*u²)*(1-exp(-sigma*u²))du>0`
+independently of `i`. Therefore **J_i>m_i for all sufficiently
+high pairs**. The Padé sufficient condition also fails.
+
+This proves that one set of contours anchored at `t*=1/2`,
+with a fixed positive heat-time step, can NEVER cover all actual theta
+pairs via this two-moment Rouché modulus criterion. It does **not**
+prove the zero pairs collide or RH fails; it precisely excludes a
+particular proposed proof shortcut. The necessary next route is
+height-adaptive and renewed contours, with a global no-escape-at-infinity
+argument, or a different zero-exclusion method.
+
+**Verification:** algebraic Lean bridge
+`XiKernel/TwoMomentNoUniformStep.lean`; exact Fraction script
+`certificates/xi_two_moment_no_uniform_exact.py` passed
+10,024 rational checks locally. Full analytic proof in
+`paper/heat_two_moment_no_uniform.tex`; standard zero-density and
+theta analytic inputs are NOT Lean-formalized.
+GitHub Actions CI is queued; do not call it passing until confirmed.
+
+**Manuscript:** complete 51-page working PDF is the latest mailed
+46-page full edition plus two rigorous mathematical continuations
+(3 and 2 pages). DOI 10.5281/zenodo.23461586 is displayed as live
+per the author; the old 'reserved, unpublished' boilerplate is absent.
+RH and endpoint simplicity remain unproved.
