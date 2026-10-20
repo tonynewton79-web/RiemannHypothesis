@@ -1,4 +1,5 @@
 import XiKernel.HeatMidpointGap
+import XiKernel.ThetaSpectralLoss
 import XiKernel.Algebra
 import XiKernel.TransformMoment
 import XiKernel.RationalJet
@@ -272,3 +273,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.midpoint_pair_ratio_gate
 #print axioms XiKernel.midpoint_inverse_gap_barrier
 #print axioms XiKernel.midpoint_logsquare_forces_spacing
+
+#print axioms XiKernel.laguerre_heat_factorial_coupling
+#print axioms XiKernel.three_atom_noncentral_loss
+#print axioms XiKernel.theta_division_free_budget
