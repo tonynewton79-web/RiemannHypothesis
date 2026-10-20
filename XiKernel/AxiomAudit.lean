@@ -30,6 +30,7 @@ import XiKernel.ThetaCompactSpatialTransfer
 import XiKernel.FirstCompactThetaRectangle
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatCollisionRate
+import XiKernel.ZeroLatticeAndBand
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
 import XiKernel.ThetaConditionalSliceObstruction
@@ -253,3 +254,8 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.collision_model_adjacent_ratio
 #print axioms XiKernel.collision_pair_inverse_gap
 #print axioms XiKernel.collision_ratio_unbounded
+
+#print axioms XiKernel.thirteen_halves_variance_gate
+#print axioms XiKernel.extended_band_source_gate
+#print axioms XiKernel.multiple_real_zero_comparison_impossible
+#print axioms XiKernel.symmetric_two_gap_bound
