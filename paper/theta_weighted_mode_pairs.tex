@@ -1,0 +1,211 @@
+\subsection{Mode-pair compensation in the fully weighted theta correlation}
+\label{sec:modepaircompensation}
+
+The known fixed-difference sign obstruction does not settle the
+fully weighted Fourier correlation. It is therefore natural to
+retain the actual arithmetic summands of the theta kernel and
+ask whether their pairwise correlation functions possess
+nonnegative Fourier transforms. The answer is negative already
+at the diagonal level, at \emph{every odd Laguerre order}.
+The calculation also isolates an exact modular cancellation
+that any constructive replacement must retain.
+
+Let \(q_m=\pi m^2\), and for \(r\ge0\) put
+\[
+\phi_m(r)=q_m(2q_me^{4r}-3)e^{5r-q_me^{4r}},
+\quad
+\nu_{m,t}(u)=\tfrac12e^{tu^2}\phi_m(|u|).
+\]
+For every real \(t\), these functions are strictly positive,
+even and integrable; their sum equals the whole-line theta
+measure \(\nu_t=\frac12e^{tu^2}\Phi(u)\). Write
+\[
+h_{m,t}(z)=\int_{\mathbb R}\nu_{m,t}(u)e^{izu}\,du,
+\qquad H_t(z)=\sum_{m\ge1}h_{m,t}(z).
+\]
+For \(n\ge0\) define the ordered correlation
+\begin{equation}
+G^{mk}_{n,t}(w)=\frac{1}{2(2n)!}
+\int_{\mathbb R}b^{2n}
+\nu_{m,t}\!\left(\frac{w+b}{2}\right)
+\nu_{k,t}\!\left(\frac{w-b}{2}\right)\,db.
+\label{eq:modepairdef}
+\end{equation}
+Every \(G^{mk}_{n,t}\) is pointwise nonnegative, and
+\(G_{n,t}=\sum_{m,k\ge1}G^{mk}_{n,t}\) converges in
+\(L^1(\mathbb R)\). The Jacobian of
+\((u,v)\mapsto(w=u+v,b=u-v)\) gives the exact identity
+\begin{equation}
+\widehat G^{mk}_{n,t}(x)
+=[y^{2n}]\,h_{m,t}(x+iy)h_{k,t}(x-iy),
+\qquad
+L_{n,t}(x)=\sum_{m,k\ge1}\widehat G^{mk}_{n,t}(x).
+\label{eq:modepairFourier}
+\end{equation}
+
+\begin{theorem}[Sign obstruction for theta mode-pair Fourier transforms]
+\label{thm:modepairsign}
+For the genuine square-lattice Jacobi-theta summands,
+define
+\[
+D_m=\phi'_m(0)
+=q_me^{-q_m}(-8q_m^2+30q_m-15).
+\]
+Then
+\begin{equation}
+D_1>0,\quad D_m<0\ (m\ge2),\quad
+\sum_{m\ge1}D_m=0.
+\label{eq:modepairDs}
+\end{equation}
+For fixed \(m,k,n\) and finite real heat time \(t\),
+as real \(|x|\to\infty\),
+\begin{equation}
+\boxed{\;
+\widehat G^{mk}_{n,t}(x)
+=\frac{(-1)^n(n+1)D_mD_k}{x^{2n+4}}
++O_{m,k,n,t}(|x|^{-2n-6}).
+\;}
+\label{eq:modepairasymptotic}
+\end{equation}
+Consequently, for every odd \(n\ge1\), each diagonal
+term \(\widehat G^{mm}_{n,t}(x)\) is strictly negative
+for all sufficiently large \(|x|\), \emph{despite}
+\(G^{mm}_{n,t}(w)\ge0\). At those orders the
+\(m=1\) versus \(k\ge2\) mixed terms have a
+strictly positive leading Fourier coefficient.
+
+For every finite \(M\ge1\), put
+\(H_{M,t}=\sum_{m\le M}h_{m,t}\) and
+\(D_M=\sum_{m\le M}D_m>0\).
+Then, for each fixed odd \(n\ge1\),
+\begin{equation}
+\boxed{\;
+L_n[H_{M,t}](x)=
+-\frac{(n+1)D_M^2}{x^{2n+4}}
++O_{M,n,t}(|x|^{-2n-6})<0
+\;}
+\label{eq:finiteoddorders}
+\end{equation}
+at sufficiently large real \(|x|\).
+This applies even at \(t=\frac12\), where the
+\emph{complete} transform \(H_{1/2}\) is known
+to have only real zeros and satisfies the
+generalized Laguerre inequalities.
+\end{theorem}
+
+\begin{proof}
+The theta summands are strictly positive for
+\(r\ge0\), since \(q_m>\pi>3\).
+The derivative recursion
+\(P_0(q)=2q-3\),
+\(P_1(q)=-8q^2+30q-15\) gives the displayed
+formula for \(D_m\).
+For \(q\ge12\), writing \(q=12+v\) with \(v\ge0\)
+gives
+\[
+-P_1(q)=8v^2+162v+807>0.
+\]
+For the first mode, \(3<\pi<22/7\) and
+\(P_1\) is strictly decreasing on this interval;
+\(P_1(22/7)=13/49>0\). Thus the first two
+sign assertions in \eqref{eq:modepairDs} are exact.
+The Jacobi modular equation makes the full
+theta kernel even, whence
+\(\sum_mD_m=\Phi'(0)=0\). Absolute convergence of
+the derivative series justifies this step.
+In particular \(D_M=-\sum_{m>M}D_m>0\).
+
+Put \(f_{m,t}(r)=e^{tr^2}\phi_m(r)\) on \(r\ge0\).
+For each fixed \(t\), \(f_{m,t}\) and all its
+derivatives decay superexponentially as
+\(r\to+\infty\); furthermore
+\(f'_{m,t}(0)=D_m\).
+Repeated integration by parts in
+\[
+h_{m,t}(z)=\int_0^\infty
+f_{m,t}(r)\cos(zr)\,dr
+\]
+gives, uniformly as \(|\Re z|\to\infty\) in
+any fixed horizontal strip,
+\begin{equation}
+h_{m,t}(z)=-D_mz^{-2}+O_{m,t}(|z|^{-4}).
+\label{eq:modepairhalfline}
+\end{equation}
+Repeated integration by parts to higher
+order, followed by Cauchy estimates on a
+fixed auxiliary strip, controls any finite
+number of derivatives of the remainder.
+
+Multiplying the leading expressions
+\(h_{m,t}(x+iy)\) and \(h_{k,t}(x-iy)\)
+gives
+\[
+\frac{D_mD_k}{(x+iy)^2(x-iy)^2}
+=\frac{D_mD_k}{(x^2+y^2)^2}.
+\]
+The coefficient of \(y^{2n}\) is
+\((-1)^n(n+1)D_mD_k/x^{2n+4}\).
+The next terms and their derivatives
+contribute \(O(|x|^{-2n-6})\).
+Equation \eqref{eq:modepairFourier} proves
+\eqref{eq:modepairasymptotic}. Summing over
+a finite rectangle \(m,k\le M\) proves
+\eqref{eq:finiteoddorders} and the asserted
+signs.
+\end{proof}
+
+The complete leading coefficients vanish for
+\emph{every} \(n\), not because individual
+pairs are Fourier-positive, but because
+\[
+\sum_{m,k}D_mD_k
+=\left(\sum_mD_m\right)^2=0.
+\]
+More specifically, write
+\(D_1=A>0\) and
+\(\sum_{m\ge2}D_m=-A\). The diagonal
+first-mode and tail--tail blocks together
+give \(2A^2\) in this quadratic coefficient;
+the two mixed blocks give \(-2A^2\).
+For odd \(n\) the former contributions
+have negative leading Fourier sign and the
+mixed blocks compensate them positively.
+This exact equality is the first member of
+the infinite family of cancellations involving
+all higher odd endpoint jets.
+
+The theorem rules out a termwise Bochner
+argument on the mode-pair densities, including
+at the heat time \(t=1/2\) where the global
+Laguerre inequalities already hold. It does
+\emph{not} rule out a nontrivial compensated
+infinite regrouping. It also does not prove
+the weighted Fourier inequality at \(t=0\):
+that all-order inequality is the unresolved
+real-zero condition.
+
+A constructive next test should therefore
+derive a signed, modularly compensated
+\emph{entire-series} representation for
+\(\widehat G_{n,t}\), with quantitative control
+of the remainder and a positive lower
+comparison valid for all \(n,t,x\).
+An absolute truncation-error estimate alone
+will not suffice, because the Fourier
+transform can approach zero at high frequency.
+The correlation methods of
+Csordas~\cite{Cs,CsTrunc} and
+Dimitrov--Xu~\cite{DX} are essential prior
+work on this problem.
+
+The algebraic signs, all-order leading
+coefficients and first-order cross identity
+are independently tested in
+\path{certificates/xi_mode_pair_weighted_exact.py}.
+The Lean module
+\path{XiKernel/WeightedModePairs.lean}
+checks the finite polynomial and
+cancellation gates; it does not
+formalize the infinite theta modular
+identity, Fourier integration by parts,
+or the analytic asymptotic error term.
