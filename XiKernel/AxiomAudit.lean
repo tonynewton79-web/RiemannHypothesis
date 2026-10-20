@@ -19,6 +19,7 @@ import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
 import XiKernel.SixBandDivisionFree
+import XiKernel.SixBandExponentialTail
 import XiKernel.CentralMomentRatio
 import XiKernel.AdjacentLaguerreRatio
 import XiKernel.HeatDuhamelSpectral
@@ -236,3 +237,8 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.six_band_division_free_source
 #print axioms XiKernel.six_band_quadratic_defect
 #print axioms XiKernel.heat_gaussian_defect_budget
+
+#print axioms XiKernel.sixband_exponential_parameter
+#print axioms XiKernel.sixband_exponential_rational_tail
+#print axioms XiKernel.sixband_exp_weight_identity
+#print axioms XiKernel.sixband_mgf_domain
