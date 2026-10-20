@@ -1,0 +1,158 @@
+\section{A finite-certificate transfer for the spatial heat comparison}
+\label{sec:compacttransfer}
+The spatial comparison of
+Theorem~\ref{thm:spatialmax} requires control of
+$k_nU_{n+1}-c_nU_n$, where
+$k_n=(n+1)(2n+1)$.
+The global quotient $U_{n+1}/U_n$ is unsuitable for
+certification near zeros, and fixed finite theta
+truncations produce artificial negative odd-order
+Laguerre expressions at large frequencies.
+There is nevertheless a rigorous way to use
+finite theta calculations on a \emph{compact}
+heat--frequency rectangle without assuming
+the desired positivity.
+
+For $M\ge1$ let $H_{t,M}$ be the $M$-mode
+theta transform from
+Section~\ref{sec:heattail}, and put
+$U_{n,M}(s,x)=L_n[H_{\frac12-s,M}](x)$.
+Define, for $q_M=\pi(M+1)^2$,
+\[
+e_{n,M}=
+\frac{3(2n+1)C_*}{2\cdot4^{2n}}\,
+q_Me^{-q_M+1/16},
+\qquad k_n=(n+1)(2n+1),
+\]
+where the finite positive constant $C_*$ is
+defined in Corollary~\ref{cor:heatsources}.
+Since $F_t=2H_t$ and generalized Laguerre
+expressions are quadratic in their defining
+function, the complex-strip estimate
+\eqref{eq:heatlagerror} implies
+\begin{equation}
+|U_n(s,x)-U_{n,M}(s,x)|\le e_{n,M}
+\quad(0\le s\le\tfrac12,\ x\in\mathbb R).
+\label{eq:compacttransfererror}
+\end{equation}
+
+\begin{theorem}[Noncircular compact comparison transfer]
+\label{thm:compacttransfer}
+Fix an order $n\ge1$, a preterminal time
+$0<S<1/2$, a radius $R>0$, and the rectangle
+$K=[0,S]\times[-R,R]$.
+Let $c:K\to[0,\infty)$ be a bounded function,
+$0\le c\le C_K$. If the \emph{finite} theta
+transform satisfies the rigorously certified
+inequality
+\begin{equation}
+\begin{aligned}
+k_nU_{n+1,M}(s,x)-c(s,x)U_{n,M}(s,x)
+\le -\Bigl(k_ne_{n+1,M}+C_Ke_{n,M}\Bigr)
+\end{aligned}
+\label{eq:compactcertcriterion}
+\end{equation}
+throughout $K$, then the \emph{genuine}
+theta heat flow satisfies
+\[
+k_nU_{n+1}(s,x)\le c(s,x)U_n(s,x)
+\quad((s,x)\in K).
+\]
+Neither the hypothesis nor the proof assumes
+$U_n>0$, divides by a Laguerre expression, or
+assumes RH.
+\end{theorem}
+\begin{proof}
+Write $U=U_n$, $V=k_nU_{n+1}$, and put
+subscript $M$ on their truncated analogues.
+From \eqref{eq:compacttransfererror},
+\[
+V-cU
+\le V_M-cU_M+
+k_ne_{n+1,M}+c\,e_{n,M}
+\le V_M-cU_M+
+k_ne_{n+1,M}+C_Ke_{n,M}.
+\]
+The last expression is nonpositive
+by \eqref{eq:compactcertcriterion}.
+All inequalities hold pointwise, including
+points at which $U_n$ vanishes.
+\end{proof}
+
+The estimate is effectively numerical. For
+example, a coarse universal bound is
+$C_*<100$. Indeed the first mode has
+$q_1<4$ and $q_1-1/16>2$, yielding
+\[
+q_1^2e^{-(q_1-1/16)}
+\left(\frac1{a_1}+\frac3{a_1^2}
++\frac6{a_1^3}+\frac6{a_1^4}\right)<38.
+\]
+For $m\ge2$, the rational incomplete-gamma
+bound in \eqref{eq:heatrationalgate} and
+a geometric ratio below $1/2$ imply a total
+less than $3q_2e^{-(q_2-1/16)}<48$,
+since $q_2<16$. Thus $C_*<86<100$.
+Machin bounds $3<\pi<22/7$ and finite
+positive Taylor sums for the exponential
+permit completely rational upper enclosures
+for each $e_{n,M}$.
+
+\begin{proposition}[Why the compact restriction cannot
+be omitted]\label{prop:oddcutoffcomparison}
+For every finite $M$, fixed heat time
+$t\in[0,1/2]$ and odd order $n\ge1$,
+there exist arbitrarily large real frequencies
+$x$ for which
+\[
+U_{n,M}(s,x)<0,\qquad
+U_{n+1,M}(s,x)>0 .
+\]
+At those frequencies no nonnegative
+coefficient $c(s,x)$ can satisfy even the
+finite-mode inequality
+$k_nU_{n+1,M}\le cU_{n,M}$.
+\end{proposition}
+\begin{proof}
+The exact finite-cutoff asymptotic from
+Theorem~\ref{thm:modepairsign} gives
+\[
+U_{j,M}(s,x)=
+(-1)^j(j+1)D_M^2x^{-2j-4}
++O_{M,j,t}(|x|^{-2j-6}),
+\quad D_M>0.
+\]
+For odd $j=n$, the leading coefficient
+is negative; for even $j=n+1$ it is
+positive. The asserted strict signs
+therefore hold at sufficiently large
+$|x|$. If $c\ge0$, then
+$cU_{n,M}\le0<k_nU_{n+1,M}$.
+\end{proof}
+
+Theorem~\ref{thm:compacttransfer} provides a
+precise, reproducible target for a rigorous
+rectangle-by-rectangle computer-assisted
+attack. Its finite-mode hypothesis
+\eqref{eq:compactcertcriterion} has \emph{not}
+been established for the genuine theta flow
+on the exhaustion of all compact rectangles.
+A finite-mode absolute-error bound alone does
+not imply the needed \emph{negative margin},
+and the asymptotic obstruction above rules
+out imposing it globally with fixed $M$.
+
+The exact triangle-inequality gates are
+kernel-checked in
+\path{XiKernel/ThetaCompactSpatialTransfer.lean}.
+The independent standard-library rational
+checker
+\path{certificates/xi_compact_spatial_transfer_exact.py}
+tests the error coefficients and the
+transfer inequality. Neither test
+establishes the missing finite-mode
+sign inequality throughout any
+exhaustion of the complete heat--frequency
+domain. Therefore this is a
+necessary refinement of the proof method,
+not a proof of RH.
