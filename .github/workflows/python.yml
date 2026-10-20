@@ -88,6 +88,8 @@ jobs:
         run: python certificates/xi_one_sided_shielding_exact.py
       - name: Exact nonlinear exterior shielding telescoping and minimum-gap sign audit
         run: python certificates/xi_exact_shielding_defect_audit.py
+      - name: Exact signed shielding terminal-budget and quartic heat-collision adversarial test
+        run: python certificates/xi_signed_shielding_budget_audit.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
