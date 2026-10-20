@@ -18,6 +18,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.CentralMomentRatio
 import XiKernel.AdjacentLaguerreRatio
 import XiKernel.HeatDuhamelSpectral
 import XiKernel.ThetaMixtureObstruction
@@ -224,3 +225,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.rectangle_theta_budget_small
 #print axioms XiKernel.rectangle_strict_transfer_margin
 #print axioms XiKernel.genuine_theta_first_rectangle_gate
+
+#print axioms XiKernel.central_factorial_ratio
+#print axioms XiKernel.even_moment_ratio_monotone
+#print axioms XiKernel.central_comparison_required
