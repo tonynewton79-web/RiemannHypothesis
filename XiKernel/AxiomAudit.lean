@@ -1,5 +1,6 @@
 import XiKernel.HeatMidpointGap
 import XiKernel.ThetaSpectralLoss
+import XiKernel.HighOrderCompactPositivity
 import XiKernel.Algebra
 import XiKernel.TransformMoment
 import XiKernel.RationalJet
@@ -277,3 +278,8 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.laguerre_heat_factorial_coupling
 #print axioms XiKernel.three_atom_noncentral_loss
 #print axioms XiKernel.theta_division_free_budget
+
+#print axioms XiKernel.quartic_pair_potential
+#print axioms XiKernel.compact_frequency_cosine_gate
+#print axioms XiKernel.compact_frequency_laguerre_gate
+#print axioms XiKernel.proved_positive_ratio_comparison
