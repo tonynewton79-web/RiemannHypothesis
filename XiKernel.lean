@@ -62,3 +62,5 @@ import XiKernel.ThetaConditionalSliceObstruction
 import XiKernel.WeightedModePairs
 
 import XiKernel.SpatialDefectStability
+
+import XiKernel.PenaltyDefectLimit
