@@ -104,3 +104,5 @@ import XiKernel.ThetaSpectralLoss
 import XiKernel.HighOrderCompactPositivity
 
 import XiKernel.PoleFreeLaguerre
+
+import XiKernel.HeatZeroShielding
