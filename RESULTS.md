@@ -391,3 +391,54 @@ At backward heat time s∈(0,1/2], let B_n(s)=(P_s U_n(0))(0), D_n(s)=(n+1)(2n+1
 **Verification:** local analytic proof and exact/rational diagnostic established; newest GitHub CI runs are QUEUED as of update, not reported as successful; no end-to-end Lean proof of full theta integrals. The complete 23-page PDF (prior 21-page paper plus 2-page continuation) was emailed to tony.newton79@gmail.com. DOI https://doi.org/10.5281/zenodo.23461586 is cited without 'reserved' qualification.
 
 **Next actionable gate:** test a genuinely theta-specific Fourier-positive conditional-slice or signed-correlation decomposition, which would imply the source inequality without dividing by U_n. First attempt to falsify any proposed stronger slice condition before elevating it to an RH lemma.
+
+## 20 October 2026 — Genuine theta conditional slices necessarily change sign at simple zeros
+
+**New analytical theorem (RH is NOT assumed):**
+Let `nu_t(u)=Phi(u)*exp(t*u²)/2` and `H_t(x)=int nu_t(u)*exp(i*x*u)du`.
+Define a fixed-difference Fourier slice
+`C_t(b,x)=(1/2) int_R nu_t((w+b)/2) nu_t((w-b)/2) cos(x*w) dw`.
+Then
+`int_b C_t(b,x)*exp(i*eta*b) db=H_t(x+eta)*H_t(x-eta)`
+and
+`int_b b^(2n) C_t(b,x) db=(2n)! L_(n,t)(x)`.
+At every known **simple real** zero `a` of the actual theta transform,
+`int C_t(b,a) db=0` but `int b² C_t(b,a) db=2*H_t'(a)^2>0`.
+Thus the genuine theta slice **has both positive and negative values**.
+Furthermore its `b`-Fourier symbol is
+`-H_t'(a)^2*eta²+O(eta^4)<0` near eta=0.
+Therefore neither pointwise slice positivity nor positive convolution-square/Gram
+factorization **of the individual fixed-difference slices** is valid.
+This disproves a proposed proof *shortcut*, not RH.
+
+**Exact control:** positive measure (delta_-1+delta_+1)/2 at its simple cos-zero
+gives signed slice weights +1/4 at b=±2 and -1/2 at b=0;
+total mass 0, second moment 2. The rational arithmetic tests pass.
+
+**Theta diagnostic, not interval-certified:** using actual Jacobi theta
+at rational Fourier x=28.269, `C_0(0,x)~-3.26794e-7` and
+`C_0(1/2,x)~+9.74345e-8`, reproducible at 8000/16000
+Simpson panels. Neither sign is promoted to a rigorous numerical certificate.
+
+**Files:** `paper/theta_conditional_slice_attack.tex` (included in
+`paper/spatial_heat_comparison.tex`), `XiKernel/ThetaConditionalSliceObstruction.lean`,
+and `certificates/xi_theta_conditional_slice_attack.py`.
+The paper proof uses classical Fourier inversion and known real simple theta
+zeros; the Lean module tests the finite signed-measure algebra, **not** the infinite
+theta integral theorem end-to-end.
+
+**Remaining RH gate:** Prove nonnegative Fourier transforms of the *completed
+b-weighted* theta correlation `G_(n,t)(w)` simultaneously for all n,t,x,
+via a non-circular arithmetic construction. Neither pointwise positivity of
+the unweighted signed slices nor their b-positive-definiteness works.
+The statement remains equivalent to the all-order Laguerre target unless
+independent theta arithmetic gives a valid constructive certificate.
+The source bibliography already cites Csordas and Dimitrov-Xu.
+
+**Repository verification:** New Lean, exact Python and PDF Actions runs remain
+QUEUED at this checkpoint; do not describe their outputs as passed.
+Exact Python tests ran successfully locally.
+DOI: https://doi.org/10.5281/zenodo.23461586 (author confirms live,
+old 'reserved' text no longer used).
+The cumulative complete 25-page PDF was assembled locally from the
+previous 23-page manuscript plus the two-page research continuation.
