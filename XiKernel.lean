@@ -70,3 +70,5 @@ import XiKernel.PenaltyQuantitative
 import XiKernel.CentralDuhamel
 
 import XiKernel.JointPenaltyCutoff
+
+import XiKernel.OpenSlabCollision
