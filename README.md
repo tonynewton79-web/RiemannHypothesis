@@ -732,3 +732,23 @@ It sharpens the previous polynomial coefficient 1/3456 by >10 orders of magnitud
 **Crucial scope:** the bound is exponentially small but not zero, and the normalization factor is order-dependent. It does not prove the RH-equivalent vanishing/uniform-penalty criterion; RH remains open. It does not resolve all frequencies via a scalar coefficient. This is a quantitative strengthening, not a complete global proof.
 
 Files: `paper/heat_six_band_exponential_tail.tex`, `XiKernel/SixBandExponentialTail.lean`, `certificates/xi_six_band_exponential_exact.py`. Exact rational tests have passed locally; new Lean/GitHub CI must be checked before marking those runs passed. The Gaussian MGF, actual theta correlation inequality and full parabolic transfer are analytical inputs, not Lean-formalized end-to-end. DOI https://doi.org/10.5281/zenodo.23461586 is now linked directly as the user's live DOI.
+
+## 20 October 2026 — spatial heat comparison: density-forced coefficient 1/8
+
+A new analytic theorem in `paper/heat_log_square_density_gate.tex` gives a quantitative **necessary** height dependence for any locally finite nonnegative coefficient in the heat-Laguerre comparison. At each simple real zero `a` of `H_(1/2)`,
+
+`c_1(0,a) >= 6 * sum_{b != a} (a-b)^(-2)`.
+
+For `N(R)` real zeros in `[R,2R]`, Jensen's inequality gives some zero `a_R` with
+
+`c_1(0,a_R) >= (12/(N(R)*R^2)) * sum_{m=1}^{N(R)-1} (N(R)-m)^3/m^2`.
+
+Using the established `N(R) ~ R log R/(4*pi)` zero-count law, one obtains
+
+`limsup_{a -> infinity, H_(1/2)(a)=0} c_1(0,a)/log(2+a)^2 >= 1/8`.
+
+Therefore every proposed `c_1(0,x) <= C*(1+log^2(2+|x|))` needs `C>=1/8` and every sub-log-square candidate fails. This is **NOT** an upper bound, the needed comparison is still unproved, and RH remains open.
+
+Reproduction: exact rational tests `certificates/xi_heat_log_square_gap_exact.py` and Lean polynomial gates `XiKernel/LogSquareHeatGap.lean`. The canonical product, zero-density input, Jensen aggregation and heat maximum principle are not fully Lean-certified. Local exact rational checks passed. The latest GitHub Actions jobs were still **queued** as of the 20 October inspection; report no completed CI pass for this commit until they finish.
+
+Publication DOI: https://doi.org/10.5281/zenodo.23461586 (the user reports it is live). The manuscript header now uses the DOI rather than a reserved/unpublished label. The complete current paper source is `paper/main.tex` and its included modules; newest hosted PDF build may be delayed by the GitHub Actions queue.
