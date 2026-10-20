@@ -464,3 +464,25 @@ For each finite M, \(D_M=\sum_{m\le M}D_m>0\), so every fixed odd Laguerre order
 **Priority:** this decomposition builds directly on Csordas, Csordas–Ruttan–Varga, and Dimitrov–Xu. No independent novelty review and no RH proof.
 
 **Next target:** construct a *non-circular* infinite-lattice compensation bound for the complete \(\widehat G_{n,t}\), with a relative sign lower bound uniform in Fourier height, heat time, and Laguerre order. Any finite-mode positivity claim is provably false at odd orders and high frequencies.
+
+## 20 October 2026 — Quantitative spatial defect stability and new RH proof gate
+
+The [cumulative LaTeX manuscript](paper/main.tex) now includes a **non-circular quantitative spatial heat comparison** in `paper/spatial_heat_comparison.tex`:
+
+For any bounded classical U with `U_s-(1/2)U_xx+c U >= -epsilon`, `c>=0` locally bounded, `epsilon>=0) bounded and `U(0,x)>=0`, one has
+`U(s,x) >= -integral_0^s P_(s-r)epsilon(r,.)(x)dr`.
+If `epsilon<=delta`, then `U>=-s*delta`; on a finite interval with lateral lower bound `-b`, `U>=-b-s*delta`.
+For the theta heat hierarchy, the **positive comparison defect**
+`epsilon_(n,c)=[(n+1)(2n+1)U_(n+1)-c_n U_n]_+`
+is therefore a concrete error quantity whose vanishing would give all-order Laguerre positivity and RH, but **no such vanishing theta-series bound has been proved**.
+
+An exact collision test with `H_t(z)=z²-2t` shows
+`L1=2x²+4t`, `L2=1`. At `(t,x)=(0,0)` the comparison defect is exactly 6 for any finite c; if `c<=C`, `0<=L1<=1/(1+C)`, then the defect is >=5. Any proposed approximate proof must be compatible with such collision obstructions.
+
+New files: `XiKernel/SpatialDefectStability.lean` and
+`certificates/xi_spatial_defect_stability_exact.py`. The exact-rational collision control was run locally and passed. The new GitHub Actions CI jobs were still **queued**, so no remote Lean or build success is claimed for these latest edits.
+
+The DOI URL in `paper/main.tex` is now presented without the earlier “reserved/not published” language, as requested by the author:
+[10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586).
+
+**Research status:** RH is open. The locally bounded spatial comparison is equivalent (under standard analytic hypotheses) to **RH plus zero simplicity** and is therefore stronger than the desired result. The division-free Duhamel source inequality remains the zero-compatible RH-equivalent target; the new defect bound is a quantitative stability tool, not an RH proof.
