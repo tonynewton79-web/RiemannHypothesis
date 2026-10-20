@@ -66,3 +66,5 @@ import XiKernel.SpatialDefectStability
 import XiKernel.PenaltyDefectLimit
 
 import XiKernel.PenaltyQuantitative
+
+import XiKernel.CentralDuhamel
