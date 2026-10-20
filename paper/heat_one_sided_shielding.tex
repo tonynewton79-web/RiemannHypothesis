@@ -1,0 +1,229 @@
+\paragraph{A one-sided inverse-square shielding budget.}
+\label{par:one-sided-shielding}
+The integrated requirement \eqref{eq:integratedshieldu}
+does not need two-sided control of a whole neighborhood
+of the consecutive pair. There is a sharper geometric
+comparison that penalizes \emph{only outward gaps larger
+than the gap under protection}. This identifies a
+particular observable of the moving zero configuration
+whose heat-time integral would suffice.
+
+Suppose $a<b$ are consecutive real simple zeros,
+$g=b-a>0$, and enumerate the exterior real zeros
+as $a-\ell_m$ and $b+r_m$ $(m\ge1)$, with
+$\ell_m,r_m>0$ increasing. Define successive
+exterior gaps
+\[
+d_{L,1}=\ell_1,\quad
+d_{L,j}=\ell_j-\ell_{j-1}\ (j\ge2),
+\qquad
+d_{R,1}=r_1,\quad
+d_{R,j}=r_j-r_{j-1}\ (j\ge2).
+\]
+In particular
+$\ell_m=\sum_{j=1}^m d_{L,j}$
+and similarly on the right.
+
+\begin{theorem}[Sharp one-sided shielding bound]
+\label{thm:onesidedshield}
+Assume the bi-infinite real simple zero sequence
+has absolutely convergent shielding sum
+\[
+\mathcal S=\sum_{m\ge1}
+\left\{\frac1{\ell_m(\ell_m+g)}
++\frac1{r_m(r_m+g)}\right\}.
+\]
+Let $D=2-g^2\mathcal S$. Then, for every integer $R\ge1$,
+\begin{equation}\label{eq:onesidedfinite}
+\boxed{\begin{aligned}
+[D]_+ \le{}&\frac2{R+1}\\
+&+\sum_{j=1}^R
+\left(\frac1{j^2}-\frac1{(R+1)^2}\right)
+\frac{
+(d_{L,j}-g)_++(d_{R,j}-g)_+}{g}.
+\end{aligned}}
+\end{equation}
+Consequently, in the extended nonnegative real sense,
+\begin{equation}\label{eq:onesidedinfinite}
+\boxed{
+[D]_+\le\frac1g\sum_{j\ge1}
+\frac{(d_{L,j}-g)_++(d_{R,j}-g)_+}{j^2}.
+}
+\end{equation}
+These inequalities require no restriction on
+outward gaps \emph{smaller} than $g$.
+The coefficient $j^{-2}$ is optimal to
+first order in a single outward-gap perturbation.
+\end{theorem}
+
+\begin{proof}
+Set $f(v)=1/(v(v+1))$ for $v>0$.
+The two normalized shielding contributions
+at index $m$ are $f(\ell_m/g)$ and $f(r_m/g)$.
+The regular-lattice reference satisfies
+$\sum_{m\ge1}f(m)=1$.
+Since
+\[
+-f'(v)=\frac1{v^2}-\frac1{(v+1)^2}
+\]
+is positive and strictly decreasing,
+the mean-value theorem gives, for $v>0$,
+\begin{equation}\label{eq:tangent}
+f(m)-f(v)\le
+\left(\frac1{m^2}-\frac1{(m+1)^2}\right)
+(v-m)_+.
+\end{equation}
+For $v\le m$ the left side is nonpositive;
+for $v>m$ integrate $-f'$ between $m$ and $v$.
+
+Omitting all shielding terms with $m>R$ can
+only \emph{increase} $D$. Therefore
+\begin{align*}
+D
+&\le 2-\sum_{m=1}^R
+\{f(\ell_m/g)+f(r_m/g)\}\\
+&=\frac2{R+1}+
+\sum_{m=1}^R
+\{f(m)-f(\ell_m/g)+f(m)-f(r_m/g)\}.
+\end{align*}
+Let $\eta_{L,j}=d_{L,j}/g-1$ and similarly
+$\eta_{R,j}$. Then
+\[
+(\ell_m/g-m)_+
+=\left(\sum_{j=1}^m\eta_{L,j}\right)_+
+\le\sum_{j=1}^m(\eta_{L,j})_+.
+\]
+Apply \eqref{eq:tangent} on both sides,
+interchange two finite nonnegative sums, and use
+the exact telescoping identity
+\[
+\sum_{m=j}^R
+\left(\frac1{m^2}-\frac1{(m+1)^2}\right)
+=\frac1{j^2}-\frac1{(R+1)^2}.
+\]
+This proves \eqref{eq:onesidedfinite};
+its right side is nonnegative and therefore
+also bounds $[D]_+$.
+
+If the infinite series on the right of
+\eqref{eq:onesidedinfinite} diverges there
+is nothing further to prove. Otherwise
+the finite sums converge to it as $R\to\infty$,
+and the first term tends to zero; this proves
+the infinite bound.
+
+To see first-order sharpness,
+start with a perfect lattice of gap $g$
+and enlarge only the $j$th exterior gap on
+one side from $g$ to $(1+\delta)g$,
+$\delta>0$. Then
+\[
+D(\delta)=\sum_{m=j}^\infty
+\{f(m)-f(m+\delta)\},\qquad
+D'(0+)=\sum_{m=j}^\infty
+\left(\frac1{m^2}-\frac1{(m+1)^2}\right)
+=\frac1{j^2}.
+\]
+At $\delta=1$ the difference telescopes again:
+\[
+D(1)=\frac1{j(j+1)}.
+\]
+Thus the linear inverse-square coefficient
+cannot be uniformly lowered even in
+an arbitrarily small single-gap perturbation.
+\end{proof}
+
+\begin{corollary}[Conditional one-sided
+heat-time collision barrier]\label{cor:onesidedheat}
+Along any backward heat interval on which the
+zero-motion equation \eqref{eq:shieldgap} holds,
+let $d_{L,j}(s),d_{R,j}(s)$ denote the moving
+exterior gaps. For a fixed integer $R\ge1$ put
+\[
+\mathcal E_R(s)=\frac2{R+1}
++\sum_{j=1}^R
+\left(\frac1{j^2}-\frac1{(R+1)^2}\right)
+\frac{
+(d_{L,j}(s)-g(s))_+
++(d_{R,j}(s)-g(s))_+}{g(s)}.
+\]
+Then
+\begin{equation}\label{eq:one-sided-dynamic}
+G(s)\ge G(0)-4\int_0^s\mathcal E_R(v)\,dv.
+\end{equation}
+In particular, if
+\begin{equation}\label{eq:one-sided-budget}
+\boxed{
+4\int_0^\sigma\mathcal E_R(v)\,dv
+<G(0)
+}
+\end{equation}
+throughout the real-simple evolution up to
+a proposed terminal time $\sigma$,
+this chosen pair cannot collide by that time.
+\end{corollary}
+\begin{proof}
+By Theorem~\ref{thm:onesidedshield},
+$[D(s)]_+\le\mathcal E_R(s)$.
+Since $G'=-4D\ge-4[D]_+$,
+integration gives \eqref{eq:one-sided-dynamic}.
+The strict bound \eqref{eq:one-sided-budget}
+forces the gap square to stay positive.
+\end{proof}
+
+The improvement is structural, not yet a theorem
+about actual Riemann zero rigidity. The earlier
+near-lattice criterion constrained both signs of
+every exterior displacement. Here only the
+\emph{positive excess} of each successive exterior
+gap enters, and the weights are inverse-square.
+The finite-$R$ remainder $2/(R+1)$ is explicit;
+over a half-unit backward interval it alone
+contributes $4/(R+1)$ to the total budget.
+Thus high zeros with $g(0)\asymp1/\log X$
+still call for $R$ on the scale of $(\log X)^2$,
+even if all weighted excesses vanished.
+
+The single-gap example also exposes why
+zero-density information alone is insufficient:
+doubling one exterior gap at index $j$
+changes the local shielding deficit by
+$1/[j(j+1)]$, despite leaving the rest of
+the ideal infinite lattice unchanged.
+Moreover, the positive-part budget
+\eqref{eq:one-sided-budget} is
+\emph{sufficient but not necessary}:
+a squared gap may remain positive despite
+repeated decreases and recoveries whose total
+downward variation exceeds its initial value.
+
+The true missing estimate is now explicit:
+establish \eqref{eq:one-sided-budget}, or a
+comparably effective signed-deficit integral,
+for \emph{all} genuine theta-flow zero pairs
+through backward time $1/2$, with a further
+argument precluding a first loss of real
+rootedness at unbounded height. Neither
+assertion follows from the current theta
+moment bounds, the local seven-unit
+Laguerre interval, or the known average
+zero-density formula. Consequently
+Theorem~\ref{thm:onesidedshield}
+does not establish RH.
+
+\paragraph{Exact verification.}
+The standalone rational checker
+\path{certificates/xi_one_sided_shielding_exact.py}
+verifies the scalar tangent identity,
+1,800 adversarial finite-gap configurations,
+the optimal first-order $j^{-2}$ weights
+and the single doubled-gap example.
+The Lean module
+\path{XiKernel/OneSidedShielding.lean}
+certifies the scalar rational
+identities and conditional integrated
+margin. The genuine infinite zero-motion
+equation, interchange of limits and the
+all-time theta-specific budget are
+analytical steps, not end-to-end
+kernel-certified Lean results.
