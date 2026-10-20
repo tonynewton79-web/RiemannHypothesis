@@ -1,0 +1,160 @@
+\section{A collision-rate obstruction to spatial Laguerre comparisons}
+\label{sec:collisionrate}
+The heat hierarchy \eqref{eq:backwardlaguerre} suggests a
+spatially dependent comparison
+\begin{equation}\label{eq:spatialcomparison}
+k_n U_{n+1}(s,x)\le c_n(s,x)U_n(s,x),
+\qquad k_n=(n+1)(2n+1).
+\end{equation}
+The bounded-coefficient version was already shown inadequate
+for general positive Fourier kernels. Allowing dependence on
+$x$ does not automatically cure the problem: a zero collision
+forces a nonintegrable singularity in the coefficient.
+
+\begin{theorem}[Universal collision-rate obstruction]
+\label{thm:collisionrate}
+Suppose a real entire family $H_t$ is smooth in $t$,
+satisfies $\partial_tH_t=-\partial_x^2H_t$, and has a
+nondegenerate real double zero at $(t_*,x_*)$:
+\[
+H_{t_*}(x_*)=\partial_xH_{t_*}(x_*)=0,
+\qquad a:=\partial_x^2H_{t_*}(x_*)\ne0.
+\]
+Write $s_*=\tfrac12-t_*$ and
+$U_n(s,x)=L_{n,1/2-s}(x)$. Then for $s<s_*$
+sufficiently close to $s_*$, $U_1(s,x_*)>0$,
+and
+\begin{equation}\label{eq:collrate}
+\boxed{\lim_{s\uparrow s_*}
+(s_*-s)\frac{6U_2(s,x_*)}{U_1(s,x_*)}
+=\frac32.}
+\end{equation}
+Any nonnegative $c_1$ satisfying \eqref{eq:spatialcomparison}
+throughout that interval must therefore obey
+\[
+\liminf_{s\uparrow s_*}(s_*-s)c_1(s,x_*)
+\ge\frac32,\qquad
+\int_{s_*-\eta}^{s_*}c_1(s,x_*)\,ds=+\infty
+\]
+for every sufficiently small $\eta>0$.
+\end{theorem}
+\begin{proof}
+Set $\delta=t-t_*>0$. The backward heat equation
+and Taylor's theorem at the fixed spatial coordinate give
+\[
+\begin{aligned}
+H_{t_*+\delta}(x_*)&=-a\delta+O(\delta^2),&
+\partial_xH_{t_*+\delta}(x_*)&=O(\delta),\\
+\partial_x^2H_{t_*+\delta}(x_*)&=a+O(\delta).
+\end{aligned}
+\]
+Consequently
+$L_{1,t_*+\delta}(x_*)=a^2\delta+O(\delta^2)$.
+The exact coefficient formula
+\[
+L_{2,t}
+=\tfrac1{12}HH^{(4)}
+-\tfrac13H'H^{(3)}
++\tfrac14(H'')^2
+\]
+gives $L_{2,t_*+\delta}(x_*)=a^2/4+O(\delta)$.
+Division yields \eqref{eq:collrate}.
+Since $c_1\ge6U_2/U_1$, it follows that
+$c_1(s,x_*)\ge(3/2+o(1))/(s_*-s)$.
+Integrating this necessary lower bound proves divergence.
+\end{proof}
+
+\begin{proposition}[Exact two-root gap model]
+\label{prop:collisionpair}
+The polynomial heat solution
+\[
+H_t(x)=(x-x_*)^2-2(t-t_*)
+\]
+has
+\[
+L_{1,t}(x)=2(x-x_*)^2+4(t-t_*),
+\qquad L_{2,t}(x)=1.
+\]
+For $t>t_*$ the exact adjacent-order quotient is
+\begin{equation}\label{eq:pairquotient}
+\boxed{\frac{6L_{2,t}(x)}{L_{1,t}(x)}
+=\frac{3}{(x-x_*)^2+2(t-t_*)}.}
+\end{equation}
+The two real zeros at this time have gap
+$g=2\sqrt{2(t-t_*)}$, and at their midpoint
+every admissible coefficient in \eqref{eq:spatialcomparison}
+for $n=1$ must satisfy $c_1\ge12/g^2$.
+\end{proposition}
+\begin{proof}
+All claims follow by direct differentiation.
+The two roots are $x_*\pm\sqrt{2(t-t_*)}$,
+so $g^2=8(t-t_*)$ and
+$3/[2(t-t_*)]=12/g^2$.
+\end{proof}
+
+The polynomial model supplies a normal form, not a collision
+theorem for the Riemann $\Xi$ function. It clarifies the
+proposed logarithmic-square spatial majorant: such a bound
+would need control of small zero gaps, as well as collisions,
+in the particular heat family being studied. The positive
+Gaussian--cosh example of
+Proposition~\ref{prop:doublezerofailure} supplies an
+actual Fourier-transform heat flow in which a collision
+occurs at a finite positive time. We have not found a
+collision at any $t\in[0,1/2]$ for the genuine Jacobi
+theta transform, and the preceding theorem does not
+assert its existence.
+
+\begin{proposition}[An integrable spatial envelope suffices]
+\label{prop:logspatialsufficient}
+Assume that for every fixed integer $n\ge1$ there is a
+nonnegative $a_n\in L^1([0,\tfrac12])$ and a measurable
+nonnegative $c_n(s,x)$ such that
+\begin{equation}\label{eq:logspatialgate}
+\begin{gathered}
+k_nU_{n+1}(s,x)\le c_n(s,x)U_n(s,x),\\
+0\le c_n(s,x)\le
+a_n(s)\bigl(1+\log^2(2+|x|)\bigr)
+\end{gathered}
+\end{equation}
+for all real $x$ and almost every $s\in[0,\tfrac12]$.
+Suppose these coefficients have the regularity needed
+for the standard parabolic comparison principle
+(the genuine Fourier coefficients themselves are smooth
+and bounded). Then $U_n(s,x)\ge0$ for all $n\ge1$,
+$s\in[0,\tfrac12]$ and real $x$. In particular,
+\eqref{eq:logspatialgate} for the Riemann theta heat
+family would imply the Riemann hypothesis.
+\end{proposition}
+\begin{proof}
+With $D=\partial_s-\tfrac12\partial_x^2$,
+the hierarchy gives
+$DU_n=-k_nU_{n+1}\ge-c_nU_n$.
+At $s=0$, $H_{1/2}$ has only real zeros, so
+$U_n(0,x)\ge0$ by the classical Laguerre--P\'olya
+criterion. The linear parabolic problem with
+potential $c_n\ge0$ has a positivity-preserving
+Feynman--Kac propagator. Under the stated envelope
+the stochastic exponential is well-defined on every
+finite interval; the Brownian supremum has Gaussian
+tails, which control the logarithmic-square spatial
+growth. Comparing $U_n$ with the nonnegative solution
+started from $U_n(0,\cdot)$ gives $U_n\ge0$.
+At $s=1/2$ every generalized Laguerre inequality
+holds for $H_0$, so the classical real-zero criterion
+implies RH.
+\end{proof}
+
+This is a conditional sufficiency theorem, not a proof
+of \eqref{eq:logspatialgate}. The collision theorem shows
+why a coefficient with a nonintegrable time singularity
+is insufficient for the preceding comparison argument.
+The genuine theta all-order comparison on $|x|\le6$
+established earlier is compatible with this result
+but does not discharge the missing global-in-$x$,
+all-order estimate. The exact algebraic normal form
+is reproduced in
+\path{XiKernel/HeatCollisionRate.lean} and
+\path{certificates/xi_heat_collision_envelope_exact.py};
+the full analytic theta/Feynman--Kac implication is
+not yet formalized in Lean.
