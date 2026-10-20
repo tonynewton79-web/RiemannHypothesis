@@ -64,3 +64,5 @@ import XiKernel.WeightedModePairs
 import XiKernel.SpatialDefectStability
 
 import XiKernel.PenaltyDefectLimit
+
+import XiKernel.PenaltyQuantitative
