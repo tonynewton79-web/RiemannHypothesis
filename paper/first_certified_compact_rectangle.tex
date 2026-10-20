@@ -221,3 +221,69 @@ the kernel-checked rational algebra is in
 The integral enclosures and complete analytic
 heat/Fourier passage have not been certified
 end to end in Lean.
+
+
+\begin{proposition}[Every fixed order admits a compact rectangle]
+\label{prop:allorderslocalrect}
+For every integer $n\ge1$ there exist
+$r_n>0$, an integer $M_n\ge1$ and
+a finite constant $c_n>0$ such that,
+with $K_n=[0,1/2]\times[-r_n,r_n]$
+and $C_{K_n}=c_n$, the actual
+finite theta approximation obeys
+\[
+k_nU_{n+1,M_n}-c_nU_{n,M_n}
+\le-k_ne_{n+1,M_n}-c_ne_{n,M_n}
+\qquad\hbox{throughout }K_n.
+\]
+This statement does not assert a
+common positive radius for all orders
+or any control at unbounded Fourier height.
+\end{proposition}
+\begin{proof}
+For $H_t(iy)=\int_0^\infty
+e^{tu^2}\Phi(u)\cosh(yu)\,du$,
+all even Taylor coefficients are positive.
+Consequently
+$U_n(s,0)=L_n[H_{1/2-s}](0)>0$
+for every $n$ and every $s\in[0,1/2]$.
+The positive-moment coefficients
+at $t=0$ provide a uniform strictly
+positive lower bound at $x=0$
+throughout the heat slab.
+Joint continuity then gives $r_n>0$
+and $\eta_n>0$ such that
+$U_n(s,x)\ge\eta_n$ on $K_n$.
+The next-order expression is bounded
+on $K_n$, say $|k_nU_{n+1}|\le A_n$.
+Choose
+$c_n=(A_n+2)/\eta_n$; then
+\[
+k_nU_{n+1}-c_nU_n\le-2
+\quad\hbox{on }K_n.
+\]
+The explicit theta heat truncation
+errors $e_{j,M}$ tend to zero
+as $M\to\infty$ for every fixed order.
+Choose $M_n$ so large that
+\[
+2\bigl(k_ne_{n+1,M_n}
++c_ne_{n,M_n}\bigr)<1.
+\]
+Since the finite-mode defect differs
+from the genuine defect by at most
+$k_ne_{n+1,M_n}+c_ne_{n,M_n}$,
+the finite-mode defect is at most
+$-2+\mathrm{budget}\le-\mathrm{budget}$.
+This proves the claim.
+\end{proof}
+
+The quantifier order in this proposition
+is essential: the radius, mode cutoff
+and comparison coefficient may all depend
+on $n$. The argument uses positivity at
+the central Fourier point, not a mechanism
+excluding nonreal zeros. It supplies
+\emph{no} bound when $|x|\to\infty$,
+which is precisely the unresolved
+global step in the Riemann hypothesis programme.
