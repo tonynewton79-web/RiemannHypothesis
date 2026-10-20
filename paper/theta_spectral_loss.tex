@@ -1,0 +1,216 @@
+\subsubsection{A division-free theta heat-loss formula}
+\label{subsec:thetaspectralloss}
+
+A spatially dependent comparison
+$k_nU_{n+1}\le c_nU_n$ is difficult to evaluate
+where $U_n$ becomes small. The theta convolution
+admits another exact representation in which
+neither the coefficient $c_n$ nor division by
+$U_n$ appears. It also exposes the obstacle
+to proving noncentral positivity by replacing
+cosine transforms with positive moments.
+
+Put $T=1/2$, $t=T-s$, $0\le s\le T$, and
+$k_n=(n+1)(2n+1)$. Write
+$h_T(u)=\Phi(|u|)e^{Tu^2}/2$, so that
+$H_T(z)=\int_{\mathbb R}h_T(u)e^{izu}\,du$.
+For $n\ge1$, define the strictly nonnegative
+pair weight
+\begin{equation}
+W_n(u,v)=\frac{h_T(u)h_T(v)}{(2n)!}
+                  (u-v)^{2n}.
+\label{eq:heatpairweight}
+\end{equation}
+Here $P_s=e^{s\partial_x^2/2}$ denotes the
+forward Gaussian heat semigroup.
+
+\begin{theorem}[Exact theta heat-loss identity]
+\label{thm:thetaspectralloss}
+For $s\in[0,T]$, $n\ge1$, and real $x$,
+\begin{align}
+U_n(s,x)
+&=\iint_{\mathbb R^2}W_n(u,v)
+e^{-s(u+v)^2/2}e^{-s(u-v)^2/2}\nonumber\\
+&\hspace{25mm}\cdot\cos(x(u+v))\,du\,dv,\label{eq:heatpairU}\\
+P_sU_n(0,x)
+&=\iint_{\mathbb R^2}W_n(u,v)
+e^{-s(u+v)^2/2}\cos(x(u+v))\,du\,dv.
+\label{eq:heatpairP}
+\end{align}
+Consequently, with $\Delta_n=P_sU_n(0)-U_n(s)$,
+\begin{align}
+\Delta_n(s,x)=
+\iint_{\mathbb R^2}W_n(u,v)
+e^{-s(u+v)^2/2}
+\bigl(1-e^{-s(u-v)^2/2}\bigr)\nonumber\\
+\hspace{28mm}\cdot\cos(x(u+v))\,du\,dv.
+\label{eq:thetaloss}
+\end{align}
+For $s>0$, $\Delta_n(s,0)>0$. In addition,
+put
+\begin{equation}
+M_{n+1}(s)=
+\iint_{\mathbb R^2}
+\frac{h_T(u)h_T(v)(u-v)^{2n+2}}{(2n+2)!}
+e^{-s(u+v)^2/2}\,du\,dv>0.
+\end{equation}
+Then the following bound is valid without
+assuming any sign for $U_n(s,x)$:
+\begin{equation}
+\boxed{|\Delta_n(s,x)|\le
+s\,k_nM_{n+1}(s),\qquad x\in\mathbb R.}
+\label{eq:thetaheatlossbudget}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The coefficient of $y^{2n}$ in
+$H_t(x+iy)H_t(x-iy)$ equals
+$(2n)!^{-1}$ times the Fourier transform
+of $h_t(u)h_t(v)(u-v)^{2n}$ at $u+v$.
+Since $u^2+v^2=((u+v)^2+(u-v)^2)/2$,
+replacing $h_T$ with $h_{T-s}$ gives
+\eqref{eq:heatpairU}. Gaussian convolution
+in the $x$ variable multiplies the
+$(u+v)$ Fourier frequency by
+$e^{-s(u+v)^2/2}$, proving
+\eqref{eq:heatpairP}. Subtraction proves
+\eqref{eq:thetaloss}.
+
+At $x=0$ the integrand of
+\eqref{eq:thetaloss} is nonnegative,
+and is strictly positive away from the
+diagonal $u=v$ for $s>0$.
+The theta kernel is positive on a
+set of full measure, giving strictness.
+Finally, $0\le1-e^{-a}\le a$ for $a\ge0$,
+$|\cos|\le1$, and
+$(2n+2)!/(2(2n)!)=k_n$ prove
+\eqref{eq:thetaheatlossbudget}.
+\end{proof}
+
+\begin{corollary}[An all-order spatially decaying
+division-free estimate]\label{cor:spectrallossdecay}
+For fixed $s>0$, let $K_{n,s}(w)$ be the
+push-forward of the nonnegative measure
+in \eqref{eq:thetaloss} under $w=u+v$.
+Then $K_{n,s}$ is even, nonnegative
+and rapidly decreasing, and
+\[
+\Delta_n(s,x)=\int_{\mathbb R}K_{n,s}(w)
+                      \cos(xw)\,dw.
+\]
+For every integer $j\ge1$ and $x\ne0$,
+\begin{equation}
+|\Delta_n(s,x)|\le
+\min\left\{
+s k_nM_{n+1}(s),
+\frac{\|K_{n,s}^{(2j)}\|_{L^1}}{|x|^{2j}}
+\right\}.
+\label{eq:lossderivatives}
+\end{equation}
+In particular the explicit inequality
+\begin{equation}
+P_sU_n(0,x)>
+\min\left\{s k_nM_{n+1}(s),
+\frac{\|K_{n,s}''\|_1}{x^2}\right\}
+\label{eq:noncircularband}
+\end{equation}
+implies $U_n(s,x)>0$, with no assumed
+positivity of the unknown $U_n(s,x)$.
+\end{corollary}
+\begin{proof}
+The Jacobi transformation makes $h_T$
+even and smooth; its superexponential
+tails give all required Schwartz bounds.
+Integrating out $u-v$ preserves smoothness
+and rapid decrease in $w$.
+Repeated integration by parts in the
+cosine transform gives the derivative
+estimates. The final implication follows
+from $U_n=P_sU_n(0)-\Delta_n$.
+\end{proof}
+
+\begin{proposition}[An exact noncentral sign obstruction]
+\label{prop:signedlossatom}
+A positive even spectral weight does not force
+$\Delta_n(s,x)\ge0$ away from $x=0$,
+even inside $0<s<1/2$.
+Let the positive symmetric atomic measure
+have masses $\mu(0)=1$,
+$\mu(-1)=\mu(1)=1/10$; use the same
+pair formula with $h_T(u)\,du$ replaced
+by $d\mu(u)$. At the admissible time
+$s=2\log(5/4)<1/2$ one has
+\[
+\boxed{\Delta_1(s,0)=\frac{869}{15625}>0,
+\qquad \Delta_1(s,\pi)=-\frac{131}{15625}<0.}
+\]
+\end{proposition}
+\begin{proof}
+Write $r=e^{-s/2}=4/5$. The terms
+with one atom at $0$ and the other at
+$\pm1$ contribute, before division
+by $2!=2$, $\pm4(1/10)r(1-r)$,
+with the negative sign at $x=\pi$.
+The two opposite nonzero atoms
+contribute
+$2(1/10)^2(2)^2(1-r^4)=738/15625$.
+Hence at $x=\pi$ the sum is
+$\frac12(-8/125+738/15625)
+=-131/15625$, whereas at $x=0$
+it equals $869/15625$.
+The time inequality follows from
+$\log(1+z)<z$ for $z>0$.
+This is a counterexample to an
+unjustified sign inference, not a
+claim about a zero of the Riemann
+transform.
+\end{proof}
+
+\paragraph{A weighted Duhamel alternative.}
+For any nonnegative locally bounded
+spatial coefficient $c_n(s,x)$ put
+$D_n=k_nU_{n+1}-c_nU_n$ and let
+$\mathcal Q_{c_n}(s,r)$ denote the
+positive evolution operator of
+$\frac12\partial_x^2-c_n$.
+Duhamel's identity is
+\begin{equation}
+U_n(s)=\mathcal Q_{c_n}(s,0)U_n(0)
+-\int_0^s\mathcal Q_{c_n}(s,r)D_n(r)\,dr.
+\label{eq:weighteddivisionfree}
+\end{equation}
+No division by $U_n$ is needed.
+The pointwise condition $D_n\le0$
+suffices, but is stronger than the
+integrated condition that the positive
+part of the Duhamel source be dominated
+by the initial semigroup term. Such
+an integrated estimate could tolerate
+localized violations of the proposed
+spatial comparison. It remains
+unproved for the genuine theta kernel.
+
+The nonoscillatory budget
+\eqref{eq:thetaheatlossbudget} is positive
+and independent of Fourier height,
+whereas $P_sU_n(0,x)$ decays to zero
+as $|x|\to\infty$. Therefore that
+budget alone cannot prove
+\eqref{eq:noncircularband} for
+arbitrarily large $|x|$. The derivative
+bounds \eqref{eq:lossderivatives}
+supply spatial decay but no
+theta-specific \emph{relative} lower
+bound on the positive baseline.
+This is the precise remaining
+Fourier-sign problem for this method.
+The algebraic normalizations and
+the finite atomic sign obstruction are
+checked with exact rational arithmetic
+in \path{certificates/xi_division_free_spectral_loss_exact.py}
+and at the Lean algebra level in
+\path{XiKernel/ThetaSpectralLoss.lean}.
+Neither check formalizes the complete
+theta Fourier integrals or proves RH.
