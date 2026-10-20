@@ -877,3 +877,27 @@ The apparent inverse-square pole of the chosen zero cancels **exactly** after se
 **Tests:** Exact finite rational root-configuration checks passed locally; new Lean and automated Python CI at commit `254b07d1` are queued as of the latest observation and must not be called passed yet.
 
 **Correspondence release:** The latest known compiled 33-page manuscript plus a completely typeset 2-page pole-free continuation was delivered as a 35-page cumulative PDF by Gmail from `newtonastro.physics@gmail.com` to `tony.newton79@gmail.com`. The monolithic GitHub LaTeX source includes the new file, but its separate PDF recompilation is queued. DOI: https://doi.org/10.5281/zenodo.23461586 (author confirms live; no reserved designation).
+
+## 20 October 2026 — Exact backward-heat zero-gap shielding attack (conditional)
+
+**Mathematical statement.** On any heat-time interval in which the genuine de Bruijn--Newman transform has simple real zeros, two consecutive zeros a<b with squared gap G=(b-a)² satisfy the exact identity
+
+`d_s G = -8 + 4*G*S_ext`, `s=1/2-t`, `S_ext = sum_(rho!=a,b) 1/((a-rho)*(b-rho))`.
+
+The underlying zero-motion dynamics and its use in the de Bruijn-Newman problem are **established prior art** (Csordas--Smith--Varga, Rodgers--Tao), not a claimed discovery. The external shielding sum is absolutely convergent. For an ideal arithmetic zero lattice `G*S_ext=2` exactly, making `G'=0`; for only R exterior zeros on each side, `G*S_R=2R/(R+1)`, leaving the exact finite-window defect `-8/(R+1)`.
+
+**Conditional quantitative theorem.** Suppose throughout a backward real-simple-zero interval that the R closest exterior zeros on each side remain within relative position error `eps<1` of an ideal lattice based on the current gap. Then
+
+`d_s G>= -8/(R+1)-16*eps`
+and
+`G(s)>=G(0)-s*(8/(R+1)+16*eps)`.
+
+For a half-unit interval, the strict condition `G(0)>4/(R+1)+8*eps` gives a positive gap margin. For each gap `G(0)`, one numerical parameter choice is `R>=16/G(0)`, `eps<=G(0)/32` (with eps<1). **No such uniform lattice rigidity is proved for actual Xi zeros.** At large heights it would demand roughly O(log² height) neighbors and O(log^-2 height) relative positional accuracy—far stronger than average spacing estimates.
+
+**Less restrictive, still open:** show the integrated positive shielding defect obeys `4*integral_0^s [2-G*S_ext]_+ dv < G(0)` for every gap, backward time and height; also prevent possible migration of nonreal zeros from unbounded height. Without that additional theta-specific control, this approach does not establish RH.
+
+**Exact local tests PASSED:** `certificates/xi_heat_zero_shielding_exact.py` verifies R<=500 telescopes, 14 finite polynomial heat-flow root ODE identities, 32 adversarial rational lattice cases, and four quantitative persistence margins. These tests have also run successfully in local Python. **Lean:** `XiKernel/HeatZeroShielding.lean` contains purely algebraic gates; the infinite theta zero dynamics and continuation are not formalized. **GitHub CI:** latest jobs queued at last check, so no success claimed.
+
+**Published paper:** DOI [10.5281/zenodo.23461586](https://doi.org/10.5281/zenodo.23461586) (author confirms live). No reserved-DOI language should appear.
+
+**Full-manuscript release:** The latest previously emailed 35-page version was combined with a 3-page mathematically edited shielding appendix and independently rendered as `Riemann_Xi_Full_Paper_Zero_Shielding_Update_20Oct2026.pdf` (38 pages). On GitHub, the same work is integrated as `paper/heat_zero_shielding_continuation.tex` in the eight-main-section LaTeX source; complete CI recompilation is pending.
