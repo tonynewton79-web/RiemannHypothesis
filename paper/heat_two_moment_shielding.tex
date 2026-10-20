@@ -1,0 +1,114 @@
+\subsubsection{An optimal two-moment contour shield}
+\label{subsec:two-moment-shield}
+The linear contour perturbation in
+Theorem~\ref{thm:rouche-shielding-independent}
+can be improved without assuming a positive
+moving zero gap. Let $t_*>\Lambda$, and
+retain its three contour boundaries, common
+minimum modulus $m>0$ and maximal imaginary
+height $Y$. Define
+\[
+A_Y=\int_0^\infty\Phi(u)e^{t_*u^2+Yu}\,du,\qquad
+M_Y=\int_0^\infty\Phi(u)e^{t_*u^2+Yu}u^2\,du.
+\]
+Both moments are strictly positive and finite.
+
+\begin{theorem}[Sharp independent two-moment bound]
+\label{thm:two-moment-shield}
+For $0\le\tau\le\sigma$ the actual theta
+heat flow satisfies, on every selected contour,
+\begin{equation}\label{eq:two-moment-shield}
+\begin{aligned}
+|H_{t_*-\tau}(z)-H_{t_*}(z)|
+&\le A_Y(1-e^{-\sigma M_Y/A_Y})\\
+&\le\frac{2A_Y\sigma M_Y}{2A_Y+\sigma M_Y}\\
+&\le\sigma M_Y.
+\end{aligned}
+\end{equation}
+The first bound is optimal among positive
+measures with mass $A_Y$ and second moment
+$M_Y$; an atom at $u=\sqrt{M_Y/A_Y}$
+achieves equality in Jensen's step.
+\end{theorem}
+\begin{proof}
+Write $w_Y(u)=\Phi(u)e^{t_*u^2+Yu}$.
+Positivity of the kernel and
+$|\cos(zu)|\le e^{Yu}$ give
+\[
+|H_{t_*-\tau}-H_{t_*}|
+\le\int_0^\infty w_Y(u)(1-e^{-\tau u^2})\,du.
+\]
+The integrand increases with $\tau$.
+Jensen's inequality for the convex function
+$v\mapsto e^{-\sigma v}$, applied to
+$w_Y\,du/A_Y$, yields the first bound.
+For $x\ge0$, the elementary inequality
+$1-e^{-x}\le2x/(2+x)\le x$
+follows from $e^{x/2}\ge1+x/2$
+by differentiation. Substitute
+$x=\sigma M_Y/A_Y$ to finish.
+\end{proof}
+
+\begin{corollary}[A longer noncircular
+zero-pair continuation interval]
+\label{cor:two-moment-window}
+For $0<m<A_Y$ and $0<\sigma\le t_*$,
+the rational sufficient condition
+\begin{equation}\label{eq:two-moment-threshold}
+\sigma<\frac{2mA_Y}{M_Y(2A_Y-m)}
+\end{equation}
+preserves one real simple zero in each
+disk and no intervening zero. Consequently
+$g(\tau)\ge g_*-2r>0$ and
+\[
+4\int_0^\tau\mathcal D(v)\,dv
+\le g_*^2-(g_*-2r)^2<g_*^2.
+\]
+The exact exponential threshold is
+$\sigma<(A_Y/M_Y)\log(A_Y/(A_Y-m))$.
+\end{corollary}
+\begin{proof}
+Condition \eqref{eq:two-moment-threshold}
+is equivalent to
+$2A_Y\sigma M_Y/(2A_Y+\sigma M_Y)<m$.
+Rouch\'e's theorem and real symmetry
+then give the zero-count conclusions.
+Only after establishing a gap floor do
+we invoke $G'=-4\mathcal D$.
+\end{proof}
+
+For example, the rational moments
+$A_Y=10$, $M_Y=20$, $m=6$, and
+$\sigma=2/5$ fail the former linear
+test ($\sigma M_Y=8>6$) but satisfy
+the stronger one
+($2A_Y\sigma M_Y/(2A_Y+\sigma M_Y)
+=40/7<6$). A dependency-free
+verifier checks 25,000 additional
+exact rational gates. A
+35-digit exploratory theta
+calculation at $t_*=1/2$
+gives $m_{\rm sample}/A_Y\approx
+3.36\cdot10^{-4}$ for a
+radius-$1/4$ circle about the first
+positive zero. This is a
+\emph{sampled upper bound} for the
+continuous minimum, not a
+certified contour margin;
+the resulting nonlinear
+improvement is small there.
+
+The bound is strictly stronger as a
+pair-dependent local theorem but does
+not give boundary moduli for every
+actual theta pair over the entire
+backward heat interval. In particular
+it does not exclude real-root loss
+at unbounded height, or prove RH.
+The algebraic implications are checked in
+\path{XiKernel/TwoMomentShielding.lean}
+and the rational verifier
+\path{certificates/xi_two_moment_shielding_exact.py}.
+Jensen's integral inequality and
+the Rouch\'e transfer are manuscript
+proofs, not end-to-end Lean theorems.
