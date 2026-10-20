@@ -54,3 +54,6 @@ jobs:
         run: python certificates/xi_theta_conditional_slice_attack.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
+
+      - name: Exact weighted theta mode-pair Fourier sign and modular cancellation gates
+        run: python certificates/xi_mode_pair_weighted_exact.py
