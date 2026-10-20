@@ -45,7 +45,12 @@ theorem finite_dyadic_RH_refutation_gate (k : ℕ) (S D : ℝ)
   have hp : 0 < (2:ℝ)^k := by positivity
   have habs : S - (2:ℝ)^k*D < 2 := (abs_lt.mp hbound).2
   have h : 1 < (2:ℝ)^k*D := by linarith
-  exact (mul_pos_iff.mp (show 0 < (2:ℝ)^k*D by linarith)).resolve_left (by positivity)
+  have hprod : 0 < (2:ℝ)^k*D := by linarith
+  by_contra hnot
+  have hD : D ≤ 0 := le_of_not_gt hnot
+  have hneg : (2:ℝ)^k*D ≤ 0 :=
+    mul_nonpos_of_nonneg_of_nonpos (le_of_lt hp) hD
+  linarith
 
 theorem dyadic_limit_separation
     (C D S : ℝ) (hC : 0 < C)
@@ -54,7 +59,8 @@ theorem dyadic_limit_separation
     1 < S := by
   have hlow := (abs_lt.mp happrox).1
   have h3 : 3 < C*D := by
-    exact (lt_mul_iff₀ hC).2 hD
+    have h := (div_lt_iff₀ hC).mp hD
+    nlinarith [h]
   linarith
 
 end XiKernel
