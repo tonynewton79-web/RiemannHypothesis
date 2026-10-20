@@ -54,6 +54,8 @@ jobs:
         run: python certificates/xi_theta_conditional_slice_attack.py
       - name: Quantitative spatial defect and collision exact rational tests
         run: python certificates/xi_spatial_defect_stability_exact.py
+      - name: Exact constant-penalty collision and negative-region test
+        run: python certificates/xi_penalty_defect_limit_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
