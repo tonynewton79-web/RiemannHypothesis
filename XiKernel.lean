@@ -88,3 +88,5 @@ import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
 
 import XiKernel.LogSquareHeatGap
+
+import XiKernel.HeatCollisionRate
