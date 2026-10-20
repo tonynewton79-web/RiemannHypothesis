@@ -1,0 +1,131 @@
+\subsubsection{Independent holomorphic shielding envelopes}
+\label{subsec:holomorphic-shielding}
+
+The signed budget $4\int_0^\sigma \mathcal D=G(0)-G(\sigma)$
+is an endpoint identity, not an independent upper estimate.
+A direct holomorphic contour bound supplies such an estimate
+on a genuine, albeit initially short, theta-flow interval.
+
+\begin{theorem}[Local Rouch\'e-to-shielding transfer]
+\label{thm:rouche-shielding-independent}
+Fix $t_*>\Lambda$, a time at which the de Bruijn--Newman
+theta transform
+$H_t(z)=\int_0^\infty \Phi(u)e^{tu^2}\cos(zu)\,du$
+has simple real zeros. Let $a<b$ be consecutive zeros of
+$H_{t_*}$, with $g_*=b-a$. Choose $0<r<g_*/2$
+so that the two disks $D_a,D_b$ of radius $r$, centred
+at $a,b$, are disjoint and each contains one zero.
+Choose a conjugation-invariant Jordan domain $\Omega$
+containing both disks and the real segment $[a-r,b+r]$,
+with exactly two zeros in its interior and no zeros
+on its boundary. Put
+\[
+Y=\max_{\partial D_a\cup\partial D_b\cup\partial\Omega}
+|\Im z|,\quad
+m=\min_{\partial D_a\cup\partial D_b\cup\partial\Omega}
+|H_{t_*}(z)|>0,
+\]
+and
+\[
+\mathcal M_Y=\int_0^\infty
+\Phi(u)e^{t_*u^2}u^2e^{Yu}\,du<\infty.
+\]
+If $0<\sigma\le t_*$ and $\sigma\mathcal M_Y<m$,
+then for all $0\le\tau\le\sigma$ the function
+$H_{t_*-\tau}$ has one simple real zero in each
+disk, with no intervening zero. Their separation
+obeys $g(\tau)\ge g_*-2r>0$.
+
+On any such interval on which the classical real-simple
+zero-motion law $G'=-4\mathcal D$ holds,
+\begin{equation}
+\boxed{
+\int_0^\tau\mathcal D(v)\,dv
+\le\mathcal B_r=r(g_*-r),\qquad
+4\mathcal B_r=g_*^2-\eta_r,\quad
+\eta_r=(g_*-2r)^2>0.}
+\label{eq:rouche-independent-shielding}
+\end{equation}
+The contour hypothesis is independent of
+the unknown moving gap.
+\end{theorem}
+\begin{proof}
+For $u\ge0$, $\Phi(u)>0$,
+$1-e^{-\tau u^2}\le\tau u^2$,
+and $|\cos(zu)|\le e^{|\Im z|u}$. Hence
+on every selected contour,
+\[
+|H_{t_*-\tau}(z)-H_{t_*}(z)|
+\le\tau\mathcal M_Y\le\sigma\mathcal M_Y<m.
+\]
+Rouch\'e preserves one zero in each disk
+and two in $\Omega$, counted with multiplicity.
+Conjugation symmetry makes each unique disk zero
+real and simple, while the enclosing contour excludes
+another zero between them. This proves the separation
+bound. Only now invoke the signed gap ODE:
+\[
+4\int_0^\tau\mathcal D
+=G(0)-G(\tau)
+\le g_*^2-(g_*-2r)^2=4r(g_*-r).
+\]
+The last equality and the strictly positive margin
+follow by algebra.
+\end{proof}
+
+\begin{corollary}[Pair-dependent nonzero theta interval]
+\label{cor:local-rouche-shield}
+For every fixed consecutive pair of zeros of
+$H_{1/2}$, an $r>0$ and $\sigma_i>0$
+satisfying the preceding theorem exist.
+The same holds at $t_*=1/4$, since the
+published unconditional bound $\Lambda\le0.22$
+implies $1/4>\Lambda$.
+This is not an all-height uniform interval.
+\end{corollary}
+\begin{proof}
+The initial zeros are isolated and simple.
+Choose disjoint disks and an enclosing contour
+with strictly positive boundary minima.
+The theta moment $\mathcal M_Y$ is finite by
+superexponential kernel decay, so one may take
+$0<\sigma_i<\min(t_*,m/\mathcal M_Y)$.
+\end{proof}
+
+\paragraph{An exact adversarial control.}
+For the quartic backward heat flow
+$p_s=(z^2-1)(z^2-4)+s(12z^2-10)+12s^2$,
+choose four disks of radius $r=1/4$ around
+$-2,-1,1,2$. On each boundary
+\[
+|p_0|\ge\tfrac14\tfrac34\tfrac74\tfrac{11}4
+=\tfrac{231}{256},
+\quad |p_s-p_0|\le\tfrac{283}{4}s+12s^2.
+\]
+For $s\le1/80$ the latter is at most
+$709/800$, and the exact margin is
+$231/256-709/800=103/6400>0$.
+Rouch\'e therefore keeps one real root per disk.
+For the protected positive pair this yields
+\[
+g(0)=1,\qquad\mathcal B=3/16,\qquad
+\eta=1/4,\qquad
+4\int_0^{1/80}\mathcal D\le3/4.
+\]
+Nevertheless the quartic has a later collision at
+$(10-\sqrt{46})/24>1/80$. Local shielding
+certification cannot be extrapolated to the
+full backward heat interval.
+
+\paragraph{Proof boundary.}
+For the actual theta family the theorem provides a
+noncircular local margin for every fixed pair.
+It does not construct boundary minima uniform in
+pair index or throughout $t\downarrow0$, and does
+not rule out zeros arriving from unbounded height.
+Those are still the RH-level obligations.
+The rational transfer and the quartic contour
+are checked in \path{XiKernel/RoucheShieldingTransfer.lean}
+and \path{certificates/xi_rouche_shielding_local_exact.py};
+the full theta Fourier-integral and Rouch\'e argument
+are manuscript proofs, not formalized end-to-end in Lean.
