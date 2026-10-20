@@ -22,6 +22,7 @@ import XiKernel.AdjacentLaguerreRatio
 import XiKernel.HeatDuhamelSpectral
 import XiKernel.ThetaMixtureObstruction
 import XiKernel.SpatialHeatComparison
+import XiKernel.ThetaCompactSpatialTransfer
 import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
@@ -214,3 +215,7 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.adjacent_ratio_reaction
 #print axioms XiKernel.ratio_order_characterization
 #print axioms XiKernel.exact_root_pair_reverse_order
+
+#print axioms XiKernel.compact_spatial_defect_transfer
+#print axioms XiKernel.odd_cutoff_blocks_global_spatial_comparison
+#print axioms XiKernel.compact_error_budget
