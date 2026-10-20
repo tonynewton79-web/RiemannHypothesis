@@ -1,6 +1,6 @@
 """Validated first compact comparison on the REAL Riemann theta heat flow.
 
-K=[0,1/2] x [-1/100,1/100], n=1, M=2, c=C_K=1.
+K=[0,1/2] x [-4,4], n=1, M=2, c=C_K=1.
 Prove k_1*U_(2,2)-U_(1,2) <= -k_1*e_(2,2)-e_(1,2)
 on ALL of K using actual theta moments, outward-rounded mpmath.iv
 1.3.0 and analytic Simpson/tail majorants. No RH assumption.
@@ -101,7 +101,7 @@ for j in range(5):
 # via cos(y)>=1-y²/2. Because H'^2>=0,
 # U1=H'^2-H*H'' >= product of positive lower bounds.
 # |U2|<=mu0mu4/12+mu1mu3/3+mu2²/4, uniformly in x,t.
-R=Q(1,100)
+R=Q(4)
 U1lo=(Q(1,20)-R*R*Q(1,1000)/2)*(Q(1,2000)-R*R*Q(1,30000)/2)
 U2hi=Q(1,10)*Q(1,30000)/12+Q(1,100)*Q(1,5000)/3+Q(1,1000)**2/4
 source=6*U2hi-U1lo
@@ -113,9 +113,10 @@ thetaCommon=Q(198,7)/20**8
 en=lambda n:Q(3*(2*n+1)*100,2*4**(2*n))*thetaCommon
 budget=6*en(2)+en(1)
 assert budget<Q(1,10**7)
-assert source+budget<-Q(1,10**5)
+assert source == -Q(79,30_000_000)
+assert source+budget<-Q(2,10**6)
 print("PASS first RECTANGLE n=1, M=2, c=C_K=1")
-print("full s in [0,1/2], x in [-1/100,1/100]")
+print("full s in [0,1/2], x in [-4,4]")
 print("finite source upper",float(source),"theta budget upper",float(budget))
 print("certified strict transfer margin",float(-source-budget))
 print("Does not certify all orders or all heights; RH remains open.")
