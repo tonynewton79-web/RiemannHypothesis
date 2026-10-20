@@ -18,6 +18,7 @@ import XiKernel.ThirdZeroDiskGate
 import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
+import XiKernel.SixBandDivisionFree
 import XiKernel.CentralMomentRatio
 import XiKernel.AdjacentLaguerreRatio
 import XiKernel.HeatDuhamelSpectral
@@ -229,3 +230,9 @@ import XiKernel.OpenSlabCollision
 #print axioms XiKernel.central_factorial_ratio
 #print axioms XiKernel.even_moment_ratio_monotone
 #print axioms XiKernel.central_comparison_required
+
+#print axioms XiKernel.six_band_variance_gate
+#print axioms XiKernel.six_band_quarter_gate
+#print axioms XiKernel.six_band_division_free_source
+#print axioms XiKernel.six_band_quadratic_defect
+#print axioms XiKernel.heat_gaussian_defect_budget
