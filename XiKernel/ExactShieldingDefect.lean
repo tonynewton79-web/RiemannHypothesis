@@ -101,4 +101,17 @@ theorem single_exterior_gap_exact (j eps : ℝ)
   field_simp [h0,h1]
   ring
 
+/-- An explicit local-minimum counterexample: the two nearest exterior
+gaps equal the protected gap, but more distant clustered gaps make
+the backward squared-gap velocity strictly positive. -/
+theorem local_minimum_fails_to_control_global_shielding :
+    (2:ℚ)*(1/2 + 10000/20301 + 10000/20604) =
+      340039/115039 := by
+  norm_num
+
+theorem local_minimum_counterexample_positive_speed :
+    (-8:ℚ) + 4*(340039/115039) =
+      439844/115039 := by
+  norm_num
+
 end XiKernel
