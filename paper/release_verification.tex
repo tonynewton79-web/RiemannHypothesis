@@ -169,6 +169,26 @@ an order-independent fractional slack,
 not the original RH-equivalent source
 inequality.
 
-The constant-penalty positive-part Duhamel criterion is\na zero-compatible reformulation, not an analytic proof\nof positivity. Its strict collision and negative-region\nmodel inequalities are checked exactly by\n\path{certificates/xi_penalty_defect_limit_exact.py};\nLean checks the algebraic comparisons in\n\path{XiKernel/PenaltyDefectLimit.lean}. The theta\nsemigroup limit is not formally proved in Lean.\n\nThe complete source, reproducibility\ninstructions and verification record
+The constant-penalty positive-part Duhamel criterion is\na zero-compatible reformulation, not an analytic proof\nof positivity. Its strict collision and negative-region\nmodel inequalities are checked exactly by\n\path{certificates/xi_penalty_defect_limit_exact.py};\nLean checks the algebraic comparisons in\n\path{XiKernel/PenaltyDefectLimit.lean}. The theta\nsemigroup limit is not formally proved in Lean.\n\n
+The quantitative normalized-penalty extension sharpens the
+previous collision-compatible criterion. Its pointwise
+source inequality is independent of RH, and Gaussian
+heat averaging gives a spatially uniform
+$O(C^{-1})$ error for each fixed Laguerre order
+between normalized penalty and the smoothed
+negative part. An exact Fraction-based test checks
+15,000 source sandwiches and 1,000 finite
+positive-averaging examples, together with a sharp
+negative-region limit. The associated Lean module
+\path{XiKernel/PenaltyQuantitative.lean}
+contains algebraic subclaims only; the heat-semigroup
+transfer and the RH equivalence are proved analytically
+in the main text, not formally checked end to end.
+The essential theta-specific bounded-penalty
+estimate remains open. The DOI given on the title
+page is the manuscript identifier; no
+unverified publication metadata are inferred here.
+
+The complete source, reproducibility\ninstructions and verification record
 are maintained at
 \url{https://github.com/tonynewton79-web/RiemannHypothesis}.
