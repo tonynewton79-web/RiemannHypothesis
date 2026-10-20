@@ -1,0 +1,90 @@
+\subsubsection{A common seven-unit theta heat band from the sine majorant}
+\label{subsec:sevenunit}
+The quadratic cosine minorant leaves a positive band
+$|x|<\sqrt{48}$. The same previously proved variance
+estimate admits a strictly stronger consequence.
+Write the Fourier-correlation representation as
+\[
+U_n(s,x)=\int_{\mathbb R}K_{n,s}(w)\cos(xw)\,dw,
+\qquad K_{n,s}(w)\ge0,
+\]
+with $A_n(s)=\int K_{n,s}>0$ and
+$B_n(s)=\int w^2K_{n,s}$.
+By the established theta moment estimate,
+\begin{equation}\label{eq:sevenvar}
+0\le B_n(s)/A_n(s)\le1/24
+\quad(n\ge1,\ 0\le s\le1/2).
+\end{equation}
+
+\begin{theorem}[Seven-unit division-free heat comparison]
+\label{thm:sevenunit}
+For the genuine theta heat family, every $n\ge1$
+and $0\le s\le1/2$ satisfy, with $r=|x|$,
+\begin{equation}\label{eq:sevenpiece}
+\frac{U_n(s,x)}{A_n(s)}
+\ge g(r):=
+\begin{cases}
+1-r^2/48,&0\le r\le\sqrt{24},\\[2pt]
+\frac32-r/\sqrt{24},&r\ge\sqrt{24}.
+\end{cases}
+\end{equation}
+Consequently $U_n(s,x)>0$ for
+$|x|<3\sqrt6$.
+In particular, for the whole \emph{closed}
+seven-unit band $|x|\le7$,
+\[
+\boxed{\quad U_n(s,x)\ge A_n(s)/15>0,\qquad
+k_n U_{n+1}(s,x)\le
+15k_n\frac{A_{n+1}(s)}{A_n(s)}U_n(s,x).\quad}
+\]
+This comparison is division-free with respect
+to noncentral Laguerre values.
+\end{theorem}
+\begin{proof}
+Differentiating under the absolutely convergent
+correlation integral and using both
+$|\sin v|\le |v|$ and $|\sin v|\le1$ gives
+\[
+|U_n'(s,x)|\le
+\min\!\left(rB_n(s),\int|w|K_{n,s}(w)\,dw\right).
+\]
+By Cauchy--Schwarz and \eqref{eq:sevenvar},
+\[
+|U_n'(s,x)|\le A_n(s)
+\min\!\left(\frac r{24},\frac1{\sqrt{24}}\right).
+\]
+Integrating this derivative bound from $0$
+to $r$ gives \eqref{eq:sevenpiece}.
+The second branch is positive precisely when
+$r<(3/2)\sqrt{24}=3\sqrt6$.
+
+For the rational seven-unit statement,
+$7<3\sqrt6$ and
+\[
+\left(\frac{43}{30}\right)^2\,24-49
+=\frac{23}{75}>0.
+\]
+Since both sides compared are positive,
+this implies
+$7/\sqrt{24}<43/30$ and therefore
+$g(7)>1/15$.
+Monotonicity of $g$ yields
+$U_n(s,x)\ge A_n(s)/15$ throughout
+$|x|\le7$. The positive correlation
+also gives $U_{n+1}(s,x)\le A_{n+1}(s)$.
+Multiplying the lower bound for $U_n$
+by $15k_nA_{n+1}/A_n$ gives the
+claimed inequality.
+\end{proof}
+The interval $|x|\le7$ strictly improves the
+six-unit and $\sqrt{48}$ bands using no
+new theta integration. It remains a finite
+region; the argument is not a global RH proof.
+The relevant rational comparison gates are
+recorded in
+\path{XiKernel/SevenUnitHeatBand.lean}
+and \path{certificates/xi_seven_unit_heat_exact.py}.
+The analytic source inputs are the positive
+correlation measure and the already established
+theta moment estimate, not an end-to-end Lean
+proof of the theta integrals.
