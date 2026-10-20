@@ -80,3 +80,5 @@ import XiKernel.AdjacentLaguerreRatio
 import XiKernel.ThetaCompactSpatialTransfer
 
 import XiKernel.FirstCompactThetaRectangle
+
+import XiKernel.CentralMomentRatio
