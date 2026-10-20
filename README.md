@@ -921,3 +921,19 @@ This is a mathematically valid **short-time, pair-dependent, noncircular shieldi
 **RH-level outstanding theorem:** independently verify contour lower bounds for the entire remaining interval down to t=0 for every root, prevent degeneration of margins at heights tending to infinity, and prove complete zero labeling/no migration from infinity. This remains unproved; no full RH proof.
 
 **Full paper PDF:** a recovered, previously emailed 43-page cumulative PDF plus a three-page mathematically edited shielding continuation was assembled and checked as a 46-page working PDF and emailed separately. The live DOI is `10.5281/zenodo.23461586` with no obsolete 'reserved' label.
+
+## 20 October 2026 — Optimal two-moment theta heat shielding (new continuation)
+
+**Proved analytically:** The earlier independent local Rouché-to-shielding transfer uses the linear perturbation bound `sigma*M_Y` on contours, where `A_Y=integral Phi(u)*exp(t* u²+Y*u) du` and `M_Y=integral Phi(u)*exp(t* u²+Y*u)*u² du`. Positivity plus Jensen sharpens this to
+
+`|H_(t*-tau)(z)-H_(t*)(z)| <= A_Y*(1-exp(-sigma*M_Y/A_Y)) <= 2*A_Y*sigma*M_Y/(2*A_Y+sigma*M_Y) <= sigma*M_Y` for `0<=tau<=sigma`.
+
+The first inequality is optimal among positive measures with just those two moments; equality is attained by a single point mass at `sqrt(M_Y/A_Y)`. For `0<m<A_Y`, a **strictly longer**, independent local survival interval is certified whenever `sigma < 2*m*A_Y/[M_Y*(2*A_Y-m)]`. The exact exponential criterion is `sigma < (A_Y/M_Y)*log(A_Y/(A_Y-m))`.
+
+**Exact rational falsification of old sufficiency strength:** `A=10, M=20, m=6, sigma=2/5` fails the earlier linear test (`sigma*M=8>6`) but passes the Padé/Jensen certificate (`40/7<6`). The dependency-free script `certificates/xi_two_moment_shielding_exact.py` passed 25,000 more rational cases locally. The Lean algebraic bridge is `XiKernel/TwoMomentShielding.lean`; the fresh GitHub action run is queued and is **not** yet claimed passing.
+
+**Theta diagnostic, numerical only:** At heat time `t=1/2`, roots near 27.9801872421 and 41.6684474160, with sampled `m_sample/A_Y≈0.000336` around a radius-1/4 circle. Because a sample minimum overestimates the true continuous-contour minimum, this is not a rigorous theta survival certificate; it suggests the nonlinear gain here is small.
+
+**Publication:** The new theorem is integrated in `paper/heat_two_moment_shielding.tex` and the full manuscript source `paper/main.tex`. The working **49-page PDF** is the complete previously mailed 46-page cumulative edition plus a three-page rigorously written continuation. DOI 10.5281/zenodo.23461586 is represented as live per the author's report; no reserved/unpublished boilerplate is added.
+
+**RH:** **OPEN.** Neither a full-half-unit all-pair lower contour bound nor an exclusion of zero migration from unbounded height is proved. The new Jensen inequality upgrades only a valid independent local certificate; it does not prove the endpoint budget or RH.
