@@ -646,3 +646,25 @@ Analytic central positivity shows RH iff D=0 iff S_k<1 for all k. A rigorously e
 **Files:** paper/dyadic_penalty_defect_attack.tex (included in full manuscript by paper/spatial_heat_comparison.tex), certificates/xi_dyadic_penalty_defect_exact.py, XiKernel/DyadicPenalty.lean (imported and axiom-inspected). The exact rational normalization cases passed independently in the model working environment. New GitHub Lean and PDF workflow runs were still **queued** at the time of this update; no CI pass is claimed for the new Lean declarations. The full analytic theta/Fourier/Duhamel argument is not end-to-end kernel formalized.
 
 **DOI:** https://doi.org/10.5281/zenodo.23461586 (live DOI supplied by author). The previous reserved-DOI label should not be used for the current paper.
+
+## 20 October 2026 — Adjacent-order ratio PDE: exact structural attack
+
+**Exact mathematical identity.** Put `k_n=(n+1)(2n+1)`, `D_n=U_n`, `V_n=k_n U_(n+1)`, `W_n=k_(n+1) U_(n+2)`, `D=∂s−(1/2)∂xx`. Then the genuine backward heat hierarchy satisfies the **division-free** identity
+
+`D_n D(V_n) − V_n D(D_n) = V_n²−k_n D_n W_n.`
+
+On open regions with independently guaranteed `D_n,V_n>0`, `R_n=V_n/D_n` obeys
+
+`∂s R_n = (1/2)∂xx R_n + (∂x log U_n)∂x R_n + R_n(R_n−R_(n+1)).`
+
+This is a conditional **ratio evolution identity**, not proof of the missing positivity. Proposing `c_n=k_n U_(n+1)/U_n` without independent sign control is circular.
+
+**Exact negative control:** For real-rooted `G(z)=z(z−1)(z−10)`, at the simple root 0, `R_1=303/50>15/101=R_2`. Thus `R_n<=R_(n+1)`, which would make the PDE reaction nonpositive, cannot be assumed from real-rootedness alone.
+
+**Genuine-theta numerical diagnostic (46 digits, not intervals):** At `t=1/2,x=28.269`, `R_1≈12.005931723` and `R_2≈0.104107122`; a similar reversal is sampled near x=42.044. This motivates an independent interval audit before any theorem about the actual theta ordering.
+
+**Tests and artifacts:** `paper/adjacent_laguerre_ratio_attack.tex`, `XiKernel/AdjacentLaguerreRatio.lean`, `certificates/xi_adjacent_ratio_heat_exact.py`. Symbolic and exact rational checks passed locally; a new numerical test also passed. Latest GitHub Actions Lean/PDF runs were queued when this entry was written; do not claim they passed. The full nonlinear PDE is analytically derived in the manuscript but is not yet an end-to-end Lean proof.
+
+**Scientific frontier:** Independent theta-specific control of `∂x log U_n` and the signed reaction **without assuming Laguerre positivity**, or a direct bound for the existing division-free Duhamel/dyadic defect. RH remains open.
+
+**DOI:** https://doi.org/10.5281/zenodo.23461586 (author reports the DOI is live; no obsolete reserved/unpublished designation).
