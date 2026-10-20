@@ -25,6 +25,7 @@ import XiKernel.HeatFlowDoubleZeroObstruction
 import XiKernel.HeatFlowSpatialGap
 import XiKernel.DuhamelOrderSaturation
 import XiKernel.ThetaConditionalSliceObstruction
+import XiKernel.WeightedModePairs
 import XiKernel.ThetaHeatTail
 import XiKernel.HeatDoubleRootTransversality
 import XiKernel.HeatZeroGapObstruction
@@ -164,3 +165,8 @@ import XiKernel.ZeroCompatibleDuhamel
 #print axioms XiKernel.atomic_slice_second_moment
 #print axioms XiKernel.slice_nonnegative_mass_zero_contradiction
 #print axioms XiKernel.simple_zero_spectral_sign
+
+#print axioms XiKernel.theta_first_mode_polynomial_positive
+#print axioms XiKernel.theta_higher_mode_polynomial_negative
+#print axioms XiKernel.theta_diagonal_odd_mode_negative
+#print axioms XiKernel.theta_modular_two_block_cancellation
