@@ -78,6 +78,8 @@ jobs:
         run: python certificates/xi_zero_lattice_all_orders_exact.py
       - name: Check exact seven-unit theta band and rational source coefficient
         run: python certificates/xi_seven_unit_heat_exact.py
+      - name: Test exact midpoint inverse-zero-gap heat inequality
+        run: python certificates/xi_midpoint_zero_gap_exact.py
       - name: Independent integer polynomial tests
         run: python certificates/check_gaussian_examples.py
 
