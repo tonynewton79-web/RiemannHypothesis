@@ -1,0 +1,247 @@
+\subsection{A one-point Duhamel criterion and quantitative obstruction localization}
+\label{sec:onepointduhamel}
+The bounded-penalty condition in Corollary~\ref{cor:boundedpenaltyRH}
+was imposed at every real Fourier argument.  This spatial
+quantifier is unnecessary.  Positivity of the heat kernel
+lets a single observation point detect any negative
+Laguerre value anywhere in the backward heat slab.
+The reduction is rigorous, but it is an equivalence
+criterion and not an estimate of the actual theta
+penalty.
+
+Throughout this subsection put $T=1/2$,
+$U_n(s,x)=L_{n,\,1/2-s}(x)$ and
+$k_n=(n+1)(2n+1)$.  Let $P_h$ denote the
+one-dimensional Gaussian heat semigroup of
+generator $\tfrac12\partial_x^2$ and put
+\begin{align}
+E_{n,C}(s,x)
+ &= [k_nU_{n+1}(s,x)-CU_n(s,x)]_+,\nonumber\\
+\mathcal E_{n,C}(T,x)
+ &=\int_0^T(P_{T-s}E_{n,C}(s,\cdot))(x)\,ds,\nonumber\\
+\mathcal N_n(T,x)
+ &=\int_0^T(P_{T-s}[-U_n(s,\cdot)]_+)(x)\,ds.
+\label{eq:onepointvariables}
+\end{align}
+The theta transform and each of its fixed-order
+derivatives are bounded uniformly on the closed
+heat-time slab.  In particular
+\[
+M_n:=\sup_{0\le s\le T,\ x\in\mathbb R}
+|k_nU_{n+1}(s,x)|<\infty,
+\quad
+A_n:=\sup_{0\le s\le T,\ x\in\mathbb R}
+|U_n(s,x)|<\infty.
+\]
+
+\begin{theorem}[The central-point criterion for RH]
+\label{thm:onepointcriterion}
+For any one fixed $x_0\in\mathbb R$, the
+following conditions are equivalent:
+\begin{enumerate}
+\item The Riemann hypothesis.
+\item For every integer $n\ge1$,
+$\sup_{C\ge1}\mathcal E_{n,C}(T,x_0)<\infty$.
+\item For every integer $n\ge1$,
+$\mathcal E_{n,C}(T,x_0)=o(C)$
+as $C\to\infty$.
+\item For every integer $n\ge1$,
+$\mathcal N_n(T,x_0)=0$.
+\end{enumerate}
+In particular $x_0=0$ suffices:
+there is no need to assume a Duhamel bound at
+every Fourier height.
+\end{theorem}
+\begin{proof}
+The positive-part Lipschitz inequality,
+already established in
+Theorem~\ref{thm:quantpenalty}, gives
+uniformly in $x$
+\begin{equation}
+C\mathcal N_n(T,x)-TM_n
+\le\mathcal E_{n,C}(T,x)
+\le C\mathcal N_n(T,x)+TM_n.
+\label{eq:onepointsandwich}
+\end{equation}
+Thus (2), (3), and (4) are equivalent
+for each $n$ at the \emph{single} chosen
+point $x_0$.
+
+The Gaussian kernel
+$p_h(y)=(2\pi h)^{-1/2}\exp(-y^2/(2h))$
+is strictly positive for every $h>0$
+and real $y$.  If
+$U_n(s_*,y_*)<0$ at a point
+$0<s_*<T$, continuity supplies
+a nonempty open space--time rectangle on
+which $[-U_n]_+$ is strictly positive.
+Its convolution at $x_0$, integrated over
+this rectangle, is strictly positive.
+Therefore $\mathcal N_n(T,x_0)=0$
+implies $U_n(s,y)\ge0$ for all
+$0<s<T$ and $y\in\mathbb R$.
+Continuity extends the inequality to
+$s=T$, giving
+$L_{n,0}(y)\ge0$ at every order and
+Fourier argument.  By the classical
+generalized Laguerre--P\'olya
+characterization for the real entire
+Riemann $\Xi$ transform, this gives RH.
+
+Conversely, RH and the
+de Bruijn--Newman real-zero theorem
+show that $H_t$ has only real zeros
+throughout $0\le t\le1/2$.
+Its generalized Laguerre inequalities
+give $U_n\ge0$ on the slab, and hence
+$\mathcal N_n(T,x_0)=0$.  This
+proves all equivalences.
+\end{proof}
+
+There is also a reduction of
+\emph{all orders} to one
+nonnegative scalar penalty. Define
+\[
+b_n=1+T(A_n+M_n)>0,\qquad
+S(C)=\sum_{n=1}^{\infty}
+2^{-n}\frac{\mathcal E_{n,C}(T,0)}{b_n}.
+\]
+For each $C\ge1$, the sum is finite,
+because $0\le\mathcal E_{n,C}(T,0)
+\le T(M_n+CA_n)$ and hence
+$S(C)\le 1+C$.
+
+\begin{corollary}[A single scalar RH criterion]
+\label{cor:scalarpenalty}
+With the preceding normalizations,
+\[
+\boxed{\quad
+\mathrm{RH}
+\quad\Longleftrightarrow\quad
+\sup_{C\ge1} S(C)<\infty .
+\quad}
+\]
+\end{corollary}
+\begin{proof}
+If RH holds, $U_n\ge0$ and
+$\mathcal E_{n,C}\le TM_n$,
+so $S(C)\le\sum_n2^{-n}=1$
+for every $C\ge1$.
+If RH is false, the generalized
+Laguerre characterization supplies an
+order $n$ and a real $X$ for which
+$U_n(T,X)<0$.  Theorem~\ref{thm:onepointcriterion}
+and \eqref{eq:onepointsandwich}
+give $\mathcal E_{n,C}(T,0)\to\infty$
+linearly in $C$.  This one
+positive summand forces
+$S(C)\to\infty$.
+\end{proof}
+
+The last reformulation is compact,
+but should not be mistaken for a
+new unconditional inequality:
+both criteria still encode the
+all-order real-zero problem.
+
+\begin{theorem}[Quantitative detection of a negative
+Fourier-height witness]\label{thm:negativewitness}
+Fix $n\ge1$. Assume that for some
+$X\in\mathbb R$ and $\delta>0$,
+\[
+U_n(T,X)\le-\delta.
+\]
+Let finite constants $A,B\ge0$
+satisfy
+\[
+|\partial_sU_n(s,x)|\le A,\qquad
+|\partial_xU_n(s,x)|\le B
+\]
+for $0\le s\le T$ and $x\in\mathbb R$.
+Set
+\[
+\tau=\min\left(\frac T4,\,
+\frac{\delta}{8(1+A)}\right),\quad
+r=\min\left(1,\frac{\delta}{4(1+B)}\right),
+\quad Y=|X|+r.
+\]
+Then $\tau,r>0$ and
+\begin{equation}
+\boxed{
+\mathcal N_n(T,0)
+\ge
+\frac{\delta r\sqrt{\tau}}{2\sqrt\pi}
+\exp\!\left(-\frac{Y^2}{2\tau}\right)>0.
+}
+\label{eq:negativewitnessmass}
+\end{equation}
+Consequently every $C>0$ obeys
+\begin{equation}
+\mathcal E_{n,C}(T,0)\ge
+\frac{C\delta r\sqrt{\tau}}{2\sqrt\pi}
+e^{-Y^2/(2\tau)}-TM_n.
+\label{eq:negativewitnesspenalty}
+\end{equation}
+\end{theorem}
+\begin{proof}
+On the rectangle
+\[
+T-2\tau\le s\le T-\tau,\qquad
+|y-X|\le r,
+\]
+the derivative bounds and the
+definition of $\tau,r$ imply
+\[
+U_n(s,y)\le
+-\delta+2\tau A+rB\le-\delta/2.
+\]
+There $h=T-s\in[\tau,2\tau]$ and
+$|y|\le Y$, so
+\[
+p_h(y)\ge
+\frac1{\sqrt{4\pi\tau}}
+\exp\!\left(-\frac{Y^2}{2\tau}\right).
+\]
+Integrate the lower bound
+$[-U_n(s,y)]_+\ge\delta/2$
+over the rectangle of
+time-length $\tau$ and
+spatial-length $2r$ to obtain
+\eqref{eq:negativewitnessmass}.
+The penalty estimate follows from
+\eqref{eq:onepointsandwich}.
+\end{proof}
+
+\paragraph{What the theta correlations do and do not provide.}
+The constants $A,B,M_n$ are finite
+unconditionally.  They can be bounded
+by explicit absolute moments of the
+positive theta kernel, because every
+$x$-derivative of $H_t$ is an integral
+against a power of $u$ and because
+$\partial_sU_n$ is given by the
+Laguerre heat hierarchy.
+This makes \eqref{eq:negativewitnesspenalty}
+an effective \emph{conditional} inequality.
+
+However, an off-real zero at very large
+Fourier height can generate a signal at
+$x=0$ suppressed by
+$e^{-Y^2/(2\tau)}$.  An absolute
+numerical upper bound on the central
+penalty, even an extremely small one,
+does not establish its boundedness
+as $C\to\infty$.  To prove RH by this
+route one must derive from the
+complete square-lattice correlation
+identities that
+\[
+\sup_{C\ge1}\mathcal E_{n,C}(T,0)<\infty
+\qquad\text{for every }n\ge1,
+\]
+\emph{without} assuming $U_n\ge0$.
+We have not proved this inequality.
+The one-point reduction,
+scalar packaging and witness lower bound
+are rigorous structural results,
+not a full proof of the Riemann hypothesis.
