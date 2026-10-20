@@ -22,6 +22,7 @@ import XiKernel.AdaptiveThetaCutoff
 import XiKernel.FourthZeroDiskGate
 import XiKernel.HeatFlowLaguerre
 import XiKernel.PoleFreeLaguerre
+import XiKernel.HeatZeroShielding
 import XiKernel.SixBandDivisionFree
 import XiKernel.SixBandExponentialTail
 import XiKernel.CentralMomentRatio
@@ -287,3 +288,8 @@ import XiKernel.OpenSlabCollision
 
 #print axioms XiKernel.poleFreeLaguerreGate
 #print axioms XiKernel.poleFreeSourceComparison
+
+#print axioms XiKernel.gap_velocity_difference
+#print axioms XiKernel.regular_lattice_shielding
+#print axioms XiKernel.integrated_shielding_requirement
+#print axioms XiKernel.near_lattice_half_time_survival
