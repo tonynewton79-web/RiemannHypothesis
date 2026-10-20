@@ -1,0 +1,150 @@
+\paragraph{Endpoint-singular coefficients and an open-slab criterion.}
+\label{par:openslab}
+The preceding closed-slab criterion includes zero simplicity
+because it requires a finite comparison coefficient \emph{at}
+$s=T=1/2$. That condition is unnecessarily strong for
+propagating nonnegativity to the terminal time.
+Indeed, the maximum-principle argument may be applied
+on each shorter interval $[0,T']$, $T'<T$, followed by
+continuity at $T$. This distinction matters precisely
+when real zeros collide at the endpoint.
+
+\begin{theorem}[Preterminal spatial comparison]\label{thm:openslab}
+Let $T>0$, and suppose $U$ is bounded and continuous
+on $[0,T]\times\mathbb R$ and belongs to
+$C^{1,2}((0,T)\times\mathbb R)$.
+Suppose $U(0,x)\ge0$ for all real $x$.
+If there is a function
+$c:[0,T)\times\mathbb R\to[0,\infty)$,
+locally bounded on every
+$[0,T']\times[-R,R]$ with $T'<T$,
+such that
+\begin{equation}\label{eq:openslabineq}
+U_s-\tfrac12U_{xx}+c(s,x)U\ge0
+\qquad(0<s<T,\ x\in\mathbb R),
+\end{equation}
+then $U(s,x)\ge0$ for \emph{all}
+$0\le s\le T$ and $x\in\mathbb R$.
+No bound or finite value of $c$ at $s=T$ is required.
+\end{theorem}
+\begin{proof}
+For each $T'\in(0,T)$, apply the locally
+bounded-coefficient maximum principle
+(Theorem~\ref{thm:spatialmax}) to $U$
+on the closed subslab $[0,T']\times\mathbb R$.
+It follows that $U\ge0$ for every $s<T$.
+Letting $s\uparrow T$ and using continuity
+proves the terminal inequality.
+\end{proof}
+
+\begin{corollary}[A zero-simplicity-free sufficient
+condition]\label{cor:openslabRH}
+For the genuine theta heat-flow hierarchy,
+put $T=1/2$ and
+$U_n(s,x)=L_{n,\,T-s}(x)$.
+Suppose that for every $n\ge1$ there is
+a nonnegative function $c_n(s,x)$,
+locally bounded on compact subsets of
+$[0,T)\times\mathbb R$, satisfying
+\begin{equation}\label{eq:openslabrh}
+(n+1)(2n+1)U_{n+1}(s,x)
+\le c_n(s,x)U_n(s,x)
+\quad(0\le s<T,\ x\in\mathbb R).
+\end{equation}
+Then RH holds. This sufficient condition does
+\emph{not} additionally require that all
+zeros of $H_0$ be simple.
+\end{corollary}
+\begin{proof}
+The exact heat hierarchy gives
+$U_{n,s}-\tfrac12U_{n,xx}+c_nU_n\ge0$.
+The initial $U_n(0,x)$ are nonnegative
+by the classical real-zero theorem for $H_{1/2}$.
+Theorem~\ref{thm:openslab}
+gives $L_{n,0}(x)\ge0$ for every $n\ge1$
+and every real $x$. The standard
+Laguerre--P\'olya real-zero characterization
+for the classical $\Xi$ entire function
+then implies RH. No simplicity conclusion
+about $H_0$ is used.
+\end{proof}
+
+\begin{proposition}[The open-slab criterion has
+precisely RH strength]\label{prop:openslabequivalence}
+Using the classical de Bruijn--Newman zero-dynamics
+and the Rodgers--Tao lower bound, the existence
+assertion in Corollary~\ref{cor:openslabRH}
+is equivalent to RH.
+\end{proposition}
+\begin{proof}
+The forward implication is the corollary.
+Conversely suppose RH. Then
+$\Lambda\le0$, whereas Rodgers and Tao proved
+$\Lambda\ge0$; thus $\Lambda=0$.
+At every strictly positive heat time $t>\Lambda$
+the classical de Bruijn--Newman theory gives
+real, simple zeros of $H_t$.
+The real-zero canonical product, with infinitely
+many zeros, gives
+$L_{n,t}(x)>0$ for each fixed $n\ge1$ and real $x$.
+Therefore the exact quotient
+\[
+c_n(s,x)=
+(n+1)(2n+1)\,
+\frac{L_{n+1,\,T-s}(x)}{L_{n,\,T-s}(x)}
+\]
+is nonnegative and continuous on $[0,T)\times
+\mathbb R$, hence locally bounded on every
+compact preterminal subslab. It satisfies
+\eqref{eq:openslabrh} with equality.
+We make no assertion that this quotient
+is finite as $s\uparrow T$.
+\end{proof}
+
+\begin{example}[A harmless terminal collision]\label{ex:heatcollision}
+The polynomial $H_t(z)=(z-a)^2-2t$ solves the
+same backward heat equation,
+$\partial_tH_t=-\partial_z^2H_t$.
+Its first Laguerre coefficients are
+\[
+L_{1,t}(x)=2(x-a)^2+4t,\qquad
+L_{2,t}(x)=1,\qquad L_{n,t}=0\ (n\ge3).
+\]
+For $t>0$ the optimal nonnegative
+comparison coefficient is
+\begin{equation}\label{eq:collisioncost}
+c_1(t,x)=
+\frac6{2(x-a)^2+4t}
+=\frac3{(x-a)^2+2t}.
+\end{equation}
+It is bounded on every compact positive-time
+subslab, but
+$c_1(t,a)=3/(2t)\to+\infty$ as $t\downarrow0$.
+At $t=0$ the transform has a double real zero,
+and the \emph{closed}-slab pointwise comparison
+is impossible at $x=a$.
+Nevertheless
+$L_{1,t}(x)\ge0$ for all $t\ge0$.
+Thus this endpoint blow-up invalidates only
+the unnecessarily strong closed-slab criterion:
+it does not prevent the open-slab maximum
+principle from reaching the terminal time.
+\end{example}
+
+\paragraph{The actual missing estimate.}
+The open-slab reformulation is mathematically
+stronger as a proof \emph{method}, because it
+does not require zero simplicity at $t=0$.
+It is not an independent proof of RH:
+the existence of its coefficients is itself
+equivalent to RH, and the quotient used in
+the converse already assumes real-rootedness.
+To make progress one must derive, \emph{without}
+assuming real zeros or positivity of the
+Laguerre denominators, a theta-specific
+comparison on every compact positive-heat-time
+subslab. The ratio's possible growth near
+$t=0$ need not be bounded uniformly.
+A proof that starts from this quotient
+without an independent theta estimate
+would be circular.
