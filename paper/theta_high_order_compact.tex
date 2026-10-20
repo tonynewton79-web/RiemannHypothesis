@@ -168,6 +168,82 @@ positivity: that positivity was already
 established independently above.
 \end{proof}
 
+\begin{theorem}[Sharp spatial Laguerre source ratio on compact intervals]
+\label{thm:compact-source-logsquare}
+For every finite $X\ge0$,
+\begin{equation}
+\boxed{
+\lim_{n\to\infty}
+\sup_{\substack{0\le s\le1/2\\ |x|\le X}}
+\left|
+\frac{k_nU_{n+1}(s,x)}
+{(\log n)^2U_n(s,x)}-\frac18
+\right|=0,
+\qquad k_n=(n+1)(2n+1).}
+\label{eq:compact-source-ratio}
+\end{equation}
+The quotient is defined and positive for
+all sufficiently large $n$, uniformly on
+the indicated compact set. Consequently,
+for every $\varepsilon>0$ and every finite $X$,
+there exists $N(X,\varepsilon)$ such that
+\begin{equation}
+k_nU_{n+1}(s,x)
+\le\left(\frac18+\varepsilon\right)
+(\log n)^2 U_n(s,x)
+\label{eq:proved-compact-logsquare}
+\end{equation}
+for $n\ge N(X,\varepsilon)$, all
+$0\le s\le1/2$, and all $|x|\le X$.
+\end{theorem}
+\begin{proof}
+By \eqref{eq:conditional-squeeze} and
+\eqref{eq:compact-cos-gate},
+\[
+r_n(s,x):=\frac{U_n(s,x)}{U_n(s,0)}
+\longrightarrow1
+\]
+uniformly on $0\le s\le1/2$, $|x|\le X$.
+This convergence also holds with $n+1$
+in place of $n$, and $r_n$ is strictly
+positive for sufficiently large $n$.
+The exact identity
+\begin{equation}
+\frac{k_nU_{n+1}(s,x)}{U_n(s,x)}
+=
+\frac{k_nU_{n+1}(s,0)}{U_n(s,0)}
+\frac{r_{n+1}(s,x)}{r_n(s,x)}
+\label{eq:source-ratio-factor}
+\end{equation}
+therefore has a second factor tending
+uniformly to one. The first factor obeys
+the uniform central asymptotic
+\[
+\frac{k_nU_{n+1}(s,0)}{U_n(s,0)}
+=\left(\frac18+o(1)\right)(\log n)^2
+\]
+from Theorem~\ref{thm:theta-central-logsquare}.
+Combining the limits gives
+\eqref{eq:compact-source-ratio}; the
+inequality \eqref{eq:proved-compact-logsquare}
+follows from strict positivity of
+the denominator.
+\end{proof}
+
+The coefficient in \eqref{eq:proved-compact-logsquare}
+is independent of $s$ and $x$ on each
+\emph{fixed} interval, but its validity
+starts at an order $N(X,\varepsilon)$
+that may increase without bound with $X$.
+The theorem thus establishes the proposed
+logarithmic-square upper comparison
+\emph{at high orders on compact frequency slabs},
+not over all orders and frequencies.
+It cannot be inserted into the global
+parabolic comparison theorem without
+a separate control of the finite initial
+orders and the limit $X\to\infty$.
+
 \paragraph{Scope and connection with prior literature.}
 The proof is based on concentration of
 a positive theta pair measure, not on a
