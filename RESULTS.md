@@ -588,3 +588,41 @@ without assuming U_n≥0 or an equivalent positive-definiteness claim.
 No Riemann-hypothesis proof or newly verified zero height is asserted.
 
 Manuscript DOI: https://doi.org/10.5281/zenodo.23461586
+
+## 20 October 2026 — unconditional noncommutation of theta cutoff and Duhamel penalty limits
+
+**New analytic theorem using the actual Riemann theta heat family.** Fix
+`T*=1/4`, corresponding to the already real-rooted heat times
+`t=1/2-s in [1/4,1/2]`. Polymath15 proved the unconditional bound
+`Lambda<=0.22`, so full `H_t` has only real zeros here.
+
+For every fixed finite theta truncation M, the modular first-derivative
+defect `D_M>0` produces
+`L1[H_(M,t)](x)=-2*D_M²/x^6+O(x^-8)<0` at sufficiently high real
+frequencies, for each fixed t on the slab. This makes the Gaussian
+central smoothed negative mass of the *finite truncation* positive;
+its unscaled Duhamel penalty grows linearly in C.
+
+By contrast the full theta transform has nonnegative Laguerre
+expressions throughout the time slab. Its first Duhamel positive
+defect tends to zero as C increases by dominated convergence
+(the zero set of U1 at each fixed time is discrete).
+Uniform theta-heat Fourier derivative convergence gives convergence
+of each truncated penalty to the full one for every **fixed** C.
+Thus rigorously, in the extended reals,
+
+  lim(C->∞) lim(M->∞) mathcalE_(1,C)^(M)(T*,0) = 0,
+  lim(M->∞) lim(C->∞) mathcalE_(1,C)^(M)(T*,0) = +∞.
+
+This is a genuine-theta method obstruction, not a proof of RH.
+Any proof by the Duhamel route needs *joint* control of cutoff
+and penalty and nontrivial global modular cancellation;
+finite modes taken first cannot work.
+
+Source: `paper/central_duhamel_penalty_attack.tex`.
+The exact rational witness/scalar tests passed locally;
+latest GitHub Lean/Python/PDF workflows remain queued,
+so no new remote PASS is asserted. The prior literature on
+the de Bruijn--Newman constant supplies the known real-zero
+heat interval; priority of this particular penalty observation
+is not established.
