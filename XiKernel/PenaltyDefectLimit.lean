@@ -42,7 +42,9 @@ theorem penalty_defect_negative_region_growth
     (hdelta : 0 < delta) (hC : 0 < C)
     (hU : potential ≤ -delta) (hV : -K ≤ source) :
     C*delta-K ≤ source-C*potential := by
-  nlinarith
+  have hp : C*potential ≤ C*(-delta) :=
+    mul_le_mul_of_nonneg_left hU (le_of_lt hC)
+  nlinarith [hp]
 
 theorem penalty_defect_exact_zero
     (C u v : ℝ) (h : C*u ≥ v) :
