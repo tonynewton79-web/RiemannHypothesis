@@ -1,0 +1,162 @@
+\paragraph{Quantitative normalized-penalty identity.}
+The constant-penalty criterion admits a simpler
+quantitative form that requires no assumption on
+the sign of $U_n$. We record it separately because
+it gives a sharper criterion and a finite-penalty
+error estimate independent of RH.
+
+\begin{theorem}[Unconditional quantitative penalty limit]
+\label{thm:quantpenalty}
+For fixed $n\ge1$ and $0<T\le\tfrac12$, let
+$U_n(s,x)=L_{n,\,1/2-s}(x)$ and
+$k_n=(n+1)(2n+1)$. Define
+\[
+M_{n,T}=k_n\sup_{\substack{0\le s\le T\\x\in\mathbb R}}
+ |U_{n+1}(s,x)|<\infty,
+\]
+and the nonnegative heat-smoothed negative part
+\[
+\mathcal N_n(T,x)=\int_0^T
+ \bigl(P_{T-s}(-U_n(s,\cdot))_+\bigr)(x)\,ds.
+\]
+For every $C>0$ and every real $x$,
+\begin{equation}\label{eq:quantpenalty}
+\boxed{
+\left|\frac{\mathcal E_{n,C}(T,x)}{C}
+      -\mathcal N_n(T,x)\right|
+ \le\frac{T M_{n,T}}{C}.}
+\end{equation}
+The convergence as $C\to\infty$ is uniform
+in $x$ for every fixed $n,T$.
+No Laguerre positivity hypothesis is used.
+\end{theorem}
+\begin{proof}
+Write $v=k_nU_{n+1}(s,y)$ and $u=U_n(s,y)$.
+The positive-part map $a\mapsto a_+$
+is $1$-Lipschitz, so
+\[
+\left|[v/C-u]_+-[-u]_+\right|
+\le |v|/C\le M_{n,T}/C.
+\]
+Since $C>0$,
+$[v/C-u]_+=[v-Cu]_+/C$.
+The Gaussian semigroup $P_h$ preserves
+positivity, constants, and the supremum
+norm. Apply it to this pointwise difference
+and integrate over $0\le s\le T$,
+which gives \eqref{eq:quantpenalty}.
+Finally, the Fourier integral for $H_t$
+and its derivatives has a uniform
+majorant on the compact heat-time slab:
+for each integer $j\ge0$,
+\[
+\sup_{\substack{0\le t\le1/2\\x\in\mathbb R}}
+ |H_t^{(j)}(x)|
+\le \int_0^\infty
+u^j e^{u^2/2}\Phi(u)\,du<\infty.
+\]
+The finite derivative-polynomial definition
+of $L_{n+1,t}$ therefore implies
+$M_{n,T}<\infty$.
+\end{proof}
+
+\begin{corollary}[A bounded-penalty criterion for RH]
+\label{cor:boundedpenaltyRH}
+For the genuine theta heat family, RH
+is equivalent to each of the following
+statements:
+\begin{enumerate}
+\item For every $n\ge1$ and real $x$,
+$\sup_{C\ge1}\mathcal E_{n,C}(\tfrac12,x)<\infty$.
+\item For every $n\ge1$ and real $x$,
+$\mathcal E_{n,C}(\tfrac12,x)=o(C)$
+as $C\to\infty$.
+\end{enumerate}
+Both conditions are statements about
+\emph{all} Laguerre orders and all real
+Fourier arguments. Neither is established
+by the tests in this paper.
+\end{corollary}
+\begin{proof}
+The normalized limit
+\eqref{eq:quantpenalty} identifies (2)
+with $\mathcal N_n(\tfrac12,x)=0$.
+Because the Gaussian heat kernel is
+strictly positive for positive heat time,
+and $U_n$ is continuous, the latter
+is equivalent to $U_n(s,y)\ge0$
+on the entire slab. Indeed, any strictly
+negative space--time value extends to
+a rectangle of positive measure and
+contributes strictly positively to
+$\mathcal N_n(\tfrac12,x)$.
+The already proved all-order
+Laguerre--P\'olya characterization
+then gives RH.
+Condition (1) implies (2).
+Conversely, RH makes all $U_n$
+nonnegative on the heat slab by the
+de Bruijn--Newman theorem, whence
+$E_{n,C}\le[k_nU_{n+1}]_+\le M_{n,T}$
+for all $C$ and
+$\mathcal E_{n,C}(T,x)\le TM_{n,T}$,
+establishing (1).
+\end{proof}
+
+\begin{corollary}[A finite-$C$ negative-mass bound]
+\label{cor:negative-mass}
+For every $C>0$,
+\[
+0\le\mathcal N_n(T,x)
+\le\frac{\mathcal E_{n,C}(T,x)
+ +T M_{n,T}}{C}.
+\]
+Conversely, if
+$\mathcal N_n(T,x)\ge\delta>0$, then
+\[
+\mathcal E_{n,C}(T,x)
+\ge C\delta-TM_{n,T},
+\]
+giving a quantitative linear-growth
+certificate for an off-axis obstruction.
+\end{corollary}
+
+\paragraph{What is and is not gained.}
+The earlier unscaled condition
+$\mathcal E_{n,C}\to0$ has been
+replaced, for the purpose of a
+sufficient RH criterion, by the
+strictly weaker demand of
+\emph{boundedness in $C$}.
+This is a genuine simplification of
+the analytic target, but the bound
+has not been proved for the theta
+correlation measure. It remains an
+RH-equivalent condition, not an
+independent proof of RH.
+One cannot infer it from finite
+Laguerre orders, finite Fourier
+heights or from the central-frequency
+positivity results already obtained.
+
+For a sharp elementary illustration
+take $U(s,x)=1-2s$, $v=2$,
+and $T=1$. If $C>2$, direct
+integration gives
+\[
+\mathcal E_C(1,x)=C/4+1+1/C,
+\qquad
+\mathcal N(1,x)=1/4.
+\]
+Thus
+$\mathcal E_C/C-\mathcal N=1/C+1/C^2$:
+the error is $O(C^{-1})$, while the
+unscaled penalty grows linearly.
+The exact finite comparison and
+rational model checks are recorded in
+\path{XiKernel/PenaltyQuantitative.lean}
+and
+\path{certificates/xi_penalty_quantitative_exact.py}.
+The Lean statements formalize the
+finite algebra, not the heat-semigroup
+integrals or the RH equivalence.
