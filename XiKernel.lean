@@ -127,3 +127,5 @@ import XiKernel.PolymathConstantAudit
 import XiKernel.NativeStripBudget
 
 import XiKernel.ExplicitPhaseCutoff
+
+import XiKernel.FiniteRegionCensus
