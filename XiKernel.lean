@@ -137,3 +137,5 @@ import XiKernel.ThetaCollisionInduction
 import XiKernel.ThetaAnnularQuartet
 
 import XiKernel.AnnularBracketParity
+
+import XiKernel.ThetaFullOffAxisAnnulus
