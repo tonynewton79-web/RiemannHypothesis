@@ -141,3 +141,5 @@ import XiKernel.AnnularBracketParity
 import XiKernel.ThetaFullOffAxisAnnulus
 
 import XiKernel.ThetaHeatSpacetimeGates
+
+import XiKernel.ThetaMovingBoundary
