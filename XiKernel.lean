@@ -149,3 +149,5 @@ import XiKernel.ThetaRelativeMovingCollar
 import XiKernel.ThetaLatticeGapDefect
 
 import XiKernel.ThetaJensenExteriorTail
+
+import XiKernel.ThetaTerminalRiemannCount
