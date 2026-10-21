@@ -133,3 +133,5 @@ import XiKernel.FiniteRegionCensus
 import XiKernel.ThetaRectangleCensus
 
 import XiKernel.ThetaCollisionInduction
+
+import XiKernel.ThetaAnnularQuartet
