@@ -147,3 +147,5 @@ import XiKernel.ThetaMovingBoundary
 import XiKernel.ThetaRelativeMovingCollar
 
 import XiKernel.ThetaLatticeGapDefect
+
+import XiKernel.ThetaJensenExteriorTail
