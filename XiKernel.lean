@@ -143,3 +143,5 @@ import XiKernel.ThetaFullOffAxisAnnulus
 import XiKernel.ThetaHeatSpacetimeGates
 
 import XiKernel.ThetaMovingBoundary
+
+import XiKernel.ThetaRelativeMovingCollar
