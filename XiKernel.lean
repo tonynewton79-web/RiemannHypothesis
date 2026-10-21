@@ -145,3 +145,5 @@ import XiKernel.ThetaHeatSpacetimeGates
 import XiKernel.ThetaMovingBoundary
 
 import XiKernel.ThetaRelativeMovingCollar
+
+import XiKernel.ThetaLatticeGapDefect
