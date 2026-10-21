@@ -135,3 +135,5 @@ import XiKernel.ThetaRectangleCensus
 import XiKernel.ThetaCollisionInduction
 
 import XiKernel.ThetaAnnularQuartet
+
+import XiKernel.AnnularBracketParity
