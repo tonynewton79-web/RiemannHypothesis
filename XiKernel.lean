@@ -123,3 +123,5 @@ import XiKernel.HeightRenewalAndClosure
 import XiKernel.PhaseBoxMargins
 
 import XiKernel.PolymathConstantAudit
+
+import XiKernel.NativeStripBudget
