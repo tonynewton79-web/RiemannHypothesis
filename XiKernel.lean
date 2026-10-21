@@ -131,3 +131,5 @@ import XiKernel.ExplicitPhaseCutoff
 import XiKernel.FiniteRegionCensus
 
 import XiKernel.ThetaRectangleCensus
+
+import XiKernel.ThetaCollisionInduction
