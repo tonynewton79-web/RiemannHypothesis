@@ -129,3 +129,5 @@ import XiKernel.NativeStripBudget
 import XiKernel.ExplicitPhaseCutoff
 
 import XiKernel.FiniteRegionCensus
+
+import XiKernel.ThetaRectangleCensus
